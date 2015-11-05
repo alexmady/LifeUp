@@ -1,25 +1,37 @@
 <ion-view>
-    <ion-content>
 
-        <img src="img/lifeUpLogo.png" />
+    <ion-header-bar class="header center">
+        <br>
 
-        <label class="item item-input">
-            <input type="text" placeholder="Email" ng-model="user.email">
-        </label>
+        <p style="font-family: 'Amatic SC', cursivioione;font-size: 2.5em; color: white">LIFEUP</p>
 
-        <label class="item item-input">
-            <input type="password" placeholder="Password" ng-model="user.pass">
-        </label>
-        <br/>
-        <div class="submit-btns">
-            <button class="button button-positive login" ng-click="login(user)">
-                Login
-            </button>
-            <button class="button button-positive signup" ng-click="createUser(user)">
-                Sign Up
-            </button>
-        </div>
-        </div>
+    </ion-header-bar>
 
-    </ion-content>
+    </ion-nav-bar>
+
+    <ion-slide-box>
+        <ion-slide class="center slide">
+            <div>
+                <img class="img" src="img/lifeUpStriveToThrive300x205.png"/>
+                <br>
+                <p class="introText">
+                    At LifeUp our mission is help you <b>thrive</b> rather than just survive; and to do so with some
+                    passion, some compassion, some humour, and some style!
+                </p>
+            </div>
+        </ion-slide>
+
+        <ion-slide class="center slide">
+            <div>
+                <img class="img" src="img/lifeUpQuotes.png"/>
+                <br>
+                <p class="introText">
+                    Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.</p>
+
+                    <p class="introText"> Ferris Bueller </p>
+                </p>
+            </div>
+        </ion-slide>
+
+    </ion-slide-box>
 </ion-view>
