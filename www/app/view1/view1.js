@@ -15,6 +15,10 @@ angular.module('lifeUp.view1', [])
             })
     }])
 
-    .controller('View1Ctrl', [function() {
+    .controller('View1Ctrl', [ '$scope', '$state', function($scope, $state) {
+
+        $scope.login = function(){
+            $state.go('view2')
+        }
 
     }]);

@@ -19,7 +19,7 @@ angular.module('lifeUp', ['ionic', 'lifeUp.view1', 'lifeUp.view2'])
   });
 }).config(function($urlRouterProvider){
 
-        $urlRouterProvider.otherwise('/view2')
+    $urlRouterProvider.otherwise('/view1')
 
 });
 
