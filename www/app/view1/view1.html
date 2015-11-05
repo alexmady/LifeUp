@@ -1,8 +1,23 @@
 <ion-view>
     <ion-content>
-        <p>View 1</p>
+
+        <label class="item item-input">
+            <input type="text" placeholder="Email" ng-model="user.email">
+        </label>
+
+        <label class="item item-input">
+            <input type="password" placeholder="Password" ng-model="user.pass">
+        </label>
+        <br/>
+        <div class="submit-btns">
+            <button class="button button-positive login" ng-click="login(user)">
+                Login
+            </button>
+            <button class="button button-positive signup" ng-click="createUser(user)">
+                Sign Up
+            </button>
+        </div>
+        </div>
+
     </ion-content>
 </ion-view>
-
-
-
