@@ -13,6 +13,16 @@ body {
 
  */
 
+.navBarTitle {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.3em;
+    color: white;
+}
+
+.textButton {
+    color: #ffffff;
+}
+
 .slidebox {
     background-color: cornflowerblue;
 }
