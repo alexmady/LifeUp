@@ -17,8 +17,8 @@ angular.module('lifeUp.home', [])
 
     .controller('HomeCtrl', [ '$scope', '$state', function($scope, $state) {
 
-        $scope.goToSignInChoice = function(){
-            $state.go('signInChoice')
+        $scope.go = function(goTo){
+            $state.go(goTo)
         }
 
     }]);

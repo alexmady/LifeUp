@@ -11,10 +11,4 @@ angular.module('lifeUp.config', [])
 
     .constant('AUTH_EVENTS', {
         NOT_AUTHENTICATED: 'auth-not-authenticated'
-    })
-
-    .run(['FIREBASE_URL', function(FIREBASE_URL){
-
-        console.log(FIREBASE_URL);
-
-    }]);
+    });

@@ -2,7 +2,7 @@
     <ion-nav-bar class="lifeup-header center">
 
         <ion-nav-buttons side="right">
-            <button class="button button-clear button-light lifeup-button" ng-click="goToSignInChoice()">
+            <button class="button button-clear button-light lifeup-button" ng-click="go('signInChoice')">
                Sign In
             </button>
         </ion-nav-buttons>
@@ -36,6 +36,21 @@
                 </p>
             </div>
         </ion-slide>
+
+        <ion-slide class="center slide">
+            <div>
+                <!--<img class="img" src="img/lifeUpQuotes.png"/>-->
+                <br>
+
+                <div>
+                    <button class="button button-outline button-light lifeup-buttons button-block" ng-click="go('createAccountChoice')">
+                        GET STARTED
+                    </button>
+                </div>
+
+            </div>
+        </ion-slide>
+
 
     </ion-slide-box>
 </ion-view>

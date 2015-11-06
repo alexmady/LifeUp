@@ -5,14 +5,17 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('lifeUp', [
     'ionic',
+    'firebase',
+    'lifeUp.config',
     'lifeUp.home',
     'lifeUp.signInChoice',
     'lifeUp.termsAndConditions',
     'lifeUp.privacyPolicy',
     'lifeUp.emailSignIn',
-    'lifeUp.emailSignUp'])
+    'lifeUp.createAccount',
+    'lifeUp.createAccountEmail'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -22,11 +25,14 @@ angular.module('lifeUp', [
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
-
   });
+
+  $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
+    $rootScope.previousState = from;
+  });
+
 }).config(function($urlRouterProvider){
 
     $urlRouterProvider.otherwise('/home')
-
 });
 

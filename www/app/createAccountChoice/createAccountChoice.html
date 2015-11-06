@@ -1,0 +1,43 @@
+<ion-view class="lifeup-bg">
+    <ion-nav-bar class="lifeup-header">
+
+        <ion-nav-buttons side="left">
+            <button class="button button-clear button-light ion-chevron-left" ng-click="goBack()">
+            </button>
+        </ion-nav-buttons>
+
+        <ion-nav-title>
+            <p class="lifeup-nav-title">LifeUP</p>
+        </ion-nav-title>
+    </ion-nav-bar>
+
+    <ion-content class="lifeup-text">
+
+        <br>
+        <p>CREATE YOUR LIFE UP ACCOUNT</p>
+        <br>
+        <p class="lifeup-text-small">To track your progress and personalise your experience you'll need to create an account with LifeUp</p>
+
+
+        <div style="margin: 20px; padding: 0px;border-spacing: 10px">
+
+            <button ng-click="go()"
+                    class="button button-outline button-light lifeup-buttons icon ion-social-facebook-outline button-block">
+                SIGN UP WITH FACEBOOK
+            </button>
+            <button ng-click="go('createAccountEmail')"
+                    class="button button-outline button-light lifeup-buttons icon ion-ios-email-outline button-block">
+                SIGN UP WITH EMAIL
+            </button>
+
+            <br>
+            <p class="lifeup-text-small">Already have a LifeUp account?
+            <button ng-click="go('emailSignIn')" class="button button-clear button-light lifeup-buttons">SIGN IN</button>
+
+
+        </div>
+
+    </ion-content>
+
+</ion-view>
+
