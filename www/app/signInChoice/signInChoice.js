@@ -19,16 +19,8 @@ angular.module('lifeUp.signInChoice', [])
     .controller('SignInChoiceCtrl', [ '$state', '$scope', function($state, $scope) {
 
 
-        $scope.goToIntro = function(){
-            $state.go('home')
-        }
-
-        $scope.termsAndConditionsClick = function(){
-            $state.go('termsAndConditions')
-        }
-
-        $scope.privacyPolicyClick = function(){
-            $state.go('privacyPolicy')
+        $scope.go = function( goTo ){
+            $state.go( goTo )
         }
 
     }]);

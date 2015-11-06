@@ -23,21 +23,18 @@
             <button ng-click="signInWithFacebook()" class="button button-outline button-light signInButtons icon ion-social-facebook-outline button-block">
                 SIGN IN WITH FACEBOOK
             </button>
-            <button ng-click="signInWithEmail()" class="button button-outline button-light signInButtons icon ion-ios-email-outline button-block" >
+            <button ng-click="go('emailLogin')" class="button button-outline button-light signInButtons icon ion-ios-email-outline button-block" >
                 SIGN IN WITH EMAIL
             </button>
 
-        <div class="row responsive-sm padding-vertical">
-
-        </div>
 
     </ion-content>
 
     <ion-footer-bar class="footer-bar signin-page-text center">
 
         <div>
-            <button ng-click="termsAndConditionsClick()" class="button button-small button-clear button-light">Terms & Conditions</button>
-            <button ng-click="privacyPolicyClick()" class="button button-small button-clear button-light">Privicy Policy</button>
+            <button ng-click="go('termsAndConditions')" class="button button-small button-clear button-light">Terms & Conditions</button>
+            <button ng-click="go('privacyPolicy')" class="button button-small button-clear button-light">Privicy Policy</button>
         </div>
 
     </ion-footer-bar>

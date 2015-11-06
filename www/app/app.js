@@ -8,7 +8,8 @@ angular.module('lifeUp', [
     'lifeUp.home',
     'lifeUp.signInChoice',
     'lifeUp.termsAndConditions',
-    'lifeUp.privacyPolicy'])
+    'lifeUp.privacyPolicy',
+    'lifeUp.emailLogin'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
