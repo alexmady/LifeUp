@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/app/emailLogin/emailLogin.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/app/emailLogin/emailLogin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/app.js" afterPath="$PROJECT_DIR$/www/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/home/home.html" afterPath="$PROJECT_DIR$/www/app/home/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/home/home.js" afterPath="$PROJECT_DIR$/www/app/home/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/emailLogin/emailLogin.html" afterPath="$PROJECT_DIR$/www/app/emailLogin/emailLogin.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/signInChoice/signInChoice.html" afterPath="$PROJECT_DIR$/www/app/signInChoice/signInChoice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/signInChoice/signInChoice.js" afterPath="$PROJECT_DIR$/www/app/signInChoice/signInChoice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LifeUp.iws" />
@@ -33,23 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="termsAndConditions.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/app/termsAndConditions/termsAndConditions.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="810">
-              <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#ion-nav-title#0;n#ion-nav-bar#0;n#ion-view#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signInChoice.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="signInChoice.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/signInChoice/signInChoice.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="765">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.35900104" vertical-offset="0" max-vertical-offset="961">
+              <caret line="23" column="146" selection-start-line="23" selection-start-column="146" selection-end-line="23" selection-end-column="146" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#ion-nav-title#0;n#ion-nav-bar#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -97,8 +80,8 @@
       <file leaf-file-name="emailLogin.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/emailLogin/emailLogin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="510">
-              <caret line="4" column="104" selection-start-line="4" selection-start-column="104" selection-end-line="4" selection-end-column="104" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="570">
+              <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#ion-nav-title#0;n#ion-nav-bar#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
@@ -106,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="emailLogin.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="emailLogin.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/emailLogin/emailLogin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.030456852" vertical-offset="0" max-vertical-offset="985">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
               <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
@@ -148,6 +131,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="2055">
+              <caret line="83" column="10" selection-start-line="83" selection-start-column="10" selection-end-line="83" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -175,16 +168,16 @@
         <option value="$PROJECT_DIR$/www/app/privacyPolicy/privacyPolicy.js" />
         <option value="$PROJECT_DIR$/www/app/termsAndConditions/termsAndConditions.js" />
         <option value="$PROJECT_DIR$/www/app/privacyPolicy/privacyPolicy.html" />
-        <option value="$PROJECT_DIR$/www/css/style.css" />
         <option value="$PROJECT_DIR$/www/app/termsAndConditions/termsAndConditions.html" />
         <option value="$PROJECT_DIR$/www/app/home/home.html" />
         <option value="$PROJECT_DIR$/www/app/home/home.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/app/app.js" />
         <option value="$PROJECT_DIR$/www/app/signInChoice/signInChoice.js" />
-        <option value="$PROJECT_DIR$/www/app/signInChoice/signInChoice.html" />
-        <option value="$PROJECT_DIR$/www/app/emailLogin/emailLogin.html" />
         <option value="$PROJECT_DIR$/www/app/emailLogin/emailLogin.js" />
+        <option value="$PROJECT_DIR$/www/css/style.css" />
+        <option value="$PROJECT_DIR$/www/app/emailLogin/emailLogin.html" />
+        <option value="$PROJECT_DIR$/www/app/signInChoice/signInChoice.html" />
       </list>
     </option>
   </component>
@@ -513,7 +506,11 @@
       <created>1446827943523</created>
       <updated>1446827943523</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactored the view1 and view2 named compnenets that were originally used for building the project structure into real components home and signInChoice pages. &#10;&#10;wiered up the privacy policy and terms and conditions pages&#10;&#10;added email login page placeholder">
+      <created>1446828794436</created>
+      <updated>1446828794436</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -568,7 +565,8 @@
     <MESSAGE value="Added some better ionic css styling to the nav buttons" />
     <MESSAGE value="Added shell for termsAndConditions page, added the buttons for the facebook and email login." />
     <MESSAGE value="refactored the view1 and view2 named compnenets that were originally used for building the project structure into real components home and signInChoice pages. &#10;&#10;wiered up the privacy policy and terms and conditions pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored the view1 and view2 named compnenets that were originally used for building the project structure into real components home and signInChoice pages. &#10;&#10;wiered up the privacy policy and terms and conditions pages" />
+    <MESSAGE value="refactored the view1 and view2 named compnenets that were originally used for building the project structure into real components home and signInChoice pages. &#10;&#10;wiered up the privacy policy and terms and conditions pages&#10;&#10;added email login page placeholder" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored the view1 and view2 named compnenets that were originally used for building the project structure into real components home and signInChoice pages. &#10;&#10;wiered up the privacy policy and terms and conditions pages&#10;&#10;added email login page placeholder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -630,14 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.4" vertical-offset="0" max-vertical-offset="2055">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/app/termsAndConditions/termsAndConditions.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="810">
@@ -692,13 +682,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/signInChoice/signInChoice.html">
+    <entry file="file://$PROJECT_DIR$/www/app/emailLogin/emailLogin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="765">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#ion-nav-title#0;n#ion-nav-bar#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="e#0#43#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -713,22 +702,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="2055">
+          <caret line="83" column="10" selection-start-line="83" selection-start-column="10" selection-end-line="83" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/app/emailLogin/emailLogin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="510">
-          <caret line="4" column="104" selection-start-line="4" selection-start-column="104" selection-end-line="4" selection-end-column="104" />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="570">
+          <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#p#0;n#ion-nav-title#0;n#ion-nav-bar#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/emailLogin/emailLogin.js">
+    <entry file="file://$PROJECT_DIR$/www/app/signInChoice/signInChoice.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030456852" vertical-offset="0" max-vertical-offset="985">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.35900104" vertical-offset="0" max-vertical-offset="961">
+          <caret line="23" column="146" selection-start-line="23" selection-start-column="146" selection-end-line="23" selection-end-column="146" />
           <folding>
-            <element signature="e#0#43#0" expanded="false" />
+            <element signature="n#style#0;n#p#0;n#ion-nav-title#0;n#ion-nav-bar#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

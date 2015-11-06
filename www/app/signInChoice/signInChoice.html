@@ -1,16 +1,14 @@
-<ion-view class="loginOptions">
+<ion-view class="lifeup-bg">
     <ion-nav-bar class="header">
 
         <ion-nav-buttons side="left">
-            <button class="button button-clear button-light ion-chevron-left" ng-click="goToIntro()">
-
+            <button class="button button-clear button-light ion-chevron-left" ng-click="go('home')">
             </button>
         </ion-nav-buttons>
 
         <ion-nav-title>
-            <p style="font-family: 'Amatic SC', cursivioione;font-size: 2.5em; color: white">Hello!</p>
+            <p style="font-family: 'Amatic SC', cursive;font-size: 2.5em; color: white">Hello!</p>
         </ion-nav-title>
-
     </ion-nav-bar>
 
     <ion-content class="center">
@@ -20,7 +18,7 @@
             <br><br>
         </div>
 
-            <button ng-click="signInWithFacebook()" class="button button-outline button-light signInButtons icon ion-social-facebook-outline button-block">
+            <button ng-click="go()" class="button button-outline button-light signInButtons icon ion-social-facebook-outline button-block">
                 SIGN IN WITH FACEBOOK
             </button>
             <button ng-click="go('emailLogin')" class="button button-outline button-light signInButtons icon ion-ios-email-outline button-block" >
