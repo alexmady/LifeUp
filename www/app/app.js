@@ -3,7 +3,12 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('lifeUp', ['ionic', 'lifeUp.view1', 'lifeUp.view2'])
+angular.module('lifeUp', [
+    'ionic',
+    'lifeUp.home',
+    'lifeUp.signInChoice',
+    'lifeUp.termsAndConditions',
+    'lifeUp.privacyPolicy'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,7 +24,7 @@ angular.module('lifeUp', ['ionic', 'lifeUp.view1', 'lifeUp.view2'])
   });
 }).config(function($urlRouterProvider){
 
-    $urlRouterProvider.otherwise('/view1')
+    $urlRouterProvider.otherwise('/home')
 
 });
 

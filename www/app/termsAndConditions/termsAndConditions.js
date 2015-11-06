@@ -18,7 +18,7 @@ angular.module('lifeUp.termsAndConditions', [])
     .controller('TermsAndConditionsCtrl', [ '$scope', '$state', function($scope, $state) {
 
         $scope.goBack = function(){
-            $state.go('')
+            $state.go('signInChoice')
         }
 
     }]);
