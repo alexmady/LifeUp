@@ -26,6 +26,10 @@
     font-size: 13px;
 }
 
+textarea, input[type="text"], input[type="password"]{
+    color: #ffffff;
+}
+
 .signin-page-text {
     font-family: 'Montserrat', serif;
     font-size: 10px;
@@ -36,6 +40,10 @@
     font-family: 'Amatic SC', cursive;
     font-size: 2.3em;
     color: white;
+}
+
+input::-webkit-input-placeholder {
+    color:    antiquewhite;
 }
 
 .footer-bar {

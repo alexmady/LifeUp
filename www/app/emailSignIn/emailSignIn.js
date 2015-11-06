@@ -21,4 +21,8 @@ angular.module('lifeUp.emailSignIn', [])
             $state.go(goTo)
         }
 
+        $scope.login = function(user){
+            console.log(user);
+        }
+
     }]);
