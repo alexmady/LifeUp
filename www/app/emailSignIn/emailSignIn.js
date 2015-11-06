@@ -10,7 +10,7 @@ angular.module('lifeUp.emailSignIn', [])
         $stateProvider
             .state('emailSignIn', {
                 url: '/emailSignIn',
-                templateUrl: 'app/emailSignIn/emailSignIN.html',
+                templateUrl: 'app/emailSignIn/emailSignIn.html',
                 controller: 'EmailSignInCtrl'
             })
     }])

@@ -15,6 +15,8 @@
     font-size: 13px;
 }
 
+.bar { background-image: none !important; }
+
 .button-small{
     font-family: 'Comic Neue', sans-serif;
     font-weight: 400;
@@ -36,7 +38,7 @@ textarea, input[type="text"], input[type="password"]{
     color: #ffffff;
 }
 
-.navBarTitle {
+.lifeup-nav-title {
     font-family: 'Amatic SC', cursive;
     font-size: 2.3em;
     color: white;
@@ -54,7 +56,7 @@ input::-webkit-input-placeholder {
     background-color: cornflowerblue;
 }
 
-.introText {
+.lifeup-intro-text {
     text-align: center;
     font-family: 'Montserrat', serif;
     font-size: 13;
@@ -99,8 +101,9 @@ input::-webkit-input-placeholder {
     margin: 0 auto;
 }
 
-.header {
+.lifeup-header {
     background-color: cornflowerblue;
+    border: 0;
 }
 
 .lifeup-bg {
