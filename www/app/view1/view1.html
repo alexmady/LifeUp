@@ -1,15 +1,22 @@
 <ion-view>
 
-    <ion-header-bar class="header center">
-        <br>
+    <ion-nav-bar class="header center">
 
-        <p style="font-family: 'Amatic SC', cursivioione;font-size: 2.5em; color: white">LIFEUP</p>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="goToLogin()">
+                Sign In
+            </button>
+        </ion-nav-buttons>
 
-    </ion-header-bar>
+
+        <ion-nav-title>
+            <p style="font-family: 'Amatic SC', cursivioione;font-size: 2.5em; color: white">LIFEUP</p>
+        </ion-nav-title>
+
 
     </ion-nav-bar>
 
-    <ion-slide-box>
+    <ion-slide-box class="slidebox">
         <ion-slide class="center slide">
             <div>
                 <img class="img" src="img/lifeUpStriveToThrive300x205.png"/>

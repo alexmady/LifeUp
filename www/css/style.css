@@ -13,6 +13,10 @@ body {
 
  */
 
+.slidebox {
+    background-color: cornflowerblue;
+}
+
 .introText {
     text-align: center;
     font-family: 'Montserrat', serif;
@@ -44,6 +48,10 @@ body {
 }
 
 .header {
+    background-color: cornflowerblue;
+}
+
+.loginOptions {
     background-color: cornflowerblue;
 }
 

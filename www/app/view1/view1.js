@@ -17,7 +17,7 @@ angular.module('lifeUp.view1', [])
 
     .controller('View1Ctrl', [ '$scope', '$state', function($scope, $state) {
 
-        $scope.login = function(){
+        $scope.goToLogin = function(){
             $state.go('view2')
         }
 

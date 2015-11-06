@@ -16,8 +16,10 @@ angular.module('lifeUp.view2', [])
 
     }])
 
-    .controller('View2Ctrl', [function() {
+    .controller('View2Ctrl', [ '$state', '$scope', function($state, $scope) {
 
-        console.log('View 2 controller');
 
+        $scope.goToIntro = function(){
+            $state.go('view1')
+        }
     }]);
