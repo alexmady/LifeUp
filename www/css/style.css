@@ -1,4 +1,4 @@
-.signInButtons {
+.lifeup-buttons {
     font-family: 'Montserrat', serif;
     font-size: 12px;
     display: block;
@@ -52,8 +52,22 @@
     font-size: 13;
     color: white;
     margin: 30px;
-    background-color: cornflowerblue;
 }
+
+.lifeup-text {
+    text-align: center;
+    font-family: 'Montserrat', serif;
+    font-size: 13px;
+    color: white;
+}
+
+.lifeup-text-small {
+    text-align: center;
+    font-family: 'Montserrat', serif;
+    font-size: 10px;
+    color: white;
+}
+
 .slide {
     height:100vh;
     background-color: cornflowerblue;
