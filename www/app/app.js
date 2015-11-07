@@ -15,9 +15,10 @@ angular.module('lifeUp', [
     'lifeUp.createAccount',
     'lifeUp.createAccountEmail',
     'lifeUp.dashboard',
-    'Auth'])
+    'Auth',
+    'User'])
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, Auth, User, $state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -32,6 +33,8 @@ angular.module('lifeUp', [
   $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
     $rootScope.previousState = from;
   });
+
+
 
 }).config(function($urlRouterProvider){
 

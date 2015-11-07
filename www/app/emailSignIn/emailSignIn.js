@@ -26,18 +26,7 @@ angular.module('lifeUp.emailSignIn', [])
         }
 
         $scope.login = function(user){
-
-            console.log(user);
-
-            Auth.$authWithPassword({
-                email    : user.email,
-                password : user.pass
-            }).catch(function(error){
-                console.log(error);
-            }).then(function(data){
-                console.log(data);
-
-            });
+            Auth.login(user);
         }
 
     }]);

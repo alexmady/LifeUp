@@ -1,3 +1,43 @@
-DASHBOARD
+<ion-view class="lifeup-bg">
+    <ion-nav-bar class="lifeup-header">
 
-        <p>welcome {{user}}
+        <ion-nav-buttons side="left">
+
+        </ion-nav-buttons>
+
+        <ion-nav-title>
+            <p style="font-family: 'Amatic SC', cursive;font-size: 2.5em; color: white">LifeUp</p>
+        </ion-nav-title>
+    </ion-nav-bar>
+
+    <ion-content class="center">
+
+        <div>
+        PROVIDER {{ authData.provider }}
+            <br><br>
+        </div>
+
+        <div ng-if="authData.facebook" class="list card">
+            <div class="item item-avatar">
+                <div class="item-image facebook-avatar" back-img="{{authData.facebook.cachedUserProfile.picture.data.url}}"></div>
+
+                <img src="{{authData.facebook.cachedUserProfile.picture.data.url}}">
+
+                <h2>{{authData.facebook.displayName}}</h2>
+                <p>Facebook</p>
+            </div>
+
+        </div>
+
+
+        <button ng-click="logout()"
+                class="button button-outline button-light lifeup-buttons button-block">
+            LOGOUT
+        </button>
+
+    </ion-content>
+
+</ion-view>
+
+
+
