@@ -10,12 +10,13 @@ angular.module('lifeUp.dashboard', [ 'Auth'])
         $stateProvider
             .state('dashboard', {
                 url: '/dashboard',
+                abstract: true,
                 templateUrl: 'app/dashboard/dashboard.html',
                 controller: 'DashboardCtrl'
             })
     }])
 
-    .controller('DashboardCtrl', [ '$scope', 'Auth', 'User', function($scope, Auth, User) {
+    .controller('DashboardCtrl', [ '$scope', 'Auth', 'User', '$ionicSideMenuDelegate', function($scope, Auth, User, $ionicSideMenuDelegate) {
 
         $scope.logout = function(){
             Auth.logout();
@@ -29,5 +30,9 @@ angular.module('lifeUp.dashboard', [ 'Auth'])
                 console.log($scope.authData);
             }
         },true );
+
+        $scope.toggleLeft = function() {
+            $ionicSideMenuDelegate.toggleLeft();
+        };
 
     }]);

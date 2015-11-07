@@ -15,6 +15,7 @@ angular.module('lifeUp', [
     'lifeUp.createAccount',
     'lifeUp.createAccountEmail',
     'lifeUp.dashboard',
+    'lifeUp.course',
     'Auth',
     'User'])
 
@@ -42,7 +43,7 @@ angular.module('lifeUp', [
 
       if (data){
           console.log('going to dashboard');
-          $state.go('dashboard');
+          $state.go('dashboard.course');
       } else {
           console.log('going home');
           $state.go('home');

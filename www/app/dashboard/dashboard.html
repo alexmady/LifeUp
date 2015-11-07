@@ -1,43 +1,65 @@
-<ion-view class="lifeup-bg">
-    <ion-nav-bar class="lifeup-header">
+<ion-side-menus>
+    <ion-side-menu-content>
 
-        <ion-nav-buttons side="left">
+<!--        <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-light icon ion-navicon" ng-click="toggleLeft()">
+                </button>
+            </ion-nav-buttons>
 
-        </ion-nav-buttons>
+            <ion-nav-title>
+                <p class="lifeup-nav-title">LifeUP</p>
+            </ion-nav-title>
+        </ion-nav-bar> -->
 
-        <ion-nav-title>
-            <p style="font-family: 'Amatic SC', cursive;font-size: 2.5em; color: white">LifeUp</p>
-        </ion-nav-title>
-    </ion-nav-bar>
+        <ion-nav-view name="dashboardContent" annimation="slide-left-right"></ion-nav-view>
 
-    <ion-content class="center">
+    </ion-side-menu-content>
 
-        <div>
-        PROVIDER {{ authData.provider }}
-            <br><br>
-        </div>
 
-        <div ng-if="authData.facebook" class="list card">
-            <div class="item item-avatar">
-                <div class="item-image facebook-avatar" back-img="{{authData.facebook.cachedUserProfile.picture.data.url}}"></div>
+    <!-- Left menu -->
+    <ion-side-menu side="left">
 
-                <img src="{{authData.facebook.cachedUserProfile.picture.data.url}}">
+        <header>
+            <h1 class="title">Navigation</h1>
+        </header>
 
-                <h2>{{authData.facebook.displayName}}</h2>
-                <p>Facebook</p>
+        <ion-content>
+
+            <div ng-if="authData.facebook" class="list">
+                <div class="item item-avatar lifeup-bg-dark">
+                    <img src="{{authData.facebook.cachedUserProfile.picture.data.url}}">
+                    <h2>{{authData.facebook.displayName}}</h2>
+                </div>
             </div>
 
-        </div>
+            <div ng-if="authData.password" class="list">
+                <div class="item item-avatar center lifeup-bg-dark" style="border: 0">
+                    <img src="{{authData.password.profileImageURL}}">
+                    <p class="center lifeup-text">{{authData.password.email}}</p>
+                </div>
+            </div>
 
+            <button menu-close nav-clear ng-click="alert('not implemented')"
+                    class="button button-outline button-light lifeup-buttons button-block">
+                MAIN COURSE
+            </button>
 
-        <button ng-click="logout()"
-                class="button button-outline button-light lifeup-buttons button-block">
-            LOGOUT
-        </button>
+            <button menu-close nav-clear ng-click="alert('not implemented')"
+                    class="button button-outline button-light lifeup-buttons button-block">
+                ABOUT LIFE UP
+            </button>
 
-    </ion-content>
+            <button menu-close nav-clear ng-click="logout()"
+                    class="button button-outline button-light lifeup-buttons button-block">
+                LOGOUT
+            </button>
 
-</ion-view>
+        </ion-content>
+    </ion-side-menu>
+
+</ion-side-menus>
+
 
 
 

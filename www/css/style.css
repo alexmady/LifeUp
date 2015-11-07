@@ -110,6 +110,10 @@ input::-webkit-input-placeholder {
     background-color: cornflowerblue;
 }
 
+.lifeup-bg-dark {
+    background-color: #333333;
+}
+
 .custom {
     background-color: red !important;
     border: solid !important;
