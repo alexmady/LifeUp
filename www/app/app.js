@@ -34,7 +34,20 @@ angular.module('lifeUp', [
     $rootScope.previousState = from;
   });
 
+  Auth.ref.$onAuth(function(data){
 
+      console.log('auth data');
+      console.log(data);
+      User.authData = data;
+
+      if (data){
+          console.log('going to dashboard');
+          $state.go('dashboard');
+      } else {
+          console.log('going home');
+          $state.go('home');
+      }
+  });
 
 }).config(function($urlRouterProvider){
 

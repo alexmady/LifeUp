@@ -20,22 +20,6 @@ angular.module('Auth', [])
             });
         };
 
-
-        fauth.$onAuth(function(data){
-
-            console.log('auth data');
-            console.log(data);
-//            User.authData = data;
-
-            if (data){
-                console.log('going to dashboard');
-                $state.go('dashboard');
-            } else {
-                console.log('going home');
-                $state.go('home');
-            }
-        });
-
         var facebookLogin = function(){
 
             console.log('facebook login');
