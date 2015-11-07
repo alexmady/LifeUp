@@ -13,7 +13,9 @@ angular.module('lifeUp', [
     'lifeUp.privacyPolicy',
     'lifeUp.emailSignIn',
     'lifeUp.createAccount',
-    'lifeUp.createAccountEmail'])
+    'lifeUp.createAccountEmail',
+    'lifeUp.dashboard',
+    'Auth'])
 
 .run(function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {

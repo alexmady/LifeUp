@@ -15,7 +15,7 @@ angular.module('lifeUp.emailSignIn', [])
             })
     }])
 
-    .controller('EmailSignInCtrl', [ '$scope', '$rootScope', '$state', function($scope, $rootScope, $state) {
+    .controller('EmailSignInCtrl', [ '$scope', '$rootScope', '$state', 'Auth', function($scope, $rootScope, $state, Auth) {
 
         $scope.go = function(goTo){
             $state.go(goTo)
@@ -26,7 +26,18 @@ angular.module('lifeUp.emailSignIn', [])
         }
 
         $scope.login = function(user){
+
             console.log(user);
+
+            Auth.$authWithPassword({
+                email    : user.email,
+                password : user.pass
+            }).catch(function(error){
+                console.log(error);
+            }).then(function(data){
+                console.log(data);
+
+            });
         }
 
     }]);

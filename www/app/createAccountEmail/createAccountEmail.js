@@ -27,8 +27,6 @@ angular.module('lifeUp.createAccountEmail', [])
 
         $scope.createAccount = function(user){
 
-            console.log(user)
-
           var ref = new Firebase(FIREBASE_URL);
 
             ref.createUser({
@@ -39,6 +37,7 @@ angular.module('lifeUp.createAccountEmail', [])
                     console.log("Error creating user:", error);
                 } else {
                     console.log("Successfully created user account with uid:", userData.uid);
+                    $state.go('emailSignIn');
                 }
             });
 
