@@ -16,6 +16,7 @@ angular.module('lifeUp', [
     'lifeUp.createAccountEmail',
     'lifeUp.dashboard',
     'lifeUp.course',
+    'lifeUp.about',
     'Auth',
     'User'])
 
