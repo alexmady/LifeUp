@@ -78,6 +78,16 @@ input::-webkit-input-placeholder {
     color: white;
 }
 
+
+.course-container {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    height: 100%;
+}
+.course-container > .row {
+    -webkit-flex: 1;
+}
+
 .slide {
     height:100vh;
     background-color: cornflowerblue;

@@ -25,9 +25,7 @@ angular.module('lifeUp.dashboard', [ 'Auth'])
         $scope.$watch(function(){return User.authData}, function( newVal, oldVal){
 
             if (newVal) {
-                console.log('auth data scope updated with');
                 $scope.authData = newVal;
-                console.log($scope.authData);
             }
         },true );
 

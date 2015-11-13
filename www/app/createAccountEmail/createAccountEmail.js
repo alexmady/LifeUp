@@ -37,6 +37,12 @@ angular.module('lifeUp.createAccountEmail', [])
                     console.log("Error creating user:", error);
                 } else {
                     console.log("Successfully created user account with uid:", userData.uid);
+
+                    console.log('Creating user profile');
+
+
+
+
                     $state.go('emailSignIn');
                 }
             });

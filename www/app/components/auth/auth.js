@@ -1,14 +1,13 @@
 /**
  * Created by alexmady on 07/11/15.
  */
-
 angular.module('Auth', [])
 
-.factory("Auth", ["$firebaseAuth", 'FIREBASE_URL', '$state',
-    function($firebaseAuth, FIREBASE_URL, $state) {
+.factory("Auth", ["$firebaseAuth", 'FIREBASE_URL', '$ionicPopup',
+    function($firebaseAuth, FIREBASE_URL, $ionicPopup) {
+
         var ref = new Firebase(FIREBASE_URL + '/users');
         var fauth = $firebaseAuth(ref);
-
 
         var login = function(user){
 
@@ -16,6 +15,15 @@ angular.module('Auth', [])
                 email    : user.email,
                 password : user.pass
             }).catch(function(error){
+                // An alert dialog
+
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Login failed!',
+                        template: "Sorry we didn't recognise that email address / password."
+                    });
+                    alertPopup.then(function(res) {
+
+                    });
                 console.log(error);
             });
         };
