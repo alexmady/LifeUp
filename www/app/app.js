@@ -21,6 +21,7 @@ angular.module('lifeUp', [
     'lifeUp.faq',
     'lifeUp.how',
     'Auth',
+    'FirebaseUtil',
     'User'])
 
 .run(function($ionicPlatform, $rootScope, Auth, User, $state) {
@@ -41,21 +42,16 @@ angular.module('lifeUp', [
 
   Auth.ref.$onAuth(function(data){
 
-      console.log('auth data');
-      console.log(data);
       User.authData = data;
-
       if (data){
-          console.log('going to dashboard');
           $state.go('dashboard.course');
       } else {
-          console.log('going home');
           $state.go('home');
       }
   });
 
-}).config(function($urlRouterProvider){
-
+}).config(function($urlRouterProvider, $ionicConfigProvider){
+    $ionicConfigProvider.navBar.transition('none');
     $urlRouterProvider.otherwise('/home')
 });
 

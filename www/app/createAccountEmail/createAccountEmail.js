@@ -15,37 +15,48 @@ angular.module('lifeUp.createAccountEmail', [])
             })
     }])
 
-    .controller('CreateAccountEmailCtrl', [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', function($scope, $rootScope, $state, FIREBASE_URL) {
+    .controller('CreateAccountEmailCtrl', [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', 'FirebaseUtil', '$ionicPopup',
 
-        $scope.go = function(goTo){
-            $state.go(goTo)
-        }
+        function($scope, $rootScope, $state, FIREBASE_URL, FirebaseUtil, $ionicPopup) {
 
-        $scope.goBack = function(){
-            $scope.go($rootScope.previousState.name);
-        }
+            $scope.go = function(goTo){
+                $state.go(goTo)
+            }
 
-        $scope.createAccount = function(user){
+            $scope.goBack = function(){
+                $scope.go($rootScope.previousState.name);
+            }
 
-          var ref = new Firebase(FIREBASE_URL);
+            $scope.createAccount = function(user){
 
-            ref.createUser({
-                email    : user.email,
-                password : user.pass
-            }, function(error, userData) {
-                if (error) {
-                    console.log("Error creating user:", error);
-                } else {
-                    console.log("Successfully created user account with uid:", userData.uid);
+              var ref = new Firebase(FIREBASE_URL);
 
-                    console.log('Creating user profile');
+                ref.createUser({
+                    email    : user.email,
+                    password : user.pass
+                }, function(error, userData) {
+                    if (error) {
+                        console.log("Error creating user:", error);
+
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Sorry!',
+                            template: error
+                        });
+
+                        alertPopup.then(function(){
+                            return;
+                        });
+
+                    } else {
+                        console.log("Successfully created user account with uid:", userData.uid);
+
+                        FirebaseUtil.createProfile(userData, user);
 
 
 
+                        $state.go('emailSignIn');
+                    }
+                });
 
-                    $state.go('emailSignIn');
-                }
-            });
-
-        };
+            };
     }]);

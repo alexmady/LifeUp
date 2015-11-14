@@ -1,21 +1,23 @@
 /**
  * Created by alexmady on 06/11/15.
  */
-angular.module('firebase', [])
+angular.module('FirebaseUtil', [])
 
-    .factory("FirebaseUtils", ["$firebase", 'FIREBASE_URL', '$ionicPopup',
-        function($firebaseAuth, FIREBASE_URL, $ionicPopup) {
+    .factory("FirebaseUtil", ["$firebase", 'FIREBASE_URL',
+        function($firebase, FIREBASE_URL) {
 
             var ref = new Firebase(FIREBASE_URL + '/users');
-            var profileRef = ref.child('profile');
 
-            var createProfile = function(authData, user){
-                return profileRef.$set(authData.uid, user)
+            var createProfile = function(authData){
+                return ref.set({ uid: authData.uid, nickname: 'nick', lastLogin: new Date() });
             };
+
+            /*var updateLastLogin = function(){
+                return ref.set{}
+            };*/
 
             return {
                 createProfile: createProfile
             };
-
         }
     ]);

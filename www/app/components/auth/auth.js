@@ -22,7 +22,7 @@ angular.module('Auth', [])
                         template: "Sorry we didn't recognise that email address / password."
                     });
                     alertPopup.then(function(res) {
-
+                        return;
                     });
                 console.log(error);
             });

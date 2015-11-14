@@ -74,9 +74,11 @@ for (var i = 0; i < days.length; i++) {
 
     var controller = days[i] + 'Ctrl';
 
-    courseModule.controller(controller, [ '$state', function($tate){
+    courseModule.controller(controller, [ '$scope', '$state', function($scope, $state){
 
-
+            $scope.go = function(){
+                $state.go('dashboard.course');
+            }
 
     }]);
 }
