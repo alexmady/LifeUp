@@ -15,14 +15,15 @@ angular.module('lifeUp.emailSignIn', [])
             })
     }])
 
-    .controller('EmailSignInCtrl', [ '$scope', '$rootScope', '$state', 'Auth', function($scope, $rootScope, $state, Auth) {
+    .controller('EmailSignInCtrl', [ '$scope', '$rootScope', '$state', 'Auth', '$ionicHistory',
+        function($scope, $rootScope, $state, Auth, $ionicHistory) {
 
         $scope.go = function(goTo){
             $state.go(goTo)
         }
 
         $scope.goBack = function(){
-            $scope.go($rootScope.previousState.name);
+            $ionicHistory.goBack();
         }
 
         $scope.login = function(user){

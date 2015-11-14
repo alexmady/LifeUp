@@ -13,15 +13,18 @@ angular.module('lifeUp.signInChoice', [])
                 templateUrl: 'app/signInChoice/signInChoice.html',
                 controller: 'SignInChoiceCtrl'
             })
-
     }])
 
-    .controller('SignInChoiceCtrl', [ '$state', '$scope', 'Auth', 'FIREBASE_URL',function($state, $scope, Auth, FIREBASE_URL) {
+    .controller('SignInChoiceCtrl', [ '$state', '$scope', 'Auth', 'FIREBASE_URL', '$ionicHistory',
+        function($state, $scope, Auth, FIREBASE_URL, $ionicHistory) {
 
         $scope.go = function( goTo ){
             $state.go( goTo )
-        }
+        };
 
+        $scope.goBack = function() {
+            $ionicHistory.goBack();
+        };
 
         $scope.facebookLogin = function() {
             Auth.facebookLogin();
