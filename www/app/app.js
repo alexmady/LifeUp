@@ -36,10 +36,6 @@ angular.module('lifeUp', [
     }
   });
 
-  $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
-    $rootScope.previousState = from;
-  });
-
   Auth.ref.$onAuth(function(data){
 
       User.authData = data;
@@ -51,7 +47,7 @@ angular.module('lifeUp', [
   });
 
 }).config(function($urlRouterProvider, $ionicConfigProvider){
-    $ionicConfigProvider.navBar.transition('none');
+    //$ionicConfigProvider.navBar.transition('none');
     $urlRouterProvider.otherwise('/home')
 });
 
