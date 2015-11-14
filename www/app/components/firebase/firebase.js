@@ -9,12 +9,18 @@ angular.module('FirebaseUtil', [])
             var ref = new Firebase(FIREBASE_URL + '/users');
 
             var createProfile = function(authData){
-                return ref.set({ uid: authData.uid, nickname: 'nick', lastLogin: new Date() });
+                return ref.update({ uid: authData.uid, firstLogin: new Date() });
             };
 
             /*var updateLastLogin = function(){
                 return ref.set{}
             };*/
+
+            var updateProfile = function(module, slide){
+
+                return ref.update({ uid: authData.uid, module: module, slide: slide });
+
+            };
 
             return {
                 createProfile: createProfile

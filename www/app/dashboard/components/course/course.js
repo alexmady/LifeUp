@@ -4,7 +4,6 @@
 'use strict';
 
 var days = ['DISARM','SPACE','FLOW', 'ACT', 'BE', 'I'];
-//var days = ['SPACE'];
 
 var courseModule = angular.module('lifeUp.course', [ 'Auth']);
 
@@ -35,17 +34,10 @@ courseModule
 
     }]);
 
-
-
-
     courseModule
-
         .config(['$stateProvider', function ($stateProvider) {
 
             for (var i = 0; i < days.length; i++) {
-
-
-                console.log('i: ' + i + ' days[i] ' + days[i]);
 
                 var it = days[i];
                 var state = 'dashboard.' + it;
@@ -64,10 +56,7 @@ courseModule
                         }
                     });
             };
-        }])
-
-
-//};
+        }]);
 
 
 for (var i = 0; i < days.length; i++) {
@@ -84,10 +73,6 @@ for (var i = 0; i < days.length; i++) {
                 $state.go('dashboard.course');
             };
 
-            $scope.lastSlide = false;
-
-            $scope.courseModule = n+1;
-
             $scope.slideHasChanged = function(index){
                 if ( ($ionicSlideBoxDelegate.slidesCount()-1) === index ){
                     console.log('Last slide');
@@ -100,14 +85,20 @@ for (var i = 0; i < days.length; i++) {
                 User.updateCourseProgress($scope.courseModule, 1);
             };
 
+            $scope.lastSlide = false;
+            $scope.courseModule = n+1;
             $scope.init();
 
         }]);
 
     })(courseModule, i);
-
 }
 
 
 
 
+$scope.slideChanged = function(index) {
+    var slides = $ionicSlideBoxDelegate.slidesCount();
+    var increment = $document[0].getElementsByClassName('increment');
+    increment[0].style.width = (1+19*index/(slides-1))*5+'%';
+};
