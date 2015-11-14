@@ -14,9 +14,17 @@
         </ion-nav-title>
     </ion-nav-bar>
 
-    <ion-content class="has-header lifeup-bg">
+    <ion-slide-box class="slidebox" on-slide-changed="slideHasChanged($index)">
 
+        <ion-slide class="center slide">
+            SLIDE 1
+        </ion-slide>
 
-    </ion-content>
+        <ion-slide class="center slide">
+            SLIDE 2
+        </ion-slide>
+
+    </ion-slide-box>
+
 
 </ion-view>

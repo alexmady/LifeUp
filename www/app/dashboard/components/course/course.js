@@ -50,7 +50,7 @@ courseModule
                 var it = days[i];
                 var state = 'dashboard.' + it;
                 var htmlFile = it  + '.html';
-
+                var controller = days[i] + 'Ctrl';
                 console.log('creating state: ' + state + ', htmlFile:  ' + htmlFile + ' controller: ' + controller);
 
                 $stateProvider
@@ -72,15 +72,40 @@ courseModule
 
 for (var i = 0; i < days.length; i++) {
 
-    var controller = days[i] + 'Ctrl';
+    (function(courseModule, n) {
 
-    courseModule.controller(controller, [ '$scope', '$state', function($scope, $state){
+        var controller = days[n] + 'Ctrl';
+        console.log(controller);
+
+        courseModule.controller(controller, [ '$scope', '$state', '$ionicSlideBoxDelegate', 'User',
+            function($scope, $state, $ionicSlideBoxDelegate, User){
 
             $scope.go = function(){
                 $state.go('dashboard.course');
-            }
+            };
 
-    }]);
+            $scope.lastSlide = false;
+
+            $scope.courseModule = n+1;
+
+            $scope.slideHasChanged = function(index){
+                if ( ($ionicSlideBoxDelegate.slidesCount()-1) === index ){
+                    console.log('Last slide');
+                    $scope.lastSlide = true;
+                }
+                User.updateCourseProgress($scope.courseModule, (index+1));
+            };
+
+            $scope.init = function (){
+                User.updateCourseProgress($scope.courseModule, 1);
+            };
+
+            $scope.init();
+
+        }]);
+
+    })(courseModule, i);
+
 }
 
 
