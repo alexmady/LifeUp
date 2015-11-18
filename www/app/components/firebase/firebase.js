@@ -13,7 +13,6 @@ angular.module('FirebaseUtil', [])
                 var uid = authData.uid;
                 var dt = new Date();
 
-
                 var value = {};
                 value[uid] = {
                     created: dt.getTime(),

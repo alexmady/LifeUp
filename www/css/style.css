@@ -8,6 +8,10 @@ input[type="text"], input[type="password"]{
     background-color: cornflowerblue;
 }
 
+.item-content.lifeup-bg-dark {
+    background-color: #333333;
+}
+
 .slider {
     height: 100%;
 }

@@ -20,10 +20,15 @@ angular.module('lifeUp.createAccount', [])
 
         $scope.go = function(goTo){
             $state.go(goTo)
-        }
+        };
 
         $scope.goBack = function(){
             $ionicHistory.goBack();
-        }
+        };
+
+        $scope.facebookSignup = function(){
+
+        };
+
 
     }]);

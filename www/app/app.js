@@ -24,7 +24,7 @@ angular.module('lifeUp', [
     'FirebaseUtil',
     'User'])
 
-.run(function($ionicPlatform, $rootScope, Auth, User, $state) {
+.run(['$ionicPlatform', '$rootScope', 'Auth', 'User', '$state', function($ionicPlatform, $rootScope, Auth, User, $state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -48,7 +48,7 @@ angular.module('lifeUp', [
       }
   });
 
-}).config(function($urlRouterProvider, $ionicConfigProvider){
+}]).config(function($urlRouterProvider, $ionicConfigProvider){
     //$ionicConfigProvider.navBar.transition('none');
     $urlRouterProvider.otherwise('/home')
 });

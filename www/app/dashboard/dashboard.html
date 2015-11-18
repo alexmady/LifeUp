@@ -20,7 +20,7 @@
     <!-- Left menu -->
     <ion-side-menu side="left" class="lifeup-bg">
 
-        <ion-content>
+        <ion-content class="lifeup-bg-dark">
 
             <div ng-if="authData.facebook" class="list">
                 <div class="item item-avatar lifeup-bg-dark">
@@ -38,26 +38,43 @@
 
             <ion-list>
 
-                <ion-item nav-clear menu-close href="#/dashboard/course">
-                    COURSE
+                <ion-item class="item item-complex" nav-clear menu-close >
+                    <a class="item-content lifeup-bg-dark lifeup-text"  href="#/dashboard/course">
+                        COURSE
+                    </a>
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/dashboard/what">
-                    WHAT?
+                <ion-item class="item item-complex" nav-clear menu-close >
+                    <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/what">
+                        WHAT?
+                    </a>
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/dashboard/how">
-                    HOW?
+                <ion-item class="item item-complex" nav-clear menu-close >
+                    <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/how">
+                        HOW?
+                    </a>
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/dashboard/faq">
-                    FAQ
+
+                <ion-item class="item item-complex" nav-clear menu-close >
+                    <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/faq">
+                        FAQ?
+                    </a>
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/dashboard/about">
-                    ABOUT US
+
+                <ion-item class="item item-complex" nav-clear menu-close >
+                    <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/about">
+                       ABOUT?
+                    </a>
                 </ion-item>
+
+                <ion-item class="item item-complex" nav-clear menu-close >
+                    <button class="item-content lifeup-bg-dark lifeup-text button-block" ng-click="logout()"" >
+                        LOGOUT
+                    </button>
+                </ion-item>
+
+
             </ion-list>
-            <button menu-close nav-clear ng-click="logout()"
-                    class="button button-outline button-light lifeup-buttons button-block">
-                LOGOUT
-            </button>
+
 
         </ion-content>
     </ion-side-menu>

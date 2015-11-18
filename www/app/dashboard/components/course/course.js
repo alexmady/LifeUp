@@ -25,12 +25,9 @@ courseModule
 
     .controller('CourseCtrl', [ '$scope', '$state', function ($scope, $state) {
 
-
         $scope.go = function (goTo) {
             $state.go(goTo);
         };
-
-
 
     }]);
 
@@ -43,7 +40,7 @@ courseModule
                 var state = 'dashboard.' + it;
                 var htmlFile = it  + '.html';
                 var controller = days[i] + 'Ctrl';
-                console.log('creating state: ' + state + ', htmlFile:  ' + htmlFile + ' controller: ' + controller);
+                //console.log('creating state: ' + state + ', htmlFile:  ' + htmlFile + ' controller: ' + controller);
 
                 $stateProvider
                     .state(state, {
@@ -64,7 +61,6 @@ for (var i = 0; i < days.length; i++) {
     (function(courseModule, n) {
 
         var controller = days[n] + 'Ctrl';
-        console.log(controller);
 
         courseModule.controller(controller, [ '$scope', '$state', '$ionicSlideBoxDelegate', 'User',
             function($scope, $state, $ionicSlideBoxDelegate, User){
@@ -75,7 +71,6 @@ for (var i = 0; i < days.length; i++) {
 
             $scope.slideHasChanged = function(index){
                 if ( ($ionicSlideBoxDelegate.slidesCount()-1) === index ){
-                    console.log('Last slide');
                     $scope.lastSlide = true;
                 }
                 User.updateCourseProgress($scope.courseModule, (index+1));
