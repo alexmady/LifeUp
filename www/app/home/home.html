@@ -2,7 +2,7 @@
     <ion-nav-bar class="lifeup-header center">
 
         <ion-nav-buttons side="right">
-            <button class="button button-clear button-light lifeup-button" ng-click="go('signInChoice')">
+            <button class="button button-clear button-light" ng-click="go('signInChoice')">
                Sign In
             </button>
         </ion-nav-buttons>
@@ -12,54 +12,45 @@
         </ion-nav-title>
 
     </ion-nav-bar>
-    <ion-content>
-    <ion-slide-box class="slidebox">
 
-        <ion-slide>
-            <ion-content>
-                <div class="slide">
-                    <img class="img" src="img/lifeUpStriveToThrive300x205.png"/>
-                    <br>
-                    <p class="lifeup-intro-text">
-                        At LifeUp our mission is help you <b>thrive</b> rather than just survive; and to do so with some
-                        passion, some compassion, some humour, and some style!
-                    </p>
-                </div>
-            </ion-content>
-        </ion-slide>
+    <ion-content has-header="true" has-footer="true" scroll="false">
+        <ion-slide-box class="slidebox" show-pager="true">
 
-        <ion-slide>
-            <ion-content>
-                <div class="slide">
-                    <img class="img" src="img/lifeUpQuotes.png"/>
-                    <br>
-                    <p class="lifeup-intro-text">
-                        Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.</p>
+            <ion-slide>
 
-                        <p class="lifeup-intro-text"> Ferris Bueller </p>
-                    </p>
-                </div>
-            </ion-content>
-        </ion-slide>
+                    <img  class="slide-box__image" src="img/lifeUpStriveToThrive300x205.png"/>
+                     <br>
+                     <p class="lifeup-intro-text">
+                         At LifeUp our mission is help you <b>thrive</b> rather than just survive; and to do so with some
+                         passion, some compassion, some humour, and some style! </p>
+            </ion-slide>
 
-        <ion-slide>
-            <ion-content>
-                <div class="slide">
-                    <!--<img class="img" src="img/lifeUpQuotes.png"/>-->
 
-                </div>
-            </ion-content>
-        </ion-slide>
+            <ion-slide>
+                        <img class="img" src="img/lifeUpQuotes.png"/>
+                        <br>
+                        <p class="lifeup-intro-text">
+                            Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.</p>
 
-    </ion-slide-box>
+                            <p class="lifeup-intro-text"> Ferris Bueller </p>
+                        </p>
+
+            </ion-slide>
+
+            <ion-slide>
+                       <img class="img" src="img/lifeUpQuotes.png"/>
+
+            </ion-slide>
+
+        </ion-slide-box>
 
     </ion-content>
     <!-- <div class="progress-bar">
         <div class="dots"></div>
     </div> -->
    <ion-footer-bar class=" center lifeup-bg">
-       <button class="button button-outline button-light lifeup-buttons button-block" ng-click="go('createAccountChoice')">
-            GET STARTED
+       <button class="button button-outline button-light button-block" ng-click="go('createAccountChoice')">
+            GET STARTED!
         </button>
     </ion-footer-bar>
 

@@ -95,10 +95,10 @@ for (var i = 0; i < days.length; i++) {
 }
 
 
-
+/*
 
 $scope.slideChanged = function(index) {
     var slides = $ionicSlideBoxDelegate.slidesCount();
     var increment = $document[0].getElementsByClassName('increment');
     increment[0].style.width = (1+19*index/(slides-1))*5+'%';
-};
+};*/

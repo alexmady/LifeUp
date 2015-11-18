@@ -11,31 +11,40 @@
         </ion-nav-title>
     </ion-nav-bar>
 
-    <ion-content class="lifeup-text">
+    <ion-content>
 
-        <br>
-        <p>CREATE YOUR LIFE UP ACCOUNT</p>
-        <br>
-        <p class="lifeup-text-small">To track your progress and personalise your experience you'll need to create an account with LifeUp</p>
+<br>
 
 
-        <div style="margin: 20px; padding: 0px;border-spacing: 10px">
-
-            <button ng-click="go()"
-                    class="button button-outline button-light lifeup-buttons icon ion-social-facebook-outline button-block">
-                SIGN UP WITH FACEBOOK
-            </button>
-            <button ng-click="go('createAccountEmail')"
-                    class="button button-outline button-light lifeup-buttons icon ion-ios-email-outline button-block">
-                SIGN UP WITH EMAIL
-            </button>
-
-            <br>
-            <p class="lifeup-text-small">Already have a LifeUp account?
-            <button ng-click="go('signInChoice')" class="button button-clear button-light lifeup-buttons">SIGN IN</button>
+               <div class="lifeup-text">
+                    CREATE YOUR LIFE UP ACCOUNT
+                   <br>
+                   <br>
+                </div>
 
 
-        </div>
+                <div class="lifeup-text-small">
+                    To track your progress and personalise your experience you'll need to create an account with LifeUp
+                    </div>
+
+
+                <button ng-click="go()"
+                        class="button button-outline button-light lifeup-text icon ion-social-facebook-outline button-block">
+                    SIGN UP WITH FACEBOOK
+                </button>
+
+
+                <button ng-click="go('createAccountEmail')"
+                        class="button button-outline button-light lifeup-text lifeup-buttons icon ion-ios-email-outline button-block">
+                    SIGN UP WITH EMAIL
+                </button>
+
+
+                <p class="lifeup-text">Already have a LifeUp account?</p>
+
+                <button ng-click="go('signInChoice')"
+                        class="button button-clear button-light lifeup-buttons button-block">SIGN IN</button>
+
 
     </ion-content>
 
