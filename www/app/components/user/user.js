@@ -24,10 +24,18 @@ angular.module('User', [])
             this.profile.module = module;
             this.profile.slide = slide;
 
+
             if ( module >= this.profile.moduleFar){
-                this.profile.moduleFar = module;
-                if (slide > this.profile.slideFar){
+
+                // if we have progressed to a higher module update module + slide
+                // else if its the same module only update the slide if its later in the course
+                if (module > this.profile.moduleFar){
+                    this.profile.moduleFar = module;
                     this.profile.slideFar = slide;
+                } else if (module === this.profile.moduleFar){
+                    if (slide > this.profile.slideFar){
+                        this.profile.slideFar = slide;
+                    }
                 }
             }
 
