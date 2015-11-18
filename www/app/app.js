@@ -38,8 +38,10 @@ angular.module('lifeUp', [
 
   Auth.ref.$onAuth(function(data){
 
-      User.authData = data;
+      console.log('onauth - ' + data);
+
       if (data){
+          User.setAuthData(data);
           $state.go('dashboard.course');
       } else {
           $state.go('home');

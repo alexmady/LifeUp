@@ -1,8 +1,9 @@
 /**
  * Created by alexmady on 13/11/15.
  */
-angular.module('Auth', [])
-    .factory('ConnectivityMonitor', function($rootScope, $cordovaNetwork){
+angular.module('Connectivity', [])
+    .factory('ConnectivityMonitor', [ '$rootScope', '$cordovaNetwork',
+        function($rootScope, $cordovaNetwork){
 
         return {
             isOnline: function(){
@@ -43,4 +44,4 @@ angular.module('Auth', [])
                 }
             }
         }
-    })
+    }]);

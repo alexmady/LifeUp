@@ -3,8 +3,8 @@
  */
 angular.module('Auth', [])
 
-.factory("Auth", ["$firebaseAuth", 'FIREBASE_URL', '$ionicPopup',
-    function($firebaseAuth, FIREBASE_URL, $ionicPopup) {
+.factory('Auth', ['$firebaseAuth', '$firebaseObject', 'FIREBASE_URL', '$ionicPopup', 'User',
+    function($firebaseAuth, $firebaseObject, FIREBASE_URL, $ionicPopup, User) {
 
         var ref = new Firebase(FIREBASE_URL + '/users');
         var fauth = $firebaseAuth(ref);
@@ -14,6 +14,15 @@ angular.module('Auth', [])
             fauth.$authWithPassword({
                 email    : user.email,
                 password : user.pass
+            }).then(function(data){
+                    console.log('User logged in:');
+                    console.log(data);
+
+                // when the user logs in set up the angular fire binding to keep the
+                // user automatically updated
+
+
+
             }).catch(function(error){
                 // An alert dialog
 

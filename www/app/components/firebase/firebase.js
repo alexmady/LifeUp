@@ -9,17 +9,28 @@ angular.module('FirebaseUtil', [])
             var ref = new Firebase(FIREBASE_URL + '/users');
 
             var createProfile = function(authData){
-                return ref.update({ uid: authData.uid, firstLogin: new Date() });
-            };
 
-            /*var updateLastLogin = function(){
-                return ref.set{}
-            };*/
+                var uid = authData.uid;
+                var dt = new Date();
 
-            var updateProfile = function(module, slide){
 
-                return ref.update({ uid: authData.uid, module: module, slide: slide });
+                var value = {};
+                value[uid] = {
+                    created: dt.getTime(),
+                        module:0,
+                        slide: 0,
+                        moduleFar: 0,
+                        slideFar: 0 };
 
+                var callback = function(error){
+                    if (error){
+                        console.log(error);
+                    } else {
+                        console.log('Synchronization succeeded');
+                    }
+                };
+
+                return ref.update(value, callback);
             };
 
             return {
