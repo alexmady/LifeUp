@@ -15,12 +15,19 @@ angular.module('lifeUp.createAccount', [])
             })
     }])
 
-    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state',
-        function($scope, $state) {
+    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state', 'Auth', '$ionicLoading',
+        function($scope, $state, Auth, $ionicLoading) {
 
         $scope.go = function(goTo){
             $state.go(goTo)
         };
 
+        $scope.facebookSignup = function(){
+
+            $ionicLoading.show({
+                template: 'Creating account...'
+            });
+            Auth.facebookLogin();
+        }
 
     }]);

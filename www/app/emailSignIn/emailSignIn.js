@@ -15,8 +15,8 @@ angular.module('lifeUp.emailSignIn', [])
             })
     }])
 
-    .controller('EmailSignInCtrl', [ '$scope', '$rootScope', '$state', 'Auth', '$ionicHistory',
-        function($scope, $rootScope, $state, Auth, $ionicHistory) {
+    .controller('EmailSignInCtrl', [ '$scope', '$rootScope', '$state', 'Auth', '$ionicHistory', '$ionicLoading',
+        function($scope, $rootScope, $state, Auth, $ionicHistory, $ionicLoading) {
 
         $scope.go = function(goTo){
             $state.go(goTo)
@@ -27,6 +27,9 @@ angular.module('lifeUp.emailSignIn', [])
         }
 
         $scope.login = function(user){
+            $ionicLoading.show({
+                template: 'Logging in...'
+            });
             Auth.login(user);
         }
 

@@ -25,8 +25,8 @@ angular.module('lifeUp', [
     'FirebaseUtil',
     'User'])
 
-.run(['$ionicPlatform', '$rootScope', 'Auth', 'User', '$state', 'FirebaseUtil',
-        function($ionicPlatform, $rootScope, Auth, User, $state, FirebaseUtil ) {
+.run(['$ionicPlatform', '$rootScope', 'Auth', 'User', '$state', 'FirebaseUtil', '$ionicLoading',
+        function($ionicPlatform, $rootScope, Auth, User, $state, FirebaseUtil, $ionicLoading ) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -39,6 +39,8 @@ angular.module('lifeUp', [
   });
 
   Auth.ref.$onAuth(function(authData){
+
+      $ionicLoading.hide();
 
       console.log('onauth: ');
       console.log(authData);

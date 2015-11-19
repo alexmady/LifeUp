@@ -5,7 +5,7 @@
 
 angular.module('lifeUp.createAccountEmail', [])
 
-    .config( ['$stateProvider', function($stateProvider) {
+    .config(['$stateProvider', function ($stateProvider) {
 
         $stateProvider
             .state('createAccountEmail', {
@@ -15,22 +15,26 @@ angular.module('lifeUp.createAccountEmail', [])
             })
     }])
 
-    .controller('CreateAccountEmailCtrl', [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', 'FirebaseUtil', '$ionicPopup', 'Auth',
+    .controller('CreateAccountEmailCtrl',
+    [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', 'FirebaseUtil', '$ionicPopup', 'Auth', '$ionicLoading',
+        function ($scope, $rootScope, $state, FIREBASE_URL, FirebaseUtil, $ionicPopup, Auth, $ionicLoading) {
 
-        function($scope, $rootScope, $state, FIREBASE_URL, FirebaseUtil, $ionicPopup, Auth) {
-
-            $scope.go = function(goTo){
+            $scope.go = function (goTo) {
                 $state.go(goTo)
             };
 
-            $scope.createAccount = function(user){
+            $scope.createAccount = function (user) {
 
-              var ref = new Firebase(FIREBASE_URL);
+                $ionicLoading.show({
+                    template: 'Creating account...'
+                });
+
+                var ref = new Firebase(FIREBASE_URL);
 
                 ref.createUser({
-                    email    : user.email,
-                    password : user.pass
-                }, function(error, userData) {
+                    email: user.email,
+                    password: user.pass
+                }, function (error, userData) {
                     if (error) {
                         console.log("Error creating user:", error);
 
@@ -39,7 +43,7 @@ angular.module('lifeUp.createAccountEmail', [])
                             template: error
                         });
 
-                        alertPopup.then(function(){
+                        alertPopup.then(function () {
                             return;
                         });
 
@@ -54,4 +58,4 @@ angular.module('lifeUp.createAccountEmail', [])
                 });
 
             };
-    }]);
+        }]);

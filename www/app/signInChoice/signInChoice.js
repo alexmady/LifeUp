@@ -27,17 +27,12 @@ angular.module('lifeUp.signInChoice', [])
             };
 
             $scope.facebookLogin = function () {
-                Auth.facebookLogin();
-            };
-
-            $scope.show = function () {
                 $ionicLoading.show({
                     template: 'Loading...'
                 });
+                Auth.facebookLogin();
             };
 
-            $scope.hide = function () {
-                $ionicLoading.hide();
-            };
+
 
         }]);
