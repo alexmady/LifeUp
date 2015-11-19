@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/ACT.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/ACT.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/BE.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/BE.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/FLOW.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/FLOW.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/SPACE.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/SPACE.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/about/about.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/about/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/course.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/course.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/createAccountChoice/createAccountChoice.html" afterPath="$PROJECT_DIR$/www/app/createAccountChoice/createAccountChoice.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.html" afterPath="$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js" afterPath="$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/dashboard.html" afterPath="$PROJECT_DIR$/www/app/dashboard/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/faq/faq.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/faq/faq.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/home/home.html" afterPath="$PROJECT_DIR$/www/app/home/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/how/how.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/how/how.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/what/what.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/what/what.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/emailSignIn/emailSignIn.html" afterPath="$PROJECT_DIR$/www/app/emailSignIn/emailSignIn.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/signInChoice/signInChoice.html" afterPath="$PROJECT_DIR$/www/app/signInChoice/signInChoice.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LifeUp.iws" />
@@ -35,15 +32,18 @@
     <favorites_list name="LifeUp" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4641193">
+    <splitter split-orientation="horizontal" split-proportion="0.44608295">
       <split-first>
         <leaf>
           <file leaf-file-name="signInChoice.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/app/signInChoice/signInChoice.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="645">
-                  <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-                  <folding />
+                <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="645">
+                  <caret line="13" column="63" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="63" />
+                  <folding>
+                    <element signature="n#style#0;n#button#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#button#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -58,22 +58,14 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="angular-ios9-uiwebview.patch.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/www/app/angular-ios9-uiwebview.patch.js">
+          <file leaf-file-name="createAccountEmail.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="1200">
-                  <caret line="21" column="61" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="61" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/www/app/app.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="121" max-vertical-offset="945">
-                  <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
-                  <folding />
+                <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="480">
+                  <caret line="15" column="94" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
+                  <folding>
+                    <element signature="n#style#0;n#button#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -91,18 +83,31 @@
           <file leaf-file-name="emailSignIn.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/app/emailSignIn/emailSignIn.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="495">
-                  <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+                <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="465">
+                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="createAccountEmail.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="createAccountChoice.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/www/app/createAccountChoice/createAccountChoice.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="615">
+                  <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+                  <folding>
+                    <element signature="n#style#0;n#button#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#button#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="createAccountEmail.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="945">
-                  <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.81587654" vertical-offset="10" max-vertical-offset="930">
+                  <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -128,10 +133,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.8011173" vertical-offset="108" max-vertical-offset="1005">
+                <state vertical-scroll-proportion="-34.375" vertical-offset="0" max-vertical-offset="1005">
                   <caret line="55" column="54" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="54" />
                   <folding />
                 </state>
@@ -145,8 +150,8 @@
           <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/css/style.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3270">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3450">
+                  <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -182,14 +187,34 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="dashboard.html" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="emailSignIn.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/www/app/emailSignIn/emailSignIn.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="465">
+                  <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                  <folding>
+                    <element signature="n#style#0;n#button#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="auth.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/www/app/components/auth/auth.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.12420382" vertical-offset="138" max-vertical-offset="1155">
+                  <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="dashboard.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/app/dashboard/dashboard.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.08178844" vertical-offset="0" max-vertical-offset="1200">
-                  <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-side-menu#0;n#ion-side-menus#0;n#!!top" expanded="true" />
-                  </folding>
+                <state vertical-scroll-proportion="-20.0" vertical-offset="60" max-vertical-offset="1155">
+                  <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -219,26 +244,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="390">
                   <caret line="0" column="66" selection-start-line="0" selection-start-column="66" selection-end-line="0" selection-end-column="66" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="how.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/how/how.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="225">
-                  <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="faq.html" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/faq/faq.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="255">
-                  <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -288,12 +293,7 @@
         <option value="$PROJECT_DIR$/www/app/termsAndConditions/termsAndConditions.html" />
         <option value="$PROJECT_DIR$/www/app/home/home.js" />
         <option value="$PROJECT_DIR$/www/app/createAccountChoice/createAccountChoice.js" />
-        <option value="$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js" />
-        <option value="$PROJECT_DIR$/www/app/createAccountChoice/createAccountChoice.html" />
         <option value="$PROJECT_DIR$/www/app/angular-ios9-uiwebview.patch.js" />
-        <option value="$PROJECT_DIR$/www/app/signInChoice/signInChoice.html" />
-        <option value="$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.html" />
-        <option value="$PROJECT_DIR$/www/app/emailSignIn/emailSignIn.html" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/I.html" />
         <option value="$PROJECT_DIR$/www/app/app.js" />
@@ -307,9 +307,14 @@
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/course.html" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/FLOW.html" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/BE.html" />
-        <option value="$PROJECT_DIR$/www/css/style.css" />
         <option value="$PROJECT_DIR$/www/app/home/home.html" />
         <option value="$PROJECT_DIR$/www/app/dashboard/dashboard.html" />
+        <option value="$PROJECT_DIR$/www/app/emailSignIn/emailSignIn.html" />
+        <option value="$PROJECT_DIR$/www/css/style.css" />
+        <option value="$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.html" />
+        <option value="$PROJECT_DIR$/www/app/createAccountChoice/createAccountChoice.html" />
+        <option value="$PROJECT_DIR$/www/app/signInChoice/signInChoice.html" />
+        <option value="$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js" />
       </list>
     </option>
   </component>
@@ -812,6 +817,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LifeUp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LifeUp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="platforms" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -1051,16 +1070,20 @@
       <created>1447900932640</created>
       <updated>1447900932640</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="- fixed up side menu and header on the side menu issue">
+      <created>1447934813142</created>
+      <updated>1447934813142</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2560" y="23" width="2560" height="1413" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.326268" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.326268" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26681784" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2664648" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14533281" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1101,7 +1124,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="fixed error in path that was causing email sign in not to work on device (was ok in the browser!)" />
     <MESSAGE value="Firebase integration - can now create a user account in firebase with email and password." />
     <MESSAGE value="facebook and password authentication working first version" />
     <MESSAGE value="Facebook and email login working ont he ihpone via: ionic run ion --device" />
@@ -1126,26 +1148,13 @@
     <MESSAGE value="- removed the borders below the nav bar and above the footer" />
     <MESSAGE value="- add back the nav bar for the side menu pages, seems like its needed and was not causing the issue after all" />
     <MESSAGE value="- fixed up side menu and header on the side menu issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fixed up side menu and header on the side menu issue" />
+    <MESSAGE value="- tidy up of initial pages styling and added auto login when account created." />
+    <option name="LAST_COMMIT_MESSAGE" value="- tidy up of initial pages styling and added auto login when account created." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/platforms/ios/LifeUp/LifeUp-Info.plist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24103832" vertical-offset="0" max-vertical-offset="2805">
-          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/LifeUp/LifeUp-Prefix.pch">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="811">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ionic-firebase-auth/www/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.018541409" vertical-offset="0" max-vertical-offset="809">
@@ -1231,38 +1240,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/build/device/LifeUp.app/www/app/components/user/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="810">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/build/device/LifeUp.app/www/app/components/firebase/firebase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29020557" vertical-offset="0" max-vertical-offset="827">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/app/components/firebase/firebase.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.1666665" vertical-offset="0" max-vertical-offset="660">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/ios/build/emulator/LifeUp.app/www/app/components/auth/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="310" max-vertical-offset="1155">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/components/auth/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1342,45 +1323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="1200">
           <caret line="21" column="61" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/signInChoice/signInChoice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="645">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/createAccountChoice/createAccountChoice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="600">
-          <caret line="11" column="63" selection-start-line="11" selection-start-column="63" selection-end-line="11" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="420">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/emailSignIn/emailSignIn.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="495">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1473,14 +1415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3270">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/course.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="870">
@@ -1497,21 +1431,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/dashboard/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.0" vertical-offset="60" max-vertical-offset="1155">
+          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8011173" vertical-offset="108" max-vertical-offset="1005">
+        <state vertical-scroll-proportion="-34.375" vertical-offset="0" max-vertical-offset="1005">
           <caret line="55" column="54" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/dashboard/dashboard.html">
+    <entry file="file://$PROJECT_DIR$/www/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08178844" vertical-offset="0" max-vertical-offset="1200">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3450">
+          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="480">
+          <caret line="15" column="94" selection-start-line="15" selection-start-column="94" selection-end-line="15" selection-end-column="94" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#ion-content#0;n#ion-side-menu#0;n#ion-side-menus#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/createAccountChoice/createAccountChoice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="615">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/signInChoice/signInChoice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="645">
+          <caret line="13" column="63" selection-start-line="13" selection-start-column="63" selection-end-line="13" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/emailSignIn/emailSignIn.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.625" vertical-offset="0" max-vertical-offset="465">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81587654" vertical-offset="10" max-vertical-offset="930">
+          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/components/auth/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12420382" vertical-offset="138" max-vertical-offset="1155">
+          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>

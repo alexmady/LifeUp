@@ -1,31 +1,32 @@
-<ion-view view-title="LifeUp" class="lifeup-bg">
+<ion-view view-title="Create LifeUp Account" class="lifeup-bg">
     <ion-content>
         <br>
-
-        <div class="lifeup-text">
-            <p>CREATE YOUR LIFE UP ACCOUNT</p>
-            <br>
-            <br>
-        </div>
 
         <div class="lifeup-text-small">
             To track your progress and personalise your experience you'll need to create an account with LifeUp
         </div>
 
-        <button ng-click="facebookSignup()"
-                class="button button-outline button-light lifeup-text icon ion-social-facebook-outline button-block">
+        <br>
+        <br>
+
+        <button ng-click="facebookSignup()" style="width: 80%;"
+                class="button button-outline button-light lifeup-button icon ion-social-facebook-outline button-block">
             SIGN UP WITH FACEBOOK
         </button>
 
-        <button ng-click="go('createAccountEmail')"
-                class="button button-outline button-light lifeup-text lifeup-buttons icon ion-ios-email-outline button-block">
+        <button ng-click="go('createAccountEmail')" style="width: 80%;"
+                class="button button-outline button-light lifeup-text lifeup-button icon ion-ios-email-outline button-block">
             SIGN UP WITH EMAIL
         </button>
 
-        <p class="lifeup-text">Already have a LifeUp account?</p>
+        <br>
+        <br>
+
+        <p class="lifeup-text">Already have an account?</p>
 
         <button ng-click="go('signInChoice')"
-                class="button button-clear button-light lifeup-buttons button-block">SIGN IN
+                class="button button-clear button-light lifeup-buttons button-block">
+            <p class="lifeup-text">SIGN IN</p>
         </button>
 
     </ion-content>

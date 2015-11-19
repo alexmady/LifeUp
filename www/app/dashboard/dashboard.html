@@ -11,14 +11,14 @@
         <ion-content class="lifeup-bg-dark no-header">
 
             <div ng-if="authData.facebook" class="list">
-                <div class="item item-avatar lifeup-bg-dark">
+                <div class="item item-avatar center lifeup-bg-dark">
                     <img src="{{authData.facebook.cachedUserProfile.picture.data.url}}">
                     <p class="center lifeup-text">{{authData.facebook.displayName}}</p>
                 </div>
             </div>
 
             <div ng-if="authData.password" class="list">
-                <div class="item item-avatar center lifeup-bg-dark" style="border: 0">
+                <div class="item item-avatar center lifeup-bg-dark">
                     <img src="{{authData.password.profileImageURL}}">
                     <p class="center lifeup-text">{{authData.password.email}}</p>
                 </div>
@@ -59,12 +59,9 @@
                         LOGOUT
                     </button>
                 </ion-item>
-
-
             </ion-list>
-
-
         </ion-content>
+
     </ion-side-menu>
 
 </ion-side-menus>

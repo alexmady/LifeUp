@@ -15,9 +15,9 @@ angular.module('lifeUp.createAccountEmail', [])
             })
     }])
 
-    .controller('CreateAccountEmailCtrl', [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', 'FirebaseUtil', '$ionicPopup',
+    .controller('CreateAccountEmailCtrl', [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', 'FirebaseUtil', '$ionicPopup', 'Auth',
 
-        function($scope, $rootScope, $state, FIREBASE_URL, FirebaseUtil, $ionicPopup) {
+        function($scope, $rootScope, $state, FIREBASE_URL, FirebaseUtil, $ionicPopup, Auth) {
 
             $scope.go = function(goTo){
                 $state.go(goTo)
@@ -48,9 +48,8 @@ angular.module('lifeUp.createAccountEmail', [])
 
                         FirebaseUtil.createProfile(userData, user);
 
+                        Auth.login(user);
 
-
-                        $state.go('emailSignIn');
                     }
                 });
 
