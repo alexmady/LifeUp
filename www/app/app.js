@@ -5,6 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('lifeUp', [
     'ionic',
+    'ngIOS9UIWebViewPatch',
     'firebase',
     'lifeUp.config',
     'lifeUp.home',
@@ -50,6 +51,9 @@ angular.module('lifeUp', [
 
 }]).config(function($urlRouterProvider, $ionicConfigProvider){
     //$ionicConfigProvider.navBar.transition('none');
-    $urlRouterProvider.otherwise('/home')
+
+        $urlRouterProvider.otherwise('/home');
+        $ionicConfigProvider.backButton.previousTitleText(false);
+        $ionicConfigProvider.backButton.text('');
 });
 

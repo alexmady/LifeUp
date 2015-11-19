@@ -15,16 +15,12 @@ angular.module('lifeUp.createAccountEmail', [])
             })
     }])
 
-    .controller('CreateAccountEmailCtrl', [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', 'FirebaseUtil', '$ionicPopup', '$ionicHistory',
+    .controller('CreateAccountEmailCtrl', [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', 'FirebaseUtil', '$ionicPopup',
 
-        function($scope, $rootScope, $state, FIREBASE_URL, FirebaseUtil, $ionicPopup, $ionicHistory) {
+        function($scope, $rootScope, $state, FIREBASE_URL, FirebaseUtil, $ionicPopup) {
 
             $scope.go = function(goTo){
                 $state.go(goTo)
-            };
-
-            $scope.goBack = function(){
-                $ionicHistory.goBack();
             };
 
             $scope.createAccount = function(user){

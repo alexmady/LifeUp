@@ -1,3 +1,16 @@
+.bar .title{
+    font-size: 30px;
+}
+
+.bar .button.back-button {
+    display: block;
+    margin-right: 5px;
+    padding: 0;
+    white-space: nowrap;
+    font-weight: 400;
+    color: white;
+}
+
 input[type="text"], input[type="password"]{
     border-bottom-width: 1px;
     border-style: solid;
@@ -81,7 +94,6 @@ input[type="text"], input[type="password"]{
 
 .lifeup-nav-title {
     font-family: 'Amatic SC', cursive;
-    font-size: 2.3em;
     color: white;
 }
 
@@ -156,12 +168,6 @@ input::-webkit-input-placeholder {
     border: solid !important;
     border-width: 2px !important;
     border-color: #cc0000 !important;
-}
-.custom .title {
-    font-family: 'Nothing You Could Do';
-    color: white !important;
-    font-size: 30px !important;
-    font-weight: 200 !important;
 }
 
 .center {

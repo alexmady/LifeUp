@@ -15,19 +15,11 @@ angular.module('lifeUp.createAccount', [])
             })
     }])
 
-    .controller('CreateAccountChoiceCtrl', [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', '$ionicHistory',
-        function($scope, $rootScope, $state, FIREBASE_URL, $ionicHistory) {
+    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state',
+        function($scope, $state) {
 
         $scope.go = function(goTo){
             $state.go(goTo)
-        };
-
-        $scope.goBack = function(){
-            $ionicHistory.goBack();
-        };
-
-        $scope.facebookSignup = function(){
-
         };
 
 

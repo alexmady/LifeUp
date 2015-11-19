@@ -1,35 +1,13 @@
-<ion-view class="lifeup-bg">
-    <ion-nav-bar class="lifeup-header">
-
-        <ion-nav-buttons side="left">
-            <button class="button button-clear button-light ion-chevron-left" ng-click="goBack()">
-            </button>
-        </ion-nav-buttons>
-
-        <ion-nav-title>
-            <p class="lifeup-nav-title">LifeUP</p>
-        </ion-nav-title>
-    </ion-nav-bar>
-
-    <ion-content class="lifeup-text">
+<ion-view view-title="Sign Up" class="lifeup-bg">
+    <ion-content>
 
         <br>
-        <p>CREATE YOUR LIFE UP ACCOUNT</p>
         <br>
         <p class="lifeup-text-small">To track your progress and personalise your experience you'll need to create an account with LifeUp</p>
 
-
-        <div style="margin: 20px; padding: 0px;border-spacing: 10px">
-
-            <!--border-top: 0;border-left: 0; border-right: 0;-->
-
-            <label class="item item-input lifeup-bg" style="border-left: 0;border-right: 0; border-top: 0">
+        <div>
                 <input type="text" placeholder="Email address" ng-model="user.email">
-            </label>
-
-            <label class="item item-input lifeup-bg lifeup-text" style="border-left: 0;border-right: 0">
                 <input type="password" placeholder="Password" ng-model="user.pass">
-            </label>
             <br/>
             <div>
                 <button class="button button-outline button-light lifeup-buttons button-block" ng-click="createAccount(user)">
