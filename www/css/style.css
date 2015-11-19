@@ -2,8 +2,8 @@
     font-size: 30px;
 }
 
+
 .bar .button.back-button {
-    display: block;
     margin-right: 5px;
     padding: 0;
     white-space: nowrap;
@@ -71,11 +71,6 @@ input[type="text"], input[type="password"]{
     font-size: 11.5px;
     color: dimgray;
 }
-
-.bar .button.button-clear {
-    font-size: 13px;
-}
-
 
 .button-small{
     font-family: 'Comic Neue', sans-serif;
