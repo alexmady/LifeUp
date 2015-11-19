@@ -1,4 +1,9 @@
-<ion-view class="lifeup-bg">
+<ion-view class="lifeup-bg" hide-back-button="true" view-title="BE">
+
+    <ion-nav-buttons side="right">
+        <button ng-click="go()" menu-toggle="right" class="button button-icon ion-android-checkbox-outline"></button>
+    </ion-nav-buttons>
+
 
     <ion-slide-box class="slidebox" on-slide-changed="slideHasChanged($index)">
 

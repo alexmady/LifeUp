@@ -1,18 +1,19 @@
-<ion-side-menus enable-menu-with-back-views="true" class="lifeup-bg">
+<ion-side-menus class="lifeup-bg">
 
     <ion-side-menu-content>
+        <ion-nav-bar class="lifeup-bg lifeup-nav-title"></ion-nav-bar>
         <ion-nav-view name="dashboardContent" annimation="slide-left-right"></ion-nav-view>
     </ion-side-menu-content>
 
     <!-- Left menu -->
     <ion-side-menu side="left" class="lifeup-bg">
 
-        <ion-content class="lifeup-bg-dark">
+        <ion-content class="lifeup-bg-dark no-header">
 
             <div ng-if="authData.facebook" class="list">
                 <div class="item item-avatar lifeup-bg-dark">
                     <img src="{{authData.facebook.cachedUserProfile.picture.data.url}}">
-                    <h2>{{authData.facebook.displayName}}</h2>
+                    <p class="center lifeup-text">{{authData.facebook.displayName}}</p>
                 </div>
             </div>
 
@@ -25,36 +26,36 @@
 
             <ion-list>
 
-                <ion-item class="item item-complex" nav-clear menu-close >
+                <ion-item class="item item-complex" nav-clear menu-close>
                     <a class="item-content lifeup-bg-dark lifeup-text"  href="#/dashboard/course">
                         COURSE
                     </a>
                 </ion-item>
-                <ion-item class="item item-complex" nav-clear menu-close >
+                <ion-item class="item item-complex" nav-clear menu-close>
                     <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/what">
                         WHAT?
                     </a>
                 </ion-item>
-                <ion-item class="item item-complex" nav-clear menu-close >
+                <ion-item class="item item-complex" nav-clear menu-close>
                     <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/how">
                         HOW?
                     </a>
                 </ion-item>
 
-                <ion-item class="item item-complex" nav-clear menu-close >
+                <ion-item class="item item-complex" nav-clear menu-close>
                     <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/faq">
                         FAQ?
                     </a>
                 </ion-item>
 
-                <ion-item class="item item-complex" nav-clear menu-close >
+                <ion-item class="item item-complex" nav-clear menu-close>
                     <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/about">
                        ABOUT?
                     </a>
                 </ion-item>
 
-                <ion-item class="item item-complex" nav-clear menu-close >
-                    <button class="item-content lifeup-bg-dark lifeup-text button-block" ng-click="logout()" >
+                <ion-item class="item item-complex" nav-clear menu-close>
+                    <button nav-clear menu close class="item-content lifeup-bg-dark lifeup-text button-block" ng-click="logout()" >
                         LOGOUT
                     </button>
                 </ion-item>
