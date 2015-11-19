@@ -31,31 +31,50 @@ angular.module('lifeUp.createAccountEmail', [])
 
                 var ref = new Firebase(FIREBASE_URL);
 
-                ref.createUser({
-                    email: user.email,
-                    password: user.pass
-                }, function (error, userData) {
-                    if (error) {
+                try{
+
+                    ref.createUser({
+                        email: user.email,
+                        password: user.pass
+                    }, function (error, userData) {
+
                         console.log("Error creating user:", error);
+                        if (error) {
+                            $ionicLoading.hide();
 
-                        var alertPopup = $ionicPopup.alert({
-                            title: 'Sorry!',
-                            template: error
-                        });
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Sorry!',
+                                template: error
+                            });
 
-                        alertPopup.then(function () {
-                            return;
-                        });
+                            alertPopup.then(function () {
+                                return;
+                            });
 
-                    } else {
-                        console.log("Successfully created user account with uid:", userData.uid);
+                        } else {
+                            console.log("Successfully created user account with uid:", userData.uid);
 
-                        FirebaseUtil.createProfile(userData, user);
+                            FirebaseUtil.createProfile(userData, user);
 
-                        Auth.login(user);
+                            Auth.login(user);
 
-                    }
-                });
+                        }
+                    });
 
+                } catch(error){
+
+                    $ionicLoading.hide();
+
+                    var res = error.message.replace("Firebase.createUser", "");
+
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Sorry!',
+                        template: res
+                    });
+
+                    alertPopup.then(function () {
+                        return;
+                    });
+                }
             };
         }]);

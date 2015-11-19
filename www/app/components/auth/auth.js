@@ -3,8 +3,8 @@
  */
 angular.module('Auth', [])
 
-.factory('Auth', ['$firebaseAuth', '$firebaseObject', 'FIREBASE_URL', '$ionicPopup', 'User',
-    function($firebaseAuth, $firebaseObject, FIREBASE_URL, $ionicPopup, User) {
+.factory('Auth', ['$firebaseAuth', '$firebaseObject', 'FIREBASE_URL', '$ionicPopup', 'User', '$ionicLoading',
+    function($firebaseAuth, $firebaseObject, FIREBASE_URL, $ionicPopup, User, $ionicLoading) {
 
         var ref = new Firebase(FIREBASE_URL + '/users');
         var fauth = $firebaseAuth(ref);
@@ -24,6 +24,7 @@ angular.module('Auth', [])
             }).catch(function(error){
                 // An alert dialog
 
+                    $ionicLoading.hide();
                     var alertPopup = $ionicPopup.alert({
                         title: 'Login failed!',
                         template: "Sorry we didn't recognise that email address / password."
