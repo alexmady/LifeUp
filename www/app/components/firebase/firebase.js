@@ -8,7 +8,7 @@ angular.module('FirebaseUtil', [])
 
             var ref = new Firebase(FIREBASE_URL + '/users');
 
-            var createProfile = function(authData){
+            var createProfile = function(authData, user){
 
                 var uid = authData.uid;
                 var dt = new Date();
@@ -16,10 +16,11 @@ angular.module('FirebaseUtil', [])
                 var value = {};
                 value[uid] = {
                     created: dt.getTime(),
-                        module:0,
-                        slide: 0,
-                        moduleFar: 0,
-                        slideFar: 0 };
+                    module:0,
+                    slide: 0,
+                    moduleFar: 0,
+                    slideFar: 0,
+                    email: user.email };
 
                 var callback = function(error){
                     if (error){
@@ -32,8 +33,27 @@ angular.module('FirebaseUtil', [])
                 return ref.update(value, callback);
             };
 
+
+            var checkAndCreateUserProfile = function( authData, user ){
+
+                var checkRef = ref.child(authData.uid);
+                checkRef.once("value",function(snapshot){
+
+                    var exists = snapshot.exists();
+
+                    console.log('Does facebook user profile exist?');
+                    console.log(exists);
+
+                    if (!exists){
+                        createProfile( authData, user );
+                    }
+
+                });
+            };
+
             return {
-                createProfile: createProfile
+                createProfile: createProfile,
+                checkAndCreateUserProfile: checkAndCreateUserProfile
             };
         }
     ]);

@@ -21,8 +21,6 @@ angular.module('Auth', [])
                 // when the user logs in set up the angular fire binding to keep the
                 // user automatically updated
 
-
-
             }).catch(function(error){
                 // An alert dialog
 
@@ -40,11 +38,17 @@ angular.module('Auth', [])
         var facebookLogin = function(){
 
             console.log('facebook login');
-            fauth.$authWithOAuthRedirect("facebook").then(function(authData) {
+
+            var options = {
+              remember: "default",
+              scope: "email"
+            };
+
+            fauth.$authWithOAuthRedirect("facebook", options).then(function(authData) {
 
             }).catch(function(error) {
                 if (error.code === "TRANSPORT_UNAVAILABLE") {
-                    fauth.$authWithOAuthPopup("facebook").then(function(authData) {
+                    fauth.$authWithOAuthPopup("facebook", options).then(function(authData) {
                         // User successfully logged in. We can log to the console
                         // since we’re using a popup here
                         console.log(authData);

@@ -5,7 +5,7 @@
 
 angular.module('lifeUp.signInChoice', [])
 
-    .config(['$stateProvider', function($stateProvider) {
+    .config(['$stateProvider', function ($stateProvider) {
 
         $stateProvider
             .state('signInChoice', {
@@ -15,19 +15,29 @@ angular.module('lifeUp.signInChoice', [])
             })
     }])
 
-    .controller('SignInChoiceCtrl', [ '$state', '$scope', 'Auth', 'FIREBASE_URL', '$ionicHistory',
-        function($state, $scope, Auth, FIREBASE_URL, $ionicHistory) {
+    .controller('SignInChoiceCtrl', [ '$state', '$scope', 'Auth', 'FIREBASE_URL', '$ionicHistory', '$ionicLoading',
+        function ($state, $scope, Auth, FIREBASE_URL, $ionicHistory, $ionicLoading) {
 
-        $scope.go = function( goTo ){
-            $state.go( goTo )
-        };
+            $scope.go = function (goTo) {
+                $state.go(goTo)
+            };
 
-        $scope.goBack = function() {
-            $ionicHistory.goBack();
-        };
+            $scope.goBack = function () {
+                $ionicHistory.goBack();
+            };
 
-        $scope.facebookLogin = function() {
-            Auth.facebookLogin();
-        };
+            $scope.facebookLogin = function () {
+                Auth.facebookLogin();
+            };
 
-    }]);
+            $scope.show = function () {
+                $ionicLoading.show({
+                    template: 'Loading...'
+                });
+            };
+
+            $scope.hide = function () {
+                $ionicLoading.hide();
+            };
+
+        }]);

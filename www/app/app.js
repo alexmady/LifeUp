@@ -25,7 +25,8 @@ angular.module('lifeUp', [
     'FirebaseUtil',
     'User'])
 
-.run(['$ionicPlatform', '$rootScope', 'Auth', 'User', '$state', function($ionicPlatform, $rootScope, Auth, User, $state) {
+.run(['$ionicPlatform', '$rootScope', 'Auth', 'User', '$state', 'FirebaseUtil',
+        function($ionicPlatform, $rootScope, Auth, User, $state, FirebaseUtil ) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -37,12 +38,19 @@ angular.module('lifeUp', [
     }
   });
 
-  Auth.ref.$onAuth(function(data){
+  Auth.ref.$onAuth(function(authData){
 
-      console.log('onauth - ' + data);
+      console.log('onauth: ');
+      console.log(authData);
 
-      if (data){
-          User.setAuthData(data);
+      if (authData){
+          User.setAuthData(authData);
+
+          if (authData.provider === "facebook"){
+              var user = { email: authData.facebook.email };
+              FirebaseUtil.checkAndCreateUserProfile(authData, user);
+          }
+
           $state.go('dashboard.course');
       } else {
           $state.go('home');

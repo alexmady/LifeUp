@@ -29,8 +29,5 @@ angular.module('lifeUp.dashboard', [ 'Auth'])
             }
         },true );
 
-        $scope.toggleLeft = function() {
-            $ionicSideMenuDelegate.toggleLeft();
-        };
 
     }]);
