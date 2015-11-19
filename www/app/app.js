@@ -50,10 +50,8 @@ angular.module('lifeUp', [
   });
 
 }]).config(function($urlRouterProvider, $ionicConfigProvider){
-    //$ionicConfigProvider.navBar.transition('none');
-
-        $urlRouterProvider.otherwise('/home');
-        $ionicConfigProvider.backButton.previousTitleText(false);
-        $ionicConfigProvider.backButton.text('');
+    $urlRouterProvider.otherwise('/home');
+    $ionicConfigProvider.backButton.previousTitleText(false);
+    $ionicConfigProvider.backButton.text('');
 });
 
