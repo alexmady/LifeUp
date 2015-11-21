@@ -25,7 +25,7 @@ angular.module('lifeUp.createAccount', [])
         $scope.facebookSignup = function(){
 
             $ionicLoading.show({
-                template: 'Creating account...'
+                template: '<ion-spinner icon="bubbles"></ion-spinner>'
             });
             Auth.facebookLogin();
         }

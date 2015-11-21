@@ -28,7 +28,7 @@ angular.module('lifeUp.emailSignIn', [])
 
         $scope.login = function(user){
             $ionicLoading.show({
-                template: 'Logging in...'
+                template: '<ion-spinner icon="bubbles"></ion-spinner>'
             });
             Auth.login(user);
         }

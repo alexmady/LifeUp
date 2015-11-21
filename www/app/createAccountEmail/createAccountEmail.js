@@ -26,7 +26,7 @@ angular.module('lifeUp.createAccountEmail', [])
             $scope.createAccount = function (user) {
 
                 $ionicLoading.show({
-                    template: 'Creating account...'
+                    template: '<ion-spinner icon="bubbles"></ion-spinner>'
                 });
 
                 var ref = new Firebase(FIREBASE_URL);

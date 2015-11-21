@@ -1,4 +1,4 @@
-<ion-view view-title="Course" has-back-button="false">
+<ion-view view-title="Course" has-back-button="false" hide-nav-bar="true">
 
 
         <ion-nav-buttons side="left">
@@ -6,11 +6,15 @@
         </ion-nav-buttons>
 
 
-    <ion-content scroll="false" class="has-header lifeup-bg">
+    <ion-content scroll="false" class="lifeup-bg course-background">
 
         <section class="course-container">
 
-            <div class = "row">
+            <button ng-click="play()">PLAY</button>
+            <button ng-click="pause()">PAUSE</button>
+            <button ng-click="restart()">RESTART</button>
+
+           <!-- <div class = "row">
                 <div class = "col text-center">
                     <a ui-sref="dashboard.I">I</a>
                 </div>
@@ -44,7 +48,8 @@
                 <div class = "col text-center">
                     <a ui-sref="dashboard.DISARM">DISARM</a>
                 </div>
-            </div>
+            </div>-->
+
 
         </section>
 

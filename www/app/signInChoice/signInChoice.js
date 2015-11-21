@@ -28,7 +28,7 @@ angular.module('lifeUp.signInChoice', [])
 
             $scope.facebookLogin = function () {
                 $ionicLoading.show({
-                    template: 'Loading...'
+                    template: '<ion-spinner icon="bubbles"></ion-spinner>'
                 });
                 Auth.facebookLogin();
             };

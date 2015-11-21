@@ -1,17 +1,12 @@
-::-webkit-input-placeholder {
-    color: red;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-    color: red;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-    color: red;
-}
-
-:-ms-input-placeholder {
-    color: red;
+.course-background {
+    position: absolute;
+    width: 375px;
+    height: 667px;
+    margin-left: 0px;
+    margin-top: 0px;
+    opacity:1;
+    background:url('../img/man-sprite.png') -0px -0px;
+    background-repeat:no-repeat;
 }
 
 
@@ -55,7 +50,7 @@ input[type="text"], input[type="password"]{
     width: 90%;
     display: block;
     margin: 0 auto;
-    background-color: cornflowerblue;
+    background-color: #BAD8EB;
 }
 
 .item-content.lifeup-bg-dark {
@@ -73,7 +68,7 @@ input[type="text"], input[type="password"]{
 }
 
 .item {
-    background-color: cornflowerblue;
+    background-color: #BAD8EB;
     border: 0;
     padding: 0;
     color: white;
@@ -123,11 +118,11 @@ input::-webkit-input-placeholder {
 }
 
 .footer-bar {
-    background-color: cornflowerblue;
+    background-color: #BAD8EB;
     font-size: 10px;
 }
 .slidebox {
-    background-color: cornflowerblue;
+    background-color: #BAD8EB;
 }
 
 .slider-slide:before {
@@ -172,12 +167,12 @@ input::-webkit-input-placeholder {
 
 
 .lifeup-header {
-    background-color: cornflowerblue;
+    background-color: #BAD8EB;
     border: 0;
 }
 
 .lifeup-bg {
-    background-color: cornflowerblue;
+    background-color: #BAD8EB;
 }
 
 .lifeup-bg-dark {
