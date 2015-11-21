@@ -31,7 +31,7 @@ courseModule
 
 
         $scope.play = function (){
-            TweenBoxy.progress(0.9);
+            TweenBoxy.play();
         };
 
         $scope.pause = function (){
@@ -72,7 +72,7 @@ courseModule
         }
         console.log(boxyArray1.length);
 
-        var TweenBoxy = TweenMax.to(boxyObj1, 1, {counter:boxyArray1.length, repeat:0, ease:SteppedEase.config(boxyArray1.length), onComplete:boxyTweenComplete, paused:true, onUpdate:boxyTweenUpdate});
+        var TweenBoxy = TweenMax.to(boxyObj1, 2.2, {counter:boxyArray1.length, repeat:0, ease:SteppedEase.config(boxyArray1.length), onComplete:boxyTweenComplete, paused:true, onUpdate:boxyTweenUpdate});
 
         function boxyTweenUpdate(){
             if (boxyObj1.counter < boxyArray1.length){
