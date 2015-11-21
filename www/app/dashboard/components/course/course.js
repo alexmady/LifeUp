@@ -45,19 +45,18 @@ courseModule
 
 
         var boxyObj1 = { counter: 0};
-        //var boxyArray1 = ["-160px -160px", "-320px -160px", "-480px -160px", "-640px -160px", "-800px -160px", "-960px -160px", "-1120px -160px"];
-
         var boxyArray1 = [];
 
-        var noImages = 70-1;
+        var noImages = 10;
         var deviceWidth = 375;
         var deviceHeight = 667;
         var imagesPerRow = 9;
 
-        var count = 0;
+        var count = 1;
         var row = 0;
 
-        for( var i = 0; i <= noImages; i++ ){
+
+        for ( var i = 0; i < noImages; i++ ){
 
             if (count >= imagesPerRow){
                 count = 0;
@@ -66,7 +65,7 @@ courseModule
             var x = '-' + ( count * deviceWidth ) + 'px';
             var y = '-' + ( deviceHeight * row) + 'px';
             var dim =  x + ' '+ y;
-            console.log( count+1 + '-->' + dim);
+            console.log( count + '-->' + dim);
             boxyArray1[i-1] = dim
             count = count + 1;
         }
@@ -76,22 +75,21 @@ courseModule
 
         function boxyTweenUpdate(){
             if (boxyObj1.counter < boxyArray1.length){
-                console.log(Math.ceil(boxyObj1.counter));
+                console.log(boxyObj1.counter);
                 TweenMax.to('.course-background', 0, {backgroundPosition:boxyArray1[Math.ceil(boxyObj1.counter)]});
             } else {
+                console.log('else ' + boxyObj1.counter);
+
             }
         }
 
         function boxyTweenComplete(){
             console.log('complete');
             console.log(boxyArray1[boxyArray1.length-1]);
-            TweenMax.set('.course-background', {backgroundPosition:'-2248px -4669px', immediateRender:true});
+          //  TweenMax.to('.course-background', {backgroundPosition:'-2248px -4669px', immediateRender:true});
         }
 
-        ///*document.getElementById('mybtn1').onclick = function(){
-            //TweenBoxy.play();
-            //
-        //}*/
+
 
 
 
