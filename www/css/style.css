@@ -1,18 +1,27 @@
 .course-background {
-    position: absolute;
-    width: 375px;
-    height: 667px;
-    margin-left: 0px;
-    margin-top: 0px;
-    opacity:1;
-    background:url('../img/sprite.png') -0px -0px;
+    background-image :url('../img/sprite-375x667.png');
+    background-size: 1875px 16008px;
     background-repeat:no-repeat;
+    width: 375px; height: 667px;
 }
 
-
 .mountain {
-    background:url('../img/mm.png') -0px -0px;
-    background-size: cover;
+    background-image: url('../img/mm-375x667.png');
+    background-repeat:no-repeat;
+    background-size: 375px 667px;
+}
+
+@media	only screen and (-webkit-min-device-pixel-ratio: 1.3),
+only screen and (-o-min-device-pixel-ratio: 13/10),
+only screen and (min-resolution: 120dpi) {
+    /* Your code to swap higher DPI images */
+    .course-background {
+        background-image: url('../img/sprite-750x1334.png');
+    }
+
+    .mountain {
+        background-image: url('../img/mm-750x1334.png');
+    }
 }
 
 .bar-header {

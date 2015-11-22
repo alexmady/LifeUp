@@ -50,7 +50,7 @@ courseModule
         var noImages = 115;
         var deviceWidth = 375;
         var deviceHeight = 667;
-        var imagesPerRow = 10;
+        var imagesPerRow = 5;
 
         var count = 1;
         var row = 0;
