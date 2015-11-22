@@ -8,18 +8,25 @@
 
         <section class="course-container">
 
-            <div class="course-background" >
 
-                <button ng-click="play()" class="" style="
+                        <div class="course-background"
+                             style="
+                             background-image: url({{spritePNGFile}});
+                             background-repeat: no-repeat;
+                             width: {{items[0].w}};
+                             height: {{items[0].h}};
+                             top: {{items[0].t}};
+                             left: {{items[0].l}};
+                             background-position: {{items[0].bp}};
+                             position: absolute;"></div>
 
-position: absolute;
-    margin-top:150px;
-">PLAY
+            <div style="margin: 20px">
+                <button ng-click="play()">PLAY</button>
+                <button ng-click="restart()">RESTART</button>
+                <button ng-click="load()">LOAD</button>
+                <button ng-click="debug()">DEBUG</button>
+            </div>
 
-                </button><button ng-click="restart()" class="" style="
-position: absolute;
-        margin-top:50px;
-">RESTART</button>
 
                 <!-- <div class = "row">
                      <div class = "col text-center">
