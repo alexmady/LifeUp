@@ -5,10 +5,15 @@
     margin-left: 0px;
     margin-top: 0px;
     opacity:1;
-    background:url('../img/man-sprite.png') -0px -0px;
+    background:url('../img/sprite.png') -0px -0px;
     background-repeat:no-repeat;
+    z-index: 4;
 }
 
+
+.mountain {
+    background:url('../img/mm.png') -0px -0px;
+}
 
 .bar-header {
     border: 0px !important;

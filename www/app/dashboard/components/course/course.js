@@ -47,10 +47,10 @@ courseModule
         var boxyObj1 = { counter: 0};
         var boxyArray1 = [];
 
-        var noImages = 10;
+        var noImages = 115;
         var deviceWidth = 375;
         var deviceHeight = 667;
-        var imagesPerRow = 9;
+        var imagesPerRow = 10;
 
         var count = 1;
         var row = 0;
@@ -69,23 +69,20 @@ courseModule
             boxyArray1[i-1] = dim
             count = count + 1;
         }
-        console.log(boxyArray1.length);
+        //console.log(boxyArray1.length);
 
-        var TweenBoxy = TweenMax.to(boxyObj1, 2.2, {counter:boxyArray1.length, repeat:0, ease:SteppedEase.config(boxyArray1.length), onComplete:boxyTweenComplete, paused:true, onUpdate:boxyTweenUpdate});
+        var TweenBoxy = TweenMax.to(boxyObj1, 4.2, {counter:boxyArray1.length, repeat:0, ease:SteppedEase.config(boxyArray1.length), onComplete:boxyTweenComplete, paused:true, onUpdate:boxyTweenUpdate});
 
         function boxyTweenUpdate(){
             if (boxyObj1.counter < boxyArray1.length){
-                console.log(boxyObj1.counter);
+                //console.log(boxyObj1.counter);
                 TweenMax.to('.course-background', 0, {backgroundPosition:boxyArray1[Math.ceil(boxyObj1.counter)]});
-            } else {
-                console.log('else ' + boxyObj1.counter);
-
             }
         }
 
         function boxyTweenComplete(){
-            console.log('complete');
-            console.log(boxyArray1[boxyArray1.length-1]);
+            //console.log('complete');
+            //console.log(boxyArray1[boxyArray1.length-1]);
           //  TweenMax.to('.course-background', {backgroundPosition:'-2248px -4669px', immediateRender:true});
         }
 
