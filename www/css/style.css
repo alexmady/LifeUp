@@ -7,12 +7,12 @@
     opacity:1;
     background:url('../img/sprite.png') -0px -0px;
     background-repeat:no-repeat;
-    z-index: 4;
 }
 
 
 .mountain {
     background:url('../img/mm.png') -0px -0px;
+    background-size: cover;
 }
 
 .bar-header {
