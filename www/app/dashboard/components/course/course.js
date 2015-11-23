@@ -43,6 +43,7 @@ courseModule
             console.log('Sprite Size H: ' + $scope.spriteMeta.size.h);
             console.log('Sprite image: ' + $scope.spriteMeta.image);
             console.log('Device Pixel Ratio: ' + $scope.devicePixelRatio);
+
             console.log('---------------------------------------');
         };
 
