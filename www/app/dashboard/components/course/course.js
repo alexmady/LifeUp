@@ -58,9 +58,14 @@ courseModule
         };
 
 
-
+        $scope.devicePixelRatio = $window.devicePixelRatio;
         $scope.spritePNGFile = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.png';
+        if ($scope.devicePixelRatio === 2){
+            $scope.spritePNGFile = '../img/sprite-' + ($window.innerWidth * 2) + 'x' + ($window.innerHeight * 2) + '.png';
+        }
 
+        $scope.bgSizeW = "910px";
+        $scope.bgSizeH = "938px";
 
         // e.g. '../img/sprite-375x667.json'.
         // this must match corresponding sprite png file.
