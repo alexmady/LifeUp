@@ -33,13 +33,17 @@ courseModule
         };
 
         $scope.debug = function(){
+            console.log('---------------------------------------');
             console.log('debug');
             console.log('Window width: ' + $window.innerWidth);
             console.log('Window Height: ' + $window.innerHeight);
             console.log('Sprite: ' + $scope.spritePNGFile);
             console.log('Sprite Data File' + $scope.spriteDataFileName);
-            console.log('Data');
-            console.log($scope.items);
+            console.log('Sprite Size W: ' + $scope.spriteMeta.size.w);
+            console.log('Sprite Size H: ' + $scope.spriteMeta.size.h);
+            console.log('Sprite image: ' + $scope.spriteMeta.image);
+            console.log('Device Pixel Ratio: ' + $scope.devicePixelRatio);
+            console.log('---------------------------------------');
         };
 
         $scope.play = function (){
@@ -60,19 +64,14 @@ courseModule
 
         $scope.devicePixelRatio = $window.devicePixelRatio;
         $scope.spritePNGFile = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.png';
-        if ($scope.devicePixelRatio === 2){
-            $scope.spritePNGFile = '../img/sprite-' + ($window.innerWidth * 2) + 'x' + ($window.innerHeight * 2) + '.png';
-        }
-
-        $scope.bgSizeW = "910px";
-        $scope.bgSizeH = "938px";
-
-        // e.g. '../img/sprite-375x667.json'.
-        // this must match corresponding sprite png file.
         $scope.spriteDataFileName = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.json';
-        //var spriteData = JSON.parse(spriteDataFileName);
 
-        console.log($scope.spriteDataFileName);
+        if ($scope.devicePixelRatio === 2){
+            var w2 = ($window.innerWidth * 2);
+            var h2 = ($window.innerHeight * 2);
+            $scope.spritePNGFile = '../img/sprite-' +  w2 + 'x' + h2 + '.png';
+            $scope.spriteDataFileName = '../img/sprite-' + w2 + 'x' + h2 + '.json';
+        }
 
         $.ajaxSetup({async: false});
         // Your $.getJSON() request is now synchronous...
@@ -80,64 +79,66 @@ courseModule
         $scope.items = [];
         $.getJSON( $scope.spriteDataFileName, function( data ) {
 
-            console.log('back from json');
-
-            console.log(data);
+            $scope.spriteMeta = data.meta;
 
             $.each( data, function( key, val ) {
                 $.each(data[key], function(k,v){
                     if (v.frame){
                         var posInfo = {};
-                        posInfo.bp = '-' + v.frame.x + 'px -' + v.frame.y + 'px';
-                        posInfo.w = v.frame.w + 'px';
-                        posInfo.h = v.frame.h + 'px';
-                        posInfo.t = v.spriteSourceSize.y + 'px';
-                        posInfo.l = v.spriteSourceSize.x + 'px';
+                        var scale = $scope.devicePixelRatio;
+                        posInfo.bp = '-' + v.frame.x/scale + 'px -' + v.frame.y/scale + 'px';
+                        posInfo.w = v.frame.w/scale + 'px';
+                        posInfo.h = v.frame.h/scale + 'px';
+                        posInfo.t = v.spriteSourceSize.y/scale + 'px';
+                        posInfo.l = v.spriteSourceSize.x/scale + 'px';
                         $scope.items.push(posInfo);
-                        console.log(posInfo);
+                        //console.log(posInfo);
                     }
                 });
             });
         });
 
         $.ajaxSetup({async: true});
-        console.log($scope.items.length);
+
+        $scope.bgSizeW = $scope.spriteMeta.size.w / 2 + 'px';
+        $scope.bgSizeH = $scope.spriteMeta.size.h / 2 + 'px';
 
 
-/*
+
+            /*
 
 
-        var perRowMap = {};
-        perRowMap['320x480'] = 7;
-        perRowMap['375x667'] = 5;
+                    var perRowMap = {};
+                    perRowMap['320x480'] = 7;
+                    perRowMap['375x667'] = 5;
 
 
-        var boxyArray1 = [];
+                    var boxyArray1 = [];
 
-        var noImages = 115;
-        var deviceWidth = $window.innerWidth;
-        var deviceHeight = $window.innerHeight;
-        var imagesPerRow = 7;
+                    var noImages = 115;
+                    var deviceWidth = $window.innerWidth;
+                    var deviceHeight = $window.innerHeight;
+                    var imagesPerRow = 7;
 
-        var count = 1;
-        var row = 0;
+                    var count = 1;
+                    var row = 0;
 
 
-        for ( var i = 0; i < noImages; i++ ){
+                    for ( var i = 0; i < noImages; i++ ){
 
-            if (count >= imagesPerRow){
-                count = 0;
-                row = row + 1;
-            }
-            var x = '-' + ( count * deviceWidth ) + 'px';
-            var y = '-' + ( deviceHeight * row) + 'px';
-            var dim =  x + ' '+ y;
-            console.log( count + '-->' + dim);
-            boxyArray1[i-1] = dim
-            count = count + 1;
-        }
-        //console.log(boxyArray1.length);
-*/
+                        if (count >= imagesPerRow){
+                            count = 0;
+                            row = row + 1;
+                        }
+                        var x = '-' + ( count * deviceWidth ) + 'px';
+                        var y = '-' + ( deviceHeight * row) + 'px';
+                        var dim =  x + ' '+ y;
+                        console.log( count + '-->' + dim);
+                        boxyArray1[i-1] = dim
+                        count = count + 1;
+                    }
+                    //console.log(boxyArray1.length);
+            */
         var boxyObj1 = { counter: 0};
         var TweenBoxy = TweenMax.to(boxyObj1, 4.2, {counter:$scope.items.length, repeat:0,
             ease:SteppedEase.config($scope.items.length), onComplete:boxyTweenComplete, paused:true, onUpdate:boxyTweenUpdate});
