@@ -9,7 +9,32 @@
         <section class="course-container">
 
 
-                        <div class="course-background"
+            <button ng-click="skipBackwards()"
+                    style="background-size: contain;
+                    position: absolute;
+                    top: 50px;
+                    left: 100px;
+                    height: 50px;width: 50px"> <<<
+            </button>
+
+
+            <button ng-click="play()"
+                 style="background-size: contain;
+                    background-image:url(../img/blueplay.png);
+                    position: absolute;
+                    top: 50px;
+                    left: 150px;
+                    height: 50px;width: 50px">
+            </button>
+            <button ng-click="skipForward()"
+                    style="background-size: contain;
+                    position: absolute;
+                    top: 50px;
+                    left: 200px;
+                    height: 50px;width: 50px"> >>>
+            </button>
+
+           <div class="course-background"
                              style="
                              background-image: url({{spritePNGFile}});
                              background-repeat: no-repeat;
@@ -19,14 +44,17 @@
                              left: {{items[0].l}};
                              background-position: {{items[0].bp}};
                              background-size: {{bgSizeW}} {{bgSizeH}};
-                             position: absolute;"></div>
+                             position: absolute;">
 
-            <div style="margin: 20px">
-                <button ng-click="play()">PLAY</button>
-                <button ng-click="restart()">RESTART</button>
-                <button ng-click="load()">LOAD</button>
-                <button ng-click="debug()">DEBUG</button>
-            </div>
+
+
+
+
+
+
+                             </div>
+
+
 
 
                 <!-- <div class = "row">
