@@ -1,61 +1,67 @@
 <ion-view view-title="Course" has-back-button="false" hide-nav-bar="true">
 
-        <ion-nav-buttons side="left">
-            <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-        </ion-nav-buttons>
-
-    <ion-content scroll="false" class="mountain" >
+    <ion-content scroll="false" class="mountain">
 
         <section class="course-container">
 
 
-            <button ng-click="skipBackwards()"
+            <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()" ng-disabled="!step.backButtonEnabled"
                     style="background-size: contain;
+                    color: #000000;
                     position: absolute;
-                    top: 50px;
-                    left: 100px;
-                    height: 50px;width: 50px"> <<<
+                    top: {{playButtonTop}};
+                    left: 5px;
+                    height: 50px;width: 50px; font-size: 30px">
             </button>
 
 
-            <button ng-click="play()"
+            <button ng-click="play()" class="button lifeup-text" ng-show="profile.showPlayButton"
                  style="background-size: contain;
-                    background-image:url(../img/blueplay.png);
                     position: absolute;
-                    top: 50px;
-                    left: 150px;
-                    height: 50px;width: 50px">
+                    color: #000000;
+                    top: {{playButtonTop}};
+                    left: {{playButtonLeft}};
+                    height: 50px;width: 60%;opacity: 0.6"> <p style="opacity: 1;">START {{step.name}} MODULE</p>
             </button>
-            <button ng-click="skipForward()"
+            <button ng-click="climb()" class="button lifeup-text" ng-show="profile.readyToClimb"
                     style="background-size: contain;
                     position: absolute;
-                    top: 50px;
-                    left: 200px;
-                    height: 50px;width: 50px"> >>>
+                    color: #000000;
+                    top: {{playButtonTop}};
+                    left: {{playButtonLeft}};
+                    height: 50px;width: 60%;opacity: 0.6"> <p style="opacity: 1;">CLIMB!</p>
+            </button>
+            <button class="button button-clear ion-chevron-right" ng-click="skipForward()" ng-disabled="!step.forwardButtonEnabled"
+                    style="background-size: contain;
+                    position: absolute;
+                    color: #000000;
+                    top: {{playButtonTop}};
+                    left: {{forwardButtonLeft}}px;
+                    height: 50px;width: 50px;font-size: 30px">
             </button>
 
-           <div class="course-background"
-                             style="
-                             background-image: url({{spritePNGFile}});
+         <!--  <div  class="course-background"
+                             style="background-image: url(spritePNGFile);
                              background-repeat: no-repeat;
-                             width: {{items[0].w}};
-                             height: {{items[0].h}};
-                             top: {{items[0].t}};
-                             left: {{items[0].l}};
-                             background-position: {{items[0].bp}};
+                             width: {{items[step.frame].w}};
+                             height: {{items[step.frame].h}};
+                             top: {{items[step.frame].t}};
+                             left: {{items[step.frame].l}};
+                             background-position: {{items[step.frame].bp}};
                              background-size: {{bgSizeW}} {{bgSizeH}};
                              position: absolute;">
+                </div>-->
 
-
-
-
-
-
-
-                             </div>
-
-
-
+             <div class="course-background"  ng-style="{'background-image': 'url('+spritePNGFile +')',
+                             'background-repeat': 'no-repeat',
+                             'width':  items[step.frame].w,
+                             'height': items[step.frame].h,
+                             'top': items[step.frame].t,
+                             'left': items[step.frame].l,
+                             'background-position': items[step.frame].bp,
+                             'background-size': bgSizeW + ' ' + bgSizeH,
+                             'position': 'absolute' } ">
+            </div>
 
                 <!-- <div class = "row">
                      <div class = "col text-center">

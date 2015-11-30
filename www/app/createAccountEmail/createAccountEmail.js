@@ -38,7 +38,6 @@ angular.module('lifeUp.createAccountEmail', [])
                         password: user.pass
                     }, function (error, userData) {
 
-                        console.log("Error creating user:", error);
                         if (error) {
                             $ionicLoading.hide();
 

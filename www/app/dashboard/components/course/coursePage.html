@@ -1,0 +1,33 @@
+<ion-view class="lifeup-bg" view-title="{{title}}" >
+
+
+    <ion-nav-buttons side="right">
+        <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!lastSlide"
+                class="button button-icon button-light ion-android-checkbox-outline"
+                style="color: white">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <button ng-click="go()"
+                class="button button-icon button-light ion-chevron-left" style="color: white">
+        </button>
+    </ion-nav-buttons>
+
+
+
+    <ion-slide-box class="slidebox" on-slide-changed="slideHasChanged($index)">
+
+        <ion-slide class="center">
+
+            SLIDE 1
+            test
+
+        </ion-slide>
+
+        <ion-slide class="center">
+            SLIDE 2
+            test
+        </ion-slide>
+    </ion-slide-box>
+
+</ion-view>

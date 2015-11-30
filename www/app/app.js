@@ -38,6 +38,8 @@ angular.module('lifeUp', [
     }
   });
 
+
+  // Whenever there is an update to authorization data from firebase
   Auth.ref.$onAuth(function(authData){
 
       $ionicLoading.hide();
@@ -52,7 +54,7 @@ angular.module('lifeUp', [
               var user = { email: authData.facebook.email };
               FirebaseUtil.checkAndCreateUserProfile(authData, user);
           }
-
+          console.log('Going to dashboard.course');
           $state.go('dashboard.course');
       } else {
           $state.go('home');
@@ -64,4 +66,3 @@ angular.module('lifeUp', [
     $ionicConfigProvider.backButton.previousTitleText(false);
     $ionicConfigProvider.backButton.text('');
 });
-

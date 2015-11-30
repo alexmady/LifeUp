@@ -5,7 +5,7 @@
 
 var days = ['DISARM', 'SPACE', 'FLOW', 'ACT', 'BE', 'I'];
 
-var courseModule = angular.module('lifeUp.course', [ 'Auth']);
+var courseModule = angular.module('lifeUp.course', [ 'Auth','ionic']);
 
 courseModule
 
@@ -23,12 +23,83 @@ courseModule
             });
     }])
 
-    .controller('CourseCtrl', [ '$scope', '$state', '$window',
-        function ($scope, $state, $window) {
+    .controller('CourseCtrl', [ '$scope', '$state', '$window','User','$rootScope',
+        function ($scope, $state, $window, User, $rootScope) {
+
+            var init = function(){
+
+                $scope.profile = User.getProfile();
+
+                $scope.profile.$loaded(function(){
+                    console.log('user profile loaded');
+                    console.log($scope.profile);
+                    console.log('User: '+ $scope.profile.email);
+
+                    $scope.playButtonTop = ($window.innerHeight - 60) +'px';
+                    $scope.playButtonLeft = ($window.innerWidth * 0.2) + 'px';
+                    $scope.devicePixelRatio = $window.devicePixelRatio;
+                    $scope.spritePNGFile = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.png';
+                    $scope.spriteDataFileName = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.json';
+
+                    if ($scope.devicePixelRatio === 2) {
+                        var w2 = ($window.innerWidth * 2);
+                        var h2 = ($window.innerHeight * 2);
+                        $scope.spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
+                        $scope.spriteDataFileName = '../img/sprite-' + w2 + 'x' + h2 + '.json';
+                    }
+
+                    $.ajaxSetup({async: false});
+                    // Your $.getJSON() request is now synchronous...
+
+                    $scope.items = [];
+                    $.getJSON($scope.spriteDataFileName, function (data) {
+
+                        $scope.spriteMeta = data.meta;
+
+                        $.each(data, function (key, val) {
+                            $.each(data[key], function (k, v) {
+                                if (v.frame) {
+                                    var posInfo = {};
+                                    var scale = $scope.devicePixelRatio;
+                                    posInfo.bp = '-' + v.frame.x / scale + 'px -' + v.frame.y / scale + 'px';
+                                    posInfo.w = v.frame.w / scale + 'px';
+                                    posInfo.h = v.frame.h / scale + 'px';
+                                    posInfo.t = v.spriteSourceSize.y / scale + 'px';
+                                    posInfo.l = v.spriteSourceSize.x / scale + 'px';
+                                    $scope.items.push(posInfo);
+                                    //console.log(posInfo);
+                                }
+                            });
+                        });
+                    });
+
+                    $.ajaxSetup({async: true});
+
+                    $scope.bgSizeW = $scope.spriteMeta.size.w / 2 + 'px';
+                    $scope.bgSizeH = $scope.spriteMeta.size.h / 2 + 'px';
+
+
+                    $scope.step = steps[$scope.profile.module-1];
+                    $scope.boxyObj1.counter = $scope.step.frame;
+
+                    if($scope.profile.readyToClimb){
+                        $scope.profile.showPlayButton = false;
+                    } else {
+                        $scope.profile.showPlayButton = true;
+                    }
+
+
+                });
+
+                $scope.profile.$watch(function(data){
+                    console.log('$scope.profile.$watch');
+                    if ($scope.profile.readyToClimb){
+                        $scope.profile.showPlayButton = false;
+                    }
+                });
+            };
 
             TweenMax.ticker.fps(30);
-
-            console.log('CourseController.......');
 
             $scope.go = function (goTo) {
                 $state.go(goTo);
@@ -45,105 +116,58 @@ courseModule
                 console.log('Sprite Size H: ' + $scope.spriteMeta.size.h);
                 console.log('Sprite image: ' + $scope.spriteMeta.image);
                 console.log('Device Pixel Ratio: ' + $scope.devicePixelRatio);
-
                 console.log('---------------------------------------');
             };
 
-
-            $scope.devicePixelRatio = $window.devicePixelRatio;
-            $scope.spritePNGFile = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.png';
-            $scope.spriteDataFileName = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.json';
-
-            if ($scope.devicePixelRatio === 2) {
-                var w2 = ($window.innerWidth * 2);
-                var h2 = ($window.innerHeight * 2);
-                $scope.spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
-                $scope.spriteDataFileName = '../img/sprite-' + w2 + 'x' + h2 + '.json';
-            }
-
-            $.ajaxSetup({async: false});
-            // Your $.getJSON() request is now synchronous...
-
-            $scope.items = [];
-            $.getJSON($scope.spriteDataFileName, function (data) {
-
-                $scope.spriteMeta = data.meta;
-
-                $.each(data, function (key, val) {
-                    $.each(data[key], function (k, v) {
-                        if (v.frame) {
-                            var posInfo = {};
-                            var scale = $scope.devicePixelRatio;
-                            posInfo.bp = '-' + v.frame.x / scale + 'px -' + v.frame.y / scale + 'px';
-                            posInfo.w = v.frame.w / scale + 'px';
-                            posInfo.h = v.frame.h / scale + 'px';
-                            posInfo.t = v.spriteSourceSize.y / scale + 'px';
-                            posInfo.l = v.spriteSourceSize.x / scale + 'px';
-                            $scope.items.push(posInfo);
-                            //console.log(posInfo);
-                        }
-                    });
-                });
-            });
-
-            $.ajaxSetup({async: true});
-
-            $scope.bgSizeW = $scope.spriteMeta.size.w / 2 + 'px';
-            $scope.bgSizeH = $scope.spriteMeta.size.h / 2 + 'px';
-
-
-            $scope.currentPosition = 0;
+            $scope.playButtonWidth = 50;
+            $scope.playButtonLeft = (($window.innerWidth/2)-$scope.playButtonWidth) + 'px';
+            $scope.forwardButtonLeft = $window.innerWidth - 50;
 
             $scope.play = function () {
-                if ($scope.currentPosition + 1 >= steps.length) {return;}
-                console.log('play');
-                $scope.currentPosition++;
-                var data = steps[$scope.currentPosition];
-                tweenTo(data.frame, data.duration, boxyTweenComplete, false);
-                console.log('currentPosition: ' + $scope.currentPosition);
+                $state.go('dashboard.' + $scope.step.name);
             };
 
+            $scope.climb = function(){
+                if ($scope.step + 1 >= steps.length) {return;}
+                User.updateCourseProgress($scope.step.pos, 0, false);
+                $scope.step = steps[$scope.step.pos]; // pos is index of steps array + 1!
+                tweenTo($scope.step.frame, $scope.step.duration, $scope.boxyTweenComplete, false);
+            };
 
             $scope.skipForward = function () {
-                if ($scope.currentPosition + 1  >= steps.length) { return; }
-                var frame = steps[$scope.currentPosition + 1].frame;
-                $scope.currentPosition++;
-                console.log($scope.currentPosition);
-                tweenTo(frame, 0, boxyTweenComplete, true);
+                if ($scope.step.pos  >= steps.length) { return; }
+                $scope.step = steps[$scope.step.pos]; // pos is index of steps array + 1!
+                tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
             };
 
             $scope.skipBackwards = function () {
-                if ($scope.currentPosition === 0) { return; }
-                var frame = steps[$scope.currentPosition - 1].frame;
-                $scope.currentPosition--;
-                tweenTo(frame, 0, boxyTweenComplete, true);
+                if ($scope.step.pos === 1) { return; }
+                $scope.step = steps[$scope.step.pos - 2];
+                tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
             };
 
-
-
             var steps = [
-                {frame: 0, duration: 0},
-                {frame: 208, duration: 6},
-                {frame: 345, duration: 5},
-                {frame: 520, duration: 6},
-                {frame: 592, duration: 5},
-                {frame: 654, duration: 2}
+                {name: 'DISARM', pos: 1, frame: 0, duration: 0, backButtonEnabled: false, forwardButtonEnabled: true},
+                {name: 'SPACE', pos: 2, frame: 208, duration: 6, backButtonEnabled: true, forwardButtonEnabled: true},
+                {name: 'FLOW',  pos: 3,frame: 345, duration: 5, backButtonEnabled: true, forwardButtonEnabled: true},
+                {name: 'ACT', pos: 4,frame: 520, duration: 6, backButtonEnabled: true, forwardButtonEnabled: true},
+                {name: 'BE', pos: 5,frame: 592, duration: 5, backButtonEnabled: true, forwardButtonEnabled: true},
+                {name: 'I', pos: 6,frame: 654, duration: 2, backButtonEnabled: true, forwardButtonEnabled: false}
              ];
 
-
-            var boxyObj1 = { counter: 0};
+            $scope.boxyObj1 = { counter: 0};
 
             var tweenTo = function (frame, time, onComplete, paused) {
 
 
-                var TweenBoxy = TweenMax.to(boxyObj1, time, {counter: frame, repeat: 0,
+                var TweenBoxy = TweenMax.to($scope.boxyObj1, time, {counter: frame, repeat: 0,
                     //ease:SteppedEase.config($scope.items.length), onComplete:boxyTweenComplete, paused:true, onUpdate:boxyTweenUpdate});
                     ease: SteppedEase.config(frame), onComplete: onComplete, paused: paused, onUpdate: boxyTweenUpdate});
 
                 function boxyTweenUpdate() {
-                    if (boxyObj1.counter < $scope.items.length) {
+                    if ($scope.boxyObj1.counter < $scope.items.length) {
                         //      console.log(boxyObj1.counter);
-                        var pi = $scope.items[Math.ceil(boxyObj1.counter)];
+                        var pi = $scope.items[Math.ceil($scope.boxyObj1.counter)];
                         TweenMax.to('.course-background', 0, {
                             backgroundPosition: pi.bp,
                             top: pi.t,
@@ -152,19 +176,17 @@ courseModule
                             height: pi.h
                         });
                     }
-
                 };
                 return TweenBoxy;
-
             };
 
+            $scope.boxyTweenComplete = function() {
+                console.log('Tween complete');
+                $scope.profile.showPlayButton = true;
+                $scope.profile.$save();
+            };
 
-            function boxyTweenComplete() {
-                console.log('complete');
-
-            }
-
-
+            init();
         }]);
 
 courseModule
@@ -183,13 +205,13 @@ courseModule
                     url: '/' + it,
                     views: {
                         'dashboardContent': {
-                            templateUrl: "app/dashboard/components/course/" + htmlFile,
+                            templateUrl: "app/dashboard/components/course/coursePage.html",
+                            //template: '<course-page></course-page>',
                             controller: controller
                         }
                     }
                 });
-        }
-        ;
+        };
     }]);
 
 
@@ -199,22 +221,31 @@ for (var i = 0; i < days.length; i++) {
 
         var controller = days[n] + 'Ctrl';
 
-        courseModule.controller(controller, [ '$scope', '$state', '$ionicSlideBoxDelegate', 'User',
-            function ($scope, $state, $ionicSlideBoxDelegate, User) {
+        courseModule.controller(controller, [ '$scope', '$state', '$ionicSlideBoxDelegate', 'User', '$rootScope',
+            function ($scope, $state, $ionicSlideBoxDelegate, User, $rootScope) {
+
+                $scope.title = days[n];
 
                 $scope.go = function () {
+                    $state.go('dashboard.course');
+                };
+
+                $scope.completeModule = function(){
+                    User.updateCourseProgress($scope.courseModule, ($ionicSlideBoxDelegate.currentIndex()+1), true);
                     $state.go('dashboard.course');
                 };
 
                 $scope.slideHasChanged = function (index) {
                     if (($ionicSlideBoxDelegate.slidesCount() - 1) === index) {
                         $scope.lastSlide = true;
+                    } else {
+                        $scope.lastSlide = false;
                     }
-                    User.updateCourseProgress($scope.courseModule, (index + 1));
+                    User.updateCourseProgress($scope.courseModule, (index + 1), false);
                 };
 
                 $scope.init = function () {
-                    User.updateCourseProgress($scope.courseModule, 1);
+                    User.updateCourseProgress($scope.courseModule, 1, false);
                 };
 
                 $scope.lastSlide = false;
@@ -226,7 +257,11 @@ for (var i = 0; i < days.length; i++) {
     })(courseModule, i);
 }
 
-
+courseModule.directive('coursePage', function() {
+    return {
+        templateUrl: 'app/dashboard/components/course/coursePage.html'
+    };
+});
 /*
 
  $scope.slideChanged = function(index) {
