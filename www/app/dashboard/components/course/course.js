@@ -129,9 +129,15 @@ courseModule
 
             $scope.climb = function(){
                 if ($scope.step + 1 >= steps.length) {return;}
-                User.updateCourseProgress($scope.step.pos, 0, false);
-                $scope.step = steps[$scope.step.pos]; // pos is index of steps array + 1!
-                tweenTo($scope.step.frame, $scope.step.duration, $scope.boxyTweenComplete, false);
+                $scope.profile.readyToClimb = false;
+
+                var nextStep = steps[$scope.step.pos];
+
+                var onCompleteClimb = function(){
+                    $scope.step = nextStep;// pos is index of steps array + 1!
+                    $scope.boxyTweenComplete();
+                };
+                tweenTo(nextStep.frame, nextStep.duration, onCompleteClimb, false);
             };
 
             $scope.skipForward = function () {
@@ -143,6 +149,7 @@ courseModule
             $scope.skipBackwards = function () {
                 if ($scope.step.pos === 1) { return; }
                 $scope.step = steps[$scope.step.pos - 2];
+                $scope.boxyObj1.counter = $scope.step.frame;
                 tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
             };
 
@@ -183,6 +190,7 @@ courseModule
             $scope.boxyTweenComplete = function() {
                 console.log('Tween complete');
                 $scope.profile.showPlayButton = true;
+                $scope.profile.readyToClimb = false;
                 $scope.profile.$save();
             };
 
