@@ -11,6 +11,30 @@ only screen and (min-resolution: 120dpi) {
     }
 
 }*/
+
+.lifeup-page-text {
+    font-family: 'Montserrat', serif;
+    color: antiquewhite;
+    line-height: 1.5em;
+    font-size: 12px;
+    margin: 30px;
+}
+
+.lifeup-page-text-heading {
+    font-family: 'Montserrat', serif;
+    color: darkslategrey;
+    font-size: 14px;
+    margin: 30px;
+    text-align: center;
+}
+.lifeup-page-text-heading2{
+
+    font-family: 'Montserrat', serif;
+    color: #ffffff;
+    font-size: 12px;
+    margin: 5%;
+}
+
 .slider-slide {
     color: #000;
     background-color: cornflowerblue;
@@ -111,6 +135,11 @@ input[type="text"], input[type="password"]{
     background-color: #333333;
 }
 
+
+.lifeup-quote {
+    color: firebrick;
+    font-style: italic;
+}
 .slider {
     height: 100%;
 }
@@ -121,12 +150,6 @@ input[type="text"], input[type="password"]{
     max-width: 100%;
 }
 
-.item {
-    background-color: cornflowerblue;
-    border: 0;
-    padding: 0;
-    color: white;
-}
 
 
 .slider-pager-page
