@@ -14,7 +14,7 @@ only screen and (min-resolution: 120dpi) {
 
 .lifeup-page-text {
     font-family: 'Montserrat', serif;
-    color: antiquewhite;
+    color: #525252;
     line-height: 1.5em;
     font-size: 12px;
     margin: 30px;
@@ -22,10 +22,9 @@ only screen and (min-resolution: 120dpi) {
 
 .lifeup-page-text-heading {
     font-family: 'Montserrat', serif;
-    color: darkslategrey;
+    color: #34aabc;
     font-size: 14px;
     margin: 30px;
-    text-align: center;
 }
 .lifeup-page-text-heading2{
 
