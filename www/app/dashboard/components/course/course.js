@@ -23,8 +23,8 @@ courseModule
             });
     }])
 
-    .controller('CourseCtrl', [ '$scope', '$state', '$window','User','$rootScope',
-        function ($scope, $state, $window, User, $rootScope) {
+    .controller('CourseCtrl', [ '$scope', '$state', '$window','User',
+        function ($scope, $state, $window, User) {
 
             var init = function(){
 
@@ -78,8 +78,7 @@ courseModule
                     $scope.bgSizeW = $scope.spriteMeta.size.w / 2 + 'px';
                     $scope.bgSizeH = $scope.spriteMeta.size.h / 2 + 'px';
 
-
-                    $scope.step = steps[$scope.profile.module-1];
+                    updateStep(Math.max($scope.profile.module-1,0));
                     $scope.boxyObj1.counter = $scope.step.frame;
 
                     if($scope.profile.readyToClimb){
@@ -103,6 +102,16 @@ courseModule
 
             $scope.go = function (goTo) {
                 $state.go(goTo);
+            };
+
+            var updateStep = function(index){
+                console.log('updating step to : ' + index);
+                $scope.step = steps[index];
+                if ($scope.step.pos < $scope.profile.moduleFar){
+                    $scope.forwardButtonEnabled = true;
+                } else {
+                    $scope.forwardButtonEnabled = false;
+                }
             };
 
             $scope.debug = function () {
@@ -132,9 +141,10 @@ courseModule
                 $scope.profile.readyToClimb = false;
 
                 var nextStep = steps[$scope.step.pos];
+                User.updateCourseProgress(nextStep.pos,0,false);
 
                 var onCompleteClimb = function(){
-                    $scope.step = nextStep;// pos is index of steps array + 1!
+                    updateStep($scope.step.pos);
                     $scope.boxyTweenComplete();
                 };
                 tweenTo(nextStep.frame, nextStep.duration, onCompleteClimb, false);
@@ -142,30 +152,32 @@ courseModule
 
             $scope.skipForward = function () {
                 if ($scope.step.pos  >= steps.length) { return; }
-                $scope.step = steps[$scope.step.pos]; // pos is index of steps array + 1!
+                if ($scope.step.pos + 1  >  $scope.profile.moduleFar) {
+                    return;
+                }
+                updateStep($scope.step.pos);
                 tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
             };
 
             $scope.skipBackwards = function () {
                 if ($scope.step.pos === 1) { return; }
-                $scope.step = steps[$scope.step.pos - 2];
+                updateStep($scope.step.pos - 2)
                 $scope.boxyObj1.counter = $scope.step.frame;
                 tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
             };
 
             var steps = [
-                {name: 'DISARM', pos: 1, frame: 0, duration: 0, backButtonEnabled: false, forwardButtonEnabled: true},
-                {name: 'SPACE', pos: 2, frame: 208, duration: 6, backButtonEnabled: true, forwardButtonEnabled: true},
-                {name: 'FLOW',  pos: 3,frame: 345, duration: 5, backButtonEnabled: true, forwardButtonEnabled: true},
-                {name: 'ACT', pos: 4,frame: 520, duration: 6, backButtonEnabled: true, forwardButtonEnabled: true},
-                {name: 'BE', pos: 5,frame: 592, duration: 5, backButtonEnabled: true, forwardButtonEnabled: true},
-                {name: 'I', pos: 6,frame: 654, duration: 2, backButtonEnabled: true, forwardButtonEnabled: false}
+                {name: 'DISARM', pos: 1, frame: 0, duration: 0, backButtonEnabled: false},
+                {name: 'SPACE', pos: 2, frame: 208, duration: 6, backButtonEnabled: true},
+                {name: 'FLOW',  pos: 3,frame: 345, duration: 5, backButtonEnabled: true},
+                {name: 'ACT', pos: 4,frame: 520, duration: 6, backButtonEnabled: true},
+                {name: 'BE', pos: 5,frame: 592, duration: 5, backButtonEnabled: true},
+                {name: 'I', pos: 6,frame: 654, duration: 2, backButtonEnabled: true}
              ];
 
-            $scope.boxyObj1 = { counter: 0};
+            $scope.boxyObj1 = { counter: 0 };
 
             var tweenTo = function (frame, time, onComplete, paused) {
-
 
                 var TweenBoxy = TweenMax.to($scope.boxyObj1, time, {counter: frame, repeat: 0,
                     //ease:SteppedEase.config($scope.items.length), onComplete:boxyTweenComplete, paused:true, onUpdate:boxyTweenUpdate});
