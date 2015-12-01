@@ -78,7 +78,7 @@ courseModule
                     $scope.bgSizeW = $scope.spriteMeta.size.w / 2 + 'px';
                     $scope.bgSizeH = $scope.spriteMeta.size.h / 2 + 'px';
 
-                    updateStep(Math.max($scope.profile.module-1,0));
+                    updateStep(Math.max($scope.profile.module-1,0), $scope.profile.slide);
                     $scope.boxyObj1.counter = $scope.step.frame;
 
                     if($scope.profile.readyToClimb){
@@ -104,13 +104,18 @@ courseModule
                 $state.go(goTo);
             };
 
-            var updateStep = function(index){
+            var updateStep = function(index, slide){
                 console.log('updating step to : ' + index);
                 $scope.step = steps[index];
                 if ($scope.step.pos < $scope.profile.moduleFar){
                     $scope.forwardButtonEnabled = true;
                 } else {
                     $scope.forwardButtonEnabled = false;
+                }
+                if (slide){
+                    User.updateCourseProgress($scope.step.pos, slide, false);
+                } else {
+                    User.updateCourseProgress($scope.step.pos, 0, false);
                 }
             };
 
@@ -264,13 +269,16 @@ for (var i = 0; i < days.length; i++) {
                     User.updateCourseProgress($scope.courseModule, (index + 1), false);
                 };
 
-                $scope.init = function () {
-                    User.updateCourseProgress($scope.courseModule, 1, false);
+                var init = function () {
+                    $scope.lastSlide = false;
+                    $scope.courseModule = n + 1;
+                    $scope.userActiveSlide = 0;
+                    var profile = User.getProfile();
+                    if (profile.slide > 0) $scope.userActiveSlide = profile.slide-1;
+                    User.updateCourseProgress($scope.courseModule, $scope.userActiveSlide+1 , false);
                 };
 
-                $scope.lastSlide = false;
-                $scope.courseModule = n + 1;
-                $scope.init();
+                init();
 
             }]);
 

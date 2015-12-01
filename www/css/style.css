@@ -167,6 +167,13 @@ input[type="text"], input[type="password"]{
     color: white;
 }
 
+.lifeup-course-buttons {
+    font-family: 'Amatic SC', cursive;
+    font-size: 28px;
+    color: #4682b4;
+}
+
+
 input::-webkit-input-placeholder {
     color:    antiquewhite;
 }

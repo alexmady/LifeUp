@@ -4,40 +4,38 @@
 
         <section class="course-container">
 
+            <div style="background-color: white;width: 100%;height: 44px; top: {{playButtonTop}};opacity: 0.6; position: absolute">
 
             <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()" ng-disabled="!step.backButtonEnabled"
-                    style="background-size: contain;
-                    color: #000000;
+                    style="
+                    color: #009689;
                     position: absolute;
-                    top: {{playButtonTop}};
                     left: 5px;
-                    height: 50px;width: 50px; font-size: 30px">
+                    height: 26px;width: 26px; font-size: 26px">
             </button>
 
 
-            <button ng-click="play()" class="button lifeup-text" ng-show="profile.showPlayButton"
-                 style="background-size: contain;
+            <button ng-click="play()" class="button button-clear lifeup-course-buttons" ng-show="profile.showPlayButton"
+                 style="
                     position: absolute;
-                    color: #000000;
-                    top: {{playButtonTop}};
+                    color: #009689;
                     left: {{playButtonLeft}};
-                    height: 50px;width: 60%;opacity: 0.6"> <p style="opacity: 1;">START {{step.name}} MODULE</p>
+                    height: 20px;width: 60%;">OPEN {{step.name}} MODULE
             </button>
-            <button ng-click="climb()" class="button lifeup-text" ng-show="profile.readyToClimb"
-                    style="background-size: contain;
+            <button ng-click="climb()" class="button button-clear lifeup-course-buttons" ng-show="profile.readyToClimb"
+                    style="
                     position: absolute;
-                    color: #000000;
-                    top: {{playButtonTop}};
+                    color: #009689;
                     left: {{playButtonLeft}};
-                    height: 50px;width: 60%;opacity: 0.6"> <p style="opacity: 1;">CLIMB!</p>
+                    height: 50px;width: 60%;">CLIMB!
             </button>
             <button class="button button-clear ion-chevron-right" ng-click="skipForward()" ng-disabled="!forwardButtonEnabled"
-                    style="background-size: contain;
+                    style="
                     position: absolute;
-                    color: #000000;
-                    top: {{playButtonTop}};
+                    color: #009689;
+                    z-index: 1002;
                     left: {{forwardButtonLeft}}px;
-                    height: 50px;width: 50px;font-size: 30px">
+                    height: 30px;width: 30px;font-size: 26px">
             </button>
 
          <!--  <div  class="course-background"
@@ -51,7 +49,7 @@
                              background-size: {{bgSizeW}} {{bgSizeH}};
                              position: absolute;">
                 </div>-->
-
+            </div>
              <div class="course-background"  ng-style="{'background-image': 'url('+spritePNGFile +')',
                              'background-repeat': 'no-repeat',
                              'width':  items[step.frame].w,
