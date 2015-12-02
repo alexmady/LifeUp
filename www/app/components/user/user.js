@@ -19,6 +19,10 @@ angular.module('User', [])
             return profile;
         };
 
+        var getAuthData = function(){
+            return authData;
+        };
+
         var updateCourseProgress = function( module, slide, readyToClimb){
 
             if (!authData) {
@@ -51,7 +55,8 @@ angular.module('User', [])
         return {
             updateCourseProgress: updateCourseProgress,
             setAuthData: setAuthData,
-            getProfile: getProfile
+            getProfile: getProfile,
+            authData: getAuthData
         }
 
     }]);

@@ -12,35 +12,35 @@ only screen and (min-resolution: 120dpi) {
 
 }*/
 
+.line-margin {
+    margin: 5%;
+}
+
+
 .lifeup-page-text {
     font-family: 'Montserrat', serif;
     color: #525252;
     line-height: 1.5em;
     font-size: 12px;
-    margin: 30px;
+    margin: 5%;
 }
 
 .lifeup-page-text-heading {
     font-family: 'Montserrat', serif;
     color: #34aabc;
     font-size: 14px;
-    margin: 30px;
+    margin: 5%;
 }
 .lifeup-page-text-heading2{
 
     font-family: 'Montserrat', serif;
-    color: #ffffff;
+    color:  #34aabc;
     font-size: 12px;
     margin: 5%;
 }
 
 .slider-slide {
     color: #000;
-    background-color: cornflowerblue;
-    text-align: center;
-
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: 300;
 }
 
 .controlsContainer button{
@@ -149,6 +149,12 @@ input[type="text"], input[type="password"]{
     max-width: 100%;
 }
 
+.slider-pager {
+    font-size: 10px;
+    bottom: 0;
+    height: 20px;
+    background-color: ghostwhite;
+}
 
 
 .slider-pager-page
@@ -160,10 +166,14 @@ input[type="text"], input[type="password"]{
 }
 .slider-pager-page.active
 {
-    fill: white;
-    color: white;
+    fill: #34aabc;
+    color: #34aabc;
 }
 
+
+.courseSlide {
+    height: 90%;
+}
 
 .lifeup-button {
     font-family: 'Montserrat', serif;

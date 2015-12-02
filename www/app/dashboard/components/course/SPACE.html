@@ -1,20 +1,154 @@
-<ion-view class="lifeup-bg" view-title="SPACE" has-back-button="false">
+<ion-view view-title="SPACE" >
+
+    <ion-nav-buttons side="right">
+        <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!lastSlide"
+                class="button button-clear ion-android-checkbox-outline"
+                style="color: white;font-size: 24px">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <button ng-click="go()"
+                class="button button-clear ion-chevron-left" style="color: white;font-size: 24px">
+        </button>
+    </ion-nav-buttons>
+
+    <ion-slide-box active-slide="userActiveSlide" on-slide-changed="slideHasChanged($index)">
+
+        <ion-slide class="slide">
+            <ion-content style="height: 96%">
+                he LifeUp Mindfulness Challenge: Day 1
+
+                Discover unhelpful thoughts
+
+                DISARM: Discover, Identify, Separate, Allow, Recover, Master
+
+                Practise 'Thought Monitoring' by using the DISARM technique, which is highly effective in interrupting repetitive unconscious thought patterns and emotions, helping to depersonalise and dissipate them.
+
+                D is for Discover unhelpful thoughts
 
 
-        <ion-nav-buttons side="right">
-            <button ng-click="go()" menu-toggle="right" class="button button-icon ion-android-checkbox-outline"></button>
-        </ion-nav-buttons>
 
-    <ion-slide-box class="slidebox" on-slide-changed="slideHasChanged($index)">
 
-        <ion-slide class="center slide">
-            SLIDE 1
+                Education
+
+                STEP 1: Observe your thoughts
+                Are you having any involuntary, automatic or repetitive thoughts?
+                Is one thought fuelling another, and so on (snowballing)?
+                Are you judging or labelling, criticising, complaining or overly comparing?
+
+                Just observe these thoughts – but don’t judge them.
+
+                STEP 2: Scan your body
+
+                Direct your attention to the location of the feeling:
+
+                a) Are you feeling any tension, anxiety or stress?
+                b) Is there any physical discomfort or unusual sensations?
+                c) Are you feeling negativity, irritation, resentment, anger, dissatisfaction?
+
+                Consider the sensation and emotion. What situation/event is this linked to? What is the related thought and situation causing this emotion?
+
+
+
+                Activity
+                “Thought Snap”
+
+                A thought snap is a simple way to take a snapshot of your mind’s thought chatter.
+
+                Either in your phone notes  or in a journal, write down the following in as few words as possible.
+
+                1. The dominant thought
+                2. The situation or likely trigger
+                3. Your dominant emotion
+                4. Your struggle Rating
+
+                The struggle rating is the strength of your emotions and how they are impacting on your state of mind on a scale of 1-10 (where 1 is ‘barely at all’ and 10 is ‘overwhelmed’).
+
+                Don’t judge anything as good or bad, don't think too much about it, just notice a thought or emotion and ‘snap’ it. Remember, often it’s the emotion you discover first, which helps you uncover the related situation, from which you then discover the unhelpful thought.
+
+                Examples:
+
+                'Why doesn't my friend like me?!'
+                Dave/Davina didn't call me back
+                Annoyed / insecure
+                7 out of 10 struggle
+                Or
+
+                'Everyone is relying on me, I can't fail'
+                Delivery of management report to impossible timeline
+                Overwhelmed, stressed, burned out, loss of c
+            </ion-content>
         </ion-slide>
 
-        <ion-slide class="center slide">
-            SLIDE 2
+        <ion-slide class="slide">
+
+            <ion-content>
+                he LifeUp Mindfulness Challenge: Day 1
+
+                Discover unhelpful thoughts
+
+                DISARM: Discover, Identify, Separate, Allow, Recover, Master
+
+                Practise 'Thought Monitoring' by using the DISARM technique, which is highly effective in interrupting repetitive unconscious thought patterns and emotions, helping to depersonalise and dissipate them.
+
+                D is for Discover unhelpful thoughts
+
+
+
+                Education
+
+                STEP 1: Observe your thoughts
+                Are you having any involuntary, automatic or repetitive thoughts?
+                Is one thought fuelling another, and so on (snowballing)?
+                Are you judging or labelling, criticising, complaining or overly comparing?
+
+                Just observe these thoughts – but don’t judge them.
+
+                STEP 2: Scan your body
+
+                Direct your attention to the location of the feeling:
+
+                a) Are you feeling any tension, anxiety or stress?
+                b) Is there any physical discomfort or unusual sensations?
+                c) Are you feeling negativity, irritation, resentment, anger, dissatisfaction?
+
+                Consider the sensation and emotion. What situation/event is this linked to? What is the related thought and situation causing this emotion?
+
+
+
+                Activity
+                “Thought Snap”
+
+                A thought snap is a simple way to take a snapshot of your mind’s thought chatter.
+
+                Either in your phone notes  or in a journal, write down the following in as few words as possible.
+
+                1. The dominant thought
+                2. The situation or likely trigger
+                3. Your dominant emotion
+                4. Your struggle Rating
+
+                The struggle rating is the strength of your emotions and how they are impacting on your state of mind on a scale of 1-10 (where 1 is ‘barely at all’ and 10 is ‘overwhelmed’).
+
+                Don’t judge anything as good or bad, don't think too much about it, just notice a thought or emotion and ‘snap’ it. Remember, often it’s the emotion you discover first, which helps you uncover the related situation, from which you then discover the unhelpful thought.
+
+                Examples:
+
+                'Why doesn't my friend like me?!'
+                Dave/Davina didn't call me back
+                Annoyed / insecure
+                7 out of 10 struggle
+                Or
+
+                'Everyone is relying on me, I can't fail'
+                Delivery of management report to impossible timeline
+                Overwhelmed, stressed, burned out, loss of c
+            </ion-content>
+
         </ion-slide>
 
     </ion-slide-box>
+
+
 
 </ion-view>

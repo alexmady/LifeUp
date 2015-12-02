@@ -23,8 +23,8 @@ courseModule
             });
     }])
 
-    .controller('CourseCtrl', [ '$scope', '$state', '$window','User',
-        function ($scope, $state, $window, User) {
+    .controller('CourseCtrl', [ '$scope', '$state', '$window','User', '$ionicHistory',
+        function ($scope, $state, $window, User, $ionicHistory) {
 
             var init = function(){
 
@@ -101,6 +101,11 @@ courseModule
             TweenMax.ticker.fps(30);
 
             $scope.go = function (goTo) {
+
+                $ionicHistory.nextViewOptions({
+                    disableAnimate: true
+                });
+
                 $state.go(goTo);
             };
 
@@ -230,7 +235,7 @@ courseModule
                     url: '/' + it,
                     views: {
                         'dashboardContent': {
-                            templateUrl: "app/dashboard/components/course/coursePage.html",
+                            templateUrl: "app/dashboard/components/course/" + htmlFile,
                             //template: '<course-page></course-page>',
                             controller: controller
                         }
