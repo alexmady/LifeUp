@@ -6,20 +6,20 @@
     </ion-side-menu-content>
 
     <!-- Left menu -->
-    <ion-side-menu side="left" class="lifeup-bg">
+    <ion-side-menu side="left" >
 
-        <ion-content class="lifeup-bg-dark no-header">
+        <ion-content style="top:0">
 
-            <div ng-if="authData.facebook" class="list">
+           <div ng-if="authData.facebook" class="list">
                 <div class="item item-avatar center lifeup-bg-dark">
-                    <img ng-src="{{authData.facebook.cachedUserProfile.picture.data.url}}">
+                    <img ng-src="authData.facebook.cachedUserProfile.picture.data.url">
                     <p class="center lifeup-text">{{authData.facebook.displayName}}</p>
                 </div>
             </div>
 
             <div ng-if="authData.password" class="list">
                 <div class="item item-avatar center lifeup-bg-dark">
-                    <img ng-src="{{authData.password.profileImageURL}}">
+                    <img ng-src="authData.password.profileImageURL">
                     <p class="center lifeup-text">{{authData.password.email}}</p>
                 </div>
             </div>
@@ -60,6 +60,7 @@
                     </button>
                 </ion-item>
             </ion-list>
+
         </ion-content>
 
     </ion-side-menu>
