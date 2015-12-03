@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/SPACE.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/SPACE.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LifeUp.iws" />
@@ -31,8 +29,8 @@
       <file leaf-file-name="DISARM.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.4489794" vertical-offset="7608" max-vertical-offset="9990">
-              <caret line="525" column="130" selection-start-line="525" selection-start-column="94" selection-end-line="525" selection-end-column="130" />
+            <state vertical-scroll-proportion="-2.0612245" vertical-offset="7684" max-vertical-offset="9990">
+              <caret line="519" column="0" selection-start-line="519" selection-start-column="0" selection-end-line="527" selection-end-column="14" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#div#11;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#11;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -54,8 +52,8 @@
       <file leaf-file-name="SPACE.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/SPACE.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25634825" vertical-offset="3553" max-vertical-offset="4725">
-              <caret line="251" column="0" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.41875" vertical-offset="5905" max-vertical-offset="6795">
+              <caret line="416" column="29" selection-start-line="416" selection-start-column="29" selection-end-line="416" selection-end-column="29" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#4;n#ion-content#0;n#ion-slide#0;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#3;n#ion-content#0;n#ion-slide#1;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -63,6 +61,17 @@
                 <element signature="n#style#0;n#span#0;n#li#1;n#ol#0;n#div#9;n#ion-content#0;n#ion-slide#1;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#3;n#ion-content#0;n#ion-slide#2;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#15;n#ion-content#0;n#ion-slide#2;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#3;n#ion-content#0;n#ion-slide#3;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#2;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#3;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#4;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#5;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#6;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -148,7 +157,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-2557" />
     <option name="y" value="39" />
-    <option name="width" value="1472" />
+    <option name="width" value="1457" />
     <option name="height" value="1394" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -834,24 +843,28 @@
       <created>1449101263568</created>
       <updated>1449101263568</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="- added to space module">
+      <created>1449110139852</created>
+      <updated>1449110139852</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2557" y="39" width="1472" height="1394" extended-state="0" />
+    <frame x="-2557" y="39" width="1457" height="1394" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.326268" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3167178" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3172043" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17505169" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17688023" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329296" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.326268" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18217054" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -884,7 +897,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- removed the borders below the nav bar and above the footer" />
     <MESSAGE value="- add back the nav bar for the side menu pages, seems like its needed and was not causing the issue after all" />
     <MESSAGE value="- fixed up side menu and header on the side menu issue" />
     <MESSAGE value="- tidy up of initial pages styling and added auto login when account created." />
@@ -909,7 +921,8 @@
     <MESSAGE value="- fix side menu bug!" />
     <MESSAGE value="- Disarm module" />
     <MESSAGE value="- fix rounded borders on ios" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix rounded borders on ios" />
+    <MESSAGE value="- added to space module" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added to space module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1257,17 +1270,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.4489794" vertical-offset="7608" max-vertical-offset="9990">
-          <caret line="525" column="130" selection-start-line="525" selection-start-column="94" selection-end-line="525" selection-end-column="130" />
-          <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#11;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#11;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4935">
@@ -1276,10 +1278,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0612245" vertical-offset="7684" max-vertical-offset="9990">
+          <caret line="519" column="0" selection-start-line="519" selection-start-column="0" selection-end-line="527" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#11;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#11;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/SPACE.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25634825" vertical-offset="3553" max-vertical-offset="4725">
-          <caret line="251" column="0" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.41875" vertical-offset="5905" max-vertical-offset="6795">
+          <caret line="416" column="29" selection-start-line="416" selection-start-column="29" selection-end-line="416" selection-end-column="29" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#4;n#ion-content#0;n#ion-slide#0;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#3;n#ion-content#0;n#ion-slide#1;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -1287,6 +1300,17 @@
             <element signature="n#style#0;n#span#0;n#li#1;n#ol#0;n#div#9;n#ion-content#0;n#ion-slide#1;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#3;n#ion-content#0;n#ion-slide#2;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#15;n#ion-content#0;n#ion-slide#2;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#3;n#ion-content#0;n#ion-slide#3;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#3;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#4;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#5;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#6;n#span#0;n#li#0;n#ul#0;n#div#6;n#ion-content#0;n#ion-slide#4;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
