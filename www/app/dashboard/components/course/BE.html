@@ -1,23 +1,172 @@
-<ion-view class="lifeup-bg" hide-back-button="true" view-title="BE">
+<ion-view view-title="BE">
 
-    <ion-nav-buttons side="right">
-        <button ng-click="go()" menu-toggle="right" class="button button-icon ion-android-checkbox-outline"></button>
-    </ion-nav-buttons>
+<ion-nav-buttons side="right">
+    <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!lastSlide"
+            class="button button-clear ion-android-checkbox-outline"
+            style="color: white;font-size: 24px">
+    </button>
+</ion-nav-buttons>
+<ion-nav-buttons side="left">
+    <button ng-click="go()"
+            class="button button-clear ion-chevron-left" style="color: white;font-size: 24px">
+    </button>
+</ion-nav-buttons>
 
-    <ion-content>
+<ion-slide-box active-slide="userActiveSlide" on-slide-changed="slideHasChanged($index)">
 
-    <ion-slide-box class="slidebox" on-slide-changed="slideHasChanged($index)">
+<ion-slide class="slide">
+    <ion-content class="courseSlide">
+        <div class="lifeup-page-title">
+            Being You...Just Be
+        </div>
 
-        <ion-slide class="center slide">
-            SLIDE 1
-        </ion-slide>
+        <div class="lifeup-page-text-heading">
+            Be: Being, Enlightenment
+            <br><br>
+            B is for Being You
+        </div>
 
-        <ion-slide class="center slide">
-            SLIDE 2
-        </ion-slide>
+        <div class="lifeup-page-text-heading2">
+            "Joy is found not in finishing an activity but in doing it" - Greg Anderson
+        </div>
 
-    </ion-slide-box>
+
+        <div class="lifeup-page-text-heading">
+            Education
+        </div>
+
+
+        <div class="lifeup-page-text">
+            How do we stay present and enjoy life whilst leading busy challenging lives? How do we 'just be'?
+            <br><br>
+            What you do will cause you mental or emotional strain unless you are following one of three approaches or modes of doing. Each modality is appropriate to certain situations, this applies to the most simple task to the most complex.
+            <br><br>
+            If you are not in the state of either <strong>acceptance</strong>, <strong>enjoyment</strong>, or <strong>enthusiasm</strong>, look closely and you will find that you are creating suffering for yourself and probably others too.
+            <br><br>
+
+            <strong>1. Acceptance</strong> <br>
+            ‘Acceptance' of what ‘needs to be done’ means that whatever the situation, whatever you need to do, you do it willingly, without resistance. You aren’t grumbling or begrudging. Regardless of the task or reason for having to do the task, you are at peace. This is the best approach when you do not have the power to change the situation.
+            <br><br>
+
+            <strong>2. Enjoyment</strong><br>
+            Peace comes with 'acceptance' of what ‘needs to be done’ and can develop into a sense of enjoyment when you are fully present.  This will occur naturally when you are connected and your awareness is flowing into what you are doing. The enjoyment you are experiencing is really the 'joy of being' emanating from you.
+            <br><br>
+
+            <strong>3. Enthusiasm</strong><br>
+            An activity that you enjoy and aligned to a value or passion becomes enthusiasm. Ensure your focus remains on what you are doing now, rather than the end result.  Otherwise your thoughts will pull you into the future, and detach you from the present moment. Enthusiasm is a state we enter for periods of time, experiencing a positive structural tension as we put our energy into what we are doing. Once a particular activity is completed or on hold we revert ourselves back to a state of enjoyment.
+            <br><br>
+
+            Remember, allowing everything to be does not mean never saying no, it does not mean not trying to change the situation. It is an internal yes rather than external. You don't fight what is, there is not an internal resistance or unnecessary judgement or attachment. You see the situation as it is and take effective action; You 'surrender to life'.
+
+            </div>
+
+            <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Activity
+        </div>
+
+        <div class="lifeup-page-text">
+
+            Practice entering one of the above 'modes of doing' in your everyday activities, including those that you may consider boring, irritating or stressful such as ironing or your commute to work. Throughout the day, pick some examples of something you don't like doing but don't detest as that could be an example for changing/quitting it.
+            <br><br>
+            Commute to work, stuck in a queue, unloading the dishwasher; be present to your experience, notice everything around you, sounds-sights-situations, and see if you can move your state of being from one of discontent to acceptance and perhaps even enjoyment or enthusiasm.
+            <br><br>
+            The first step of acceptance will be the most difficult. For some it will be helpful to use the positive statement "I surrender', to stop the battle against 'what is', to stop the internal resistance and accept it. You may also find you need to DISARM unhelpful thoughts about the task at hand, create SPACE from related emotions or use the FLOW and ACT techniques to connect with the present moment and your values.
+            <br><br>
+            Did you check your current state of being and move it to either acceptance, enjoyment or enthusiasm?
+
+            </div>
+
+            <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Take away
+            </div>
+
+        <div class="lifeup-page-text">
+            Check and migrate your state of being to either acceptance, enjoyment or enthusiasm. Use this as a meta technique for staying connected, particularly when engaged in activities that you may consider uninteresting, boring, tedious, irritating, or stressful.
+        </div>
+
+
 
     </ion-content>
+</ion-slide>
 
+
+    <ion-slide class="slide">
+        <ion-content class="courseSlide">
+
+            <div class="lifeup-page-title">
+                Enlightenment & Purpose
+            </div>
+
+            <div class="lifeup-page-text-heading">
+                Be: Being, Enlightenment
+                <br><br>
+                E is for Enlightenment
+            </div>
+
+            <div class="lifeup-page-text-heading2">
+            "Life is a journey, fill your tank with joy"
+            </div>
+
+            <div class="lifeup-page-text-heading">
+                Education
+            </div>
+
+            <div class="lifeup-page-text">
+            Enlightenment sounds very grandiose but it simply refers to a state of being rather than any inherent knowledge to be obtained. Enlightenment is simply your natural state of felt oneness (or connectedness) with Being.
+            <br><br>
+            Why do we want enlightenment? Through enlightenment or Presence we 'stand in our power' able to manage our fear and live life authentically. We are able to ride life's up's and down's, maximising our experience of life.
+            <br><br>
+            To maintain a state of 'enlightened living' it is useful to connect with your <strong>inner purpose</strong>. Your inner purpose is something that never changes over time and can be considered as your commitment to yourself to experience the depth and breadth of life to it’s maximum. That means to be connected to whatever you are doing or experiencing; to be connected to the present moment.
+            <br><br>
+            When connected your awareness will flow into what you do and make it grow. A hobby or part time job may grow into a dream business, a new relationship may strengthen ‘opening a door of opportunity'. When you are fully present, aligned with your inner purpose, you are ready to spot opportunities and to take them regardless of fear.
+            <br><br>
+            <strong>Outer purpose</strong> can change over time and it varies greatly from person to person.  The key to a ‘successful’ outer purpose is to live in alignment with your inner purpose, to be connected. It is the basis for true success as the quality of your actions when aligned with your inner purpose will reflect in the quality of your outer experience.
+            <br><br>
+            Without being connected, you can still achieve things through effort and determination – but there will be less enjoyment in what you do. Life may seem like a battle and you are likely to lack meaning and fulfilment in your life. Your ‘success’ will likely be transitory, precarious and may even be at the expense of your well-being and/or the wellbeing of others.
+            </div>
+
+            <hr class="line-margin">
+
+            <div class="lifeup-page-text-heading">
+                Activity
+            </div>
+
+            <div class="lifeup-page-text">
+            Throughout the day, remind yourself of your inner purpose, which is to be fully present to whatever you are doing or experiencing; and when you notice your attention has wandered off elsewhere to bring it back to experience this moment.
+                <br><br>
+            Think of something you are currently trying to achieve in your life as part of your outer purpose; has it become a battle or lack meaning?
+                <br><br>
+            Is what you are doing primarily a means to an end (money, prestige, winning) or fulfilling in itself? Is there joy and aliveness in you as you work?
+                <br><br>
+            Remember your primary obligation to yourself, your inner purpose, is to stay connected. If you prioritise that you will find that Presence will flow into and transform what you are trying to achieve externally in your outer purpose bringing quality and results.
+            </div>
+
+            <hr class="line-margin">
+
+            <div class="lifeup-page-text-heading">
+                Take away
+            </div>
+
+            <div class="lifeup-page-text">
+                Enlightenment is your natural state of felt oneness (or connectedness) with Being and is your inner purpose in life. Connect with your inner purpose daily as a meta technique for staying connected and thriving
+            </div>
+
+            <hr class="line-margin">
+
+            <div class="lifeup-page-text-heading">
+                Your Progress
+            </div>
+
+            <div class="lifeup-page-text">
+                Congratulations, you have now completed the first of the two meta processes to maintain your state of being.  Next up tomorrow is the final mindfulness process and the final step to thriving; The letter I, which stands for I AM.
+            </div>
+
+        </ion-content>
+    </ion-slide>
+
+</ion-slide-box>
 </ion-view>

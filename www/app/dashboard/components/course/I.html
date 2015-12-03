@@ -1,21 +1,119 @@
-<ion-view class="lifeup-bg" view-title="I">
+<ion-view view-title="I">
+
+    <ion-nav-buttons side="right">
+        <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!lastSlide"
+                class="button button-clear ion-android-checkbox-outline"
+                style="color: white;font-size: 24px">
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <button ng-click="go()"
+                class="button button-clear ion-chevron-left" style="color: white;font-size: 24px">
+        </button>
+    </ion-nav-buttons>
+
+    <ion-slide-box active-slide="userActiveSlide" on-slide-changed="slideHasChanged($index)">
+
+        <ion-slide class="slide">
+            <ion-content class="courseSlide">
 
 
-        <ion-nav-buttons side="right">
-            <button ng-click="go()" menu-toggle="right" class="button button-icon ion-android-checkbox-outline"></button>
-        </ion-nav-buttons>
+                <div class="lifeup-page-title">
+                    I am. Thriving. Now.
+                </div>
 
+                <div class="lifeup-page-text-heading">
+                    I is for I AM
+                </div>
 
-    <ion-slide-box class="slidebox" on-slide-changed="slideHasChanged($index)">
+                <div class="lifeup-page-text-heading2">
 
-        <ion-slide class="center slide">
-            SLIDE 1
+                " If there were nothing but thought in you, you wouldn't know you were thinking, like a dreamer that doesn't know he is dreaming"  - Tolle
+                </div>
+
+                <div class="lifeup-page-text-heading">
+                    Education
+                </div>
+
+                <div class="lifeup-page-text">
+                Descartes put the cart before the horse. The truth is not "I think, therefore I am," but is more like "I am, and I can think." The "I AM" is previous to and more fundamental than the "I think."
+                    <br><br>
+                Your deepest essence is consciousness (the I AM), while the mind (I think) is a tool of consciousness. It is your attention, your conscious focused awareness, that can listen to the thoughts playing in your head and choose not to personalise them. When you are aware that you are thinking, that awareness is not part of thinking.
+                    <br><br>
+                When we identify our self through an image of ourselves created in our minds, we have fundamentally mistaken and forgotten who and what we are. We have confused our self (our awareness) with a tool (the thoughts of our mind). We have dropped the context of who we are.
+                    <br><br>
+                Enlightenment is the process of restoring and keeping this context. It is the felt experience we have when we rest our awareness in the I AM (Being) rather than getting our self caught up in the endless pontificating and fear of the mind.
+
+                </div>
+
+                <hr class="line-margin">
+
+                <div class="lifeup-page-text-heading">
+                Activity
+                </div>
+
+                <div class="lifeup-page-text">
+                Stating internally the mantra 'I am' acts as an opportunity to focus on your natural state of being, which is one without attachment to identification or form.  By stating the words 'I am', rather than 'I am doctor, student, spouse...', we connect with our true inner essence, beyond identification with external
+                    <br><br>
+                The word mantra is a combination of the Sanskrit root “manas,” which means the mind, and “tra,” a suffix that means tool. A mantra is like a barbell for the mind — by using one regularly it helps you become stronger in making the right choices and gets you engaged in doing something good for yourself.
+                    <br><br>
+                In this technique we deliberate do not ruminate, contemplate or intellectualise the meaning of 'I am'. It is simply a tool, an expression used to help access our natural state of being; our present moment awareness.
+                    <br><br>
+                This activity should be combined with the breath for greater affect. As we have seen previously the breath acts as a bridge between body and mind, regulating the nervous system, and harmonising body and mind.
+                    <br><br>
+                State internally a few times to yourself the following  "I am" expression remembering how to BREATHE.
+                    <br><br>
+
+                    <div class="lifeup-page-text">
+                        <ul dir="ltr">
+                            <li style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><span ><span style="color:#34AABC"><strong>B</strong></span>reathe <span style="color:#34AABC"><strong>R</strong></span>hythmically, <span style="color:#34AABC"><strong>E</strong></span>venly <span style="color:#34AABC"><strong>A</strong></span>nd, <span style="color:#34AABC"><strong>T</strong></span>hrough the <span style="color:#34AABC"><strong>H</strong></span>eart <span style="color:#34AABC"><strong>E</strong></span>verytime</span></li>
+                        </ul>
+                    </div>
+
+                As you breathe in and out notice the gentle rise and fall of your chest. This gives you a focal point to concentrate on breathing only.
+
+                <ol class="lifeup-page-text">
+                    <li type="disc">On the in breath state internally "I"</li>
+                    <li type="disc">On the out breath state internally "AM"</li>
+                </ol>
+
+                Now repeat the exercise again a few times seeing how effortlessly and softly you can do it; without resisting, judging or controlling.
+
+                    <br><br>
+
+                Use this technique as often as possible throughout your day to help you remain connected to your natural state of being; experiencing your life first hand rather than as a second hand story told by your mind.
+
+                </div>
+
+                <div class="lifeup-page-text-heading2">
+
+                    Did you try the "I AM " technique?
+                </div>
+
+                   <hr class="line-margin">
+
+                <div class="lifeup-page-text-heading">
+                    Take away
+                    </div>
+
+                <div class="lifeup-page-text">
+                Use the 'I AM' mantra throughout your day as an anchor to connect you back to your present moment awareness, your natural state of being, which is one without attachment to identification or form.
+                </div>
+
+                    <hr class="line-margin">
+
+                <div class="lifeup-page-text-heading">
+                Your Progress
+                    </div>
+
+                <div class="lifeup-page-text">
+
+                Congratulations, you have now completed 'Authenticity', the final stage in climbing the mindfulness maintain and accessing your natural joyful state of being.
+                </div>
+
+            </ion-content>
         </ion-slide>
 
-        <ion-slide class="center slide">
-            SLIDE 2
-        </ion-slide>
 
     </ion-slide-box>
-
 </ion-view>
