@@ -98,12 +98,14 @@
       <file leaf-file-name="ACT.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/ACT.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8788368" vertical-offset="787" max-vertical-offset="2025">
-              <caret line="125" column="16" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.3578352" vertical-offset="2632" max-vertical-offset="3915">
+              <caret line="205" column="18" selection-start-line="205" selection-start-column="18" selection-end-line="205" selection-end-column="18" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#ion-nav-buttons#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#ion-nav-buttons#1;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#3;n#ion-content#0;n#ion-slide#0;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#1;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#2;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -891,7 +893,11 @@
       <created>1449114518801</created>
       <updated>1449114518801</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="act content">
+      <created>1449115337740</created>
+      <updated>1449115337740</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -941,7 +947,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- added life up account creation from facebook login" />
     <MESSAGE value="-add back renamed file" />
     <MESSAGE value="added cool ionic loading" />
     <MESSAGE value="fix small issue with errors thrown when creating a firebase account - cover the case when the details are wrong and the server callback will not be executed." />
@@ -966,7 +971,8 @@
     <MESSAGE value="finished content for space module" />
     <MESSAGE value="more flow content" />
     <MESSAGE value="complete fow content" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete fow content" />
+    <MESSAGE value="act content" />
+    <option name="LAST_COMMIT_MESSAGE" value="act content" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1363,12 +1369,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/ACT.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8788368" vertical-offset="787" max-vertical-offset="2025">
-          <caret line="125" column="16" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.3578352" vertical-offset="2632" max-vertical-offset="3915">
+          <caret line="205" column="18" selection-start-line="205" selection-start-column="18" selection-end-line="205" selection-end-column="18" />
           <folding>
             <element signature="n#style#0;n#button#0;n#ion-nav-buttons#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#ion-nav-buttons#1;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#3;n#ion-content#0;n#ion-slide#0;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#1;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#2;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
