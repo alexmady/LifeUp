@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/FLOW.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/FLOW.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/SPACE.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/SPACE.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LifeUp.iws" />
@@ -81,8 +80,8 @@
       <file leaf-file-name="FLOW.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/FLOW.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5692568" vertical-offset="2446" max-vertical-offset="3975">
-              <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.2018581" vertical-offset="3451" max-vertical-offset="4995">
+              <caret line="246" column="26" selection-start-line="246" selection-start-column="26" selection-end-line="246" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#ion-nav-buttons#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#ion-nav-buttons#1;n#ion-view#0;n#!!top" expanded="true" />
@@ -90,6 +89,7 @@
                 <element signature="n#style#0;n#span#0;n#div#6;n#ion-content#0;n#ion-slide#0;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#1;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#2;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#3;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -869,7 +869,11 @@
       <created>1449111587132</created>
       <updated>1449111587133</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="more flow content">
+      <created>1449114050666</created>
+      <updated>1449114050666</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -919,7 +923,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- fixed up side menu and header on the side menu issue" />
     <MESSAGE value="- tidy up of initial pages styling and added auto login when account created." />
     <MESSAGE value="- added life up account creation from facebook login" />
     <MESSAGE value="-add back renamed file" />
@@ -944,7 +947,8 @@
     <MESSAGE value="- fix rounded borders on ios" />
     <MESSAGE value="- added to space module" />
     <MESSAGE value="finished content for space module" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished content for space module" />
+    <MESSAGE value="more flow content" />
+    <option name="LAST_COMMIT_MESSAGE" value="more flow content" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1332,8 +1336,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/FLOW.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5692568" vertical-offset="2446" max-vertical-offset="3975">
-          <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2018581" vertical-offset="3451" max-vertical-offset="4995">
+          <caret line="246" column="26" selection-start-line="246" selection-start-column="26" selection-end-line="246" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#button#0;n#ion-nav-buttons#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#ion-nav-buttons#1;n#ion-view#0;n#!!top" expanded="true" />
@@ -1341,6 +1345,7 @@
             <element signature="n#style#0;n#span#0;n#div#6;n#ion-content#0;n#ion-slide#0;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#1;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#2;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#2;n#ion-content#0;n#ion-slide#3;n#ion-slide-box#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
