@@ -1,19 +1,23 @@
 <ion-view view-title="Welcome!" hide-back-button="true">
-    <ion-content has-footer="true" scroll="false">
-        <ion-slide-box class="slidebox" show-pager="true">
 
-            <ion-slide>
+        <ion-slide-box class="intro" show-pager="true">
 
+            <ion-slide class="slide">
+
+                <ion-content class="intro center">
                 <img class="slide-box__image" src="img/lifeUpStriveToThrive300x205.png"/>
                 <br>
 
                 <p class="lifeup-intro-text">
                     At LifeUp our mission is help you <b>thrive</b> rather than just survive; and to do so with some
                     passion, some compassion, some humour, and some style! </p>
+                </ion-content>
+
             </ion-slide>
 
 
-            <ion-slide>
+            <ion-slide class="slide">
+                <ion-content  class="intro center">
                 <img class="img" src="img/lifeUpQuotes.png"/>
                 <br>
 
@@ -22,24 +26,29 @@
 
                 <p class="lifeup-intro-text"> Ferris Bueller </p>
                 </p>
-
+                </ion-content>
             </ion-slide>
 
-            <ion-slide>
+            <ion-slide class="slide">
+                <ion-content  class="intro">
                 <img class="img" src="img/lifeUpQuotes.png"/>
+
+                </ion-content>
 
             </ion-slide>
 
         </ion-slide-box>
 
+    <ion-footer-bar class=" center lifeup-bg">
+            <button class="button button-outline button-light button-block" ng-click="go('createAccountChoice')">
+                GET STARTED!
+            </button>
+        </ion-footer-bar>
+
     </ion-content>
     <!-- <div class="progress-bar">
         <div class="dots"></div>
     </div> -->
-    <ion-footer-bar class=" center lifeup-bg">
-        <button class="button button-outline button-light button-block" ng-click="go('createAccountChoice')">
-            GET STARTED!
-        </button>
-    </ion-footer-bar>
+
 
 </ion-view>

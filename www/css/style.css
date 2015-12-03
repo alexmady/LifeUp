@@ -145,7 +145,9 @@ input[type="text"], input[type="password"]{
     background-color: #333333;
 }
 
-
+.intro {
+    background-color: cornflowerblue;
+}
 .lifeup-quote {
     color: firebrick;
     font-style: italic;
@@ -158,6 +160,26 @@ input[type="text"], input[type="password"]{
     vertical-align: middle;
     max-height: calc(100% - 88px);
     max-width: 100%;
+}
+
+.intro .slider-pager {
+    font-size: 10px;
+    height: 20px;
+    background-color: cornflowerblue;
+    bottom: 44px
+}
+
+.intro .slider-pager-page
+{
+    color: white;
+    fill: white;
+    stroke: white;
+}
+
+.intro .slider-pager-page.active
+{
+    fill: white;
+    color: white;
 }
 
 .slider-pager {

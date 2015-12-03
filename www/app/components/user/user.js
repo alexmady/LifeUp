@@ -6,12 +6,12 @@ angular.module('User', [])
     .factory('User', [ 'FirebaseUtil', '$firebaseObject', 'FIREBASE_URL',
         function ( FirebaseUtil, $firebaseObject, FIREBASE_URL) {
 
-        var authData = null;
+        var userData = {};
         var profile = null;
 
         var setAuthData = function(ad){
-            authData = ad;
-            var userRef = new Firebase(FIREBASE_URL + '/users').child(authData.uid);
+            userData.authData = ad;
+            var userRef = new Firebase(FIREBASE_URL + '/users').child(userData.authData.uid);
             profile = $firebaseObject(userRef);
         };
 
@@ -20,12 +20,12 @@ angular.module('User', [])
         };
 
         var getAuthData = function(){
-            return authData;
+            return userData.authData;
         };
 
         var updateCourseProgress = function( module, slide, readyToClimb){
 
-            if (!authData) {
+            if (!userData.authData) {
                 console.log('No user - can not update course progress');
                 return;
             }
@@ -56,7 +56,7 @@ angular.module('User', [])
             updateCourseProgress: updateCourseProgress,
             setAuthData: setAuthData,
             getProfile: getProfile,
-            authData: getAuthData
+            userData: userData
         }
 
     }]);

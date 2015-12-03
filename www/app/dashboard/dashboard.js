@@ -22,10 +22,16 @@ angular.module('lifeUp.dashboard', [ 'Auth'])
             Auth.logout();
         };
 
-        $scope.$watch(function(){return User.authData}, function( newVal, oldVal){
+        $scope.$watch(function(){return User.userData}, function( newVal, oldVal){
+
+            console.log('Dashboard new user data');
+            console.log(newVal);
 
             if (newVal) {
-                $scope.authData = newVal;
+
+                console.log('Dashboard new user data');
+
+                $scope.authData = newVal.authData;
             }
         },true );
 

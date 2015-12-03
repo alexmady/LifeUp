@@ -12,14 +12,14 @@
 
            <div ng-if="authData.facebook" class="list">
                 <div class="item item-avatar center lifeup-bg-dark">
-                    <img ng-src="authData.facebook.cachedUserProfile.picture.data.url">
+                    <img ng-src="{{authData.facebook.cachedUserProfile.picture.data.url}}">
                     <p class="center lifeup-text">{{authData.facebook.displayName}}</p>
                 </div>
             </div>
 
             <div ng-if="authData.password" class="list">
                 <div class="item item-avatar center lifeup-bg-dark">
-                    <img ng-src="authData.password.profileImageURL">
+                    <img ng-src="{{authData.password.profileImageURL}}">
                     <p class="center lifeup-text">{{authData.password.email}}</p>
                 </div>
             </div>
