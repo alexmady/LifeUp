@@ -1,20 +1,129 @@
-<ion-view class="lifeup-bg" view-title="ACT" has-back-button="false">
+<ion-view view-title="ACT">
 
-    <ion-nav-buttons side="right">
-        <button ng-click="go()" menu-toggle="right" class="button button-icon ion-android-checkbox-outline"></button>
-    </ion-nav-buttons>
+<ion-nav-buttons side="right">
+    <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!lastSlide"
+            class="button button-clear ion-android-checkbox-outline"
+            style="color: white;font-size: 24px">
+    </button>
+</ion-nav-buttons>
+<ion-nav-buttons side="left">
+    <button ng-click="go()"
+            class="button button-clear ion-chevron-left" style="color: white;font-size: 24px">
+    </button>
+</ion-nav-buttons>
 
-    <ion-slide-box class="slidebox" on-slide-changed="slideHasChanged($index)">
+<ion-slide-box active-slide="userActiveSlide" on-slide-changed="slideHasChanged($index)">
 
-        <ion-slide class="center slide">
-            SLIDE 1
-        </ion-slide>
+<ion-slide class="slide">
+    <ion-content class="courseSlide">
 
-        <ion-slide class="center slide">
-            SLIDE 2
-        </ion-slide>
+        <div class="lifeup-page-title">
+            Accept 'what is'
+        </div>
 
-    </ion-slide-box>
+        <div class="lifeup-page-text-heading">
+        ACT: Accept, Connect, Take action
+        </div>
+
+        <div class="lifeup-page-text">
+        Use the ACT technique to connect with your values and act with Integrity and purpose in any given situation.
+        <br><br>
+        Apply the ACT technique when making decisions, taking action, setting goals or reviewing your wants and desires to ensure you be the person you want to be.
+        <br><br>
+        A is for Accept the situation
+
+        </div>
 
 
+        <div class="center">
+            <img src="img/actJames.jpg" style="width: 90%;height: auto;margin: 5%"/>
+        </div>
+
+
+        <div class="lifeup-page-text-heading">
+        Education
+        </div>
+
+        <div class="lifeup-page-text">
+        No matter what sort of difficult situations you encounter in life, there are only ever three rational actions you can take.
+
+            <ol class="lifeup-page-text">
+                <li type="disc">You can remove yourself from the difficult situation.</li>
+                <br>
+                <li type="disc">You can change the difficult situation.</li>
+                <br>
+                <li type="disc">If you are unable to leave or change, you can accept the difficult situation fully.</li>
+                <br>
+            </ol>
+
+        If it is not in your power to leave, change or improve the situation, the only logical action is to accept it fully. Anything else is pointless as you are struggling against ‘what is’. This will only cause additional frustration and resentment, and negatively impact your peace of mind.
+
+            <br><br>
+
+        Acceptance of ‘what is’ immediately frees you from unhelpful thought chatter, negative judgements and resistance.
+
+            <br><br>
+
+        Accepting the situation, or at least accepting how you feel about a situation is in fact the first mindful step towards changing it! Actions taken from this state are likely to be more empowered and successful, with a clearer perspective to make appropriate and authentic decisions.
+
+        </div>
+
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+        Activity
+        </div>
+
+        <div class="lifeup-page-text">
+
+        Think of a situation occurring in your life that displeases or upsets you. Are you resisting it or have you accepted it?
+
+        <ol class="lifeup-page-text">
+
+            <li type="disc">Do I need to take a Thought Break to clear my head?</li>
+            <br>
+            <li type="disc">Are there unhelpful automatic thoughts that need to be DISARM-ed?</li>
+            <br>
+            <li type="disc">What is my Struggle Rating saying?  Do I need to create SPACE?</li>
+            <br>
+            <li type="disc">Am I in the FLOW?  Have I run the FLOW checklist to double check?</li>
+            <br>
+            <li type="disc">Ask yourself honestly, “Have I fully accepted this situation or am I fighting or resisting what is?”</li>
+            <br>
+
+        </ol>
+
+        </div>
+
+        <hr class="line-margin">
+
+
+        <div class="lifeup-page-text-heading">
+            Take away
+        </div>
+
+        <div class="lifeup-page-text">
+
+        Actions taken from a state of 'acceptance' are likely to be more empowered, with a clearer perspective to make appropriate and authentic decisions. Use the LifeUp techniques you have learned to help you accept any situation you find to be dissatisfactory.
+
+        </div>
+    </ion-content>
+</ion-slide>
+
+    <ion-slide class="slide">
+        <ion-content class="courseSlide">
+
+
+    </ion-content>
+    </ion-slide>
+
+
+    <ion-slide class="slide">
+        <ion-content class="courseSlide">
+
+
+        </ion-content>
+    </ion-slide>
+
+</ion-slide-box>
 </ion-view>
