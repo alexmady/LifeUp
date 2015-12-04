@@ -63,6 +63,7 @@ angular.module('Auth', [])
 
 
         var logout = function(){
+           User.logout();
            fauth.$unauth();
         };
 

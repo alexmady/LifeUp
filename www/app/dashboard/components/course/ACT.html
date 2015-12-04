@@ -1,7 +1,7 @@
 <ion-view view-title="ACT">
 
 <ion-nav-buttons side="right">
-    <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!lastSlide"
+    <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!enableCompleteButton"
             class="button button-clear ion-android-checkbox-outline"
             style="color: white;font-size: 24px">
     </button>
@@ -12,7 +12,7 @@
     </button>
 </ion-nav-buttons>
 
-<ion-slide-box active-slide="userActiveSlide" on-slide-changed="slideHasChanged($index)">
+<ion-slide-box on-slide-changed="slideHasChanged($index)">
 
 <ion-slide class="slide">
     <ion-content class="courseSlide">

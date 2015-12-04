@@ -5,7 +5,7 @@
 
 var days = ['DISARM', 'SPACE', 'FLOW', 'ACT', 'BE', 'I'];
 
-var courseModule = angular.module('lifeUp.course', [ 'Auth','ionic']);
+var courseModule = angular.module('lifeUp.course', [ 'Auth', 'ionic']);
 
 courseModule
 
@@ -13,6 +13,7 @@ courseModule
 
         $stateProvider
             .state('dashboard.course', {
+                cache: false,
                 url: '/course',
                 views: {
                     'dashboardContent': {
@@ -23,19 +24,28 @@ courseModule
             });
     }])
 
-    .controller('CourseCtrl', [ '$scope', '$state', '$window','User', '$ionicHistory',
+    .controller('CourseCtrl', [ '$scope', '$state', '$window', 'User', '$ionicHistory',
         function ($scope, $state, $window, User, $ionicHistory) {
 
-            var init = function(){
+            var init = function () {
 
-                $scope.profile = User.getProfile();
+                console.log('course init');
 
-                $scope.profile.$loaded(function(){
+
+                var promise = User.getProfile();
+
+                promise.then(function (profile) {
+
+
+                    $scope.profile = profile;
+
+
+                    //     $scope.profile.$loaded(function(){
                     console.log('user profile loaded');
                     console.log($scope.profile);
-                    console.log('User: '+ $scope.profile.email);
+                    console.log('User: ' + $scope.profile.email);
 
-                    $scope.playButtonTop = ($window.innerHeight - 60) +'px';
+                    $scope.playButtonTop = ($window.innerHeight - 60) + 'px';
                     $scope.playButtonLeft = ($window.innerWidth * 0.2) + 'px';
                     $scope.devicePixelRatio = $window.devicePixelRatio;
                     $scope.spritePNGFile = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.png';
@@ -78,24 +88,33 @@ courseModule
                     $scope.bgSizeW = $scope.spriteMeta.size.w / 2 + 'px';
                     $scope.bgSizeH = $scope.spriteMeta.size.h / 2 + 'px';
 
-                    updateStep(Math.max($scope.profile.module-1,0), $scope.profile.slide);
+                    updateStep(Math.max($scope.profile.module - 1, 0), $scope.profile.slide);
                     $scope.boxyObj1.counter = $scope.step.frame;
 
-                    if($scope.profile.readyToClimb){
+                    if ($scope.profile.readyToClimb) {
                         $scope.profile.showPlayButton = false;
                     } else {
                         $scope.profile.showPlayButton = true;
                     }
 
 
+                    //});
+
+                    $scope.profile.$watch(function (data) {
+                        console.log('$scope.profile.$watch');
+                        /* if ($scope.profile.readyToClimb){
+                         $scope.profile.showPlayButton = false;
+                         }
+
+                         console.log()
+                         console.log(data);*/
+
+
+                    });
+
                 });
 
-                $scope.profile.$watch(function(data){
-                    console.log('$scope.profile.$watch');
-                    if ($scope.profile.readyToClimb){
-                        $scope.profile.showPlayButton = false;
-                    }
-                });
+
             };
 
             TweenMax.ticker.fps(30);
@@ -109,18 +128,20 @@ courseModule
                 $state.go(goTo);
             };
 
-            var updateStep = function(index, slide){
+            var steps = User.courseSteps();
+
+            var updateStep = function (index, slide) {
                 console.log('updating step to : ' + index);
                 $scope.step = steps[index];
-                if ($scope.step.pos < $scope.profile.moduleFar){
+                if ($scope.step.pos < $scope.profile.moduleFar) {
                     $scope.forwardButtonEnabled = true;
                 } else {
                     $scope.forwardButtonEnabled = false;
                 }
-                if (slide){
-                    User.updateCourseProgress($scope.step.pos, slide, false);
+                if (slide) {
+                    User.updateCourseProgress($scope.step.pos, slide);
                 } else {
-                    User.updateCourseProgress($scope.step.pos, 0, false);
+                    User.updateCourseProgress($scope.step.pos, 0);
                 }
             };
 
@@ -139,21 +160,23 @@ courseModule
             };
 
             $scope.playButtonWidth = 50;
-            $scope.playButtonLeft = (($window.innerWidth/2)-$scope.playButtonWidth) + 'px';
+            $scope.playButtonLeft = (($window.innerWidth / 2) - $scope.playButtonWidth) + 'px';
             $scope.forwardButtonLeft = $window.innerWidth - 50;
 
             $scope.play = function () {
                 $state.go('dashboard.' + $scope.step.name);
             };
 
-            $scope.climb = function(){
-                if ($scope.step + 1 >= steps.length) {return;}
+            $scope.climb = function () {
+                if ($scope.step + 1 >= steps.length) {
+                    return;
+                }
                 $scope.profile.readyToClimb = false;
 
                 var nextStep = steps[$scope.step.pos];
-                User.updateCourseProgress(nextStep.pos,0,false);
+                User.updateCourseProgress(nextStep.pos, 0, false);
 
-                var onCompleteClimb = function(){
+                var onCompleteClimb = function () {
                     updateStep($scope.step.pos);
                     $scope.boxyTweenComplete();
                 };
@@ -161,8 +184,10 @@ courseModule
             };
 
             $scope.skipForward = function () {
-                if ($scope.step.pos  >= steps.length) { return; }
-                if ($scope.step.pos + 1  >  $scope.profile.moduleFar) {
+                if ($scope.step.pos >= steps.length) {
+                    return;
+                }
+                if ($scope.step.pos + 1 > $scope.profile.moduleFar) {
                     return;
                 }
                 updateStep($scope.step.pos);
@@ -170,7 +195,9 @@ courseModule
             };
 
             $scope.skipBackwards = function () {
-                if ($scope.step.pos === 1) { return; }
+                if ($scope.step.pos === 1) {
+                    return;
+                }
                 updateStep($scope.step.pos - 2)
                 $scope.boxyObj1.counter = $scope.step.frame;
                 tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
@@ -179,11 +206,11 @@ courseModule
             var steps = [
                 {name: 'DISARM', pos: 1, frame: 0, duration: 0, backButtonEnabled: false},
                 {name: 'SPACE', pos: 2, frame: 208, duration: 6, backButtonEnabled: true},
-                {name: 'FLOW',  pos: 3,frame: 345, duration: 5, backButtonEnabled: true},
-                {name: 'ACT', pos: 4,frame: 520, duration: 6, backButtonEnabled: true},
-                {name: 'BE', pos: 5,frame: 592, duration: 5, backButtonEnabled: true},
-                {name: 'I', pos: 6,frame: 654, duration: 2, backButtonEnabled: true}
-             ];
+                {name: 'FLOW', pos: 3, frame: 345, duration: 5, backButtonEnabled: true},
+                {name: 'ACT', pos: 4, frame: 520, duration: 6, backButtonEnabled: true},
+                {name: 'BE', pos: 5, frame: 592, duration: 5, backButtonEnabled: true},
+                {name: 'I', pos: 6, frame: 654, duration: 2, backButtonEnabled: true}
+            ];
 
             $scope.boxyObj1 = { counter: 0 };
 
@@ -209,7 +236,7 @@ courseModule
                 return TweenBoxy;
             };
 
-            $scope.boxyTweenComplete = function() {
+            $scope.boxyTweenComplete = function () {
                 console.log('Tween complete');
                 $scope.profile.showPlayButton = true;
                 $scope.profile.readyToClimb = false;
@@ -232,6 +259,7 @@ courseModule
 
             $stateProvider
                 .state(state, {
+                    cache: false,
                     url: '/' + it,
                     views: {
                         'dashboardContent': {
@@ -241,7 +269,8 @@ courseModule
                         }
                     }
                 });
-        };
+        }
+        ;
     }]);
 
 
@@ -251,8 +280,8 @@ for (var i = 0; i < days.length; i++) {
 
         var controller = days[n] + 'Ctrl';
 
-        courseModule.controller(controller, [ '$scope', '$state', '$ionicSlideBoxDelegate', 'User', '$rootScope',
-            function ($scope, $state, $ionicSlideBoxDelegate, User, $rootScope) {
+        courseModule.controller(controller, [ '$scope', '$state', '$ionicSlideBoxDelegate', 'User',
+            function ($scope, $state, $ionicSlideBoxDelegate, User) {
 
                 $scope.title = days[n];
 
@@ -260,27 +289,65 @@ for (var i = 0; i < days.length; i++) {
                     $state.go('dashboard.course');
                 };
 
-                $scope.completeModule = function(){
-                    User.updateCourseProgress($scope.courseModule, ($ionicSlideBoxDelegate.currentIndex()+1), true);
+                $scope.completeModule = function () {
+                    console.log('completing module...');
+                    User.updateCourseProgress($scope.courseModule, ($ionicSlideBoxDelegate.currentIndex() + 1), true);
                     $state.go('dashboard.course');
                 };
 
                 $scope.slideHasChanged = function (index) {
                     if (($ionicSlideBoxDelegate.slidesCount() - 1) === index) {
-                        $scope.lastSlide = true;
+
+                        $scope.enableCompleteButton = true;
                     } else {
-                        $scope.lastSlide = false;
+                        $scope.enableCompleteButton = false;
                     }
                     User.updateCourseProgress($scope.courseModule, (index + 1), false);
                 };
 
                 var init = function () {
-                    $scope.lastSlide = false;
-                    $scope.courseModule = n + 1;
-                    $scope.userActiveSlide = 0;
-                    var profile = User.getProfile();
-                    if (profile.slide > 0) $scope.userActiveSlide = profile.slide-1;
-                    User.updateCourseProgress($scope.courseModule, $scope.userActiveSlide+1 , false);
+
+                    console.log('COURSE MODULE INIT');
+
+                    var promise = User.getProfile();
+
+                    promise.then(function (profile) {
+
+                        console.log(profile);
+
+                        $scope.userActiveSlide = 0;
+
+
+                        if (profile.slide > 0) {
+                            $scope.userActiveSlide = profile.slide - 1;
+                        }
+
+
+                        $scope.courseModule = profile.module;
+
+                        console.log('course module:' + $scope.courseModule);
+                        console.log('user active slide:' + $scope.userActiveSlide + ' slide count:' + n);
+
+                        console.log(User.courseSteps()[$scope.courseModule - 1].length);
+
+
+                        if ($scope.userActiveSlide === (User.courseSteps()[$scope.courseModule - 1].length - 1)) {
+                            $scope.enableCompleteButton = true;
+                        } else {
+                            $scope.enableCompleteButton = false;
+                        }
+
+
+                        setTimeout(function(){
+                            $ionicSlideBoxDelegate.slide($scope.userActiveSlide,0);
+                        },0);
+
+                        User.updateCourseProgress($scope.courseModule, $scope.userActiveSlide + 1, false);
+
+
+                    });
+
+
                 };
 
                 init();
@@ -290,7 +357,7 @@ for (var i = 0; i < days.length; i++) {
     })(courseModule, i);
 }
 
-courseModule.directive('coursePage', function() {
+courseModule.directive('coursePage', function () {
     return {
         templateUrl: 'app/dashboard/components/course/coursePage.html'
     };

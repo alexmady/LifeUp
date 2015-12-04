@@ -12,6 +12,20 @@ only screen and (min-resolution: 120dpi) {
 
 }*/
 
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Montserrat-Regular'), url('../font/montserrat.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Amatic SC';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Amatic SC Bold'), local('AmaticSC-Bold'), url('../font/AmaticSC-Bold.woff') format('woff');
+}
+
 .line-margin {
     margin: 5%;
 }

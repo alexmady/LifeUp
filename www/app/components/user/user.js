@@ -3,27 +3,55 @@
  */
 angular.module('User', [])
 
-    .factory('User', [ 'FirebaseUtil', '$firebaseObject', 'FIREBASE_URL',
-        function ( FirebaseUtil, $firebaseObject, FIREBASE_URL) {
+    .factory('User', [ 'FirebaseUtil', '$firebaseObject', 'FIREBASE_URL', '$q',
+        function ( FirebaseUtil, $firebaseObject, FIREBASE_URL, $q) {
 
         var userData = {};
         var profile = null;
 
         var setAuthData = function(ad){
             userData.authData = ad;
-            var userRef = new Firebase(FIREBASE_URL + '/users').child(userData.authData.uid);
-            profile = $firebaseObject(userRef);
         };
 
         var getProfile = function(){
-            return profile;
+
+            return $q(function(resolve, reject) {
+
+                    if (profile) {
+                        resolve(profile);
+                    } else {
+
+                        var userRef = new Firebase(FIREBASE_URL + '/users').child(userData.authData.uid);
+                        profile = $firebaseObject(userRef);
+                        profile.$loaded(function () {
+                            resolve(profile);
+                        });
+                    }
+                });
         };
 
-        var getAuthData = function(){
-            return userData.authData;
+        var updateClimb = function(readyToClimb){
+            console.log('updating climb');
+            profile.readyToClimb =  readyToClimb;
+            profile.$save();
         };
 
-        var updateCourseProgress = function( module, slide, readyToClimb){
+
+        var courseSteps = function(){
+
+            var steps = [
+                {name: 'DISARM', pos: 1, frame: 0, duration: 0, backButtonEnabled: false, length: 6},
+                {name: 'SPACE', pos: 2, frame: 208, duration: 6, backButtonEnabled: true, length: 5 },
+                {name: 'FLOW',  pos: 3,frame: 345, duration: 5, backButtonEnabled: true, length: 4},
+                {name: 'ACT', pos: 4,frame: 520, duration: 6, backButtonEnabled: true, length: 3},
+                {name: 'BE', pos: 5,frame: 592, duration: 5, backButtonEnabled: true, length: 2},
+                {name: 'I', pos: 6,frame: 654, duration: 2, backButtonEnabled: true, length: 1}
+            ];
+
+            return steps;
+        };
+
+        var updateCourseProgress = function( module, slide, readyToClimb ){
 
             if (!userData.authData) {
                 console.log('No user - can not update course progress');
@@ -32,7 +60,10 @@ angular.module('User', [])
 
             profile.module = module;
             profile.slide = slide;
-            profile.readyToClimb =  readyToClimb;
+
+            if (arguments[2]){
+                profile.readyToClimb =  readyToClimb;
+            }
 
             if ( module >= profile.moduleFar){
 
@@ -52,11 +83,19 @@ angular.module('User', [])
             console.log('Course module ' + module + ' slide ' + slide);
         };
 
+        var logout = function(){
+            console.log('logging out user');
+            userData = {};
+            profile = null;
+        };
+
         return {
             updateCourseProgress: updateCourseProgress,
             setAuthData: setAuthData,
             getProfile: getProfile,
-            userData: userData
+            userData: userData,
+            logout: logout,
+            courseSteps: courseSteps
         }
 
     }]);
