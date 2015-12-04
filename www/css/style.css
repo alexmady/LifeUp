@@ -16,7 +16,6 @@ only screen and (min-resolution: 120dpi) {
     margin: 5%;
 }
 
-
 .lifeup-page-text {
     font-family: 'Montserrat', serif;
     color: #525252;
@@ -140,9 +139,13 @@ input[type="text"], input[type="password"]{
     border-radius:0;
 }
 
+.item{
+   border-style: none;
+}
 
-.item-content.lifeup-bg-dark {
-    background-color: #333333;
+.item-content.lifeup-bg {
+    background-color: cornflowerblue;
+    color: white;
 }
 
 .intro {

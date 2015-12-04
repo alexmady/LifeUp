@@ -8,54 +8,54 @@
     <!-- Left menu -->
     <ion-side-menu side="left" >
 
-        <ion-content style="top:0">
+        <ion-content style="top:0" class="lifeup-bg">
 
            <div ng-if="authData.facebook" class="list">
-                <div class="item item-avatar center lifeup-bg-dark">
+                <div class="item item-avatar center lifeup-bg">
                     <img ng-src="{{authData.facebook.cachedUserProfile.picture.data.url}}">
-                    <p class="center lifeup-text">{{authData.facebook.displayName}}</p>
+                    <p style="color: white" class="center lifeup-text">{{authData.facebook.displayName}}</p>
                 </div>
             </div>
 
             <div ng-if="authData.password" class="list">
-                <div class="item item-avatar center lifeup-bg-dark">
+                <div class="item item-avatar center lifeup-bg">
                     <img ng-src="{{authData.password.profileImageURL}}">
-                    <p class="center lifeup-text">{{authData.password.email}}</p>
+                    <p style="color: white" class="center lifeup-text">{{authData.password.email}}</p>
                 </div>
             </div>
 
             <ion-list>
 
                 <ion-item class="item item-complex" nav-clear menu-close>
-                    <a class="item-content lifeup-bg-dark lifeup-text"  href="#/dashboard/course">
+                    <a class="item-content lifeup-bg lifeup-text"  href="#/dashboard/course">
                         COURSE
                     </a>
                 </ion-item>
                 <ion-item class="item item-complex" nav-clear menu-close>
-                    <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/what">
+                    <a class="item-content lifeup-bg lifeup-text" href="#/dashboard/what">
                         WHAT?
                     </a>
                 </ion-item>
                 <ion-item class="item item-complex" nav-clear menu-close>
-                    <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/how">
+                    <a class="item-content lifeup-bg lifeup-text" href="#/dashboard/how">
                         HOW?
                     </a>
                 </ion-item>
 
                 <ion-item class="item item-complex" nav-clear menu-close>
-                    <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/faq">
+                    <a class="item-content lifeup-bg lifeup-text" href="#/dashboard/faq">
                         FAQ?
                     </a>
                 </ion-item>
 
                 <ion-item class="item item-complex" nav-clear menu-close>
-                    <a class="item-content lifeup-bg-dark lifeup-text" href="#/dashboard/about">
+                    <a class="item-content lifeup-bg lifeup-text" href="#/dashboard/about">
                        ABOUT?
                     </a>
                 </ion-item>
 
                 <ion-item class="item item-complex" nav-clear menu-close>
-                    <button nav-clear menu close class="item-content lifeup-bg-dark lifeup-text button-block" ng-click="logout()" >
+                    <button nav-clear menu-close class="item-content lifeup-bg lifeup-text button-block" ng-click="logout()" >
                         LOGOUT
                     </button>
                 </ion-item>
