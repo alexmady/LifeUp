@@ -25,7 +25,7 @@ angular.module('User', [])
 
                             setTimeout(function(){
                                 return getProfile();
-                            }, 1000);
+                            }, 100);
                         };
 
                         var userRef = new Firebase(FIREBASE_URL + '/users').child(userData.authData.uid);

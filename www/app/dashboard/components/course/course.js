@@ -31,8 +31,7 @@ courseModule
                 $ionicSideMenuDelegate.toggleLeft();
             };
 
-            $scope.playButtonTop = ($window.innerHeight - 60) + 'px';
-            $scope.playButtonLeft = ($window.innerWidth * 0.2) + 'px';
+
             $scope.devicePixelRatio = $window.devicePixelRatio;
             $scope.spritePNGFile = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.png';
             $scope.spriteDataFileName = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.json';

@@ -9,7 +9,7 @@ angular.module('lifeUp.dashboardHome', [ ])
 
         $stateProvider
             .state('dashboard.dashboardHome', {
-                cache: false,
+                cache:false,
                 url: "/faq",
                 views: {
                     'dashboardContent': {
@@ -22,22 +22,30 @@ angular.module('lifeUp.dashboardHome', [ ])
 
     .controller('DashHomeCtrl', [ '$scope', 'User', function($scope, User) {
 
-        User.getProfile().then(function(profile){
 
-            console.log('got profile...:');
-            //console.log(profile);
 
-            $scope.firstLogin = profile.firstLogin;
+        var init = function(){
+            var promise = User.getProfile();
 
-            if (profile.firstLogin === true){
-                profile.firstLogin = false;
-                profile.$save();
-                $scope.title = 'Meet Mike....';
+            promise.then(function(profile){
 
-            } else {
-                $scope.title = 'Welcome Back!';
-            }
+                console.log('got profile...:');
+                //console.log(profile); // this causes an error on the device
 
-        });
+                $scope.firstLogin = profile.firstLogin;
+
+                if (profile.firstLogin === true){
+                    profile.firstLogin = false;
+                    profile.$save();
+                    $scope.title = 'Meet Mike....';
+
+                } else {
+                    $scope.title = 'Welcome Back!';
+                }
+
+            });
+        };
+
+        init();
 
     }]);

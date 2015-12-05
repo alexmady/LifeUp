@@ -1,8 +1,12 @@
-<ion-view view-title="{{title}}" ng-cloak>
+<ion-view>
 
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon ion-navicon" style="color: white"></button>
     </ion-nav-buttons>
+
+    <ion-nav-title>
+        {{title}}
+    </ion-nav-title>
 
     <ion-content class="lifeup-bg">
 
@@ -45,10 +49,26 @@
         </div>
 
 
-        <div ng-if="!firstLogin">
-            <div class="lifeup-dashboard" >
+        <div ng-if="!firstLogin" class="center">
 
+            <div class="lifeup-dashboard">
 
+                <br><br><br><br>
+
+                    Nice to see you again! Mike's got the route planned and is itching to get going!
+
+                <br><br>
+
+                <div class="center">
+                    <button ui-sref="dashboard.course" style="width: 50%;opacity: 0.8"
+                            class="button button-block lifeup-course-buttons">Continue Course</button>
+                </div>
+
+                <br><br>
+
+                <div class="center">
+                    <img src="../img/MikeMap.png" class="center" style="width: 50%;height: auto">
+                </div>
             </div>
 
         </div>
