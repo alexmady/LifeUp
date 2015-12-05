@@ -11,6 +11,8 @@ angular.module('User', [])
 
         var setAuthData = function(ad){
             userData.authData = ad;
+            //var userRef = new Firebase(FIREBASE_URL + '/users').child(userData.authData.uid);
+            //profile = $firebaseObject(userRef);
         };
 
         var getProfile = function(){
@@ -23,8 +25,8 @@ angular.module('User', [])
 
                         var userRef = new Firebase(FIREBASE_URL + '/users').child(userData.authData.uid);
                         profile = $firebaseObject(userRef);
-                        profile.$loaded(function () {
-                            resolve(profile);
+                        profile.$loaded(function (pro) {
+                            resolve(pro);
                         });
                     }
                 });
@@ -73,7 +75,7 @@ angular.module('User', [])
             }
             profile.$save();
             // update users position in the course here
-            console.log('Course module ' + module + ' slide ' + slide);
+            //console.log('Course module ' + module + ' slide ' + slide);
         };
 
         var logout = function(){

@@ -78,10 +78,10 @@ courseModule
 
                 var promise = User.getProfile();
 
-                promise.then(function (profile) {
+                promise.then(function (prof) {
 
-                    $scope.profile = profile;
-                    updateStep(Math.max($scope.profile.module - 1, 0), $scope.profile.slide);
+                    $scope.profile = prof;
+                    updateStep(Math.max(prof.module - 1, 0), prof.slide);
                     $scope.boxyObj1.counter = $scope.step.frame;
 
                     if ($scope.profile.readyToClimb) {
@@ -102,7 +102,6 @@ courseModule
             var steps = User.courseSteps();
 
             var updateStep = function (index, slide) {
-                console.log('updating step to : ' + index);
                 $scope.step = steps[index];
                 if ($scope.step.pos < $scope.profile.moduleFar) {
                     $scope.forwardButtonEnabled = true;
@@ -208,7 +207,6 @@ courseModule
             };
 
             $scope.boxyTweenComplete = function () {
-                console.log('Tween complete');
                 $scope.profile.showPlayButton = true;
                 $scope.profile.readyToClimb = false;
                 $scope.profile.$save();

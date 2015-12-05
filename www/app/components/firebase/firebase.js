@@ -29,7 +29,7 @@ angular.module('FirebaseUtil', [])
                     if (error){
                         console.log(error);
                     } else {
-                        console.log('Synchronization succeeded');
+                        //console.log('Synchronization succeeded');
                     }
                 };
 
@@ -44,13 +44,12 @@ angular.module('FirebaseUtil', [])
 
                     var exists = snapshot.exists();
 
-                    console.log('Does facebook user profile exist?');
-                    console.log(exists);
+                    //console.log('Does facebook user profile exist?');
+                    //console.log(exists);
 
                     if (!exists){
                         createProfile( authData, user );
                     }
-
                 });
             };
 

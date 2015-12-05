@@ -1,77 +1,81 @@
 <ion-view>
 
-    <ion-nav-buttons side="left">
-        <button menu-toggle="left" class="button button-icon ion-navicon" style="color: white"></button>
+     <ion-nav-buttons side="left">
+        <button  ng-hide="!ready" menu-toggle="left" class="button button-icon ion-navicon" style="color: white"></button>
     </ion-nav-buttons>
 
     <ion-nav-title>
         {{title}}
     </ion-nav-title>
 
-    <ion-content class="lifeup-bg">
+    <ion-content class="lifeup-bg has-header">
 
-         <div ng-if="firstLogin">
-            <div class="lifeup-dashboard">
+        <div ng-hide="!ready">
+            <div ng-if="firstLogin">
+                <div class="lifeup-dashboard">
 
-                <br>
-                Mike will be with you as you take the Mindfulness Mountain course.
-                He's feeling kind of stressed out and not that great about life...
+                    <br>
+                    Mike will be with you as you take the Mindfulness Mountain course.
+                    He's feeling kind of stressed out and not that great about life...
 
 
-                <br><br>
+                    <br><br>
 
-                <div class="center">
-                    <img src="../img/MikeNotHappy.png" class="center" style="width: 25%;height: auto">
+                    <div class="center">
+                        <img src="../img/MikeNotHappy.png" class="center" style="width: 25%;height: auto">
+                    </div>
+
+                    <br><br>
+
+                    You'll start at the bottom of the mountain on the first stage of the course called "DISARM".
+
+
                 </div>
 
-                <br><br>
 
-                You'll start at the bottom of the mountain on the first stage of the course called "DISARM".
+                <div class="lifeup-dashboard">
+                    <br>
+                    After you've completed each level Mike will help you to climb up to the next.
+                    <br><br>
 
+                    Good luck and happy climbing!
 
+                    <br><br>
+
+                    <div class="center">
+                        <button nav-clear menu-close ng-click="go()" style="width: 50%;opacity: 0.8"
+                                class="button button-block lifeup-course-buttons">START COURSE</button>
+                    </div>
+                </div>
             </div>
 
 
-            <div class="lifeup-dashboard">
-                <br>
-                After you've completed each level Mike will help you to climb up to the next.
-                <br><br>
+            <div ng-if="!firstLogin" class="center">
 
-                Good luck and happy climbing!
+                <div class="lifeup-dashboard">
 
-                <br><br>
-
-                <div class="center">
-                    <button nav-clear menu-close ng-click="go()" style="width: 50%;opacity: 0.8"
-                            class="button button-block lifeup-course-buttons">START COURSE</button>
-                </div>
-            </div>
-        </div>
-
-
-        <div ng-if="!firstLogin" class="center">
-
-            <div class="lifeup-dashboard">
-
-                <br><br><br><br>
+                    <br><br><br><br>
 
                     Nice to see you again! Mike's got the route planned and is itching to get going!
 
-                <br><br>
+                    <br><br>
 
-                <div class="center">
-                    <button nav-clear menu-close ng-click="go()" style="width: 50%;opacity: 0.8"
-                            class="button button-block lifeup-course-buttons">Continue Course</button>
+                    <div class="center">
+                        <button nav-clear menu-close ng-click="go()" style="width: 50%;opacity: 0.8"
+                                class="button button-block lifeup-course-buttons">Continue Course</button>
+                    </div>
+
+                    <br><br>
+
+                    <div class="center">
+                        <img src="../img/MikeMap.png" class="center" style="width: 50%;height: auto">
+                    </div>
                 </div>
 
-                <br><br>
-
-                <div class="center">
-                    <img src="../img/MikeMap.png" class="center" style="width: 50%;height: auto">
-                </div>
             </div>
 
         </div>
+
 
     </ion-content>
 

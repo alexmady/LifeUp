@@ -44,9 +44,6 @@ angular.module('lifeUp', [
 
       $ionicLoading.hide();
 
-      console.log('onauth: ');
-      console.log(authData);
-
       if (authData){
           User.setAuthData(authData);
 
@@ -54,7 +51,6 @@ angular.module('lifeUp', [
               var user = { email: authData.facebook.email };
               FirebaseUtil.checkAndCreateUserProfile(authData, user);
           }
-          console.log('Going to dashboard.course');
           $state.go('dashboard.dashboardHome');
       } else {
           $state.go('home');
@@ -63,7 +59,7 @@ angular.module('lifeUp', [
 
 }]).config(function($urlRouterProvider, $ionicConfigProvider){
     $urlRouterProvider.otherwise('/home');
-    $ionicConfigProvider.views.swipeBackEnabled(false);
+    //$ionicConfigProvider.views.swipeBackEnabled(false);
     $ionicConfigProvider.backButton.previousTitleText(false);
     $ionicConfigProvider.backButton.text('');
 });

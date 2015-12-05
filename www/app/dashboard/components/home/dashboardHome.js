@@ -20,30 +20,39 @@ angular.module('lifeUp.dashboardHome', [ ])
             })
     }])
 
-    .controller('DashHomeCtrl', [ '$scope', 'User', '$state', function($scope, User, $state) {
+    .controller('DashHomeCtrl', [ '$scope', 'User', '$state', '$ionicLoading', function($scope, User, $state,  $ionicLoading) {
 
         $scope.go = function(){
             $state.go('dashboard.course');
         };
 
+        $scope.ready = false;
+
         var init = function(){
+
+            $ionicLoading.show({
+                template: '<ion-spinner icon="bubbles"></ion-spinner>'
+            });
+
             var promise = User.getProfile();
 
             promise.then(function(profile){
 
-                console.log('got profile...:');
-                //console.log(profile); // this causes an error on the device
-
                 $scope.firstLogin = profile.firstLogin;
 
                 if (profile.firstLogin === true){
-                    profile.firstLogin = false;
-                    profile.$save();
                     $scope.title = 'Meet Mike....';
+                    profile.firstLogin = false;
+                    $scope.ready = true;
+                    $ionicLoading.hide();
+                    profile.$save();
 
                 } else {
                     $scope.title = 'Welcome Back!';
+                    $ionicLoading.hide();
+                    $scope.ready = true;
                 }
+
 
             });
         };
