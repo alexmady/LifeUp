@@ -1,8 +1,4 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
 angular.module('lifeUp', [
     'ionic',
     'ngIOS9UIWebViewPatch',
@@ -57,9 +53,10 @@ angular.module('lifeUp', [
       }
   });
 
+
 }]).config(function($urlRouterProvider, $ionicConfigProvider){
     $urlRouterProvider.otherwise('/home');
-    //$ionicConfigProvider.views.swipeBackEnabled(false);
+    $ionicConfigProvider.views.swipeBackEnabled(false);
     $ionicConfigProvider.backButton.previousTitleText(false);
     $ionicConfigProvider.backButton.text('');
 });

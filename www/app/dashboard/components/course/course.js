@@ -76,12 +76,12 @@ courseModule
 
             var init = function () {
 
-                console.log('getting profile course');
+                //console.log('getting profile course');
                 var promise = User.getProfile();
 
                 promise.then(function (prof) {
 
-                    console.log('got profile course');
+                    //console.log('got profile course');
                     $scope.profile = prof;
                     updateStep(Math.max(prof.module - 1, 0), prof.slide);
                     $scope.boxyObj1.counter = $scope.step.frame;
