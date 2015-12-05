@@ -34,6 +34,14 @@ only screen and (min-resolution: 120dpi) {
     text-align: center;
 }
 
+.lifeup-instructions {
+    font-family: 'Montserrat', serif;
+    color: white;
+    font-size: 12px;
+    margin: 5%;
+}
+
+
 .line-margin {
     margin: 5%;
 }

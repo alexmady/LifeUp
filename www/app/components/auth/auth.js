@@ -11,18 +11,19 @@ angular.module('Auth', [])
 
         var login = function(user){
 
-            fauth.$authWithPassword({
-                email    : user.email,
-                password : user.pass
-            }).then(function(data){
+            try{
+                fauth.$authWithPassword({
+                    email    : user.email,
+                    password : user.pass
+                }).then(function(data){
                     console.log('User logged in:');
                     console.log(data);
 
-                // when the user logs in set up the angular fire binding to keep the
-                // user automatically updated
+                    // when the user logs in set up the angular fire binding to keep the
+                    // user automatically updated
 
-            }).catch(function(error){
-                // An alert dialog
+                }).catch(function(error){
+                    // An alert dialog
 
                     $ionicLoading.hide();
                     var alertPopup = $ionicPopup.alert({
@@ -32,8 +33,25 @@ angular.module('Auth', [])
                     alertPopup.then(function(res) {
                         return;
                     });
-                console.log(error);
-            });
+                    console.log(error);
+                });
+            } catch (error){
+
+                var msg = 'Unknown Error, please try again.';
+
+                if (!user || !user.email || !user.pass){
+                    msg = 'Either email address or password was not specified. Please try again. ';
+                }
+
+                $ionicLoading.hide();
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Login failed!',
+                    template: msg
+                });
+                alertPopup.then(function(res) {
+                    return;
+                });
+            }
         };
 
         var facebookLogin = function(){

@@ -63,6 +63,7 @@ angular.module('lifeUp', [
 
 }]).config(function($urlRouterProvider, $ionicConfigProvider){
     $urlRouterProvider.otherwise('/home');
+    $ionicConfigProvider.views.swipeBackEnabled(false);
     $ionicConfigProvider.backButton.previousTitleText(false);
     $ionicConfigProvider.backButton.text('');
 });

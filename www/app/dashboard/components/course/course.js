@@ -96,11 +96,6 @@ courseModule
             TweenMax.ticker.fps(30);
 
             $scope.go = function (goTo) {
-
-                $ionicHistory.nextViewOptions({
-                    disableAnimate: true
-                });
-
                 $state.go(goTo);
             };
 
@@ -314,21 +309,15 @@ for (var i = 0; i < days.length; i++) {
 
                 var init = function () {
 
-                    console.log('COURSE MODULE INIT');
-
                     var promise = User.getProfile();
 
                     promise.then(function (profile) {
 
-                        console.log(profile);
-
                         $scope.userActiveSlide = 0;
-
 
                         if (profile.slide > 0) {
                             $scope.userActiveSlide = profile.slide - 1;
                         }
-
 
                         $scope.courseModule = profile.module;
 

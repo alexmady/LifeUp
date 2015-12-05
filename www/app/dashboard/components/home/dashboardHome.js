@@ -20,9 +20,11 @@ angular.module('lifeUp.dashboardHome', [ ])
             })
     }])
 
-    .controller('DashHomeCtrl', [ '$scope', 'User', function($scope, User) {
+    .controller('DashHomeCtrl', [ '$scope', 'User', '$state', function($scope, User, $state) {
 
-
+        $scope.go = function(){
+            $state.go('dashboard.course');
+        };
 
         var init = function(){
             var promise = User.getProfile();
