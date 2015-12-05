@@ -22,6 +22,7 @@ angular.module('FirebaseUtil', [])
                     slideFar: 0,
                     showPlayButton: true,
                     readyToClimb:false,
+                    firstLogin: true,
                     email: user.email };
 
                 var callback = function(error){

@@ -1,49 +1,57 @@
-<ion-view view-title="Meet Mike...">
+<ion-view view-title="{{title}}" ng-cloak>
 
     <ion-nav-buttons side="left">
-        <button menu-toggle="left" class="button button-icon icon ion-navicon" style="color: white"></button>
+        <button menu-toggle="left" class="button button-icon ion-navicon" style="color: white"></button>
     </ion-nav-buttons>
 
     <ion-content class="lifeup-bg">
 
-        <div class="lifeup-dashboard">
+         <div ng-if="firstLogin">
+            <div class="lifeup-dashboard">
 
-            <br>
-
-            Mike's kind of stressed out and not feeling that great about life,
-            He'll be with you take the Mindfulness Mountain course.
-
-            <br><br>
-
-            <div class="center">
-                <img src="../img/MikeNotHappy.png" class="center" style="width: 25%;height: auto">
-            </div>
-
-            <br><br>
-
-            You'll start at the bottom of the mountain on the first stage of the course called "DISARM".
+                <br>
+                Mike will be with you as you take the Mindfulness Mountain course.
+                He's feeling kind of stressed out and not that great about life...
 
 
-            </div>
+                <br><br>
+
+                <div class="center">
+                    <img src="../img/MikeNotHappy.png" class="center" style="width: 25%;height: auto">
+                </div>
+
+                <br><br>
+
+                You'll start at the bottom of the mountain on the first stage of the course called "DISARM".
 
 
-        <div class="lifeup-dashboard">
-            <br>
-            After you've completed each level Mike will help you to climb up to the next.
-            <br><br>
-
-            Good luck and happy climbing!
-
-            <br><br>
-
-            <div class="center">
-                <button ui-sref="dashboard.course" style="width: 50%;opacity: 0.8"
-                        class="button button-block lifeup-course-buttons">START COURSE</button>
             </div>
 
 
+            <div class="lifeup-dashboard">
+                <br>
+                After you've completed each level Mike will help you to climb up to the next.
+                <br><br>
+
+                Good luck and happy climbing!
+
+                <br><br>
+
+                <div class="center">
+                    <button ui-sref="dashboard.course" style="width: 50%;opacity: 0.8"
+                            class="button button-block lifeup-course-buttons">START COURSE</button>
+                </div>
+            </div>
         </div>
 
+
+        <div ng-if="!firstLogin">
+            <div class="lifeup-dashboard" >
+
+
+            </div>
+
+        </div>
 
     </ion-content>
 

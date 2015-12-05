@@ -9,6 +9,7 @@ angular.module('lifeUp.dashboardHome', [ ])
 
         $stateProvider
             .state('dashboard.dashboardHome', {
+                cache: false,
                 url: "/faq",
                 views: {
                     'dashboardContent': {
@@ -19,7 +20,24 @@ angular.module('lifeUp.dashboardHome', [ ])
             })
     }])
 
-    .controller('DashHomeCtrl', [ '$scope', function($scope) {
+    .controller('DashHomeCtrl', [ '$scope', 'User', function($scope, User) {
 
+        User.getProfile().then(function(profile){
+
+            console.log('got profile...:');
+            //console.log(profile);
+
+            $scope.firstLogin = profile.firstLogin;
+
+            if (profile.firstLogin === true){
+                profile.firstLogin = false;
+                profile.$save();
+                $scope.title = 'Meet Mike....';
+
+            } else {
+                $scope.title = 'Welcome Back!';
+            }
+
+        });
 
     }]);
