@@ -21,6 +21,13 @@ angular.module('User', [])
                         resolve(profile);
                     } else {
 
+                        while (!userData.authData){
+
+                            setTimeout(function(){
+                                return getProfile();
+                            }, 1000);
+                        };
+
                         var userRef = new Firebase(FIREBASE_URL + '/users').child(userData.authData.uid);
                         profile = $firebaseObject(userRef);
                         profile.$loaded(function () {
@@ -29,13 +36,6 @@ angular.module('User', [])
                     }
                 });
         };
-
-        var updateClimb = function(readyToClimb){
-            console.log('updating climb');
-            profile.readyToClimb =  readyToClimb;
-            profile.$save();
-        };
-
 
         var courseSteps = function(){
 

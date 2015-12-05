@@ -24,70 +24,64 @@ courseModule
             });
     }])
 
-    .controller('CourseCtrl', [ '$scope', '$state', '$window', 'User', '$ionicHistory',
-        function ($scope, $state, $window, User, $ionicHistory) {
+    .controller('CourseCtrl', [ '$scope', '$state', '$window', 'User', '$ionicHistory', '$ionicModal', '$ionicSideMenuDelegate',
+        function ($scope, $state, $window, User, $ionicHistory, $ionicModal, $ionicSideMenuDelegate) {
+
+            $scope.toggleLeft = function() {
+                $ionicSideMenuDelegate.toggleLeft();
+            };
+
+            $scope.playButtonTop = ($window.innerHeight - 60) + 'px';
+            $scope.playButtonLeft = ($window.innerWidth * 0.2) + 'px';
+            $scope.devicePixelRatio = $window.devicePixelRatio;
+            $scope.spritePNGFile = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.png';
+            $scope.spriteDataFileName = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.json';
+
+            if ($scope.devicePixelRatio === 2) {
+                var w2 = ($window.innerWidth * 2);
+                var h2 = ($window.innerHeight * 2);
+                $scope.spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
+                $scope.spriteDataFileName = '../img/sprite-' + w2 + 'x' + h2 + '.json';
+            }
+
+            $.ajaxSetup({async: false});
+            // Your $.getJSON() request is now synchronous...
+
+            $scope.items = [];
+            $.getJSON($scope.spriteDataFileName, function (data) {
+
+                $scope.spriteMeta = data.meta;
+
+                $.each(data, function (key, val) {
+                    $.each(data[key], function (k, v) {
+                        if (v.frame) {
+                            var posInfo = {};
+                            var scale = $scope.devicePixelRatio;
+                            posInfo.bp = '-' + v.frame.x / scale + 'px -' + v.frame.y / scale + 'px';
+                            posInfo.w = v.frame.w / scale + 'px';
+                            posInfo.h = v.frame.h / scale + 'px';
+                            posInfo.t = v.spriteSourceSize.y / scale + 'px';
+                            posInfo.l = v.spriteSourceSize.x / scale + 'px';
+                            $scope.items.push(posInfo);
+                            //console.log(posInfo);
+                        }
+                    });
+                });
+            });
+
+            $.ajaxSetup({async: true});
+
+            $scope.bgSizeW = $scope.spriteMeta.size.w / 2 + 'px';
+            $scope.bgSizeH = $scope.spriteMeta.size.h / 2 + 'px';
+
 
             var init = function () {
-
-                console.log('course init');
-
 
                 var promise = User.getProfile();
 
                 promise.then(function (profile) {
 
-
                     $scope.profile = profile;
-
-
-                    //     $scope.profile.$loaded(function(){
-                    console.log('user profile loaded');
-                    console.log($scope.profile);
-                    console.log('User: ' + $scope.profile.email);
-
-                    $scope.playButtonTop = ($window.innerHeight - 60) + 'px';
-                    $scope.playButtonLeft = ($window.innerWidth * 0.2) + 'px';
-                    $scope.devicePixelRatio = $window.devicePixelRatio;
-                    $scope.spritePNGFile = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.png';
-                    $scope.spriteDataFileName = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.json';
-
-                    if ($scope.devicePixelRatio === 2) {
-                        var w2 = ($window.innerWidth * 2);
-                        var h2 = ($window.innerHeight * 2);
-                        $scope.spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
-                        $scope.spriteDataFileName = '../img/sprite-' + w2 + 'x' + h2 + '.json';
-                    }
-
-                    $.ajaxSetup({async: false});
-                    // Your $.getJSON() request is now synchronous...
-
-                    $scope.items = [];
-                    $.getJSON($scope.spriteDataFileName, function (data) {
-
-                        $scope.spriteMeta = data.meta;
-
-                        $.each(data, function (key, val) {
-                            $.each(data[key], function (k, v) {
-                                if (v.frame) {
-                                    var posInfo = {};
-                                    var scale = $scope.devicePixelRatio;
-                                    posInfo.bp = '-' + v.frame.x / scale + 'px -' + v.frame.y / scale + 'px';
-                                    posInfo.w = v.frame.w / scale + 'px';
-                                    posInfo.h = v.frame.h / scale + 'px';
-                                    posInfo.t = v.spriteSourceSize.y / scale + 'px';
-                                    posInfo.l = v.spriteSourceSize.x / scale + 'px';
-                                    $scope.items.push(posInfo);
-                                    //console.log(posInfo);
-                                }
-                            });
-                        });
-                    });
-
-                    $.ajaxSetup({async: true});
-
-                    $scope.bgSizeW = $scope.spriteMeta.size.w / 2 + 'px';
-                    $scope.bgSizeH = $scope.spriteMeta.size.h / 2 + 'px';
-
                     updateStep(Math.max($scope.profile.module - 1, 0), $scope.profile.slide);
                     $scope.boxyObj1.counter = $scope.step.frame;
 
@@ -97,24 +91,7 @@ courseModule
                         $scope.profile.showPlayButton = true;
                     }
 
-
-                    //});
-
-                    $scope.profile.$watch(function (data) {
-                        console.log('$scope.profile.$watch');
-                        /* if ($scope.profile.readyToClimb){
-                         $scope.profile.showPlayButton = false;
-                         }
-
-                         console.log()
-                         console.log(data);*/
-
-
-                    });
-
                 });
-
-
             };
 
             TweenMax.ticker.fps(30);
@@ -242,6 +219,37 @@ courseModule
                 $scope.profile.readyToClimb = false;
                 $scope.profile.$save();
             };
+
+            $scope.openInstructions = function(){
+                $scope.openModal();
+            };
+
+            $ionicModal.fromTemplateUrl('app/dashboard/components/course/instructions.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function(modal) {
+                $scope.modal = modal;
+            });
+            $scope.openModal = function() {
+                $scope.modal.show();
+            };
+            $scope.closeModal = function() {
+                $scope.modal.hide();
+            };
+            //Cleanup the modal when we're done with it!
+            $scope.$on('$destroy', function() {
+                $scope.modal.remove();
+            });
+            // Execute action on hide modal
+            $scope.$on('modal.hidden', function() {
+                // Execute action
+            });
+            // Execute action on remove modal
+            $scope.$on('modal.removed', function() {
+                // Execute action
+            });
+
+
 
             init();
         }]);

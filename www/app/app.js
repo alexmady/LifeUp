@@ -21,6 +21,7 @@ angular.module('lifeUp', [
     'lifeUp.what',
     'lifeUp.faq',
     'lifeUp.how',
+    'lifeUp.dashboardHome',
     'Auth',
     'FirebaseUtil',
     'User'])
@@ -38,7 +39,6 @@ angular.module('lifeUp', [
     }
   });
 
-
   // Whenever there is an update to authorization data from firebase
   Auth.ref.$onAuth(function(authData){
 
@@ -55,7 +55,7 @@ angular.module('lifeUp', [
               FirebaseUtil.checkAndCreateUserProfile(authData, user);
           }
           console.log('Going to dashboard.course');
-          $state.go('dashboard.course');
+          $state.go('dashboard.dashboardHome');
       } else {
           $state.go('home');
       }

@@ -26,6 +26,14 @@ only screen and (min-resolution: 120dpi) {
     src: local('Amatic SC Bold'), local('AmaticSC-Bold'), url('../font/AmaticSC-Bold.woff') format('woff');
 }
 
+.lifeup-dashboard {
+    font-family: 'Montserrat', serif;
+    color: white;
+    font-size: 13px;
+    margin: 5%;
+    text-align: center;
+}
+
 .line-margin {
     margin: 5%;
 }

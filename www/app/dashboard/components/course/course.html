@@ -4,7 +4,26 @@
 
         <section class="course-container">
 
-            <div style="background-color: white;width: 100%;height: 44px; top: {{playButtonTop}};opacity: 0.6; position: absolute">
+            <button ng-click="toggleLeft()"
+                    style="color: cornflowerblue;
+                    font-size: 32px;
+                    position: absolute;
+                    top: 10px;
+                    left:10px;
+                    "
+                    class="button button-icon button-clear ion-navicon"></button>
+
+            <button style="color: cornflowerblue;
+                    font-size: 32px;
+                    position: absolute;
+                    top: 10px;
+                    right:10px;
+                    "
+                    class="button button-icon button-clear ion-ios-help-outline"
+                    ng-click="openInstructions()"
+                    ></button>
+
+            <div class="center" style="background-color: white;width: 100%;height: 44px; top: {{playButtonTop}};opacity: 0.6; position: absolute">
 
             <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()" ng-disabled="!step.backButtonEnabled"
                     style="
@@ -17,9 +36,7 @@
 
             <button ng-click="play()" class="button button-clear lifeup-course-buttons" ng-show="profile.showPlayButton"
                  style="
-                    position: absolute;
                     color: #009689;
-                    left: {{playButtonLeft}};
                     height: 20px;width: 60%;">OPEN {{step.name}} MODULE
             </button>
             <button ng-click="climb()" class="button button-clear lifeup-course-buttons" ng-show="profile.readyToClimb"
