@@ -10,7 +10,7 @@ angular.module('lifeUp.dashboardHome', [ ])
         $stateProvider
             .state('dashboard.dashboardHome', {
                 cache:false,
-                url: "/faq",
+                url: "/dashboardHome",
                 views: {
                     'dashboardContent': {
                         templateUrl: "app/dashboard/components/home/dashboardHome.html",

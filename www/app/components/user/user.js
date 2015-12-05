@@ -19,6 +19,8 @@ angular.module('User', [])
 
             return $q(function(resolve, reject) {
 
+                    console.log('profile?');
+                    console.log(profile);
                     if (profile) {
                         resolve(profile);
                     } else {
@@ -26,6 +28,7 @@ angular.module('User', [])
                         var userRef = new Firebase(FIREBASE_URL + '/users').child(userData.authData.uid);
                         profile = $firebaseObject(userRef);
                         profile.$loaded(function (pro) {
+                            console.log('PROFILE LOADED');
                             resolve(pro);
                         });
                     }
