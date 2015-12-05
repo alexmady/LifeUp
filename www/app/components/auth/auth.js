@@ -16,8 +16,8 @@ angular.module('Auth', [])
                     email    : user.email,
                     password : user.pass
                 }).then(function(data){
-                    console.log('User logged in:');
-                    console.log(data);
+                    //console.log('User logged in:');
+                    //console.log(data);
 
                     // when the user logs in set up the angular fire binding to keep the
                     // user automatically updated
@@ -56,7 +56,7 @@ angular.module('Auth', [])
 
         var facebookLogin = function(){
 
-            console.log('facebook login');
+            //console.log('facebook login');
 
             var options = {
               remember: "default",
