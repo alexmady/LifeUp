@@ -292,6 +292,13 @@ input::-webkit-input-placeholder {
     margin: 30px;
 }
 
+.lifeup-sidemenu-text{
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 26px;
+    color: white;
+}
+
 .lifeup-text {
     text-align: center;
     font-family: 'Montserrat', serif;

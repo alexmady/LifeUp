@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/app/dashboard/components/home/dashboardHome.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/app/dashboard/components/home/dashboardHome.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/WelcomeBackModal.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/instructions.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/app.js" afterPath="$PROJECT_DIR$/www/app/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/course.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/course.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/dashboard.html" afterPath="$PROJECT_DIR$/www/app/dashboard/dashboard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/home/dashboardHome.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/home/dashboardHome.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/instructions.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/instructions.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/components/user/user.js" afterPath="$PROJECT_DIR$/www/app/components/user/user.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LifeUp.iws" />
@@ -36,10 +30,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DISARM.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DISARM.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13057671" vertical-offset="0" max-vertical-offset="919">
+            <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="570">
               <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
               <folding>
                 <element signature="tag#ion-slide#0;tag#ion-slide-box#0;tag#ion-view#0" expanded="false" />
@@ -56,8 +50,8 @@
       <file leaf-file-name="dashboardHome.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/home/dashboardHome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="825">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state vertical-scroll-proportion="-24.375" vertical-offset="0" max-vertical-offset="825">
+              <caret line="39" column="81" selection-start-line="39" selection-start-column="81" selection-end-line="39" selection-end-column="81" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#ion-nav-buttons#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -70,8 +64,8 @@
       <file leaf-file-name="course.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/course.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.4615386" vertical-offset="0" max-vertical-offset="1200">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            <state vertical-scroll-proportion="-3.6538463" vertical-offset="0" max-vertical-offset="1215">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
@@ -79,7 +73,7 @@
                 <element signature="n#style#0;n#button#1;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#2;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#3;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-                <marker date="1449275571000" expanded="true" signature="2483:3029" placeholder="{&quot;background-repeat&quot;: 'no-repeat'...}" />
+                <marker date="1449276752000" expanded="true" signature="2500:3046" placeholder="{&quot;background-repeat&quot;: 'no-repeat'...}" />
               </folding>
             </state>
           </provider>
@@ -98,8 +92,8 @@
       <file leaf-file-name="instructions.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/instructions.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3461539" vertical-offset="0" max-vertical-offset="945">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state vertical-scroll-proportion="-1.1538461" vertical-offset="0" max-vertical-offset="945">
+              <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#1;n#ion-header-bar#0;n#ion-modal-view#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
@@ -126,8 +120,8 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5640">
-              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+            <state vertical-scroll-proportion="-14.04" vertical-offset="4104" max-vertical-offset="5745">
+              <caret line="297" column="17" selection-start-line="297" selection-start-column="17" selection-end-line="297" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -143,11 +137,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="1260">
-              <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.19586506" vertical-offset="90" max-vertical-offset="1260">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#ion-content#0;n#ion-side-menu#0;n#ion-side-menus#0;n#!!top" expanded="true" />
               </folding>
@@ -219,16 +213,16 @@
         <option value="$PROJECT_DIR$/www/app/dashboard/components/home/dashboardHome.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/app/app.js" />
-        <option value="$PROJECT_DIR$/www/app/dashboard/dashboard.html" />
         <option value="$PROJECT_DIR$/platforms/ios/build/device/LifeUp.app/www/app/components/firebase/firebase.js" />
-        <option value="$PROJECT_DIR$/www/css/style.css" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/instructions/instructions.js" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" />
+        <option value="$PROJECT_DIR$/www/app/components/user/user.js" />
+        <option value="$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/course.html" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/instructions.html" />
-        <option value="$PROJECT_DIR$/www/app/components/user/user.js" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/home/dashboardHome.html" />
-        <option value="$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html" />
+        <option value="$PROJECT_DIR$/www/css/style.css" />
+        <option value="$PROJECT_DIR$/www/app/dashboard/dashboard.html" />
       </list>
     </option>
   </component>
@@ -849,7 +843,11 @@
       <created>1449268819982</created>
       <updated>1449268819983</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="- fix titles in disarm module&#10;- added instructions modal and dashboard">
+      <created>1449276491561</created>
+      <updated>1449276491561</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -899,7 +897,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- separate bg image and the animation" />
     <MESSAGE value="- made background imager higer resolution and added  background-size: cover; &#10;" />
     <MESSAGE value="- fixed media query and background image positioning to work for higher res images." />
     <MESSAGE value="- n./a" />
@@ -924,7 +921,8 @@
     <MESSAGE value="- fix the intro slides slider and fixe the facebook loking issue." />
     <MESSAGE value="- fix up side menu appearance" />
     <MESSAGE value="- fix issue with complete module button&#10;- make libs local and fonts local" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix issue with complete module button&#10;- make libs local and fonts local" />
+    <MESSAGE value="- fix titles in disarm module&#10;- added instructions modal and dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fix titles in disarm module&#10;- added instructions modal and dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1224,28 +1222,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/dashboard/dashboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="1260">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#ion-content#0;n#ion-side-menu#0;n#ion-side-menus#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/faq/faq.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
           <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5640">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1268,26 +1248,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/course.html">
+    <entry file="file://$PROJECT_DIR$/www/app/components/user/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4615386" vertical-offset="0" max-vertical-offset="1200">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#2;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#3;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <marker date="1449275571000" expanded="true" signature="2483:3029" placeholder="{&quot;background-repeat&quot;: 'no-repeat'...}" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/instructions.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3461539" vertical-offset="0" max-vertical-offset="945">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state vertical-scroll-proportion="-1.1538461" vertical-offset="0" max-vertical-offset="945">
+          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
           <folding>
             <element signature="n#style#0;n#button#0;n#div#1;n#ion-header-bar#0;n#ion-modal-view#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
@@ -1298,29 +1270,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/components/user/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/home/dashboardHome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="825">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#ion-nav-buttons#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13057671" vertical-offset="0" max-vertical-offset="919">
+        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="570">
           <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
           <folding>
             <element signature="tag#ion-slide#0;tag#ion-slide-box#0;tag#ion-view#0" expanded="false" />
@@ -1329,6 +1281,52 @@
             <element signature="tag#ion-slide#3;tag#ion-slide-box#0;tag#ion-view#0" expanded="false" />
             <element signature="tag#ion-slide#4;tag#ion-slide-box#0;tag#ion-view#0" expanded="false" />
             <element signature="tag#ion-slide#5;tag#ion-slide-box#0;tag#ion-view#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/course.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6538463" vertical-offset="0" max-vertical-offset="1215">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#2;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#3;n#div#0;n#section#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <marker date="1449276752000" expanded="true" signature="2500:3046" placeholder="{&quot;background-repeat&quot;: 'no-repeat'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/home/dashboardHome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.375" vertical-offset="0" max-vertical-offset="825">
+          <caret line="39" column="81" selection-start-line="39" selection-start-column="81" selection-end-line="39" selection-end-column="81" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#ion-nav-buttons#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.04" vertical-offset="4104" max-vertical-offset="5745">
+          <caret line="297" column="17" selection-start-line="297" selection-start-column="17" selection-end-line="297" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/app/dashboard/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19586506" vertical-offset="90" max-vertical-offset="1260">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#ion-content#0;n#ion-side-menu#0;n#ion-side-menus#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
