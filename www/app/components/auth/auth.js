@@ -3,8 +3,8 @@
  */
 angular.module('Auth', [])
 
-.factory('Auth', ['$firebaseAuth', '$firebaseObject', 'FIREBASE_URL', '$ionicPopup', 'User', '$ionicLoading',
-    function($firebaseAuth, $firebaseObject, FIREBASE_URL, $ionicPopup, User, $ionicLoading) {
+.factory('Auth', ['$firebaseAuth', '$firebaseObject', 'FIREBASE_URL', '$ionicPopup', 'User', '$ionicLoading', '$q',
+    function($firebaseAuth, $firebaseObject, FIREBASE_URL, $ionicPopup, User, $ionicLoading, $q) {
 
         var ref = new Firebase(FIREBASE_URL + '/users');
         var fauth = $firebaseAuth(ref);
@@ -85,11 +85,43 @@ angular.module('Auth', [])
            fauth.$unauth();
         };
 
+
+        var resetPassword = function(email){
+
+            if (!email) {
+                throw new Error('Please supply email address to reset password.');
+            }
+
+            return $q(function(resolve, reject) {
+
+                ref.resetPassword({
+                    email: email
+                }, function(error) {
+                    if (error) {
+                        switch (error.code) {
+                            case "INVALID_USER":
+                                reject("The specified user account does not exist.");
+                                break;
+                            default:
+                                reject("Error resetting password:", error);
+                        }
+                    } else {
+                        resolve("Password reset email sent successfully!");
+                    }
+                });
+
+            });
+
+
+
+        };
+
         return {
             ref: fauth,
             logout: logout,
             login: login,
-            facebookLogin: facebookLogin
+            facebookLogin: facebookLogin,
+            resetPassword: resetPassword
         };
 
     }
