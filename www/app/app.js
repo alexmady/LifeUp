@@ -17,6 +17,7 @@ angular.module('lifeUp', [
     'lifeUp.what',
     'lifeUp.faq',
     'lifeUp.how',
+    'lifeUp.account',
     'lifeUp.dashboardHome',
     'Auth',
     'FirebaseUtil',

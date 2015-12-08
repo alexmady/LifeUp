@@ -44,8 +44,13 @@ angular.module('lifeUp.emailSignIn', [])
 
             $scope.resetPassword = function (user) {
 
+                $ionicLoading.show({
+                    template: '<ion-spinner icon="bubbles"></ion-spinner>'
+                });
+
                 Auth.resetPassword(user.email).then(
                     function () {
+                        $ionicLoading.hide();
                         var alertPopup = $ionicPopup.alert({
                             title: 'Success!',
                             template: 'Password reset email sent.'
@@ -55,7 +60,7 @@ angular.module('lifeUp.emailSignIn', [])
                         });
                     }
                 ).catch(function (error) {
-
+                        $ionicLoading.hide();
                         var alertPopup = $ionicPopup.alert({
                             title: 'Error',
                             template: error
@@ -65,8 +70,6 @@ angular.module('lifeUp.emailSignIn', [])
                         });
 
                     });
-
-
             };
 
             $scope.goBack = function () {

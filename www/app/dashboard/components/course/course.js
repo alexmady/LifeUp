@@ -24,8 +24,8 @@ courseModule
             });
     }])
 
-    .controller('CourseCtrl', [ '$scope', '$state', '$window', 'User', '$ionicHistory', '$ionicModal', '$ionicSideMenuDelegate',
-        function ($scope, $state, $window, User, $ionicHistory, $ionicModal, $ionicSideMenuDelegate) {
+    .controller('CourseCtrl', [ '$scope', '$state', '$window', 'User', '$ionicHistory', '$ionicModal', '$ionicSideMenuDelegate', '$ionicPopup',
+        function ($scope, $state, $window, User, $ionicHistory, $ionicModal, $ionicSideMenuDelegate, $ionicPopup) {
 
             $scope.toggleLeft = function() {
                 $ionicSideMenuDelegate.toggleLeft();
@@ -90,6 +90,19 @@ courseModule
                         $scope.profile.showPlayButton = false;
                     } else {
                         $scope.profile.showPlayButton = true;
+                    }
+
+                    if (!$scope.profile.completeCongratulate){
+
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Well Done!',
+                            template: 'You have successfully completed the course.'
+                        });
+                        alertPopup.then(function (res) {
+                            $scope.profile.completeCongratulate = true;
+                            $scope.profile.$save();
+                            $scope.closeModal();
+                        });
                     }
 
                 });
@@ -175,15 +188,6 @@ courseModule
                 tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
             };
 
-            var steps = [
-                {name: 'DISARM', pos: 1, frame: 0, duration: 0, backButtonEnabled: false},
-                {name: 'SPACE', pos: 2, frame: 208, duration: 6, backButtonEnabled: true},
-                {name: 'FLOW', pos: 3, frame: 345, duration: 5, backButtonEnabled: true},
-                {name: 'ACT', pos: 4, frame: 520, duration: 6, backButtonEnabled: true},
-                {name: 'BE', pos: 5, frame: 592, duration: 5, backButtonEnabled: true},
-                {name: 'I', pos: 6, frame: 654, duration: 2, backButtonEnabled: true}
-            ];
-
             $scope.boxyObj1 = { counter: 0 };
 
             var tweenTo = function (frame, time, onComplete, paused) {
@@ -234,16 +238,6 @@ courseModule
             $scope.$on('$destroy', function() {
                 $scope.modal.remove();
             });
-            // Execute action on hide modal
-            $scope.$on('modal.hidden', function() {
-                // Execute action
-            });
-            // Execute action on remove modal
-            $scope.$on('modal.removed', function() {
-                // Execute action
-            });
-
-
 
             init();
         }]);
@@ -292,14 +286,21 @@ for (var i = 0; i < days.length; i++) {
                 };
 
                 $scope.completeModule = function () {
-                    console.log('completing module...');
-                    User.updateCourseProgress($scope.courseModule, ($ionicSlideBoxDelegate.currentIndex() + 1), true);
+
+                    var slide = $ionicSlideBoxDelegate.currentIndex() + 1;
+                    var module = $scope.courseModule;
+                    var readyToClimb = true;
+
+                    if ($scope.courseModule === User.courseSteps().length && slide === 1){
+                        readyToClimb = false;
+                    }
+
+                    User.updateCourseProgress(module, slide, readyToClimb);
                     $state.go('dashboard.course');
                 };
 
                 $scope.slideHasChanged = function (index) {
                     if (($ionicSlideBoxDelegate.slidesCount() - 1) === index) {
-
                         $scope.enableCompleteButton = true;
                     } else {
                         $scope.enableCompleteButton = false;
@@ -320,6 +321,7 @@ for (var i = 0; i < days.length; i++) {
                         }
 
                         $scope.courseModule = profile.module;
+
 
                         console.log('course module:' + $scope.courseModule);
                         console.log('user active slide:' + $scope.userActiveSlide + ' slide count:' + n);

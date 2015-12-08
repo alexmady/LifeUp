@@ -76,6 +76,11 @@ angular.module('User', [])
                     }
                 }
             }
+
+            if (module === courseSteps().length && slide === 1){
+                profile.courseCompleted = true;
+            }
+
             profile.$save();
             // update users position in the course here
             //console.log('Course module ' + module + ' slide ' + slide);

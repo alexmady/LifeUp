@@ -23,6 +23,8 @@ angular.module('FirebaseUtil', [])
                     showPlayButton: true,
                     readyToClimb:false,
                     firstLogin: true,
+                    courseCompleted: false,
+                    completeCongratulate: false,
                     email: user.email };
 
                 var callback = function(error){

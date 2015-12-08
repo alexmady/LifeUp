@@ -111,9 +111,34 @@ angular.module('Auth', [])
                 });
 
             });
+        };
 
+        var changePassword = function(oldPassword, newPassword){
 
+            var email = User.userData.authData.password.email;
 
+            return $q(function(resolve, reject) {
+                ref.changePassword({
+                    email: email,
+                    oldPassword: oldPassword,
+                    newPassword: newPassword
+                }, function(error) {
+                    if (error) {
+                        switch (error.code) {
+                            case "INVALID_PASSWORD":
+                                reject("The specified user account password is incorrect.");
+                                break;
+                            case "INVALID_USER":
+                                reject("The specified user account does not exist.");
+                                break;
+                            default:
+                                reject("Error changing password:", error);
+                        }
+                    } else {
+                        resolve("User password changed successfully!");
+                    }
+                });
+            });
         };
 
         return {
@@ -121,7 +146,8 @@ angular.module('Auth', [])
             logout: logout,
             login: login,
             facebookLogin: facebookLogin,
-            resetPassword: resetPassword
+            resetPassword: resetPassword,
+            changePassword: changePassword
         };
 
     }
