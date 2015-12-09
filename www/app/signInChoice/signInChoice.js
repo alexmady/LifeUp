@@ -15,8 +15,8 @@ angular.module('lifeUp.signInChoice', [])
             })
     }])
 
-    .controller('SignInChoiceCtrl', [ '$state', '$scope', 'Auth', 'FIREBASE_URL', '$ionicHistory', '$ionicLoading',
-        function ($state, $scope, Auth, FIREBASE_URL, $ionicHistory, $ionicLoading) {
+    .controller('SignInChoiceCtrl', [ '$state', '$scope', 'FIREBASE_URL', '$ionicHistory', '$ionicLoading', 'User',
+        function ($state, $scope, FIREBASE_URL, $ionicHistory, $ionicLoading, User) {
 
             $scope.go = function (goTo) {
                 $state.go(goTo)
@@ -33,9 +33,7 @@ angular.module('lifeUp.signInChoice', [])
 
                 console.log('about to facebook sign in');
 
-                Auth.facebookLogin();
+                User.facebookLogin();
             };
-
-
 
         }]);

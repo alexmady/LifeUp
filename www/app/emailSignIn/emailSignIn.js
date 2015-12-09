@@ -15,8 +15,8 @@ angular.module('lifeUp.emailSignIn', [])
             })
     }])
 
-    .controller('EmailSignInCtrl', [ '$scope', '$rootScope', '$state', 'Auth', '$ionicHistory', '$ionicLoading', '$ionicModal', '$ionicPopup',
-        function ($scope, $rootScope, $state, Auth, $ionicHistory, $ionicLoading, $ionicModal, $ionicPopup) {
+    .controller('EmailSignInCtrl', [ '$scope', '$rootScope', '$state', 'User', '$ionicHistory', '$ionicLoading', '$ionicModal', '$ionicPopup',
+        function ($scope, $rootScope, $state, User, $ionicHistory, $ionicLoading, $ionicModal, $ionicPopup) {
 
             $scope.go = function (goTo) {
                 $state.go(goTo)
@@ -48,7 +48,7 @@ angular.module('lifeUp.emailSignIn', [])
                     template: '<ion-spinner icon="bubbles"></ion-spinner>'
                 });
 
-                Auth.resetPassword(user.email).then(
+                User.resetPassword(user.email).then(
                     function () {
                         $ionicLoading.hide();
                         var alertPopup = $ionicPopup.alert({
@@ -80,7 +80,7 @@ angular.module('lifeUp.emailSignIn', [])
                 $ionicLoading.show({
                     template: '<ion-spinner icon="bubbles"></ion-spinner>'
                 });
-                Auth.login(user);
+                User.login(user);
             };
 
         }]);

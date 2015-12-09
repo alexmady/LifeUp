@@ -16,8 +16,8 @@ angular.module('lifeUp.createAccountEmail', [])
     }])
 
     .controller('CreateAccountEmailCtrl',
-    [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', 'FirebaseUtil', '$ionicPopup', 'Auth', '$ionicLoading',
-        function ($scope, $rootScope, $state, FIREBASE_URL, FirebaseUtil, $ionicPopup, Auth, $ionicLoading) {
+    [ '$scope', '$rootScope', '$state', 'FIREBASE_URL', 'FirebaseUtil', '$ionicPopup', '$ionicLoading',
+        function ($scope, $rootScope, $state, FIREBASE_URL, FirebaseUtil, $ionicPopup, $ionicLoading) {
 
             $scope.go = function (goTo) {
                 $state.go(goTo)

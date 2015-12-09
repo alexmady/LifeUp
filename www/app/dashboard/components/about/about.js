@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('lifeUp.about', [ 'Auth'])
+angular.module('lifeUp.about', [])
 
     .config( ['$stateProvider', function($stateProvider) {
 

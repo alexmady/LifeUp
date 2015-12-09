@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('lifeUp.dashboard', [ 'Auth'])
+angular.module('lifeUp.dashboard', [ ])
 
     .config( ['$stateProvider', function($stateProvider) {
 
@@ -16,7 +16,7 @@ angular.module('lifeUp.dashboard', [ 'Auth'])
             })
     }])
 
-    .controller('DashboardCtrl', [ '$scope', 'Auth', 'User', '$ionicSideMenuDelegate', function($scope, Auth, User, $ionicSideMenuDelegate) {
+    .controller('DashboardCtrl', [ '$scope', 'User', '$ionicSideMenuDelegate', function($scope, User) {
 
 
 

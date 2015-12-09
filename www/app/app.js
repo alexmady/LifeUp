@@ -3,6 +3,7 @@ angular.module('lifeUp', [
     'ionic',
     'ngIOS9UIWebViewPatch',
     'firebase',
+    'User',
     'lifeUp.config',
     'lifeUp.home',
     'lifeUp.signInChoice',
@@ -19,12 +20,9 @@ angular.module('lifeUp', [
     'lifeUp.how',
     'lifeUp.account',
     'lifeUp.dashboardHome',
-    'Auth',
-    'FirebaseUtil',
-    'User'])
+    'FirebaseUtil'])
 
-.run(['$ionicPlatform', '$rootScope', 'Auth', 'User', '$state', 'FirebaseUtil', '$ionicLoading',
-        function($ionicPlatform, $rootScope, Auth, User, $state, FirebaseUtil, $ionicLoading ) {
+.run(['$ionicPlatform',function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -37,7 +35,7 @@ angular.module('lifeUp', [
   });
 
   // Whenever there is an update to authorization data from firebase
-  Auth.ref.$onAuth(function(authData){
+  /*Auth.ref.$onAuth(function(authData){
 
       $ionicLoading.hide();
 
@@ -52,7 +50,7 @@ angular.module('lifeUp', [
       } else {
           $state.go('home');
       }
-  });
+  });*/
 
 
 }]).config(function($urlRouterProvider, $ionicConfigProvider){

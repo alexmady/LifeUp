@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('lifeUp.account', [ 'Auth'])
+angular.module('lifeUp.account', [ 'User'])
 
     .config( ['$stateProvider', function($stateProvider) {
 
@@ -19,8 +19,8 @@ angular.module('lifeUp.account', [ 'Auth'])
             })
     }])
 
-    .controller('AccountCtrl', [ '$scope', '$ionicModal', 'Auth', '$ionicLoading', '$ionicPopup',
-        function($scope, $ionicModal, Auth, $ionicLoading, $ionicPopup) {
+    .controller('AccountCtrl', [ '$scope', '$ionicModal', 'User', '$ionicLoading', '$ionicPopup',
+        function($scope, $ionicModal, User, $ionicLoading, $ionicPopup) {
 
             $ionicModal.fromTemplateUrl('app/dashboard/components/account/changePassword.html', {
                 scope: $scope,
@@ -43,7 +43,7 @@ angular.module('lifeUp.account', [ 'Auth'])
             });
 
             $scope.logout = function(){
-                Auth.logout();
+                User.logout();
             };
 
             $scope.changePassword = function(user){
@@ -53,7 +53,7 @@ angular.module('lifeUp.account', [ 'Auth'])
                 });
 
                 try{
-                    Auth.changePassword(user.oldPassword, user.newPassword).then(
+                    User.changePassword(user.oldPassword, user.newPassword).then(
                         function () {
                             $ionicLoading.hide();
                             var alertPopup = $ionicPopup.alert({
@@ -75,14 +75,9 @@ angular.module('lifeUp.account', [ 'Auth'])
                             });
                         });
                 } catch (error){
-                    console.log(error);
+                    console.log(error.stack);
                     $ionicLoading.hide();
                 }
-
-
-
-
             };
-
 
     }]);

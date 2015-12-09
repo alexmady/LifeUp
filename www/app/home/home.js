@@ -15,7 +15,7 @@ angular.module('lifeUp.home', [])
             })
     }])
 
-    .controller('HomeCtrl', [ '$scope', '$state', '$ionicHistory', function($scope, $state, $ionicHistory) {
+    .controller('HomeCtrl', [ '$scope', '$state', '$ionicHistory', function($scope, $state) {
 
         $scope.go = function(goTo){
             $state.go(goTo);

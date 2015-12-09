@@ -15,8 +15,8 @@ angular.module('lifeUp.createAccount', [])
             })
     }])
 
-    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state', 'Auth', '$ionicLoading',
-        function($scope, $state, Auth, $ionicLoading) {
+    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state', '$ionicLoading', 'User',
+        function($scope, $state, $ionicLoading, User) {
 
         $scope.go = function(goTo){
             $state.go(goTo)
@@ -27,7 +27,7 @@ angular.module('lifeUp.createAccount', [])
             $ionicLoading.show({
                 template: '<ion-spinner icon="bubbles"></ion-spinner>'
             });
-            Auth.facebookLogin();
+            User.facebookLogin();
         }
 
     }]);

@@ -5,7 +5,7 @@
 
 var days = ['DISARM', 'SPACE', 'FLOW', 'ACT', 'BE', 'I'];
 
-var courseModule = angular.module('lifeUp.course', [ 'Auth', 'ionic']);
+var courseModule = angular.module('lifeUp.course', [ 'ionic']);
 
 courseModule
 
