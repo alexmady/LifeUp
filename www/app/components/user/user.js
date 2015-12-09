@@ -1,10 +1,10 @@
 /**
  * Created by alexmady on 07/11/15.
  */
-angular.module('User', [])
+angular.module('User', ['firebase'])
 
-    .factory('User', [ 'FirebaseUtil', '$firebaseObject', 'FIREBASE_URL', '$q', '$ionicLoading', '$firebaseAuth', '$state', '$ionicPopup',
-        function (FirebaseUtil, $firebaseObject, FIREBASE_URL, $q, $ionicLoading, $firebaseAuth, $state, $ionicPopup) {
+    .factory('User', [ '$firebase', '$firebaseObject', 'FIREBASE_URL', '$q', '$ionicLoading', '$firebaseAuth', '$state', '$ionicPopup',
+        function ( $firebase, $firebaseObject, FIREBASE_URL, $q, $ionicLoading, $firebaseAuth, $state, $ionicPopup) {
 
             var userData = {};
             var profile = null;
@@ -31,52 +31,58 @@ angular.module('User', [])
 
             var login = function (user) {
 
-                try {
-                    fauth.$authWithPassword({
-                        email: user.email,
-                        password: user.pass
-                    }).then(function (data) {
-                        //console.log('User logged in:');
-                        //console.log(data);
+                return $q(function(resolve, reject){
 
-                        // when the user logs in set up the angular fire binding to keep the
-                        // user automatically updated
+                    try {
 
-                    }).catch(function (error) {
-                        // An alert dialog
+                        fauth.$authWithPassword({
+                            email: user.email,
+                            password: user.pass
+                        }).then(function (data) {
+                            console.log('User logged in:');
+                            //console.log(data);
+                            resolve(data);
+                        }).catch(function (error) {
+                            // An alert dialog
+
+                            var errMsg = "Sorry we didn't recognise that email address / password.";
+
+                            $ionicLoading.hide();
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Login failed!',
+                                template: errMsg
+                            });
+                            alertPopup.then(function (res) {
+                                reject(errMsg);
+                            });
+                        });
+                    } catch (error) {
+
+                        var msg = 'Unknown Error, please try again.';
+
+                        if (!user || !user.email || !user.pass) {
+                            msg = 'Either email address or password was not specified. Please try again. ';
+                        }
 
                         $ionicLoading.hide();
                         var alertPopup = $ionicPopup.alert({
                             title: 'Login failed!',
-                            template: "Sorry we didn't recognise that email address / password."
+                            template: msg
                         });
                         alertPopup.then(function (res) {
-                            return;
+                            reject(msg);
                         });
-                        console.log(error);
-                    });
-                } catch (error) {
-
-                    var msg = 'Unknown Error, please try again.';
-
-                    if (!user || !user.email || !user.pass) {
-                        msg = 'Either email address or password was not specified. Please try again. ';
                     }
+                });
 
-                    $ionicLoading.hide();
-                    var alertPopup = $ionicPopup.alert({
-                        title: 'Login failed!',
-                        template: msg
-                    });
-                    alertPopup.then(function (res) {
-                        return;
-                    });
-                }
+
             };
 
             var facebookLogin = function () {
 
-                //console.log('facebook login');
+                $ionicLoading.show({
+                    template: '<ion-spinner icon="bubbles"></ion-spinner>'
+                });
 
                 var options = {
                     remember: "default",
@@ -85,7 +91,10 @@ angular.module('User', [])
 
                 fauth.$authWithOAuthRedirect("facebook", options).then(function (authData) {
 
-                }).catch(function (error) {
+                    }).catch(function (error) {
+
+                    $ionicLoading.hide();
+
                     if (error.code === "TRANSPORT_UNAVAILABLE") {
                         fauth.$authWithOAuthPopup("facebook", options).then(function (authData) {
                             // User successfully logged in. We can log to the console
@@ -129,7 +138,14 @@ angular.module('User', [])
 
             var changePassword = function (oldPassword, newPassword) {
 
-                var email = userData.authData.password.email;
+                var email ="";
+                if (userData.authData.password){
+                    email = userData.authData.password.email;
+                } else {
+                    email = userData.authData.facebook.email;
+                }
+
+                console.log('User email: ' + email);
 
                 return $q(function (resolve, reject) {
                     ref.changePassword({
@@ -156,6 +172,53 @@ angular.module('User', [])
                 });
             };
 
+            var createProfile = function(authData, user){
+
+                var uid = authData.uid;
+                var dt = new Date();
+
+                var value = {};
+                value[uid] = {
+                    created: dt.getTime(),
+                    module:0,
+                    slide: 0,
+                    moduleFar: 0,
+                    slideFar: 0,
+                    showPlayButton: true,
+                    readyToClimb:false,
+                    firstLogin: true,
+                    courseCompleted: false,
+                    completeCongratulate: false,
+                    resilienceComplete: false,
+                    authenticityComplete: false,
+                    connectionComplete: false,
+                    email: user.email };
+
+                var callback = function(error){
+                    if (error){
+                        console.log(error);
+                    } else {
+                        //console.log('Synchronization succeeded');
+                    }
+                };
+
+                return ref.update(value, callback);
+            };
+
+
+            var checkAndCreateUserProfile = function( authData, user ){
+
+                var checkRef = ref.child(authData.uid);
+                checkRef.once("value",function(snapshot){
+
+                    var exists = snapshot.exists();
+
+                    if (!exists){
+                        createProfile( authData, user );
+                    }
+                });
+            };
+
 
             var getProfile = function () {
 
@@ -169,7 +232,7 @@ angular.module('User', [])
 
                         var userId = userData.authData.uid;
                         if (!userId) {
-                            userId = Auth.getAuth();
+                            throw new Error('NO USER DATA');
                         }
 
                         var userRef = new Firebase(FIREBASE_URL + '/users').child(userId);
@@ -194,6 +257,59 @@ angular.module('User', [])
                 ];
 
                 return steps;
+            };
+
+
+            var createAccount = function(user){
+
+                try{
+
+                    ref.createUser({
+                        email: user.email,
+                        password: user.pass
+                    }, function (error, userData) {
+
+                        $ionicLoading.hide();
+                        if (error) {
+
+                            console.log(error);
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Sorry!',
+                                template: error
+                            });
+                            alertPopup.then(function () {
+                                return;
+                            });
+
+                        } else {
+                            console.log("Successfully created user account with uid:", userData.uid);
+                            console.log('about to create user profile...');
+
+                            login(user).then(function(authData){
+                                createProfile(authData, user);
+                            });
+
+
+                        }
+                    });
+
+                } catch (error) {
+
+                    console.log(error.stack);
+
+                    $ionicLoading.hide();
+
+                    var res = error.message.replace("Firebase.createUser", "");
+
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Sorry!',
+                        template: res
+                    });
+
+                    alertPopup.then(function () {
+                        return;
+                    });
+                }
             };
 
             var updateCourseProgress = function (module, slide, readyToClimb) {
@@ -235,7 +351,6 @@ angular.module('User', [])
 
             var logout = function () {
                 fauth.$unauth();
-                console.log('logging out user');
                 userData = {};
                 profile = null;
             };
@@ -249,7 +364,10 @@ angular.module('User', [])
                 login: login,
                 facebookLogin: facebookLogin,
                 resetPassword: resetPassword,
-                changePassword: changePassword
+                changePassword: changePassword,
+                createProfile: createProfile,
+                checkAndCreateUserProfile: checkAndCreateUserProfile,
+                createAccount: createAccount
             }
 
         }]);

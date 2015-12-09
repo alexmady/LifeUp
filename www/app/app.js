@@ -2,7 +2,6 @@
 angular.module('lifeUp', [
     'ionic',
     'ngIOS9UIWebViewPatch',
-    'firebase',
     'User',
     'lifeUp.config',
     'lifeUp.home',
@@ -19,8 +18,7 @@ angular.module('lifeUp', [
     'lifeUp.faq',
     'lifeUp.how',
     'lifeUp.account',
-    'lifeUp.dashboardHome',
-    'FirebaseUtil'])
+    'lifeUp.dashboardHome'])
 
 .run(['$ionicPlatform',function($ionicPlatform) {
   $ionicPlatform.ready(function() {

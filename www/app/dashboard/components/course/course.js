@@ -92,7 +92,7 @@ courseModule
                         $scope.profile.showPlayButton = true;
                     }
 
-                    if (!$scope.profile.completeCongratulate){
+                    if (!$scope.profile.completeCongratulate && $scope.profile.courseCompleted){
 
                         var alertPopup = $ionicPopup.alert({
                             title: 'Well Done!',

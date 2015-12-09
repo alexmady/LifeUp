@@ -77,10 +77,18 @@ angular.module('lifeUp.emailSignIn', [])
             };
 
             $scope.login = function (user) {
-                $ionicLoading.show({
+                /*$ionicLoading.show({
                     template: '<ion-spinner icon="bubbles"></ion-spinner>'
-                });
-                User.login(user);
+                });*/
+
+                User.login(user)
+                    .then(function(data){
+                        console.log(' user logged in:');
+                        console.log(data);
+                    })
+                    .catch(function(msg){
+                        console.log(msg);
+                    });
             };
 
         }]);
