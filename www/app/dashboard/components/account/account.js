@@ -42,6 +42,10 @@ angular.module('lifeUp.account', [ 'Auth'])
                 $scope.modal.remove();
             });
 
+            $scope.logout = function(){
+                Auth.logout();
+            };
+
             $scope.changePassword = function(user){
 
                 $ionicLoading.show({

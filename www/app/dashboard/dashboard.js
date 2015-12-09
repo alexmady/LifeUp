@@ -18,9 +18,7 @@ angular.module('lifeUp.dashboard', [ 'Auth'])
 
     .controller('DashboardCtrl', [ '$scope', 'Auth', 'User', '$ionicSideMenuDelegate', function($scope, Auth, User, $ionicSideMenuDelegate) {
 
-        $scope.logout = function(){
-            Auth.logout();
-        };
+
 
         $scope.$watch(function(){return User.userData}, function( newVal, oldVal){
 
