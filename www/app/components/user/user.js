@@ -143,38 +143,6 @@ angular.module('lifeUp.user', ['firebase'])
                 });
             };
 
-            var changePassword = function (oldPassword, newPassword) {
-
-
-
-                console.log('User email: ' + email);
-
-                return $q(function (resolve, reject) {
-                    Auth.changePassword({
-                        email: email,
-                        oldPassword: oldPassword,
-                        newPassword: newPassword
-                    }, function (error) {
-                        if (error) {
-                            switch (error.code) {
-                                case "INVALID_PASSWORD":
-                                    reject("The specified user account password is incorrect.");
-                                    break;
-                                case "INVALID_USER":
-                                    reject("The specified user account does not exist.");
-                                    break;
-                                default:
-                                    reject("Error changing password:", error);
-                            }
-                        } else {
-                            logout();
-                            resolve("User password changed successfully!");
-                        }
-                    });
-                });
-            };
-
-
 
 
             var checkAndCreateUserProfile = function( authData, user ){
@@ -198,7 +166,6 @@ angular.module('lifeUp.user', ['firebase'])
 
                 facebookLogin: facebookLogin,
                 resetPassword: resetPassword,
-                changePassword: changePassword,
                 checkAndCreateUserProfile: checkAndCreateUserProfile
             }
 

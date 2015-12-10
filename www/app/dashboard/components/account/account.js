@@ -28,8 +28,8 @@ angular.module('lifeUp.account', [ ])
             })
     }])
 
-    .controller('AccountCtrl', [ '$scope', '$ionicModal', 'User', '$ionicLoading', '$ionicPopup', 'Auth', '$state',
-        function($scope, $ionicModal, User, $ionicLoading, $ionicPopup, Auth, $state) {
+    .controller('AccountCtrl', [ '$scope', '$ionicModal', 'User', '$ionicLoading', '$ionicPopup', 'Auth', '$state', 'Util', 'currentAuth',
+        function($scope, $ionicModal, User, $ionicLoading, $ionicPopup, Auth, $state, Util, currentAuth) {
 
             $ionicModal.fromTemplateUrl('app/dashboard/components/account/changePassword.html', {
                 scope: $scope,
@@ -52,32 +52,50 @@ angular.module('lifeUp.account', [ ])
             });
 
             $scope.logout = function(){
-
                 Auth.$unauth();
                 $state.go('home');
-
             };
 
             $scope.changePassword = function(user){
 
-                $ionicLoading.show({
-                    template: '<ion-spinner icon="bubbles"></ion-spinner>'
-                });
 
-                try{
-                    User.changePassword(user.oldPassword, user.newPassword).then(
+                if (currentAuth.provider === 'facebook'){
+
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Error!',
+                        template: 'Looks like you logged in with facebook. You can only change ' +
+                            'your password if you logged in with your email.'
+                    });
+
+                    alertPopup.then(function (res) {
+                        $scope.closeModal();
+                    });
+                }
+
+                Util.showLoading();
+
+                try {
+
+                    Auth.$changePassword({
+                        email: currentAuth[currentAuth.provider].email,
+                        oldPassword: user.oldPassword,
+                        newPassword: user.newPassword
+                    }).then(
                         function () {
-                            $ionicLoading.hide();
+                            Util.hideLoading();
                             var alertPopup = $ionicPopup.alert({
                                 title: 'Success!',
                                 template: 'Password changed successfully.'
                             });
                             alertPopup.then(function (res) {
                                 $scope.closeModal();
+                                Auth.$unauth();
+                                $state.go('home');
                             });
                         }
                     ).catch(function (error) {
-                            $ionicLoading.hide();
+                            Util.hideLoading();
+
                             var alertPopup = $ionicPopup.alert({
                                 title: 'Error',
                                 template: error
@@ -88,7 +106,7 @@ angular.module('lifeUp.account', [ ])
                         });
                 } catch (error){
                     console.log(error.stack);
-                    $ionicLoading.hide();
+                    Util.hideLoading();
                 }
             };
 

@@ -12,21 +12,27 @@ angular.module('lifeUp.dashboard', [ ])
                 url: '/dashboard',
                 abstract: true,
                 templateUrl: 'app/dashboard/dashboard.html',
-                controller: 'DashboardCtrl'
+                controller: 'DashboardCtrl',
+                resolve: {
+                    // controller will not be loaded until $waitForAuth resolves
+                    // Auth refers to our $firebaseAuth wrapper in the example above
+                    "currentAuth": ["Auth", function (Auth) {
+                        // $waitForAuth returns a promise so the resolve waits for it to complete
+                        return Auth.$requireAuth();
+                    }]
+                }
             })
     }])
 
-    .controller('DashboardCtrl', [ '$scope', 'User', '$ionicSideMenuDelegate', function($scope, User) {
+    .controller('DashboardCtrl', [ '$scope', 'Auth', function($scope, Auth) {
 
 
+        Auth.$onAuth(function(data){
+            console.log(data);
+            $scope.authData = data;
+        });
 
-        $scope.$watch(function(){return User.userData}, function( newVal, oldVal){
 
-            if (newVal) {
-
-                $scope.authData = newVal.authData;
-            }
-        },true );
 
 
     }]);

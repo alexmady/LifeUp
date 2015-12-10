@@ -15,8 +15,23 @@ angular.module('lifeUp.emailSignIn', [])
             })
     }])
 
-    .controller('EmailSignInCtrl', [ '$scope', '$rootScope', '$state', 'User', '$ionicHistory', '$ionicLoading', '$ionicModal', '$ionicPopup',
-        function ($scope, $rootScope, $state, User, $ionicHistory, $ionicLoading, $ionicModal, $ionicPopup) {
+    .controller('EmailSignInCtrl',
+        [   '$scope',
+            '$rootScope',
+            '$state',
+            '$ionicHistory',
+            '$ionicModal',
+            '$ionicPopup',
+            'Util',
+            'Auth',
+        function ( $scope,
+                   $rootScope,
+                   $state,
+                   $ionicHistory,
+                   $ionicModal,
+                   $ionicPopup,
+                   Util,
+                   Auth  ) {
 
             $scope.go = function (goTo) {
                 $state.go(goTo)
@@ -44,9 +59,7 @@ angular.module('lifeUp.emailSignIn', [])
 
             $scope.resetPassword = function (user) {
 
-                $ionicLoading.show({
-                    template: '<ion-spinner icon="bubbles"></ion-spinner>'
-                });
+                Util.showLoading();
 
                 User.resetPassword(user.email).then(
                     function () {
@@ -78,31 +91,28 @@ angular.module('lifeUp.emailSignIn', [])
 
             $scope.login = function (user) {
 
-                $ionicLoading.show({
-                    template: '<ion-spinner icon="bubbles"></ion-spinner>'
+                Util.showLoading();
+
+                Auth.$authWithPassword({
+                    email: user.email,
+                    password: user.pass
+                }).then(function(authData) {
+
+                    Util.hideLoading();
+                    console.log("Logged in as:", authData.uid);
+                    $state.go('dashboard.dashboardHome');
+
+                }).catch(function(error) {
+                    Util.hideLoading();
+                    console.error("Authentication failed:", error);
+
+                    $ionicPopup.alert({
+                        title: 'Error',
+                        template: error
+                    }).then(function (res) { return; });
+
                 });
 
-                User.login(user)
-                    .then(function(data){
-                        $ionicLoading.hide();
-                        if (data) {
-                            $state.go('dashboard.dashboardHome');
-                        }
-                    })
-                    .catch(function(msg){
-                        $ionicLoading.hide();
-
-                        console.log(msg);
-
-                        var alertPopup = $ionicPopup.alert({
-                            title: 'Error',
-                            template: msg
-                        });
-                        alertPopup.then(function (res) {
-                            return;
-                        });
-
-                    });
-            };
+             };
 
         }]);

@@ -42,7 +42,6 @@ angular.module('lifeUp.dashboardHome', [ ])
 
                 console.log(profile);
 
-
                 if (profile.firstLogin === true){
                     console.log('saving...');
                     $scope.title = 'Meet Mike....';
