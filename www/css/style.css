@@ -269,13 +269,13 @@ input[type="text"], input[type="password"]{
 .lifeup-acronym-title {
     font-family: 'Amatic SC', cursive;
     color: cornflowerblue;
-    font-size: 30px;
+    font-size: 26px;
 }
 
 .lifeup-acronym {
     font-family: 'Amatic SC', cursive;
     color: cornflowerblue;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .lifeup-course-buttons {

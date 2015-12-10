@@ -89,20 +89,15 @@ courseModule
             $scope.bgSizeW = $scope.spriteMeta.size.w / 2 + 'px';
             $scope.bgSizeH = $scope.spriteMeta.size.h / 2 + 'px';
 
-
             var init = function () {
-
 
                 $scope.profile = profile;
 
                 var stepIndex = Math.max($scope.profile.module - 1, 0);
-                console.log('Step index: ' + stepIndex);
+                //console.log('Step index: ' + stepIndex);
 
                 updateStep(stepIndex, $scope.profile.slide);
                 $scope.boxyObj1.counter = $scope.step.frame;
-
-                console.log($scope.profile.readyToClimb);
-                console.log($scope.profile.show);
 
                 if (!$scope.profile.completeCongratulate && $scope.profile.courseCompleted) {
 
@@ -340,7 +335,7 @@ for (var i = 0; i < days.length; i++) {
                     $scope.courseModule = profile.module;
                     //console.log('course module:' + $scope.courseModule);
                     //console.log('user active slide:' + $scope.userActiveSlide + ' slide count:' + n);
-                    console.log(courseMetaData[$scope.courseModule - 1].length);
+                    //console.log(courseMetaData[$scope.courseModule - 1].length);
 
 
                     if ($scope.userActiveSlide === (courseMetaData[$scope.courseModule - 1].length - 1)) {
@@ -352,7 +347,7 @@ for (var i = 0; i < days.length; i++) {
 
                     setTimeout(function () {
                         $ionicSlideBoxDelegate.slide($scope.userActiveSlide, 0);
-                    }, 0);
+                    }, 100);
 
                     profile.updateCourseProgress($scope.courseModule, $scope.userActiveSlide + 1, false);
 

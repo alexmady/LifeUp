@@ -39,22 +39,16 @@ angular.module('lifeUp.dashboardHome', [ ])
         };
 
         var init = function(){
-
-                console.log(profile);
-
                 if (profile.firstLogin === true){
-                    console.log('saving...');
                     $scope.title = 'Meet Mike....';
                     $scope.firstLogin = true;
                     profile.firstLogin = false;
-                    console.log('saving...');
                     profile.$save();
 
                 } else {
                     $scope.title = 'Welcome Back!';
                     $scope.firstLogin = false;
                 }
-
         };
 
         init();
