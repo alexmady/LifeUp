@@ -61,15 +61,17 @@ angular.module('lifeUp.emailSignIn', [])
 
                 Util.showLoading();
 
-                User.resetPassword(user.email).then(
+                Auth.$resetPassword(user.email).then(
                     function () {
-                        $ionicLoading.hide();
+                        Util.hideLoading();
                         var alertPopup = $ionicPopup.alert({
                             title: 'Success!',
                             template: 'Password reset email sent.'
                         });
                         alertPopup.then(function (res) {
                             $scope.closeModal();
+                            Auth.$unauth();
+                            $state.go('emailSignIn');
                         });
                     }
                 ).catch(function (error) {

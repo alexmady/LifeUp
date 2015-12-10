@@ -28,15 +28,14 @@ angular.module('lifeUp.account', [ ])
             })
     }])
 
-    .controller('AccountCtrl', [ '$scope', '$ionicModal', 'User', '$ionicLoading', '$ionicPopup', 'Auth', '$state', 'Util', 'currentAuth',
-        function($scope, $ionicModal, User, $ionicLoading, $ionicPopup, Auth, $state, Util, currentAuth) {
+    .controller('AccountCtrl', [ '$scope', '$ionicModal', '$ionicLoading', '$ionicPopup', 'Auth', '$state', 'Util', 'currentAuth',
+        function($scope, $ionicModal,  $ionicLoading, $ionicPopup, Auth, $state, Util, currentAuth) {
 
             $ionicModal.fromTemplateUrl('app/dashboard/components/account/changePassword.html', {
                 scope: $scope,
                 animation: 'slide-in-up'
             }).then(function(modal) {
                 $scope.modal = modal;
-
             });
 
             $scope.showChangePasswordModal = function() {
@@ -57,7 +56,6 @@ angular.module('lifeUp.account', [ ])
             };
 
             $scope.changePassword = function(user){
-
 
                 if (currentAuth.provider === 'facebook'){
 

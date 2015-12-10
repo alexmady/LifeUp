@@ -22,7 +22,7 @@ angular.module('lifeUp.dashboardHome', [ ])
                     // Auth refers to our $firebaseAuth wrapper in the example above
                     "currentAuth": ["Auth", function (Auth) {
                         // $waitForAuth returns a promise so the resolve waits for it to complete
-                        return Auth.$waitForAuth();
+                        return Auth.$requireAuth();
                     }],
 
                     "profile": [ "UserProfile", "Auth", function (UserProfile, Auth) {

@@ -40,8 +40,8 @@ courseModule
             });
     }])
 
-    .controller('CourseCtrl', [ '$scope', '$state', '$window', 'User', '$ionicHistory', '$ionicModal', '$ionicSideMenuDelegate', '$ionicPopup', 'UserProfile', 'currentAuth', 'courseMetaData', 'profile',
-        function ($scope, $state, $window, User, $ionicHistory, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, UserProfile, currentAuth, courseMetaData, profile) {
+    .controller('CourseCtrl', [ '$scope', '$state', '$window', '$ionicHistory', '$ionicModal', '$ionicSideMenuDelegate', '$ionicPopup', 'UserProfile', 'currentAuth', 'courseMetaData', 'profile',
+        function ($scope, $state, $window,  $ionicHistory, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, UserProfile, currentAuth, courseMetaData, profile) {
 
             $scope.toggleLeft = function () {
                 $ionicSideMenuDelegate.toggleLeft();
