@@ -54,7 +54,6 @@ angular.module('lifeUp.util', ['ionic'])
 
                         }).catch(function(error){
                             hideLoading();
-
                             console.log('Firebase login failed!', error);
                         });
 
@@ -77,6 +76,9 @@ angular.module('lifeUp.util', ['ionic'])
                                         profile.create(authData.facebook.email);
                                     }
                                     $state.go('dashboard.dashboardHome');
+                                    hideLoading();
+                                }).catch(function(error){
+                                    console.log(error);
                                     hideLoading();
                                 });
 

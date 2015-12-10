@@ -37,10 +37,13 @@ angular.module('lifeUp.user', ['firebase'])
                 this.readyToClimb = false;
                 this.firstLogin =  true;
                 this.courseCompleted =  false;
+                this.courseCompletedDate = null;
                 this.completeCongratulate =  false;
+                this.lastActivityDate = dt.getTime();
                 this.resilienceComplete =  false;
                 this.authenticityComplete =  false;
                 this.connectionComplete = false;
+                this.history = {};
                 this.email = email;
 
                 console.log('about to save in create');
@@ -54,9 +57,16 @@ angular.module('lifeUp.user', ['firebase'])
 
                 this.module = module;
                 this.slide = slide;
+                var dt = new Date();
+                this.lastActivityDate = dt.getTime();
 
                 if (arguments[2]) {
                     this.readyToClimb = readyToClimb;
+                    this.showPlayButton = !readyToClimb;
+                }
+
+                if (!this.history){
+                    this.history = {};
                 }
 
                 if (module >= this.moduleFar) {
@@ -66,15 +76,20 @@ angular.module('lifeUp.user', ['firebase'])
                     if (module > this.moduleFar) {
                         this.moduleFar = module;
                         this.slideFar = slide;
+                        this.history[this.lastActivityDate] = { module: this.moduleFar, slide: this.slideFar };
+
                     } else if (module === this.moduleFar) {
                         if (slide > this.slideFar) {
                             this.slideFar = slide;
+                            this.history[this.lastActivityDate] = { module: this.moduleFar, slide: this.slideFar };
                         }
                     }
                 }
 
                 if (module === courseMetaData.length && slide === 1) {
                     this.courseCompleted = true;
+                    var dt = new Date();
+                    this.courseCompletedDate = dt.getTime();
                 }
 
                 this.$save();

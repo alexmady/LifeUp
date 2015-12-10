@@ -92,8 +92,6 @@ courseModule
 
             var init = function () {
 
-                //userProfile.$loaded()
-                //  .then(function(profile){
 
                 $scope.profile = profile;
 
@@ -103,11 +101,8 @@ courseModule
                 updateStep(stepIndex, $scope.profile.slide);
                 $scope.boxyObj1.counter = $scope.step.frame;
 
-                if ($scope.profile.readyToClimb) {
-                    $scope.profile.showPlayButton = false;
-                } else {
-                    $scope.profile.showPlayButton = true;
-                }
+                console.log($scope.profile.readyToClimb);
+                console.log($scope.profile.show);
 
                 if (!$scope.profile.completeCongratulate && $scope.profile.courseCompleted) {
 
@@ -121,7 +116,6 @@ courseModule
                         $scope.closeModal();
                     });
                 }
-                //});
             };
 
             TweenMax.ticker.fps(30);

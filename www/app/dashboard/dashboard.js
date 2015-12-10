@@ -26,13 +26,8 @@ angular.module('lifeUp.dashboard', [ ])
 
     .controller('DashboardCtrl', [ '$scope', 'Auth', function($scope, Auth) {
 
-
         Auth.$onAuth(function(data){
-            console.log(data);
             $scope.authData = data;
         });
-
-
-
 
     }]);
