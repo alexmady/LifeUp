@@ -4,9 +4,9 @@
 
 angular.module('lifeUp.util', ['ionic'])
 
-    .factory('Util', ['$ionicLoading',
+    .factory('Util', ['$ionicLoading', '$cordovaFacebook', 'Auth', 'UserProfile', '$state',
 
-        function($ionicLoading) {
+        function($ionicLoading, $cordovaFacebook, Auth, UserProfile, $state) {
 
             var showLoading = function(){
                 $ionicLoading.show({
@@ -18,9 +18,82 @@ angular.module('lifeUp.util', ['ionic'])
                 $ionicLoading.hide();
             };
 
+
+            var facebookLogin = function() {
+
+                showLoading();
+
+                var options = {
+                    remember: "default",
+                    scope: "email"
+                };
+
+                if(ionic.Platform.isWebView()){
+
+                    $cordovaFacebook.login(["public_profile", "email"]).then(function(success){
+
+                        Auth.$authWithOAuthToken("facebook", success.authResponse.accessToken). then( function( authData) {
+
+                            try {
+
+                                UserProfile(authData.uid).$loaded()
+                                    .then(function(profile){
+                                        if (!profile.exists()){
+                                            profile.create(authData.facebook.email);
+                                        }
+                                        $state.go('dashboard.dashboardHome');
+                                        hideLoading();
+                                    });
+
+
+                            } catch (error){
+                                hideLoading();
+                                console.log(error.message);
+                                console.error(error);
+                            }
+
+                        }).catch(function(error){
+                            hideLoading();
+
+                            console.log('Firebase login failed!', error);
+                        });
+
+                    }, function(error){
+                        hideLoading();
+                        console.log(error);
+                    });
+
+                }
+                else {
+
+                    Auth.$authWithOAuthPopup("facebook", options).then(function (authData) {
+                        // User successfully logged in. We can log to the console
+                        // since we’re using a popup here
+                        try {
+
+                            UserProfile(authData.uid).$loaded()
+                                .then(function(profile){
+                                    if (!profile.exists()){
+                                        profile.create(authData.facebook.email);
+                                    }
+                                    $state.go('dashboard.dashboardHome');
+                                    hideLoading();
+                                });
+
+                        } catch (error){
+                            hideLoading();
+                            console.log(error.message);
+                            console.error(error);
+                        }
+                    });
+                }
+
+            };
+
             return {
                 showLoading: showLoading,
-                hideLoading: hideLoading
+                hideLoading: hideLoading,
+                facebookLogin: facebookLogin
             }
         }
     ]);
