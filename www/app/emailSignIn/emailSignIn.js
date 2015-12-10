@@ -66,7 +66,7 @@ angular.module('lifeUp.emailSignIn', [])
                             template: error
                         });
                         alertPopup.then(function (res) {
-                            console.log(error);
+                            return;
                         });
 
                     });
@@ -77,17 +77,31 @@ angular.module('lifeUp.emailSignIn', [])
             };
 
             $scope.login = function (user) {
-                /*$ionicLoading.show({
+
+                $ionicLoading.show({
                     template: '<ion-spinner icon="bubbles"></ion-spinner>'
-                });*/
+                });
 
                 User.login(user)
                     .then(function(data){
-                        console.log(' user logged in:');
-                        console.log(data);
+                        $ionicLoading.hide();
+                        if (data) {
+                            $state.go('dashboard.dashboardHome');
+                        }
                     })
                     .catch(function(msg){
+                        $ionicLoading.hide();
+
                         console.log(msg);
+
+                        var alertPopup = $ionicPopup.alert({
+                            title: 'Error',
+                            template: msg
+                        });
+                        alertPopup.then(function (res) {
+                            return;
+                        });
+
                     });
             };
 

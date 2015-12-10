@@ -16,45 +16,46 @@ angular.module('lifeUp.dashboardHome', [ ])
                         templateUrl: "app/dashboard/components/home/dashboardHome.html",
                         controller: 'DashHomeCtrl'
                     }
+                },
+                resolve: {
+                    // controller will not be loaded until $waitForAuth resolves
+                    // Auth refers to our $firebaseAuth wrapper in the example above
+                    "currentAuth": ["Auth", function (Auth) {
+                        // $waitForAuth returns a promise so the resolve waits for it to complete
+                        return Auth.$waitForAuth();
+                    }],
+
+                    "profile": [ "UserProfile", "Auth", function (UserProfile, Auth) {
+                        return UserProfile(Auth.$getAuth().uid).$loaded();
+                    }]
                 }
             })
     }])
 
-    .controller('DashHomeCtrl', [ '$scope', 'User', '$state', '$ionicLoading', function($scope, User, $state,  $ionicLoading) {
+    .controller('DashHomeCtrl', [ '$scope', 'currentAuth', 'profile', '$state', function($scope, currentAuth, profile, $state) {
 
         $scope.go = function(){
             $state.go('dashboard.course');
         };
 
-        $scope.ready = false;
-
         var init = function(){
 
-            $ionicLoading.show({
-                template: '<ion-spinner icon="bubbles"></ion-spinner>'
-            });
+                console.log(profile);
 
-            var promise = User.getProfile();
-
-            promise.then(function(profile){
-
-                $scope.firstLogin = profile.firstLogin;
 
                 if (profile.firstLogin === true){
+                    console.log('saving...');
                     $scope.title = 'Meet Mike....';
+                    $scope.firstLogin = true;
                     profile.firstLogin = false;
-                    $scope.ready = true;
-                    $ionicLoading.hide();
+                    console.log('saving...');
                     profile.$save();
 
                 } else {
                     $scope.title = 'Welcome Back!';
-                    $ionicLoading.hide();
-                    $scope.ready = true;
+                    $scope.firstLogin = false;
                 }
 
-
-            });
         };
 
         init();

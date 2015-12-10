@@ -2,7 +2,10 @@
 angular.module('lifeUp', [
     'ionic',
     'ngIOS9UIWebViewPatch',
-    'User',
+    'firebase',
+    'lifeUp.auth',
+    'lifeUp.user',
+    'lifeUp.util',
     'lifeUp.config',
     'lifeUp.home',
     'lifeUp.signInChoice',
@@ -18,9 +21,11 @@ angular.module('lifeUp', [
     'lifeUp.faq',
     'lifeUp.how',
     'lifeUp.account',
-    'lifeUp.dashboardHome'])
+    'lifeUp.dashboardHome',
+    'lifeUp.courseMetaData'
+    ])
 
-.run(['$ionicPlatform',function($ionicPlatform) {
+.run(['$ionicPlatform', '$rootScope', function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -30,6 +35,14 @@ angular.module('lifeUp', [
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+      $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+          // We can catch the error thrown when the $requireAuth promise is rejected
+          // and redirect the user back to the home page
+          if (error === "AUTH_REQUIRED") {
+              $location.path("/home");
+          }
+      });
   });
 
   // Whenever there is an update to authorization data from firebase

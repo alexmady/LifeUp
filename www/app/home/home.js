@@ -15,10 +15,14 @@ angular.module('lifeUp.home', [])
             })
     }])
 
-    .controller('HomeCtrl', [ '$scope', '$state', '$ionicHistory', function($scope, $state) {
+    .controller('HomeCtrl',
+        [ '$scope', '$state', function($scope, $state) {
 
-        $scope.go = function(goTo){
-            $state.go(goTo);
-        }
-
+            $scope.go = function(goTo){
+            try{
+                $state.go(goTo);
+            } catch(error){
+                console.log(error.stack);
+            }
+        };
     }]);

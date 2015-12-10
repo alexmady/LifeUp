@@ -15,8 +15,8 @@ angular.module('lifeUp.signInChoice', [])
             })
     }])
 
-    .controller('SignInChoiceCtrl', [ '$state', '$scope', 'FIREBASE_URL', '$ionicHistory', '$ionicLoading', 'User',
-        function ($state, $scope, FIREBASE_URL, $ionicHistory, $ionicLoading, User) {
+    .controller('SignInChoiceCtrl', [ '$state', '$scope', 'FIREBASE_URL', '$ionicHistory', '$ionicLoading', 'User', '$ionicPopup',
+        function ($state, $scope, FIREBASE_URL, $ionicHistory, $ionicLoading, User, $ionicPopup) {
 
             $scope.go = function (goTo) {
                 $state.go(goTo)
@@ -28,7 +28,22 @@ angular.module('lifeUp.signInChoice', [])
 
             $scope.facebookLogin = function () {
 
-                User.facebookLogin();
+                $ionicLoading.show({
+                    template: '<ion-spinner icon="bubbles"></ion-spinner>'
+                });
+
+                User.facebookLogin().then(function(authData){
+                    $ionicLoading.hide();
+                }).catch(function(error){
+                    $ionicLoading.hide();
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Error',
+                        template: error
+                    });
+                    alertPopup.then(function (res) {
+                        return;
+                    });
+                });
             };
 
         }]);

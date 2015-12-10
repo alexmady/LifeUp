@@ -1,110 +1,117 @@
 /**
  * Created by alexmady on 07/11/15.
  */
-angular.module('User', ['firebase'])
+angular.module('lifeUp.user', ['firebase'])
 
-    .factory('User', [ '$firebase', '$firebaseObject', 'FIREBASE_URL', '$q', '$ionicLoading', '$firebaseAuth', '$state', '$ionicPopup',
-        function ( $firebase, $firebaseObject, FIREBASE_URL, $q, $ionicLoading, $firebaseAuth, $state, $ionicPopup) {
+    .factory('UserProfile', ['$firebase', '$firebaseObject', 'FIREBASE_URL', 'courseMetaData',
+        function( $firebase, $firebaseObject, FIREBASE_URL, courseMetaData ){
 
-            var userData = {};
-            var profile = null;
+        // create a new service based on $firebaseObject
+        var UserProfile = $firebaseObject.$extend({
+            // these methods exist on the prototype, so we can access the data using `this`
+            getProfile: function() {
+                return this;
+            },
 
-            var ref = new Firebase(FIREBASE_URL + '/users');
-            var fauth = $firebaseAuth(ref);
+            create: function(email){
 
-            ref.onAuth(function(authData){
+                var dt = new Date();
 
-                $ionicLoading.hide();
+                this.created = dt.getTime();
+                this.module = 0;
+                this.slide =  0;
+                this.moduleFar = 0;
+                this.slideFar = 0;
+                this.showPlayButton =  true;
+                this.readyToClimb = false;
+                this.firstLogin =  true;
+                this.courseCompleted =  false;
+                this.completeCongratulate =  false;
+                this.resilienceComplete =  false;
+                this.authenticityComplete =  false;
+                this.connectionComplete = false;
+                this.email = email;
 
-                if (authData){
-                    userData.authData = authData;
-
-                    if (authData.provider === "facebook"){
-                        var user = { email: authData.facebook.email };
-                        FirebaseUtil.checkAndCreateUserProfile(authData, user);
-                    }
-                    $state.go('dashboard.dashboardHome');
-                } else {
-                    $state.go('home');
-                }
-            });
-
-            var login = function (user) {
-
-                return $q(function(resolve, reject){
-
-                    try {
-
-                        fauth.$authWithPassword({
-                            email: user.email,
-                            password: user.pass
-                        }).then(function (data) {
-                            console.log('User logged in:');
-                            //console.log(data);
-                            resolve(data);
-                        }).catch(function (error) {
-                            // An alert dialog
-
-                            var errMsg = "Sorry we didn't recognise that email address / password.";
-
-                            $ionicLoading.hide();
-                            var alertPopup = $ionicPopup.alert({
-                                title: 'Login failed!',
-                                template: errMsg
-                            });
-                            alertPopup.then(function (res) {
-                                reject(errMsg);
-                            });
-                        });
-                    } catch (error) {
-
-                        var msg = 'Unknown Error, please try again.';
-
-                        if (!user || !user.email || !user.pass) {
-                            msg = 'Either email address or password was not specified. Please try again. ';
-                        }
-
-                        $ionicLoading.hide();
-                        var alertPopup = $ionicPopup.alert({
-                            title: 'Login failed!',
-                            template: msg
-                        });
-                        alertPopup.then(function (res) {
-                            reject(msg);
-                        });
-                    }
+                this.$save().then(function(){
+                    console.log('Profile saved successfully');
                 });
+            },
+
+            updateCourseProgress: function (module, slide, readyToClimb) {
+
+                this.module = module;
+                this.slide = slide;
+
+                if (arguments[2]) {
+                    this.readyToClimb = readyToClimb;
+                }
+
+                if (module >= this.moduleFar) {
+
+                    // if we have progressed to a higher module update module + slide
+                    // else if its the same module only update the slide if its later in the course
+                    if (module > this.moduleFar) {
+                        this.moduleFar = module;
+                        this.slideFar = slide;
+                    } else if (module === this.moduleFar) {
+                        if (slide > this.slideFar) {
+                            this.slideFar = slide;
+                        }
+                    }
+                }
+
+                if (module === courseMetaData.length && slide === 1) {
+                    this.courseCompleted = true;
+                }
+
+                this.$save();
+                // update users position in the course here
+                //console.log('Course module ' + module + ' slide ' + slide);
+            }
+        });
+
+        return function(uid) {
+
+            var ref = new Firebase(FIREBASE_URL+'/users');
+            var profileRef = ref.child(uid);
+
+            // return it as a synchronized object
+            return new UserProfile(profileRef);
+        }
+
+    }])
 
 
-            };
+    .factory('User', [ '$firebase', '$firebaseObject', 'FIREBASE_URL', '$q',  '$firebaseAuth', '$state', 'Auth',
+        function ( $firebase, $firebaseObject, FIREBASE_URL, $q, $firebaseAuth, $state, Auth) {
+
+
 
             var facebookLogin = function () {
 
-                $ionicLoading.show({
-                    template: '<ion-spinner icon="bubbles"></ion-spinner>'
-                });
+                return $q(function(resolve,reject){
 
-                var options = {
-                    remember: "default",
-                    scope: "email"
-                };
+                    var options = {
+                        remember: "default",
+                        scope: "email"
+                    };
 
-                fauth.$authWithOAuthRedirect("facebook", options).then(function (authData) {
-
+                    Auth.$authWithOAuthRedirect("facebook", options).then(function (authData) {
+                        resolve(authData);
                     }).catch(function (error) {
 
-                    $ionicLoading.hide();
+                        if (error.code === "TRANSPORT_UNAVAILABLE") {
+                            fauth.$authWithOAuthPopup("facebook", options).then(function (authData) {
+                                // User successfully logged in. We can log to the console
+                                // since we’re using a popup here
+                                resolve(authData);
+                            });
+                        } else {
+                            // Another error occurred
+                            reject(error);
+                        }
+                    });
 
-                    if (error.code === "TRANSPORT_UNAVAILABLE") {
-                        fauth.$authWithOAuthPopup("facebook", options).then(function (authData) {
-                            // User successfully logged in. We can log to the console
-                            // since we’re using a popup here
-                            console.log(authData);
-                        });
-                    } else {
-                        // Another error occurred
-                        console.log(error);
-                    }
                 });
             };
 
@@ -117,7 +124,7 @@ angular.module('User', ['firebase'])
 
                 return $q(function (resolve, reject) {
 
-                    ref.resetPassword({
+                    Auth.$resetPassword({
                         email: email
                     }, function (error) {
                         if (error) {
@@ -138,17 +145,12 @@ angular.module('User', ['firebase'])
 
             var changePassword = function (oldPassword, newPassword) {
 
-                var email ="";
-                if (userData.authData.password){
-                    email = userData.authData.password.email;
-                } else {
-                    email = userData.authData.facebook.email;
-                }
+
 
                 console.log('User email: ' + email);
 
                 return $q(function (resolve, reject) {
-                    ref.changePassword({
+                    Auth.changePassword({
                         email: email,
                         oldPassword: oldPassword,
                         newPassword: newPassword
@@ -172,43 +174,12 @@ angular.module('User', ['firebase'])
                 });
             };
 
-            var createProfile = function(authData, user){
 
-                var uid = authData.uid;
-                var dt = new Date();
-
-                var value = {};
-                value[uid] = {
-                    created: dt.getTime(),
-                    module:0,
-                    slide: 0,
-                    moduleFar: 0,
-                    slideFar: 0,
-                    showPlayButton: true,
-                    readyToClimb:false,
-                    firstLogin: true,
-                    courseCompleted: false,
-                    completeCongratulate: false,
-                    resilienceComplete: false,
-                    authenticityComplete: false,
-                    connectionComplete: false,
-                    email: user.email };
-
-                var callback = function(error){
-                    if (error){
-                        console.log(error);
-                    } else {
-                        //console.log('Synchronization succeeded');
-                    }
-                };
-
-                return ref.update(value, callback);
-            };
 
 
             var checkAndCreateUserProfile = function( authData, user ){
 
-                var checkRef = ref.child(authData.uid);
+                var checkRef = getRef().child(authData.uid);
                 checkRef.once("value",function(snapshot){
 
                     var exists = snapshot.exists();
@@ -220,154 +191,15 @@ angular.module('User', ['firebase'])
             };
 
 
-            var getProfile = function () {
-
-                return $q(function (resolve, reject) {
-
-                    //console.log('profile?');
-                    //console.log(profile);
-                    if (profile) {
-                        resolve(profile);
-                    } else {
-
-                        var userId = userData.authData.uid;
-                        if (!userId) {
-                            throw new Error('NO USER DATA');
-                        }
-
-                        var userRef = new Firebase(FIREBASE_URL + '/users').child(userId);
-                        profile = $firebaseObject(userRef);
-                        profile.$loaded(function (pro) {
-                            //console.log('PROFILE LOADED');
-                            resolve(pro);
-                        });
-                    }
-                });
-            };
-
-            var courseSteps = function () {
-
-                var steps = [
-                    {name: 'DISARM', pos: 1, frame: 0, duration: 0, backButtonEnabled: false, length: 6},
-                    {name: 'SPACE', pos: 2, frame: 208, duration: 6, backButtonEnabled: true, length: 5 },
-                    {name: 'FLOW', pos: 3, frame: 345, duration: 5, backButtonEnabled: true, length: 4},
-                    {name: 'ACT', pos: 4, frame: 520, duration: 6, backButtonEnabled: true, length: 3},
-                    {name: 'BE', pos: 5, frame: 592, duration: 5, backButtonEnabled: true, length: 2},
-                    {name: 'I', pos: 6, frame: 654, duration: 2, backButtonEnabled: true, length: 1}
-                ];
-
-                return steps;
-            };
 
 
-            var createAccount = function(user){
-
-                try{
-
-                    ref.createUser({
-                        email: user.email,
-                        password: user.pass
-                    }, function (error, userData) {
-
-                        $ionicLoading.hide();
-                        if (error) {
-
-                            console.log(error);
-                            var alertPopup = $ionicPopup.alert({
-                                title: 'Sorry!',
-                                template: error
-                            });
-                            alertPopup.then(function () {
-                                return;
-                            });
-
-                        } else {
-                            console.log("Successfully created user account with uid:", userData.uid);
-                            console.log('about to create user profile...');
-
-                            login(user).then(function(authData){
-                                createProfile(authData, user);
-                            });
-
-
-                        }
-                    });
-
-                } catch (error) {
-
-                    console.log(error.stack);
-
-                    $ionicLoading.hide();
-
-                    var res = error.message.replace("Firebase.createUser", "");
-
-                    var alertPopup = $ionicPopup.alert({
-                        title: 'Sorry!',
-                        template: res
-                    });
-
-                    alertPopup.then(function () {
-                        return;
-                    });
-                }
-            };
-
-            var updateCourseProgress = function (module, slide, readyToClimb) {
-
-                if (!userData.authData) {
-                    console.log('No user - can not update course progress');
-                    return;
-                }
-
-                profile.module = module;
-                profile.slide = slide;
-
-                if (arguments[2]) {
-                    profile.readyToClimb = readyToClimb;
-                }
-
-                if (module >= profile.moduleFar) {
-
-                    // if we have progressed to a higher module update module + slide
-                    // else if its the same module only update the slide if its later in the course
-                    if (module > profile.moduleFar) {
-                        profile.moduleFar = module;
-                        profile.slideFar = slide;
-                    } else if (module === profile.moduleFar) {
-                        if (slide > profile.slideFar) {
-                            profile.slideFar = slide;
-                        }
-                    }
-                }
-
-                if (module === courseSteps().length && slide === 1) {
-                    profile.courseCompleted = true;
-                }
-
-                profile.$save();
-                // update users position in the course here
-                //console.log('Course module ' + module + ' slide ' + slide);
-            };
-
-            var logout = function () {
-                fauth.$unauth();
-                userData = {};
-                profile = null;
-            };
 
             return {
-                updateCourseProgress: updateCourseProgress,
-                getProfile: getProfile,
-                userData: userData,
-                logout: logout,
-                courseSteps: courseSteps,
-                login: login,
+
                 facebookLogin: facebookLogin,
                 resetPassword: resetPassword,
                 changePassword: changePassword,
-                createProfile: createProfile,
-                checkAndCreateUserProfile: checkAndCreateUserProfile,
-                createAccount: createAccount
+                checkAndCreateUserProfile: checkAndCreateUserProfile
             }
 
         }]);

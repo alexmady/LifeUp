@@ -20,14 +20,30 @@ courseModule
                         templateUrl: "app/dashboard/components/course/course.html",
                         controller: 'CourseCtrl'
                     }
+                },
+                resolve: {
+                    // controller will not be loaded until $requireAuth resolves
+                    // Auth refers to our $firebaseAuth wrapper in the example above
+                    "currentAuth": ["Auth", function (Auth) {
+                        // $requireAuth returns a promise so the resolve waits for it to complete
+                        // If the promise is rejected, it will throw a $stateChangeError (see above)
+                        return Auth.$requireAuth();
+                    }],
+
+                    "profile": [ "UserProfile", "Auth", function (UserProfile, Auth) {
+
+                        return UserProfile(Auth.$getAuth().uid).$loaded();
+
+                    }]
                 }
+
             });
     }])
 
-    .controller('CourseCtrl', [ '$scope', '$state', '$window', 'User', '$ionicHistory', '$ionicModal', '$ionicSideMenuDelegate', '$ionicPopup',
-        function ($scope, $state, $window, User, $ionicHistory, $ionicModal, $ionicSideMenuDelegate, $ionicPopup) {
+    .controller('CourseCtrl', [ '$scope', '$state', '$window', 'User', '$ionicHistory', '$ionicModal', '$ionicSideMenuDelegate', '$ionicPopup', 'UserProfile', 'currentAuth', 'courseMetaData', 'profile',
+        function ($scope, $state, $window, User, $ionicHistory, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, UserProfile, currentAuth, courseMetaData, profile) {
 
-            $scope.toggleLeft = function() {
+            $scope.toggleLeft = function () {
                 $ionicSideMenuDelegate.toggleLeft();
             };
 
@@ -76,36 +92,36 @@ courseModule
 
             var init = function () {
 
-                //console.log('getting profile course');
-                var promise = User.getProfile();
+                //userProfile.$loaded()
+                //  .then(function(profile){
 
-                promise.then(function (prof) {
+                $scope.profile = profile;
 
-                    //console.log('got profile course');
-                    $scope.profile = prof;
-                    updateStep(Math.max(prof.module - 1, 0), prof.slide);
-                    $scope.boxyObj1.counter = $scope.step.frame;
+                var stepIndex = Math.max($scope.profile.module - 1, 0);
+                console.log('Step index: ' + stepIndex);
 
-                    if ($scope.profile.readyToClimb) {
-                        $scope.profile.showPlayButton = false;
-                    } else {
-                        $scope.profile.showPlayButton = true;
-                    }
+                updateStep(stepIndex, $scope.profile.slide);
+                $scope.boxyObj1.counter = $scope.step.frame;
 
-                    if (!$scope.profile.completeCongratulate && $scope.profile.courseCompleted){
+                if ($scope.profile.readyToClimb) {
+                    $scope.profile.showPlayButton = false;
+                } else {
+                    $scope.profile.showPlayButton = true;
+                }
 
-                        var alertPopup = $ionicPopup.alert({
-                            title: 'Well Done!',
-                            template: 'You have successfully completed the course.'
-                        });
-                        alertPopup.then(function (res) {
-                            $scope.profile.completeCongratulate = true;
-                            $scope.profile.$save();
-                            $scope.closeModal();
-                        });
-                    }
+                if (!$scope.profile.completeCongratulate && $scope.profile.courseCompleted) {
 
-                });
+                    var alertPopup = $ionicPopup.alert({
+                        title: 'Well Done!',
+                        template: 'You have successfully completed the course.'
+                    });
+                    alertPopup.then(function (res) {
+                        $scope.profile.completeCongratulate = true;
+                        $scope.profile.$save();
+                        $scope.closeModal();
+                    });
+                }
+                //});
             };
 
             TweenMax.ticker.fps(30);
@@ -114,19 +130,18 @@ courseModule
                 $state.go(goTo);
             };
 
-            var steps = User.courseSteps();
 
             var updateStep = function (index, slide) {
-                $scope.step = steps[index];
+                $scope.step = courseMetaData[index];
                 if ($scope.step.pos < $scope.profile.moduleFar) {
                     $scope.forwardButtonEnabled = true;
                 } else {
                     $scope.forwardButtonEnabled = false;
                 }
                 if (slide) {
-                    User.updateCourseProgress($scope.step.pos, slide);
+                    profile.updateCourseProgress($scope.step.pos, slide);
                 } else {
-                    User.updateCourseProgress($scope.step.pos, 0);
+                    profile.updateCourseProgress($scope.step.pos, 0);
                 }
             };
 
@@ -159,7 +174,7 @@ courseModule
                 $scope.profile.readyToClimb = false;
 
                 var nextStep = steps[$scope.step.pos];
-                User.updateCourseProgress(nextStep.pos, 0, false);
+                profile.updateCourseProgress(nextStep.pos, 0, false);
 
                 var onCompleteClimb = function () {
                     updateStep($scope.step.pos);
@@ -218,24 +233,24 @@ courseModule
                 $scope.profile.$save();
             };
 
-            $scope.openInstructions = function(){
+            $scope.openInstructions = function () {
                 $scope.openModal();
             };
 
             $ionicModal.fromTemplateUrl('app/dashboard/components/course/instructions.html', {
                 scope: $scope,
                 animation: 'slide-in-up'
-            }).then(function(modal) {
+            }).then(function (modal) {
                 $scope.modal = modal;
             });
-            $scope.openModal = function() {
+            $scope.openModal = function () {
                 $scope.modal.show();
             };
-            $scope.closeModal = function() {
+            $scope.closeModal = function () {
                 $scope.modal.hide();
             };
             //Cleanup the modal when we're done with it!
-            $scope.$on('$destroy', function() {
+            $scope.$on('$destroy', function () {
                 $scope.modal.remove();
             });
 
@@ -251,7 +266,6 @@ courseModule
             var state = 'dashboard.' + it;
             var htmlFile = it + '.html';
             var controller = days[i] + 'Ctrl';
-            //console.log('creating state: ' + state + ', htmlFile:  ' + htmlFile + ' controller: ' + controller);
 
             $stateProvider
                 .state(state, {
@@ -260,13 +274,24 @@ courseModule
                     views: {
                         'dashboardContent': {
                             templateUrl: "app/dashboard/components/course/" + htmlFile,
-                            //template: '<course-page></course-page>',
                             controller: controller
                         }
+                    },
+                    resolve: {
+                        // controller will not be loaded until $requireAuth resolves
+                        // Auth refers to our $firebaseAuth wrapper in the example above
+                        "currentAuth": ["Auth", function (Auth) {
+                            // $requireAuth returns a promise so the resolve waits for it to complete
+                            // If the promise is rejected, it will throw a $stateChangeError (see above)
+                            return Auth.$requireAuth();
+                        }],
+
+                        "profile": [ "UserProfile", "Auth", function (UserProfile, Auth) {
+                            return UserProfile(Auth.$getAuth().uid).$loaded();
+                        }]
                     }
                 });
-        }
-        ;
+        };
     }]);
 
 
@@ -276,8 +301,8 @@ for (var i = 0; i < days.length; i++) {
 
         var controller = days[n] + 'Ctrl';
 
-        courseModule.controller(controller, [ '$scope', '$state', '$ionicSlideBoxDelegate', 'User',
-            function ($scope, $state, $ionicSlideBoxDelegate, User) {
+        courseModule.controller(controller, [ '$scope', '$state', '$ionicSlideBoxDelegate', 'currentAuth', 'courseMetaData', 'profile',
+            function ($scope, $state, $ionicSlideBoxDelegate, currentAuth, courseMetaData, profile) {
 
                 $scope.title = days[n];
 
@@ -291,11 +316,11 @@ for (var i = 0; i < days.length; i++) {
                     var module = $scope.courseModule;
                     var readyToClimb = true;
 
-                    if ($scope.courseModule === User.courseSteps().length && slide === 1){
+                    if ($scope.courseModule === courseMetaData.length && slide === 1) {
                         readyToClimb = false;
                     }
 
-                    User.updateCourseProgress(module, slide, readyToClimb);
+                    profile.updateCourseProgress(module, slide, readyToClimb);
                     $state.go('dashboard.course');
                 };
 
@@ -305,45 +330,37 @@ for (var i = 0; i < days.length; i++) {
                     } else {
                         $scope.enableCompleteButton = false;
                     }
-                    User.updateCourseProgress($scope.courseModule, (index + 1), false);
+                    profile.updateCourseProgress($scope.courseModule, (index + 1), false);
                 };
+
 
                 var init = function () {
 
-                    var promise = User.getProfile();
 
-                    promise.then(function (profile) {
+                    $scope.userActiveSlide = 0;
 
-                        $scope.userActiveSlide = 0;
+                    if (profile.slide > 0) {
+                        $scope.userActiveSlide = profile.slide - 1;
+                    }
 
-                        if (profile.slide > 0) {
-                            $scope.userActiveSlide = profile.slide - 1;
-                        }
-
-                        $scope.courseModule = profile.module;
-
-
-                        console.log('course module:' + $scope.courseModule);
-                        console.log('user active slide:' + $scope.userActiveSlide + ' slide count:' + n);
-
-                        console.log(User.courseSteps()[$scope.courseModule - 1].length);
+                    $scope.courseModule = profile.module;
+                    //console.log('course module:' + $scope.courseModule);
+                    //console.log('user active slide:' + $scope.userActiveSlide + ' slide count:' + n);
+                    console.log(courseMetaData[$scope.courseModule - 1].length);
 
 
-                        if ($scope.userActiveSlide === (User.courseSteps()[$scope.courseModule - 1].length - 1)) {
-                            $scope.enableCompleteButton = true;
-                        } else {
-                            $scope.enableCompleteButton = false;
-                        }
+                    if ($scope.userActiveSlide === (courseMetaData[$scope.courseModule - 1].length - 1)) {
+                        $scope.enableCompleteButton = true;
+                    } else {
+                        $scope.enableCompleteButton = false;
+                    }
 
 
-                        setTimeout(function(){
-                            $ionicSlideBoxDelegate.slide($scope.userActiveSlide,0);
-                        },0);
+                    setTimeout(function () {
+                        $ionicSlideBoxDelegate.slide($scope.userActiveSlide, 0);
+                    }, 0);
 
-                        User.updateCourseProgress($scope.courseModule, $scope.userActiveSlide + 1, false);
-
-
-                    });
+                    profile.updateCourseProgress($scope.courseModule, $scope.userActiveSlide + 1, false);
 
 
                 };

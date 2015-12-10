@@ -15,16 +15,35 @@ angular.module('lifeUp.createAccount', [])
             })
     }])
 
-    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state', '$ionicLoading', 'User',
-        function($scope, $state, $ionicLoading, User) {
+    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state', '$ionicLoading', 'User', '$ionicPopup',
+        function($scope, $state, $ionicLoading, User, $ionicPopup) {
 
         $scope.go = function(goTo){
             $state.go(goTo)
         };
 
-        $scope.facebookSignup = function(){
+        /*$scope.facebookSignup = function(){
 
-            User.facebookLogin();
-        }
+            $ionicLoading.show({
+                template: '<ion-spinner icon="bubbles"></ion-spinner>'
+            });
+
+            User.facebookLogin().then(function(authData){
+
+                $ionicLoading.hide();
+
+            }).catch(function(error){
+
+                $ionicLoading.hide();
+
+                var alertPopup = $ionicPopup.alert({
+                    title: 'Error',
+                    template: error
+                });
+                alertPopup.then(function (res) {
+                    return;
+                });
+            });
+        }*/
 
     }]);

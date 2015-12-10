@@ -16,14 +16,42 @@ angular.module('lifeUp.createAccountEmail', [])
     }])
 
     .controller('CreateAccountEmailCtrl',
-    [ '$scope', '$rootScope', '$state', 'User', function ($scope, $rootScope, $state, User ) {
+        [ '$scope', '$rootScope', '$state', 'Auth', 'UserProfile', 'Util',
+            function ($scope, $rootScope, $state, Auth, UserProfile, Util ) {
 
             $scope.go = function (goTo) {
                 $state.go(goTo)
             };
 
             $scope.createAccount = function (user) {
-               User.createAccount(user);
+
+                Util.showLoading();
+
+                Auth.$createUser({
+                    email: user.email,
+                    password: user.pass
+                }).then(function (userData) {
+
+                        console.log("Successfully created user account with uid:", userData.uid);
+
+                        Auth.$authWithPassword({
+                            email: user.email,
+                            password: user.pass
+                        }).then(function (data) {
+                            console.log('User logged in:');
+                            UserProfile(data.uid).create(user.email);
+                            Util.hideLoading();
+                            $state.go('dashboard.dashboardHome');
+
+                        }).catch(function (error) {
+                            Util.hideLoading();
+                            console.log(error);
+                        });
+
+                }).catch(function(error){
+                    Util.hideLoading();
+                    console.error(error);
+                });
 
             };
 

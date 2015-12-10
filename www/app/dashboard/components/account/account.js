@@ -3,7 +3,7 @@
  */
 'use strict';
 
-angular.module('lifeUp.account', [ 'User'])
+angular.module('lifeUp.account', [ ])
 
     .config( ['$stateProvider', function($stateProvider) {
 
@@ -15,12 +15,21 @@ angular.module('lifeUp.account', [ 'User'])
                         templateUrl: "app/dashboard/components/account/account.html",
                         controller: 'AccountCtrl'
                     }
+                },
+                resolve: {
+                    // controller will not be loaded until $requireAuth resolves
+                    // Auth refers to our $firebaseAuth wrapper in the example above
+                    "currentAuth": ["Auth", function (Auth) {
+                        // $requireAuth returns a promise so the resolve waits for it to complete
+                        // If the promise is rejected, it will throw a $stateChangeError (see above)
+                        return Auth.$requireAuth();
+                    }]
                 }
             })
     }])
 
-    .controller('AccountCtrl', [ '$scope', '$ionicModal', 'User', '$ionicLoading', '$ionicPopup',
-        function($scope, $ionicModal, User, $ionicLoading, $ionicPopup) {
+    .controller('AccountCtrl', [ '$scope', '$ionicModal', 'User', '$ionicLoading', '$ionicPopup', 'Auth', '$state',
+        function($scope, $ionicModal, User, $ionicLoading, $ionicPopup, Auth, $state) {
 
             $ionicModal.fromTemplateUrl('app/dashboard/components/account/changePassword.html', {
                 scope: $scope,
@@ -43,7 +52,10 @@ angular.module('lifeUp.account', [ 'User'])
             });
 
             $scope.logout = function(){
-                User.logout();
+
+                Auth.$unauth();
+                $state.go('home');
+
             };
 
             $scope.changePassword = function(user){

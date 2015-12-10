@@ -23,6 +23,7 @@ angular.module('lifeUp.dashboard', [ ])
         $scope.$watch(function(){return User.userData}, function( newVal, oldVal){
 
             if (newVal) {
+
                 $scope.authData = newVal.authData;
             }
         },true );
