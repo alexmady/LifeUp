@@ -20,8 +20,8 @@ angular.module('lifeUp.createAccount', [])
             })
     }])
 
-    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state', '$ionicPopup', 'Auth', 'UserProfile', 'Util',
-        function($scope, $state, $ionicPopup, Auth, UserProfile, Util) {
+    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state', '$ionicPopup', 'Auth', 'UserProfile', 'Util', '$cordovaFacebook',
+        function($scope, $state, $ionicPopup, Auth, UserProfile, Util, $cordovaFacebook) {
 
         $scope.go = function(goTo){
             $state.go(goTo)
@@ -35,40 +35,74 @@ angular.module('lifeUp.createAccount', [])
                 remember: "default",
                 scope: "email"
             };
+            console.log('starting facebook login');
 
-            Auth.$authWithOAuthRedirect("facebook", options).then(function (authData) {
+            if(ionic.Platform.isWebView()){
 
-                //$state.go('dashboard.dashboardHome');
-                console.log('fbook auth');
-                try {
+                $cordovaFacebook.login(["public_profile", "email"]).then(function(success){
 
-                    var up = UserProfile(authData.uid);
-                    console.log(up);
+                    console.log(success);
+
+                    Auth.$authWithOAuthToken("facebook", success.authResponse.accessToken). then( function( authData) {
+
+                       console.log('Authenticated successfully with payload:', authData);
+
+                        try {
+
+                            UserProfile(authData.uid).$loaded()
+                                .then(function(profile){
+                                    if (!profile.exists()){
+                                        console.log('facebook profile was not already created... creating...');
+                                        profile.create(authData.facebook.email);
+                                    }
+                                    console.log('going home');
+                                    $state.go('dashboard.dashboardHome');
+                                    Util.hideLoading();
+                                });
 
 
-                } catch ( error ){
+                        } catch (error){
+                            Util.hideLoading();
+                            console.log(error.message);
+                            console.error(error);
+                        }
 
+                    }).catch(function(error){
+                        Util.hideLoading();
 
-                    console.error(error);
-                }
-
-            }).catch(function (error) {
-
-                console.error(error);
-
-                if (error.code === "TRANSPORT_UNAVAILABLE") {
-                    Auth.$authWithOAuthPopup("facebook", options).then(function (authData) {
-                        // User successfully logged in. We can log to the console
-                        // since we’re using a popup here
-                        console.log('fbook auth 2');
+                        console.log('Firebase login failed!', error);
                     });
-                } else {
+
+                }, function(error){
                     Util.hideLoading();
-                    // Another error occurred
-                    console.error(error.stack);
-                }
-            });
+                    console.log(error);
+                });
+
+            }
+            else {
+
+                Auth.$authWithOAuthPopup("facebook", options).then(function (authData) {
+                    // User successfully logged in. We can log to the console
+                    // since we’re using a popup here
+                    try {
+
+                        UserProfile(authData.uid).$loaded()
+                            .then(function(profile){
+                                if (!profile.exists()){
+                                    console.log('facebook profile was not already created... creating...');
+                                    profile.create(authData.facebook.email);
+                                }
+                                console.log('going home');
+                                $state.go('dashboard.dashboardHome');
+                                Util.hideLoading();
+                            });
+
+                    } catch (error){
+                        Util.hideLoading();
+                        console.log(error.message);
+                        console.error(error);
+                    }
+                });
+            }
         };
-
-
     }]);

@@ -8,8 +8,6 @@ angular.module('lifeUp.util', ['ionic'])
 
         function($ionicLoading) {
 
-            console.log('UTILS....');
-
             var showLoading = function(){
                 $ionicLoading.show({
                     template: '<ion-spinner icon="bubbles"></ion-spinner>'

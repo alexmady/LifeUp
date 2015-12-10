@@ -1,6 +1,7 @@
 
 angular.module('lifeUp', [
     'ionic',
+    'ngCordova',
     'ngIOS9UIWebViewPatch',
     'firebase',
     'lifeUp.auth',

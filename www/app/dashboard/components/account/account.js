@@ -28,8 +28,8 @@ angular.module('lifeUp.account', [ ])
             })
     }])
 
-    .controller('AccountCtrl', [ '$scope', '$ionicModal', '$ionicLoading', '$ionicPopup', 'Auth', '$state', 'Util', 'currentAuth',
-        function($scope, $ionicModal,  $ionicLoading, $ionicPopup, Auth, $state, Util, currentAuth) {
+    .controller('AccountCtrl', [ '$scope', '$ionicModal',  '$ionicPopup', 'Auth', '$state', 'Util', 'currentAuth',
+        function($scope, $ionicModal,  $ionicPopup, Auth, $state, Util, currentAuth) {
 
             $ionicModal.fromTemplateUrl('app/dashboard/components/account/changePassword.html', {
                 scope: $scope,
@@ -68,43 +68,44 @@ angular.module('lifeUp.account', [ ])
                     alertPopup.then(function (res) {
                         $scope.closeModal();
                     });
-                }
+                } else {
 
-                Util.showLoading();
+                    Util.showLoading();
 
-                try {
+                    try {
 
-                    Auth.$changePassword({
-                        email: currentAuth[currentAuth.provider].email,
-                        oldPassword: user.oldPassword,
-                        newPassword: user.newPassword
-                    }).then(
-                        function () {
-                            Util.hideLoading();
-                            var alertPopup = $ionicPopup.alert({
-                                title: 'Success!',
-                                template: 'Password changed successfully.'
-                            });
-                            alertPopup.then(function (res) {
-                                $scope.closeModal();
-                                Auth.$unauth();
-                                $state.go('home');
-                            });
-                        }
-                    ).catch(function (error) {
-                            Util.hideLoading();
+                        Auth.$changePassword({
+                            email: currentAuth[currentAuth.provider].email,
+                            oldPassword: user.oldPassword,
+                            newPassword: user.newPassword
+                        }).then(
+                            function () {
+                                Util.hideLoading();
+                                var alertPopup = $ionicPopup.alert({
+                                    title: 'Success!',
+                                    template: 'Password changed successfully.'
+                                });
+                                alertPopup.then(function (res) {
+                                    $scope.closeModal();
+                                    Auth.$unauth();
+                                    $state.go('home');
+                                });
+                            }
+                        ).catch(function (error) {
+                                Util.hideLoading();
 
-                            var alertPopup = $ionicPopup.alert({
-                                title: 'Error',
-                                template: error
+                                var alertPopup = $ionicPopup.alert({
+                                    title: 'Error',
+                                    template: error
+                                });
+                                alertPopup.then(function (res) {
+                                    console.log(error);
+                                });
                             });
-                            alertPopup.then(function (res) {
-                                console.log(error);
-                            });
-                        });
-                } catch (error){
-                    console.log(error.stack);
-                    Util.hideLoading();
+                    } catch (error){
+                        console.log(error.stack);
+                        Util.hideLoading();
+                    }
                 }
             };
 
