@@ -37,7 +37,7 @@ only screen and (min-resolution: 120dpi) {
 .lifeup-dashboard {
     font-family: 'Montserrat', serif;
     color: white;
-    font-size: 13px;
+    font-size: 85%;
     margin: 5%;
     text-align: center;
 }
