@@ -10,7 +10,6 @@ angular.module('lifeUp', [
     'lifeUp.config',
     'lifeUp.home',
     'lifeUp.signInChoice',
-    'lifeUp.termsAndConditions',
     'lifeUp.privacyPolicy',
     'lifeUp.emailSignIn',
     'lifeUp.createAccount',
