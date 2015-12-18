@@ -25,7 +25,7 @@ angular.module('lifeUp', [
     'lifeUp.courseMetaData'
     ])
 
-.run(['$ionicPlatform', '$rootScope', function($ionicPlatform, $rootScope) {
+.run(['$ionicPlatform', '$rootScope', '$state', function($ionicPlatform, $rootScope, $state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -43,6 +43,8 @@ angular.module('lifeUp', [
               $location.path("/home");
           }
       });
+
+      //$state.go('dashboard.dashboardHome');
   });
 
   // Whenever there is an update to authorization data from firebase
