@@ -14,12 +14,6 @@ angular.module('lifeUp.user', ['firebase'])
             },
 
             exists: function (){
-
-                console.log(this);
-
-                console.log ('this.created');
-                console.log (this.created);
-
                 if (!this.created) return false;
                 else return true;
             },
@@ -46,10 +40,8 @@ angular.module('lifeUp.user', ['firebase'])
                 this.history = {};
                 this.email = email;
 
-                console.log('about to save in create');
-
                 this.$save().then(function(){
-                    console.log('Profile saved successfully');
+                    //console.log('Profile saved successfully');
                 });
             },
 
@@ -84,12 +76,11 @@ angular.module('lifeUp.user', ['firebase'])
                             this.history[this.lastActivityDate] = { module: this.moduleFar, slide: this.slideFar };
                         }
                     }
-                }
-
-                if (module === courseMetaData.length && slide === 1) {
-                    this.courseCompleted = true;
-                    var dt = new Date();
-                    this.courseCompletedDate = dt.getTime();
+                    if (module === courseMetaData.length && slide === 1) {
+                        this.courseCompleted = true;
+                        var dt = new Date();
+                        this.courseCompletedDate = dt.getTime();
+                    }
                 }
 
                 this.$save();
