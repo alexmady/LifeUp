@@ -12,6 +12,14 @@ only screen and (min-resolution: 120dpi) {
 
 }*/
 
+.ng-animate .scroll-bar {
+    visibility: visible !important;
+}
+
+.scroll-bar-fade-out{
+    opacity:1 !important
+}
+
 @font-face {
     font-family: 'Montserrat';
     font-style: normal;
