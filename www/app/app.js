@@ -9,6 +9,7 @@ angular.module('lifeUp', [
     'lifeUp.util',
     'lifeUp.config',
     'lifeUp.home',
+    'lifeUp.intro',
     'lifeUp.signInChoice',
     'lifeUp.privacyPolicy',
     'lifeUp.emailSignIn',
@@ -46,25 +47,6 @@ angular.module('lifeUp', [
 
       //$state.go('dashboard.dashboardHome');
   });
-
-  // Whenever there is an update to authorization data from firebase
-  /*Auth.ref.$onAuth(function(authData){
-
-      $ionicLoading.hide();
-
-      if (authData){
-          User.setAuthData(authData);
-
-          if (authData.provider === "facebook"){
-              var user = { email: authData.facebook.email };
-              FirebaseUtil.checkAndCreateUserProfile(authData, user);
-          }
-          $state.go('dashboard.dashboardHome');
-      } else {
-          $state.go('home');
-      }
-  });*/
-
 
 }]).config(function($urlRouterProvider, $ionicConfigProvider){
     $urlRouterProvider.otherwise('/home');

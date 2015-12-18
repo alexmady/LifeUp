@@ -1,152 +1,113 @@
-<ion-view view-title="Welcome!" hide-back-button="true">
-
+<ion-view view-title="Set Some Goals" hide-back-button="true">
     <ion-slide-box class="intro" show-pager="true">
 
-        <ion-slide class="slide">
 
+        <ion-slide class="slide" disable-scroll>
             <ion-content class="intro center" scroll="false">
                 <div>
 
                     <div class="center">
-                        <img class="center" src="img/SurviveToThrive-01.png" style="width: 90%;height: auto"/>
+                        <img class="intro-img" src="img/resilience.png"/>
                     </div>
-                    <br>
 
                     <p class="lifeup-intro-text">
-                        Feel like you could be getting more out of
-                        life? 
-
-                        <br><br>
-
-                        Climb the LifeUp mindfulness mountain
-                        and go from survive to thrive!
+                        Would you like to learn to dissipate
+                        unhelpful thoughts and emotions to
+                        decrease stress, anxiety and burnout?
                     </p>
 
-                    <p class="lifeup-intro-text">
-                        </p>
-                </div>
-            </ion-content>
-
-        </ion-slide>
-
-
-        <ion-slide class="slide">
-            <ion-content class="intro center" scroll="false">
-                <div>
                     <div class="center">
-                        <img class="center" src="img/Venn.png" style="width: 60%;height: auto"/>
+                        <button ng-click="nextSlide()" class="button button-light button-outline lifeup-button"
+                                style="width: 20%; margin: 2%">NO
+                        </button>
+                        <button ng-click="nextSlide()" class="button button-light button-outline lifeup-button"
+                                style="width: 20%; margin: 2%">YES
+                        </button>
                     </div>
-                    <br>
 
-
-                    <div>
-
-                        <p class="lifeup-intro-text">
-                            You’ll learn easy to use life skills to ride life's
-                            ups and downs, live in the present, and
-                            show up as the best version of yourself,
-                            when it matters. </p>
-
-                    </div>
                 </div>
             </ion-content>
         </ion-slide>
 
         <ion-slide class="slide">
             <ion-content class="intro center" scroll="false">
-
-                <div>
-                    <div class="center">
-                        <img class="center" src="img/mindfulnessMountain.png" style="width: 95%;height: auto"/>
-                    </div>
-                    <br>
-
-                    <div>
-
-                        <p class="lifeup-intro-text">
-                            Conquer our six simple steps to climb the
-                            mindfulness mountain, and live life on top! </p>
-
-                    </div>
-                </div>
-            </ion-content>
-        </ion-slide>
-
-        <ion-slide class="slide">
-            <ion-content class="intro center" scroll="false">
-
                 <div>
 
                     <div class="center">
-                        <img class="center" src="img/MikeMap.png" style="width: 50%;height: auto"/>
+                        <img class="intro-img" src="img/connection.png"/>
                     </div>
-                    <br>
 
                     <p class="lifeup-intro-text">
-                        Each step is an acronym designed to help
-                        you practice mindfulness and navigate
-                        every day life</p>
-
-                </div>
-
-            </ion-content>
-        </ion-slide>
-
-
-        <ion-slide class="slide">
-            <ion-content class="intro center" scroll="false">
-
-                <div>
-
-                    <div class="center">
-                        <img class="center" src="img/LifeUPScout-01.png" style="width: 65%;height: auto"/>
-                    </div>
-                    <br>
-
-                    <p class="lifeup-intro-text">
-                        Track your progress and collect 3 LifeUp
-                        badges as you climb the mindfulness
-                        mountain (2 steps = 1 badge)</p>
-
-                </div>
-
-            </ion-content>
-        </ion-slide>
-
-        <ion-slide class="slide">
-            <ion-content class="intro center" scroll="false">
-
-                <div>
-
-                    <div class="center">
-                        <img class="center" src="img/brain.png" style="width: 50%;height: auto"/>
-                    </div>
-                    <br>
-
-                    <p class="lifeup-intro-text">
-
-                        Designed using cutting-edge behavioural
-                        science to enhance your brain and
-                        cultivate a better life experience.
+                        Would you like to live more present and
+                        feel more alive, focused and energised?
                     </p>
 
-                </div>
+                    <div class="center">
+                        <button ng-click="nextSlide()" class="button button-light button-outline lifeup-button"
+                                style="width: 20%; margin: 2%">NO
+                        </button>
+                        <button ng-click="nextSlide()" class="button button-light button-outline lifeup-button"
+                                style="width: 20%; margin: 2%">YES
+                        </button>
+                    </div>
 
+
+                </div>
+            </ion-content>
+        </ion-slide>
+
+        <ion-slide class="slide">
+            <ion-content class="intro center" scroll="false">
+                <div>
+
+                    <div class="center">
+                        <img class="intro-img" src="img/authenticity.png"/>
+                    </div>
+
+                    <p class="lifeup-intro-text">
+                        Would you like to create healthier
+                        relationships and show up as the best
+                        version of yourself, when it matters?
+                    </p>
+
+                    <div class="center">
+                        <button ng-click="nextSlide()" class="button button-light button-outline lifeup-button"
+                                style="width: 20%; margin: 2%">NO
+                        </button>
+                        <button ng-click="nextSlide()" class="button button-light button-outline lifeup-button"
+                                style="width: 20%; margin: 2%">YES
+                        </button>
+                    </div>
+
+                </div>
+            </ion-content>
+        </ion-slide>
+
+        <ion-slide class="slide">
+            <ion-content class="intro center" scroll="false">
+                <div>
+
+                    <div class="center">
+                        <img class="intro-img" src="img/LifeUpLogoCup.png"/>
+                    </div>
+
+                    <p class="lifeup-intro-text">
+                        Would you like to build a mindfulness habit,
+                        and create lasting change in your life?
+                    </p>
+
+                    <div class="center">
+                        <button ng-click="goToCreateAccount()" class="button button-light button-outline lifeup-button"
+                                style="width: 20%; margin: 2%">NO
+                        </button>
+                        <button ng-click="goToCreateAccount()" class="button button-light button-outline lifeup-button"
+                                style="width: 20%; margin: 2%">YES
+                        </button>
+                    </div>
+
+                </div>
             </ion-content>
         </ion-slide>
 
     </ion-slide-box>
-
-    <ion-footer-bar class=" center lifeup-bg">
-        <button class="button button-outline button-light button-block" ng-click="go('createAccountChoice')">
-            GET STARTED!
-        </button>
-    </ion-footer-bar>
-
-    </ion-content>
-    <!-- <div class="progress-bar">
-        <div class="dots"></div>
-    </div> -->
-
-
 </ion-view>

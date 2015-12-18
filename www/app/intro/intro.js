@@ -1,38 +1,30 @@
 /**
- * Created by alexmady on 05/11/15.
+ * Created by alexmady on 18/12/15.
  */
 'use strict';
 
-angular.module('lifeUp.home', [])
+angular.module('lifeUp.intro', [])
 
-    .config( ['$stateProvider', function($stateProvider) {
+    .config( ['$stateProvider', function( $stateProvider ) {
 
         $stateProvider
-            .state('home', {
-                url: '/home',
-                templateUrl: 'app/home/home.html',
-                controller: 'HomeCtrl',
-                resolve: {
-                    // controller will not be loaded until $requireAuth resolves
-                    // Auth refers to our $firebaseAuth wrapper in the example above
-                    "currentAuth": ["Auth", function (Auth) {
-                        // $requireAuth returns a promise so the resolve waits for it to complete
-                        // If the promise is rejected, it will throw a $stateChangeError (see above)
-                        return Auth.$waitForAuth();
-                    }]
-                }
-
-            })
+            .state('intro', {
+                url: '/intro',
+                templateUrl: 'app/intro/intro.html',
+                controller: 'IntroCtrl'
+            });
     }])
 
-    .controller('HomeCtrl',
-        [ '$scope', '$state', function($scope, $state) {
+    .controller('IntroCtrl',
+        [ '$scope', '$state', '$ionicSlideBoxDelegate', function($scope, $state, $ionicSlideBoxDelegate) {
 
-            $scope.go = function(goTo){
-            try{
-                $state.go(goTo);
-            } catch(error){
-                console.log(error.stack);
-            }
-        };
+            $scope.nextSlide = function(){
+                $ionicSlideBoxDelegate.next();
+            };
+
+            $scope.goToCreateAccount = function(){
+
+                $state.go('createAccountChoice');
+
+            };
     }]);

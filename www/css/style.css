@@ -186,6 +186,11 @@ input[type="text"], input[type="password"]{
     color: white;
 }
 
+.intro-img {
+    width: 40%;
+    height: auto;
+}
+
 .intro {
     background-color: cornflowerblue;
 }
