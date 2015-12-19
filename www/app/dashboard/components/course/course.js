@@ -52,9 +52,9 @@ courseModule
             $scope.spritePNGFile = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.png';
             $scope.spriteDataFileName = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.json';
 
-            if ($scope.devicePixelRatio === 2) {
-                var w2 = ($window.innerWidth * 2);
-                var h2 = ($window.innerHeight * 2);
+            if ($scope.devicePixelRatio === 2 || $scope.devicePixelRatio === 3) {
+                var w2 = ($window.innerWidth * $scope.devicePixelRatio);
+                var h2 = ($window.innerHeight * $scope.devicePixelRatio);
                 $scope.spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
                 $scope.spriteDataFileName = '../img/sprite-' + w2 + 'x' + h2 + '.json';
             }
@@ -86,8 +86,12 @@ courseModule
 
             $.ajaxSetup({async: true});
 
-            $scope.bgSizeW = $scope.spriteMeta.size.w / 2 + 'px';
-            $scope.bgSizeH = $scope.spriteMeta.size.h / 2 + 'px';
+
+            $scope.bgSizeW = $scope.spriteMeta.size.w /  $scope.devicePixelRatio  + 'px';
+            $scope.bgSizeH = $scope.spriteMeta.size.h /  $scope.devicePixelRatio  + 'px';
+
+            debug();
+
 
             var init = function () {
 
@@ -134,15 +138,15 @@ courseModule
                 }
             };
 
-            $scope.debug = function () {
+            function debug() {
                 console.log('---------------------------------------');
                 console.log('debug');
                 console.log('Window width: ' + $window.innerWidth);
                 console.log('Window Height: ' + $window.innerHeight);
                 console.log('Sprite: ' + $scope.spritePNGFile);
                 console.log('Sprite Data File' + $scope.spriteDataFileName);
-                console.log('Sprite Size W: ' + $scope.spriteMeta.size.w);
-                console.log('Sprite Size H: ' + $scope.spriteMeta.size.h);
+                //console.log('Sprite Size W: ' + $scope.spriteMeta.size.w);
+                //console.log('Sprite Size H: ' + $scope.spriteMeta.size.h);
                 console.log('Sprite image: ' + $scope.spriteMeta.image);
                 console.log('Device Pixel Ratio: ' + $scope.devicePixelRatio);
                 console.log('---------------------------------------');
