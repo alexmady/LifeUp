@@ -153,7 +153,17 @@ courseModule
             $scope.forwardButtonLeft = $window.innerWidth - 50;
 
             $scope.play = function () {
-                $state.go('dashboard.' + $scope.step.name);
+
+                $scope.blurBackground = true;
+
+                var alertPopup = $ionicPopup.alert({
+                    title: $scope.step.name,
+                    template: '<div></div>'
+                });
+                alertPopup.then(function (res) {
+                    $scope.blurBackground = false;
+                    $state.go('dashboard.' + $scope.step.name);
+                });
             };
 
             $scope.climb = function () {
