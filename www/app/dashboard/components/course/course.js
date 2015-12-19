@@ -17,7 +17,7 @@ courseModule
                 url: '/course',
                 views: {
                     'dashboardContent': {
-                        templateUrl: "app/dashboard/components/course/course.html",
+                        templateUrl: 'app/dashboard/components/course/course.html',
                         controller: 'CourseCtrl'
                     }
                 },
@@ -156,9 +156,20 @@ courseModule
 
                 $scope.blurBackground = true;
 
+                $scope.badge = $scope.step.badge + '.png';
+                $scope.label = 'LU_MM_Labels_' + $scope.step.name + '.png';
+
                 var alertPopup = $ionicPopup.alert({
                     title: $scope.step.name,
-                    template: '<div></div>'
+                    templateUrl: 'app/dashboard/components/course/popupTemplate.html',
+                    cssClass: 'course-label-popup',
+                    scope: $scope,
+                    buttons: [
+                        {
+                            text: 'Start ' + $scope.step.name + '',
+                            type: 'button button-outline button-light'
+                        }
+                    ]
                 });
                 alertPopup.then(function (res) {
                     $scope.blurBackground = false;

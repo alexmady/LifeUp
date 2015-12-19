@@ -12,6 +12,35 @@ only screen and (min-resolution: 120dpi) {
 
 }*/
 
+
+
+.course-label-popup .popup {
+    width: 90%!important;
+}
+
+.course-label-popup.popup-container .popup {
+    background-color: transparent !important;
+    opacity: 0.4;
+}
+
+.course-label-popup .popup-head{
+    visibility: hidden;
+}
+
+.course-label-popup .popup-title {
+
+}
+
+.course-label-popup .popup-body{
+
+}
+
+.course-label-popup .popup-buttons {
+    display: inline-block;
+    margin: auto;
+    font-family: 'Amatic SC', cursive;
+}
+
 .ng-animate .scroll-bar {
     visibility: visible !important;
 }
@@ -330,7 +359,7 @@ input::-webkit-input-placeholder {
 .lifeup-intro-text {
     text-align: center;
     font-family: 'Montserrat', serif;
-    font-size: 13;
+    font-size: 12;
     color: white;
     margin: 30px;
 }
