@@ -157,7 +157,7 @@ courseModule
                 $scope.blurBackground = true;
 
                 $scope.badge = $scope.step.badge + '.png';
-                $scope.label = 'LU_MM_Labels_' + $scope.step.name + '.png';
+                $scope.label = 'Labels_' + $scope.step.name + '.png';
 
                 var alertPopup = $ionicPopup.alert({
                     title: $scope.step.name,
