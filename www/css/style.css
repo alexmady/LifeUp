@@ -142,19 +142,6 @@ and (orientation : portrait) {
     }
 }
 
-/* Iphone 5 */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px)
-and (-webkit-min-device-pixel-ratio: 2.0)
-and (orientation : portrait) {
-
-    .mountain {
-        background-image: url('../img/mm-750x1334.png');
-        background-size: 100%;
-    }
-}
-
 /* Iphone 4 and Iphone 4S with retina display */
 @media only screen
 and (min-device-width : 320px)
@@ -165,6 +152,19 @@ and (orientation : portrait) {
     .mountain {
         background-image: url('../img/mm-640x960.png');
         background-size: 320px 480px;
+    }
+}
+
+/* Iphone 5 */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (-webkit-min-device-pixel-ratio: 2.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-640x1136.png');
+        background-size: 100%;
     }
 }
 

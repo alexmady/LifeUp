@@ -2,12 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/labels/LU_MM_Labels_ACT-.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/labels/LU_MM_Labels_BE-.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/labels/LU_MM_Labels_DISARM-.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/labels/LU_MM_Labels_FLOW-.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/labels/LU_MM_Labels_SPACE-.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/LifeUPScout-01.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/LifeUpLogoCup.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/MikeMap.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/MikeNotHappy.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/Venn.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/aboutUs.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/actBrown.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/actCharles.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/actJames.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/authenticity.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/be.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/beAnderson.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/brain.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/connection.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/disarmBuddha.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/disarmBuddha2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/disarmJung.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/disarmNang.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/disarmNin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/disarmTolle.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/faq.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/flowGandhi.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/flowOprah.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/flowSmith.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/flowTolle.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/iTolle.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/jo.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mindfulnessMountain.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-375x667.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-640x1136.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-640x960.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-750x1334.ai" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-750x1334.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-768x1024.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/resilience.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/scott.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/spaceFreud.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/spaceKurt.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/spaceMurakam.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/spaceSmile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/spaceWilde.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-320x480.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-375x667.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-640x1136.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-640x960.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-750x1334.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-320x480.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-375x667.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-640x1136.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-640x960.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-750x1334.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -32,11 +77,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.90733594" vertical-offset="0" max-vertical-offset="6915">
-              <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1788" max-vertical-offset="6960">
+              <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.11968085" vertical-offset="0" max-vertical-offset="752">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -55,8 +110,8 @@
       <file leaf-file-name="course.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/course.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1935" max-vertical-offset="6015">
-              <caret line="166" column="30" selection-start-line="166" selection-start-column="30" selection-end-line="166" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="6015">
+              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding>
                 <marker date="1450534158000" expanded="true" signature="6973:6990" placeholder="..." />
               </folding>
@@ -197,8 +252,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1884" />
-    <option name="y" value="37" />
+    <option name="x" value="-1679" />
+    <option name="y" value="35" />
     <option name="width" value="1624" />
     <option name="height" value="1355" />
   </component>
@@ -314,15 +369,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="labels" />
+              <option name="myItemId" value="platforms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,33 +383,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
+              <option name="myItemId" value="platforms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LifeUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LifeUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
+              <option name="myItemId" value="ios" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -376,49 +401,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
+              <option name="myItemId" value="platforms" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="ios" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LifeUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LifeUp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="course" />
+              <option name="myItemId" value="LifeUp.xcodeproj" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -983,16 +974,24 @@
       <created>1450533117149</created>
       <updated>1450533117149</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="change popup font">
+      <created>1450534542698</created>
+      <updated>1450534542698</updated>
+    </task>
+    <task id="LOCAL-00117" summary="fixed center button issue">
+      <created>1450535317753</created>
+      <updated>1450535317753</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1884" y="37" width="1624" height="1355" extended-state="0" />
-    <editor active="false" />
+    <frame x="-1679" y="35" width="1624" height="1355" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32541567" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36342043" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36342043" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19026825" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1019,8 +1018,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="add forgot password functionality" />
-    <MESSAGE value="- change password functionality &#10;- don't show climb button at top&#10;- congratulate on completion of course" />
     <MESSAGE value="- move logout function call to account module" />
     <MESSAGE value="change name from MODULE to STEP" />
     <MESSAGE value="refactor user and auth to single user module" />
@@ -1044,19 +1041,14 @@
     <MESSAGE value="Add privacy policy" />
     <MESSAGE value="add blur popup when you open a step" />
     <MESSAGE value="add labels to start of modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="add labels to start of modules" />
+    <MESSAGE value="change popup font" />
+    <MESSAGE value="fixed center button issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed center button issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="164" max-vertical-offset="945">
-          <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/app/components/auth/auth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08498584" vertical-offset="0" max-vertical-offset="706">
@@ -1412,8 +1404,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/course.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1935" max-vertical-offset="6015">
-          <caret line="166" column="30" selection-start-line="166" selection-start-column="30" selection-end-line="166" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="6015">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
             <marker date="1450534158000" expanded="true" signature="6973:6990" placeholder="..." />
           </folding>
@@ -1422,8 +1414,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.90733594" vertical-offset="0" max-vertical-offset="6915">
-          <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1788" max-vertical-offset="6960">
+          <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11968085" vertical-offset="0" max-vertical-offset="752">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
