@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/mm-640x960.png" afterPath="$PROJECT_DIR$/www/img/mm-640x960.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/sprite-640x960.png" afterPath="$PROJECT_DIR$/www/img/sprite-640x960.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/sprite-640x960.json" afterPath="$PROJECT_DIR$/www/img/sprite-640x960.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-1242x2208.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-1536x2048.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-1242x2208.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-1536x2048.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-1242x2208.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-1536x2048.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -33,8 +35,8 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22779922" vertical-offset="3" max-vertical-offset="7380">
-              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.38610038" vertical-offset="0" max-vertical-offset="7200">
+              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -939,19 +941,23 @@
       <created>1450538540363</created>
       <updated>1450538540363</updated>
     </task>
-    <option name="localTasksCounter" value="119" />
+    <task id="LOCAL-00119" summary="- add sprites and media queries for other ios devices">
+      <created>1450543037388</created>
+      <updated>1450543037388</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1547" y="35" width="1492" height="1355" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32541567" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36342043" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20734194" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20734194" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -975,7 +981,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- move logout function call to account module" />
     <MESSAGE value="change name from MODULE to STEP" />
     <MESSAGE value="refactor user and auth to single user module" />
     <MESSAGE value="- revised acronym highlighting&#10;- remove unnecessary modules and consolidate user functions in user.js" />
@@ -1000,7 +1005,8 @@
     <MESSAGE value="add labels to start of modules" />
     <MESSAGE value="change popup font" />
     <MESSAGE value="fixed center button issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed center button issue" />
+    <MESSAGE value="- add sprites and media queries for other ios devices" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add sprites and media queries for other ios devices" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1379,8 +1385,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22779922" vertical-offset="3" max-vertical-offset="7380">
-          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.38610038" vertical-offset="0" max-vertical-offset="7200">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding />
         </state>
       </provider>
