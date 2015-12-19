@@ -166,7 +166,7 @@ courseModule
                     scope: $scope,
                     buttons: [
                         {
-                            text: 'Start ' + $scope.step.name + '',
+                            text: '<span style="font-weight: bold">Start ' + $scope.step.name + '</span>',
                             type: 'button button-outline button-light'
                         }
                     ]

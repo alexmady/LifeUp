@@ -16,6 +16,7 @@ only screen and (min-resolution: 120dpi) {
 
 .course-label-popup .popup {
     width: 90%!important;
+    font-family: 'Amatic SC', cursive;
 }
 
 .course-label-popup.popup-container .popup {
@@ -39,6 +40,11 @@ only screen and (min-resolution: 120dpi) {
     display: inline-block;
     margin: auto;
     font-family: 'Amatic SC', cursive;
+}
+
+.course-label-popup .popup-buttons .button{
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
 }
 
 .ng-animate .scroll-bar {
