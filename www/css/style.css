@@ -38,13 +38,16 @@ only screen and (min-resolution: 120dpi) {
 
 .course-label-popup .popup-buttons {
     display: inline-block;
-    margin: auto;
     font-family: 'Amatic SC', cursive;
+    align-items: center;
+    text-align: center;
 }
 
 .course-label-popup .popup-buttons .button{
+    display: inline-block;
     font-family: 'Amatic SC', cursive;
     font-size: 30px;
+    background-color: cornflowerblue;
 }
 
 .ng-animate .scroll-bar {
