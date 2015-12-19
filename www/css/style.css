@@ -12,7 +12,6 @@ and (orientation : portrait) {
     }
 }
 
-
 /* Iphone 6 and Iphone 6s retina @2x */
 @media only screen
 and (device-width : 375px)

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-1242x2208.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-1536x2048.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-1242x2208.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-1536x2048.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-1242x2208.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/sprite-1536x2048.json" />
+    <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="- add missing image files">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/mm-2048x2732.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/sprite-320x480.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/sprite-320x480.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/sprite-375x667.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/img/sprite-375x667.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -35,8 +34,8 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38610038" vertical-offset="0" max-vertical-offset="7200">
-              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.21235521" vertical-offset="0" max-vertical-offset="7185">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -207,8 +206,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1547" />
-    <option name="y" value="35" />
+    <option name="x" value="-1592" />
+    <option name="y" value="41" />
     <option name="width" value="1492" />
     <option name="height" value="1355" />
   </component>
@@ -945,11 +944,15 @@
       <created>1450543037388</created>
       <updated>1450543037388</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="- add missing image files">
+      <created>1450543292977</created>
+      <updated>1450543292977</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1547" y="35" width="1492" height="1355" extended-state="0" />
+    <frame x="-1592" y="41" width="1492" height="1355" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32541567" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -981,7 +984,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="change name from MODULE to STEP" />
     <MESSAGE value="refactor user and auth to single user module" />
     <MESSAGE value="- revised acronym highlighting&#10;- remove unnecessary modules and consolidate user functions in user.js" />
     <MESSAGE value="-major refactor to resolve dependency issues" />
@@ -1006,7 +1008,8 @@
     <MESSAGE value="change popup font" />
     <MESSAGE value="fixed center button issue" />
     <MESSAGE value="- add sprites and media queries for other ios devices" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add sprites and media queries for other ios devices" />
+    <MESSAGE value="- add missing image files" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add missing image files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1385,8 +1388,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38610038" vertical-offset="0" max-vertical-offset="7200">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.21235521" vertical-offset="0" max-vertical-offset="7185">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
           <folding />
         </state>
       </provider>
