@@ -11,4 +11,13 @@
         {name: 'I', pos: 6, frame: 654, duration: 2, backButtonEnabled: true, length: 1, badge: 'authenticity', badgeComplete: true}
     ];
 
+
+    var goalQuestions = [
+        'Would you like to learn to dissipate unhelpful thoughts and emotions to decrease stress, anxiety and burnout?',
+        'Would you like to live more present and feel more alive, focused and energised?',
+        'Would you like to create healthier relationships and show up as the best version of yourself, when it matters?',
+        'Would you like to build a mindfulness habit and create lasting change in your life?'
+    ];
+
 angular.module('lifeUp.courseMetaData', []).value('courseMetaData', steps);
+angular.module('lifeUp.courseMetaData').value('goalQuestions', goalQuestions);

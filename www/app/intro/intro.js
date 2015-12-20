@@ -9,6 +9,7 @@ angular.module('lifeUp.intro', [])
 
         $stateProvider
             .state('intro', {
+                cache: false,
                 url: '/intro',
                 templateUrl: 'app/intro/intro.html',
                 controller: 'IntroCtrl'
@@ -16,15 +17,29 @@ angular.module('lifeUp.intro', [])
     }])
 
     .controller('IntroCtrl',
-        [ '$scope', '$state', '$ionicSlideBoxDelegate', function($scope, $state, $ionicSlideBoxDelegate) {
+        [ '$scope', '$state', '$ionicSlideBoxDelegate', 'goalQuestions', function($scope, $state, $ionicSlideBoxDelegate, goalQuestions) {
 
-            $scope.nextSlide = function(){
+
+            $scope.disableSwipe = function() {
+                $ionicSlideBoxDelegate.enableSlide(false);
+            };
+
+            $scope.goalQuestions = goalQuestions;
+
+            var answers = {};
+
+            function addAnswer(ans){
+                var n = $ionicSlideBoxDelegate.currentIndex()+1;
+                answers['answer'+n] = ans;
+            }
+
+            $scope.nextSlide = function(answer){
+                addAnswer(answer);
                 $ionicSlideBoxDelegate.next();
             };
 
-            $scope.goToCreateAccount = function(){
-
-                $state.go('createAccountChoice');
-
+            $scope.goToCreateAccount = function(answer){
+                addAnswer(answer);
+                $state.go('createAccountChoice', {answers: answers});
             };
     }]);

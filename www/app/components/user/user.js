@@ -18,10 +18,9 @@ angular.module('lifeUp.user', ['firebase'])
                 else return true;
             },
 
-            create: function(email){
+            create: function(email, setGoalsAnswers){
 
                 var dt = new Date();
-
                 this.created = dt.getTime();
                 this.module = 0;
                 this.slide =  0;
@@ -33,6 +32,7 @@ angular.module('lifeUp.user', ['firebase'])
                 this.courseCompleted =  false;
                 this.courseCompletedDate = null;
                 this.completeCongratulate =  false;
+                this.setGoalsAnswers = setGoalsAnswers;
                 this.lastActivityDate = dt.getTime();
                 this.resilienceComplete =  false;
                 this.authenticityComplete =  false;

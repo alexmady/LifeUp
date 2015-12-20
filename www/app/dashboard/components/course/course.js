@@ -339,14 +339,16 @@ for (var i = 0; i < days.length; i++) {
 
                         //$scope.blurBackground = true;
                         $scope.badge = courseMetaData[module-1].badge;
+                        $scope.blurBackground = true;
 
                         var alertPopup = $ionicPopup.alert({
                             title: "",
                             templateUrl: 'app/dashboard/components/course/popupBadgeCompleteTemplate.html',
+                            cssClass: 'course-label-popup',
                             scope: $scope
                         });
                         alertPopup.then(function (res) {
-                            //$scope.blurBackground = false;
+                            $scope.blurBackground = false;
                             $state.go('dashboard.course');
                         });
                     } else {

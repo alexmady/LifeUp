@@ -19,7 +19,7 @@ angular.module('lifeUp.util', ['ionic'])
             };
 
 
-            var facebookLogin = function() {
+            var facebookLogin = function(goalsQuestionsAnswers) {
 
                 showLoading();
 
@@ -39,7 +39,7 @@ angular.module('lifeUp.util', ['ionic'])
                                 UserProfile(authData.uid).$loaded()
                                     .then(function(profile){
                                         if (!profile.exists()){
-                                            profile.create(authData.facebook.email);
+                                            profile.create(authData.facebook.email, goalsQuestionsAnswers);
                                         }
                                         $state.go('dashboard.dashboardHome');
                                         hideLoading();
@@ -73,7 +73,7 @@ angular.module('lifeUp.util', ['ionic'])
                             UserProfile(authData.uid).$loaded()
                                 .then(function(profile){
                                     if (!profile.exists()){
-                                        profile.create(authData.facebook.email);
+                                        profile.create(authData.facebook.email, goalsQuestionsAnswers);
                                     }
                                     $state.go('dashboard.dashboardHome');
                                     hideLoading();

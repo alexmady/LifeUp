@@ -12,23 +12,23 @@ angular.module('lifeUp.createAccount', [])
                 url: '/createAccountChoice',
                 templateUrl: 'app/createAccountChoice/createAccountChoice.html',
                 controller: 'CreateAccountChoiceCtrl',
-                resolve: {
-                    "currentAuth": ["Auth", function (Auth) {
-                        return Auth.$waitForAuth();
-                    }]
+                params: {
+                    answers: null
                 }
             })
     }])
 
-    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state', '$ionicPopup', 'Auth', 'UserProfile', 'Util',
-        function($scope, $state, $ionicPopup, Auth, UserProfile, Util) {
+    .controller('CreateAccountChoiceCtrl', [ '$scope', '$state', '$ionicPopup', 'Auth', 'UserProfile', 'Util', '$stateParams',
+        function($scope, $state, $ionicPopup, Auth, UserProfile, Util, $stateParams) {
 
         $scope.go = function(goTo){
-            $state.go(goTo)
+            $state.go(goTo, {answers: $stateParams.answers});
         };
 
-        $scope.facebookSignup = function(){
+       console.log($stateParams.answers);
 
-            Util.facebookLogin();
+        $scope.facebookSignup = function(){
+            console.log($stateParams.answers);
+            Util.facebookLogin($stateParams.answers);
         };
     }]);
