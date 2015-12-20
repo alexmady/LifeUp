@@ -3,9 +3,12 @@ var gutil = require('gulp-util');
 var bower = require('bower');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
+var exec = require('gulp-exec');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var cordova_plugins = require('./package.json').cordovaPlugins;
+var Q = require('q');
 
 var paths = {
   sass: ['./scss/**/*.scss']

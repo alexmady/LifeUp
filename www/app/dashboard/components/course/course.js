@@ -47,14 +47,16 @@ courseModule
                 $ionicSideMenuDelegate.toggleLeft();
             };
 
+            var screenWidth = $window.screen.width;
+            var screenHeight = $window.screen.height;
 
             $scope.devicePixelRatio = $window.devicePixelRatio;
-            $scope.spritePNGFile = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.png';
-            $scope.spriteDataFileName = '../img/sprite-' + $window.innerWidth + 'x' + $window.innerHeight + '.json';
+            $scope.spritePNGFile = '../img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
+            $scope.spriteDataFileName = '../img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
 
             if ($scope.devicePixelRatio === 2 || $scope.devicePixelRatio === 3) {
-                var w2 = ($window.innerWidth * $scope.devicePixelRatio);
-                var h2 = ($window.innerHeight * $scope.devicePixelRatio);
+                var w2 = (screenWidth * $scope.devicePixelRatio);
+                var h2 = (screenHeight * $scope.devicePixelRatio);
                 $scope.spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
                 $scope.spriteDataFileName = '../img/sprite-' + w2 + 'x' + h2 + '.json';
             }
@@ -141,8 +143,8 @@ courseModule
             function debug() {
                 console.log('---------------------------------------');
                 console.log('debug');
-                console.log('Window width: ' + $window.innerWidth);
-                console.log('Window Height: ' + $window.innerHeight);
+                console.log('Window width: ' + $window.screen.width);
+                console.log('Window Height: ' + $window.screen.height);
                 console.log('Sprite: ' + $scope.spritePNGFile);
                 console.log('Sprite Data File' + $scope.spriteDataFileName);
                 //console.log('Sprite Size W: ' + $scope.spriteMeta.size.w);
@@ -159,7 +161,6 @@ courseModule
             $scope.play = function () {
 
                 $scope.blurBackground = true;
-
                 $scope.badge = $scope.step.badge + '.png';
                 $scope.label = 'Labels_' + $scope.step.name + '.png';
 
@@ -315,8 +316,8 @@ for (var i = 0; i < days.length; i++) {
 
         var controller = days[n] + 'Ctrl';
 
-        courseModule.controller(controller, [ '$scope', '$state', '$ionicSlideBoxDelegate', 'currentAuth', 'courseMetaData', 'profile',
-            function ($scope, $state, $ionicSlideBoxDelegate, currentAuth, courseMetaData, profile) {
+        courseModule.controller(controller, [ '$scope', '$state', '$ionicSlideBoxDelegate', 'currentAuth', 'courseMetaData', 'profile', '$ionicPopup',
+            function ($scope, $state, $ionicSlideBoxDelegate, currentAuth, courseMetaData, profile, $ionicPopup) {
 
                 $scope.title = days[n];
 
@@ -334,8 +335,25 @@ for (var i = 0; i < days.length; i++) {
                         readyToClimb = false;
                     }
 
+                    if (courseMetaData[module-1].badgeComplete === true){
+
+                        //$scope.blurBackground = true;
+                        $scope.badge = courseMetaData[module-1].badge;
+
+                        var alertPopup = $ionicPopup.alert({
+                            title: "",
+                            templateUrl: 'app/dashboard/components/course/popupBadgeCompleteTemplate.html',
+                            scope: $scope
+                        });
+                        alertPopup.then(function (res) {
+                            //$scope.blurBackground = false;
+                            $state.go('dashboard.course');
+                        });
+                    } else {
+                        $state.go('dashboard.course');
+                    }
                     profile.updateCourseProgress(module, slide, readyToClimb);
-                    $state.go('dashboard.course');
+
                 };
 
                 $scope.slideHasChanged = function (index) {

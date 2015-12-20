@@ -45,7 +45,7 @@ angular.module('lifeUp', [
           }
       });
 
-      //$state.go('dashboard.dashboardHome');
+      console.log('Starting....');
   });
 
 }]).config(function($urlRouterProvider, $ionicConfigProvider){
