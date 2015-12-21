@@ -59,6 +59,11 @@ angular.module('lifeUp.emailSignIn', [])
 
             $scope.resetPassword = function (user) {
 
+                if (!Util.isOnline()){
+                    Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                    return;
+                }
+
                 Util.showLoading();
 
                 Auth.$resetPassword(user.email).then(
@@ -93,27 +98,29 @@ angular.module('lifeUp.emailSignIn', [])
 
             $scope.login = function (user) {
 
+                if (!Util.isOnline()){
+                    Util.popup('No Internet Connection', 'You need to be connected to the internet to sign in. Please try again when you have a connection.', null, $scope);
+                    return;
+                }
+
                 Util.showLoading();
 
-                Auth.$authWithPassword({
-                    email: user.email,
-                    password: user.pass
-                }).then(function(authData) {
+                try{
+                    Auth.$authWithPassword({
+                        email: user.email,
+                        password: user.pass
+                    }).then(function(authData) {
+                        Util.hideLoading();
+                        $state.go('dashboard.dashboardHome');
+                    }).catch(function(error) {
+                        Util.hideLoading();
+
+                    });
+                } catch (error){
 
                     Util.hideLoading();
-                    console.log("Logged in as:", authData.uid);
-                    $state.go('dashboard.dashboardHome');
-
-                }).catch(function(error) {
-                    Util.hideLoading();
-                    console.error("Authentication failed:", error);
-
-                    $ionicPopup.alert({
-                        title: 'Error',
-                        template: error
-                    }).then(function (res) { return; });
-
-                });
+                    Util.popup("ERROR", "Oh dear! Something went wrong... <br> Please check you specified your email and password correctly!", null, $scope);
+                }
 
              };
 

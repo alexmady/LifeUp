@@ -27,6 +27,11 @@ angular.module('lifeUp.signInChoice', [])
             };
 
             $scope.facebookLogin = function () {
+
+                if (!Util.isOnline()){
+                    Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                    return;
+                }
                 Util.facebookLogin();
             };
 

@@ -28,7 +28,8 @@
     "cordova-plugin-console",
     "cordova-plugin-wkwebview",
     "cordova-plugin-webserver",
-    "cordova-plugin-splashscreen"
+    "cordova-plugin-splashscreen",
+    "org.apache.cordova.network-information"
   ],
   "cordovaPlatforms": [
     "android",

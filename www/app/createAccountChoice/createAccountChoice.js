@@ -25,10 +25,13 @@ angular.module('lifeUp.createAccount', [])
             $state.go(goTo, {answers: $stateParams.answers});
         };
 
-       console.log($stateParams.answers);
-
         $scope.facebookSignup = function(){
-            console.log($stateParams.answers);
+
+            if (!Util.isOnline()){
+                Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                return;
+            }
+
             Util.facebookLogin($stateParams.answers);
         };
     }]);

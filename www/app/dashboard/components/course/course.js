@@ -90,23 +90,14 @@ courseModule
             });
 
             $.ajaxSetup({async: true});
-            console.log('finished doing this');
-
-
 
             $scope.bgSizeW = $scope.spriteMeta.size.w /  $scope.devicePixelRatio  + 'px';
             $scope.bgSizeH = $scope.spriteMeta.size.h /  $scope.devicePixelRatio  + 'px';
 
-            debug();
-
-
             var init = function () {
 
                 $scope.profile = profile;
-
                 var stepIndex = Math.max($scope.profile.module - 1, 0);
-                //console.log('Step index: ' + stepIndex);
-
                 updateStep(stepIndex, $scope.profile.slide);
                 $scope.boxyObj1.counter = $scope.step.frame;
 
@@ -127,7 +118,7 @@ courseModule
                 }
             };
 
-            TweenMax.ticker.fps(30);
+            TweenMax.ticker.fps(24);
 
             $scope.go = function (goTo) {
                 $state.go(goTo);

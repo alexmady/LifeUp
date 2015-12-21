@@ -4,9 +4,9 @@
 
 angular.module('lifeUp.util', ['ionic'])
 
-    .factory('Util', ['$ionicLoading', '$cordovaFacebook', 'Auth', 'UserProfile', '$state',
+    .factory('Util', ['$ionicLoading', '$cordovaFacebook', 'Auth', 'UserProfile', '$state', '$ionicPopup', '$cordovaNetwork',
 
-        function($ionicLoading, $cordovaFacebook, Auth, UserProfile, $state) {
+        function($ionicLoading, $cordovaFacebook, Auth, UserProfile, $state, $ionicPopup, $cordovaNetwork) {
 
             var showLoading = function(){
                 $ionicLoading.show({
@@ -18,6 +18,35 @@ angular.module('lifeUp.util', ['ionic'])
                 $ionicLoading.hide();
             };
 
+
+            var popup = function(title, msg, goTo, $scope){
+
+                $scope.blurBackground = true;
+                var alertPopup = $ionicPopup.alert({
+                    title: title,
+                    template: '<p class="lifeup-earnt-badge center" style="text-align: center">'+msg+'</p>',
+                    cssClass: 'course-label-popup',
+                    buttons: [
+                        {
+                            text: 'OK',
+                            type: 'button button-outline button-light'
+                        }
+                    ]
+                });
+                alertPopup.then(function (res) {
+                    $scope.blurBackground = false;
+                    if (goTo) {
+                        $state.go(goTo);
+                    }
+                });
+            };
+
+
+            var isOnline  = function(){
+                var online =$cordovaNetwork.isOnline();
+                console.log(online);
+                return online;
+            };
 
             var facebookLogin = function(goalsQuestionsAnswers) {
 
@@ -95,7 +124,9 @@ angular.module('lifeUp.util', ['ionic'])
             return {
                 showLoading: showLoading,
                 hideLoading: hideLoading,
-                facebookLogin: facebookLogin
-            }
+                facebookLogin: facebookLogin,
+                popup: popup,
+                isOnline: isOnline
+            };
         }
     ]);
