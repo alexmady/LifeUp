@@ -67,6 +67,8 @@ courseModule
             $scope.items = [];
             $.getJSON($scope.spriteDataFileName, function (data) {
 
+                console.log('doing this');
+
                 $scope.spriteMeta = data.meta;
 
                 $.each(data, function (key, val) {
@@ -87,6 +89,8 @@ courseModule
             });
 
             $.ajaxSetup({async: true});
+            console.log('finished doing this');
+
 
 
             $scope.bgSizeW = $scope.spriteMeta.size.w /  $scope.devicePixelRatio  + 'px';

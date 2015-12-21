@@ -83,6 +83,17 @@ angular.module('lifeUp.user', ['firebase'])
                     }
                 }
 
+                var step = courseMetaData[module-1];
+                if (step.badgeComplete === true && slide === step.length){
+                    if (step.badge === 'resilience'){
+                        this.resilienceComplete = true;
+                    } else if ( step.badge === 'connection'){
+                        this.connectionComplete = true;
+                    } else if ( step.badge === 'authenticity'){
+                        this.authenticityComplete = true;
+                    }
+                }
+
                 this.$save();
                 // update users position in the course here
                 //console.log('Course module ' + module + ' slide ' + slide);

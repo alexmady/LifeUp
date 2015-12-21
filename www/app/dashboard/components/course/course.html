@@ -2,7 +2,7 @@
 
     <ion-content scroll="false" class="mountain">
 
-        <section class="course-container" >
+        <section class="course-container">
 
             <button ng-click="toggleLeft()"
                     style="color: #009689;
@@ -13,7 +13,7 @@
                     "
                     class="button button-icon button-clear ion-navicon"></button>
 
-            <button style="color: #009689;
+         <!--   <button style="color: #009689;
                     font-size: 32px;
                     position: absolute;
                     top: 10px;
@@ -21,11 +21,34 @@
                     "
                     class="button button-icon button-clear ion-ios-help-outline"
                     ng-click="openInstructions()"
-                    ></button>
+                    ></button>-->
 
-            <div class="center" style="background-color: white;width: 100%;height: 44px; top: 90%;opacity: 0.7; position: absolute">
+            <div align="center" style="height: 35%;float: right;margin-top: 2%; margin-left: 75%; border-radius: 5px;">
+                <div style="height: 33%; padding: 3px" ng-if="profile.authenticityComplete">
+                    <img src="img/authenticity.png" style="opacity: 1;max-height: 100%;max-width: 100%"/>
+                </div>
+                <div style="height: 33%; padding: 3px" ng-if="!profile.authenticityComplete">
+                    <img src="img/authenticity.png" style="opacity: 0.2;max-height: 100%;max-width: 100%"/>
+                </div>
+                <div style="height: 33%; padding: 3px" ng-if="profile.connectionComplete">
+                    <img src="img/connection.png" style="opacity: 1;max-height: 100%;max-width: 100%"/>
+                </div>
+                <div style="height: 33%; padding: 3px" ng-if="!profile.connectionComplete">
+                    <img src="img/connection.png" style="opacity: 0.2;max-height: 100%;max-width: 100%"/>
+                </div>
+                <div style="height: 33%; padding: 3px" ng-if="!profile.resilienceComplete">
+                    <img src="img/resilience.png" style="opacity: 0.2;max-height: 100%;max-width: 100%"/>
+                </div>
+                <div style="height: 33%; padding: 3px" ng-if="profile.resilienceComplete">
+                    <img src="img/resilience.png" style="opacity: 1;max-height: 100%;max-width: 100%"/>
+                </div>
+            </div>
 
-                <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()" ng-disabled="!step.backButtonEnabled"
+            <div class="center"
+                 style="background-color: white;width: 100%;height: 44px; top: 90%;opacity: 0.7; position: absolute">
+
+                <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()"
+                        ng-disabled="!step.backButtonEnabled"
                         style="
                         color: #009689;
                         left: 1%;
@@ -33,18 +56,21 @@
                         height: 26px;width: 26px; font-size: 26px">
                 </button>
 
-                <button ng-click="play()" class="button button-clear lifeup-course-buttons" ng-show="profile.showPlayButton"
-                     style="
+                <button ng-click="play()" class="button button-clear lifeup-course-buttons"
+                        ng-show="profile.showPlayButton"
+                        style="
                         color: #009689;
                         opacity: 1;
                         height: 20px;width: 60%;">OPEN STEP {{step.pos}}: {{step.name}}
                 </button>
-                <button ng-click="climb()" class="button button-clear lifeup-course-buttons" ng-show="profile.readyToClimb"
+                <button ng-click="climb()" class="button button-clear lifeup-course-buttons"
+                        ng-show="profile.readyToClimb"
                         style="
                         color: #009689;
                         height: 50px;width: 60%;">CLIMB!
                 </button>
-                <button class="button button-clear ion-chevron-right" ng-click="skipForward()" ng-disabled="!forwardButtonEnabled"
+                <button class="button button-clear ion-chevron-right" ng-click="skipForward()"
+                        ng-disabled="!forwardButtonEnabled"
                         style="
                         color: #009689;
                         position: fixed;
@@ -54,7 +80,7 @@
                 </button>
 
             </div>
-             <div class="course-background"  ng-style="{'background-image': 'url('+spritePNGFile +')',
+            <div class="course-background" ng-style="{'background-image': 'url('+spritePNGFile +')',
                              'background-repeat': 'no-repeat',
                              'width':  items[step.frame].w,
                              'height': items[step.frame].h,
@@ -65,7 +91,7 @@
                              'position': 'absolute' } ">
             </div>
 
-        </div>
+            </div>
 
         </section>
 
