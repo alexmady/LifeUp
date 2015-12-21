@@ -1,4 +1,4 @@
-<ion-view view-title="Course" has-back-button="true" hide-nav-bar="true" ng-class="{blur: blurBackground}">
+<ion-view view-title="Course" has-back-button="true" hide-nav-bar="true" ng-class="{blur: blurBackground}" ng-cloak>
 
     <ion-content scroll="false" class="mountain">
 
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <div class="center"
+            <div class="center" ng-if="profile.showPlayButton"
                  style="background-color: white;width: 100%;height: 44px; top: 90%;opacity: 0.7; position: absolute">
 
                 <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()"
@@ -56,18 +56,44 @@
                         height: 26px;width: 26px; font-size: 26px">
                 </button>
 
-                <button ng-click="play()" class="button button-clear lifeup-course-buttons"
-                        ng-show="profile.showPlayButton"
+                <button ng-cloak ng-click="play()" class="button button-clear lifeup-course-buttons animated pulse"
+
                         style="
                         color: #009689;
                         opacity: 1;
-                        height: 20px;width: 60%;"> <span class="animated pulse">OPEN STEP {{step.pos}}: {{step.name}}</span>
+                        height: 20px;width: 60%;"> OPEN STEP {{step.pos}}: {{step.name}}
                 </button>
-                <button ng-click="climb()" class="button button-clear lifeup-course-buttons"
-                        ng-show="profile.readyToClimb"
+
+                <button class="button button-clear ion-chevron-right" ng-click="skipForward()"
+                        ng-disabled="!forwardButtonEnabled"
                         style="
                         color: #009689;
-                        height: 50px;width: 60%;"><span class="animated pulse">CLIMB!</span>
+                        position: fixed;
+                        z-index: 1002;
+                        right: 1%;
+                        height: 30px;width: 30px;font-size: 26px">
+                </button>
+
+            </div>
+
+            <div class="center" ng-if="!profile.showPlayButton"
+                 style="background-color: white;width: 100%;height: 44px; top: 90%;opacity: 0.7; position: absolute">
+
+                <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()"
+                        ng-disabled="!step.backButtonEnabled"
+                        style="
+                        color: #009689;
+                        left: 1%;
+                        position: fixed;
+                        height: 26px;width: 26px; font-size: 26px">
+                </button>
+
+
+                <button ng-cloak ng-click="climb()" class="button button-clear lifeup-course-buttons animated pulse"
+
+                        style="
+                        color: #009689;
+                        height: 50px;width: 60%;">CLIMB!
                 </button>
                 <button class="button button-clear ion-chevron-right" ng-click="skipForward()"
                         ng-disabled="!forwardButtonEnabled"

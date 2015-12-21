@@ -47,6 +47,7 @@ courseModule
                 $ionicSideMenuDelegate.toggleLeft();
             };
 
+            $scope.hideButtons = false;
             var screenWidth = $window.screen.width;
             var screenHeight = $window.screen.height;
 
@@ -277,6 +278,7 @@ courseModule
             });
 
             init();
+
         }]);
 
 courseModule
