@@ -36,10 +36,11 @@ angular.module('lifeUp.createAccountEmail', [])
 
                 Util.showLoading();
 
-                Auth.$createUser({
-                    email: user.email,
-                    password: user.pass
-                }).then(function (userData) {
+                try {
+                    Auth.$createUser({
+                        email: user.email,
+                        password: user.pass
+                    }).then(function (userData) {
 
                         Auth.$authWithPassword({
                             email: user.email,
@@ -57,10 +58,16 @@ angular.module('lifeUp.createAccountEmail', [])
                             console.log(error);
                         });
 
-                }).catch(function(error){
+                    }).catch(function(error){
+                        Util.hideLoading();
+                        console.error(error);
+                        Util.popup('Error!', 'Please make sure you have entered a valid email address and password and try again!', null, $scope);
+                    });
+
+                } catch (error){
                     Util.hideLoading();
-                    console.error(error);
+                    console.log(error)
                     Util.popup('Error!', 'Please make sure you have entered a valid email address and password and try again!', null, $scope);
-                });
+                }
             };
         }]);

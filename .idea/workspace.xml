@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="- add check not to attempt signin creat accoutn etc when no internet connection">
+    <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js" afterPath="$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -71,8 +71,8 @@
       <file leaf-file-name="createAccountEmail.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8835821" vertical-offset="338" max-vertical-offset="1065">
-              <caret line="62" column="125" selection-start-line="62" selection-start-column="125" selection-end-line="62" selection-end-column="125" />
+            <state vertical-scroll-proportion="0.3456925" vertical-offset="253" max-vertical-offset="1170">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1102,7 +1102,11 @@
       <created>1450714714366</created>
       <updated>1450714714366</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="change error popups for create account">
+      <created>1450720936176</created>
+      <updated>1450720936176</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1111,7 +1115,7 @@
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32541567" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43828124" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2453125" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19765624" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -1138,7 +1142,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- add intro slide with new images" />
     <MESSAGE value="- finished off home slides and added intro files" />
     <MESSAGE value="- add the into yes no slides" />
     <MESSAGE value="Add privacy policy" />
@@ -1163,7 +1166,8 @@
     <MESSAGE value="fix play and climb buttons moving around" />
     <MESSAGE value="mak sure climb not displayed when not needed!" />
     <MESSAGE value="- add check not to attempt signin creat accoutn etc when no internet connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add check not to attempt signin creat accoutn etc when no internet connection" />
+    <MESSAGE value="change error popups for create account" />
+    <option name="LAST_COMMIT_MESSAGE" value="change error popups for create account" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1595,8 +1599,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/createAccountEmail/createAccountEmail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8835821" vertical-offset="338" max-vertical-offset="1065">
-          <caret line="62" column="125" selection-start-line="62" selection-start-column="125" selection-end-line="62" selection-end-column="125" />
+        <state vertical-scroll-proportion="0.3456925" vertical-offset="253" max-vertical-offset="1170">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
