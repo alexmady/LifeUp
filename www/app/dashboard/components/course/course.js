@@ -111,11 +111,14 @@ courseModule
 
                 if (!$scope.profile.completeCongratulate && $scope.profile.courseCompleted) {
 
+                    $scope.blurBackground = true;
                     var alertPopup = $ionicPopup.alert({
-                        title: 'Well Done!',
-                        template: 'You have successfully completed the course.'
+                        title: '',
+                        cssClass: 'course-label-popup',
+                        templateUrl: 'app/dashboard/components/course/popupCourseCompleteTemplate.html'
                     });
                     alertPopup.then(function (res) {
+                        $scope.blurBackground = false;
                         $scope.profile.completeCongratulate = true;
                         $scope.profile.$save();
                         $scope.closeModal();
