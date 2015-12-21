@@ -54,6 +54,8 @@ angular.module('lifeUp.createAccountEmail', [])
                 }).catch(function(error){
                     Util.hideLoading();
                     console.error(error);
+
+                    Util
                 });
             };
         }]);
