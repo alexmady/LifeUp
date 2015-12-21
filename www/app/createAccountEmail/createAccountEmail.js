@@ -55,7 +55,5 @@ angular.module('lifeUp.createAccountEmail', [])
                     Util.hideLoading();
                     console.error(error);
                 });
-
             };
-
         }]);
