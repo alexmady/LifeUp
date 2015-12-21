@@ -59,37 +59,49 @@ angular.module('lifeUp.emailSignIn', [])
 
             $scope.resetPassword = function (user) {
 
-                if (!Util.isOnline()){
-                    Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
-                    return;
+                try {
+                    if (!Util.isOnline()){
+                        Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                        return;
+                    }
+                } catch (error){
+
                 }
 
                 Util.showLoading();
 
-                Auth.$resetPassword(user.email).then(
-                    function () {
-                        Util.hideLoading();
-                        var alertPopup = $ionicPopup.alert({
-                            title: 'Success!',
-                            template: 'Password reset email sent.'
-                        });
-                        alertPopup.then(function (res) {
-                            $scope.closeModal();
-                            Auth.$unauth();
-                            $state.go('emailSignIn');
-                        });
-                    }
-                ).catch(function (error) {
-                        $ionicLoading.hide();
-                        var alertPopup = $ionicPopup.alert({
-                            title: 'Error',
-                            template: error
-                        });
-                        alertPopup.then(function (res) {
-                            return;
+                try{
+                    Auth.$resetPassword(user.email).then(
+                        function () {
+                            Util.hideLoading();
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Success!',
+                                template: 'Password reset email sent.'
+                            });
+                            alertPopup.then(function (res) {
+                                $scope.closeModal();
+                                Auth.$unauth();
+                                $state.go('emailSignIn');
+                            });
+                        }
+                    ).catch(function (error) {
+                            Util.hideLoading();
+                            var alertPopup = $ionicPopup.alert({
+                                title: 'Error',
+                                template: error
+                            });
+                            alertPopup.then(function (res) {
+                                return;
+                            });
+
                         });
 
-                    });
+                } catch (error){
+                    console.error(error);
+                    Util.hideLoading();
+                    Util.popup("ERROR", "Oh dear! Something went wrong... <br> Please check you entered your email address!", null, $scope);
+                }
+
             };
 
             $scope.goBack = function () {
@@ -98,9 +110,14 @@ angular.module('lifeUp.emailSignIn', [])
 
             $scope.login = function (user) {
 
-                if (!Util.isOnline()){
-                    Util.popup('No Internet Connection', 'You need to be connected to the internet to sign in. Please try again when you have a connection.', null, $scope);
-                    return;
+                try {
+                    if (!Util.isOnline()){
+                        Util.popup('No Internet Connection', 'You need to be connected to the internet to sign in. Please try again when you have a connection.', null, $scope);
+                        return;
+                    }
+                }
+                catch(error){
+
                 }
 
                 Util.showLoading();
@@ -114,7 +131,7 @@ angular.module('lifeUp.emailSignIn', [])
                         $state.go('dashboard.dashboardHome');
                     }).catch(function(error) {
                         Util.hideLoading();
-
+                        Util.popup("ERROR", error, null, $scope);
                     });
                 } catch (error){
 

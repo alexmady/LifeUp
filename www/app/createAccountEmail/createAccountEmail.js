@@ -29,10 +29,16 @@ angular.module('lifeUp.createAccountEmail', [])
 
             $scope.createAccount = function (user) {
 
-                if (!Util.isOnline()){
-                    Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
-                    return;
+                try{
+                    if (!Util.isOnline()){
+                        Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                        return;
+                    }
+
+                } catch(error){
+
                 }
+
 
                 try {
 
@@ -61,7 +67,7 @@ angular.module('lifeUp.createAccountEmail', [])
                     }).catch(function(error){
                         Util.hideLoading();
                         console.error(error);
-                        Util.popup('Error!', 'Please make sure you have entered a valid email address and password and try again!', null, $scope);
+                        Util.popup('Error!', error, null, $scope);
                     });
 
                 } catch (error){
