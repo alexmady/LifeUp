@@ -208,8 +208,6 @@ and (orientation : portrait) {
     vertical-align: bottom;
 }
 
-
-
 .bar-header {
     border: 0px !important;
     border-bottom-color: transparent !important;

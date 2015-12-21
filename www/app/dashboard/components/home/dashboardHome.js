@@ -40,7 +40,7 @@ angular.module('lifeUp.dashboardHome', [ ])
 
         var init = function(){
                 if (profile.firstLogin === true){
-                    $scope.title = 'Meet Mike....';
+                    $scope.title = 'Ready?';
                     $scope.firstLogin = true;
                     profile.firstLogin = false;
                     profile.$save();
