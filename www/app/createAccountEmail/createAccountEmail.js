@@ -34,9 +34,9 @@ angular.module('lifeUp.createAccountEmail', [])
                     return;
                 }
 
-                Util.showLoading();
-
                 try {
+
+                    Util.showLoading();
                     Auth.$createUser({
                         email: user.email,
                         password: user.pass
