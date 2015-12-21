@@ -53,17 +53,14 @@ angular.module('lifeUp.createAccountEmail', [])
 
                         }).catch(function (error) {
                             Util.hideLoading();
-                            Util.popup(error, null, $scope);
+                            Util.popup('Error!', 'Please make sure you entered a valid email and password and try again!', null, $scope);
                             console.log(error);
                         });
 
                 }).catch(function(error){
                     Util.hideLoading();
                     console.error(error);
-                    if (!Util.isOnline){
-                        Util.popup(error, null, $scope);
-                    }
-
+                    Util.popup('Error!', 'Please make sure you have entered a valid email address and password and try again!', null, $scope);
                 });
             };
         }]);
