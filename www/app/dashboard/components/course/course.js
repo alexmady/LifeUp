@@ -365,8 +365,10 @@ for (var i = 0; i < days.length; i++) {
                 $scope.slideHasChanged = function (index) {
                     if (($ionicSlideBoxDelegate.slidesCount() - 1) === index) {
                         $scope.enableCompleteButton = true;
+                        $scope.animateCompleteButton = "animated pulse";
                     } else {
                         $scope.enableCompleteButton = false;
+                        $scope.animateCompleteButton = "";
                     }
                     profile.updateCourseProgress($scope.courseModule, (index + 1), false);
                 };
@@ -389,8 +391,12 @@ for (var i = 0; i < days.length; i++) {
 
                     if ($scope.userActiveSlide === (courseMetaData[$scope.courseModule - 1].length - 1)) {
                         $scope.enableCompleteButton = true;
+                        $scope.animateCompleteButton = "animated pulse";
+
                     } else {
                         $scope.enableCompleteButton = false;
+                        $scope.animateCompleteButton = "";
+
                     }
 
 

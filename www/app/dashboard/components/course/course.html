@@ -61,13 +61,13 @@
                         style="
                         color: #009689;
                         opacity: 1;
-                        height: 20px;width: 60%;">OPEN STEP {{step.pos}}: {{step.name}}
+                        height: 20px;width: 60%;"> <span class="animated pulse">OPEN STEP {{step.pos}}: {{step.name}}</span>
                 </button>
                 <button ng-click="climb()" class="button button-clear lifeup-course-buttons"
                         ng-show="profile.readyToClimb"
                         style="
                         color: #009689;
-                        height: 50px;width: 60%;">CLIMB!
+                        height: 50px;width: 60%;"><span class="animated pulse">CLIMB!</span>
                 </button>
                 <button class="button button-clear ion-chevron-right" ng-click="skipForward()"
                         ng-disabled="!forwardButtonEnabled"

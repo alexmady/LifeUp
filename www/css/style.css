@@ -76,8 +76,6 @@ and (orientation : portrait) {
     }
 }
 
-
-
 @font-face {
     font-family: 'Montserrat';
     font-style: normal;
@@ -90,6 +88,22 @@ and (orientation : portrait) {
     font-style: normal;
     font-weight: 700;
     src: local('Amatic SC Bold'), local('AmaticSC-Bold'), url('../font/AmaticSC-Bold.woff') format('woff');
+}
+
+.animated {
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.2);}
+    100% {transform: scale(1);}
+}
+.pulse {
+    animation-name: pulse;
+    animation-duration: 1s;
 }
 
 .course-label-popup .popup {
@@ -363,6 +377,7 @@ input[type="text"], input[type="password"]{
     font-family: 'Amatic SC', cursive;
     color: white;
     font-size: 28px;
+    line-height: 1.2;
 }
 
 .lifeup-acronym {
