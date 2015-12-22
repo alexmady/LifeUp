@@ -1,33 +1,27 @@
 <ion-view view-title="Sign-In" class="lifeup-bg">
-    <ion-content class="center">
+    <ion-content class="center" scroll="false">
+
+        <div>
+            <img class="img" src="img/lifeUpLogo.png" style="width: 60%;height: 60%;margin: 0 auto; display: block">
 
 
-        <img class="img" src="img/lifeUpLogo.png" style="width: 60%;height: 60%;margin: 0 auto; display: block">
+            <button ng-click="facebookLogin()"
+                    class="button button-outline button-light lifeup-button icon ion-social-facebook-outline button-block">
+                SIGN IN WITH FACEBOOK
+            </button>
 
 
-        <button ng-click="facebookLogin()" style="width: 80%"
-                class="button button-outline button-light lifeup-button icon ion-social-facebook-outline button-block">
-            SIGN IN WITH FACEBOOK
-        </button>
+            <button ng-click="go('emailSignIn')"
+                    class="button button-outline button-light lifeup-button icon ion-ios-email-outline button-block">
+                SIGN IN WITH EMAIL
+            </button>
 
-
-        <button ng-click="go('emailSignIn')" style="width: 80%"
-                class="button button-outline button-light lifeup-button icon ion-ios-email-outline button-block">
-            SIGN IN WITH EMAIL
-        </button>
-
-
+        </div>
     </ion-content>
-
 
     <ion-footer-bar class="footer-bar signin-page-text center">
         <div>
-          <!--  <button ng-click="go('termsAndConditions')" class="button button-clear button-light lifeup-text-small">Terms &
-                Conditions
-            </button>
-            <button ng-click="go('privacyPolicy')" class="button button-small button-clear button-light lifeup-text-small">Privicy
-                Policy
-            </button>-->
+
         </div>
     </ion-footer-bar>
 
