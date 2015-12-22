@@ -18,7 +18,6 @@ angular.module('lifeUp.util', ['ionic'])
                 $ionicLoading.hide();
             };
 
-
             var popup = function(title, msg, goTo, $scope){
 
                 $scope.blurBackground = true;
@@ -35,7 +34,7 @@ angular.module('lifeUp.util', ['ionic'])
                 });
                 alertPopup.then(function (res) {
                     $scope.blurBackground = false;
-                    if (goTo) {
+                    if (goTo !== null && goTo !== undefined) {
                         $state.go(goTo);
                     }
                 });

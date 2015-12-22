@@ -9,6 +9,7 @@ angular.module('lifeUp.account', [ ])
 
         $stateProvider
             .state('dashboard.account', {
+                cache: false,
                 url: "/account",
                 views: {
                     'dashboardContent': {
@@ -48,7 +49,6 @@ angular.module('lifeUp.account', [ ])
                             'Looks like you logged in with facebook. You can only change ' +
                             'your password if you logged in with your email.</p>',
                         cssClass: 'course-label-popup'
-
                     });
 
                     alertPopup.then(function (res) {
@@ -86,9 +86,12 @@ angular.module('lifeUp.account', [ ])
                     }).then(
                         function () {
                             Util.hideLoading();
+                            var msg = 'Password changed successfully. Please log in with you new password.';
+
                             var alertPopup = $ionicPopup.alert({
                                 title: 'Success!',
-                                template: 'Password changed successfully.'
+                                template: '<p class="lifeup-earnt-badge center" style="text-align: center">' + msg + '</p>',
+                                cssClass: 'course-label-popup'
                             });
                             alertPopup.then(function (res) {
                                 $scope.closeModal();
@@ -98,14 +101,7 @@ angular.module('lifeUp.account', [ ])
                         }
                     ).catch(function (error) {
                             Util.hideLoading();
-
-                            var alertPopup = $ionicPopup.alert({
-                                title: 'Error',
-                                template: error
-                            });
-                            alertPopup.then(function (res) {
-                                console.log(error);
-                            });
+                            Util.popup('', 'Error: Please make sure you have specified your old password correctly and a new password.', null, $scope);
                         });
                 } catch (error) {
                     console.log(error.stack);

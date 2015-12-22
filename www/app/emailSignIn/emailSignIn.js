@@ -9,6 +9,7 @@ angular.module('lifeUp.emailSignIn', [])
 
         $stateProvider
             .state('emailSignIn', {
+                cache: false,
                 url: '/emailSignIn',
                 templateUrl: 'app/emailSignIn/emailSignIn.html',
                 controller: 'EmailSignInCtrl'
@@ -64,9 +65,7 @@ angular.module('lifeUp.emailSignIn', [])
                         Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
                         return;
                     }
-                } catch (error){
-
-                }
+                } catch (error){  }
 
                 Util.showLoading();
 
@@ -74,11 +73,18 @@ angular.module('lifeUp.emailSignIn', [])
                     Auth.$resetPassword({email:user.email}).then(
                         function () {
                             Util.hideLoading();
+                            $scope.blurBackground = true;
+
+                            var msg = 'Password reset email sent. Check your mail!';
+
                             var alertPopup = $ionicPopup.alert({
-                                title: 'Success!',
-                                template: 'Password reset email sent.'
+                                title: 'Done!',
+                                template: '<p class="lifeup-earnt-badge center" style="text-align: center">'+msg+'</p>',
+                                cssClass: 'course-label-popup'
                             });
+
                             alertPopup.then(function (res) {
+                                $scope.blurBackground = false;
                                 $scope.closeModal();
                                 Auth.$unauth();
                                 $state.go('emailSignIn');
@@ -86,13 +92,7 @@ angular.module('lifeUp.emailSignIn', [])
                         }
                     ).catch(function (error) {
                             Util.hideLoading();
-                            var alertPopup = $ionicPopup.alert({
-                                title: 'Error',
-                                template: error
-                            });
-                            alertPopup.then(function (res) {
-                                return;
-                            });
+                            Util.popup("ERROR", error, null, $scope);
                         });
 
                 } catch (error){
