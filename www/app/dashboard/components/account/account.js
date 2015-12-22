@@ -44,8 +44,11 @@ angular.module('lifeUp.account', [ ])
 
                     var alertPopup = $ionicPopup.alert({
                         title: 'Erm...!',
-                        template: 'Looks like you logged in with facebook. You can only change ' +
-                            'your password if you logged in with your email.'
+                        template: '<p class="lifeup-earnt-badge center" style="text-align: center">' +
+                            'Looks like you logged in with facebook. You can only change ' +
+                            'your password if you logged in with your email.</p>',
+                        cssClass: 'course-label-popup'
+
                     });
 
                     alertPopup.then(function (res) {
