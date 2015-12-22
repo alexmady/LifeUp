@@ -68,8 +68,6 @@ courseModule
             $scope.items = [];
             $.getJSON($scope.spriteDataFileName, function (data) {
 
-                console.log('doing this');
-
                 $scope.spriteMeta = data.meta;
 
                 $.each(data, function (key, val) {
