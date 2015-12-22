@@ -129,7 +129,7 @@ angular.module('lifeUp.emailSignIn', [])
                         $state.go('dashboard.dashboardHome');
                     }).catch(function(error) {
                         Util.hideLoading();
-                        Util.popup("ERROR", error, null, $scope);
+                        Util.popup("ERROR", 'Error: Please check you entered a valid email and password.', null, $scope);
                     });
                 } catch (error){
 

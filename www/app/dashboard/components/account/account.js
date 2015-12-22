@@ -74,7 +74,6 @@ angular.module('lifeUp.account', [ ])
 
             $scope.changePassword = function (user) {
 
-
                 Util.showLoading();
 
                 try {
