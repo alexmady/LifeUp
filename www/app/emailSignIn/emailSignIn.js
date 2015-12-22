@@ -71,7 +71,7 @@ angular.module('lifeUp.emailSignIn', [])
                 Util.showLoading();
 
                 try{
-                    Auth.$resetPassword(user.email).then(
+                    Auth.$resetPassword({email:user.email}).then(
                         function () {
                             Util.hideLoading();
                             var alertPopup = $ionicPopup.alert({
@@ -93,7 +93,6 @@ angular.module('lifeUp.emailSignIn', [])
                             alertPopup.then(function (res) {
                                 return;
                             });
-
                         });
 
                 } catch (error){
@@ -101,7 +100,6 @@ angular.module('lifeUp.emailSignIn', [])
                     Util.hideLoading();
                     Util.popup("ERROR", "Oh dear! Something went wrong... <br> Please check you entered your email address!", null, $scope);
                 }
-
             };
 
             $scope.goBack = function () {
