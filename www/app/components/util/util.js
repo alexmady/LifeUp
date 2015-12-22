@@ -43,7 +43,6 @@ angular.module('lifeUp.util', ['ionic'])
 
             var isOnline  = function(){
                 var online =$cordovaNetwork.isOnline();
-                console.log(online);
                 return online;
             };
 
