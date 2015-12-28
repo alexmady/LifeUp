@@ -46,58 +46,65 @@ angular.module('lifeUp.util', ['ionic'])
                 return online;
             };
 
+            var imgOptions = null;
+
             // returns a promise thta is resolved once the json file has been loaded
             var imageOptions = function(){
 
-                var screenWidth = $window.screen.width;
-                var screenHeight = $window.screen.height;
+                if (imgOptions === null) {
+                    console.log('generating imgOptions');
+                    var screenWidth = $window.screen.width;
+                    var screenHeight = $window.screen.height;
 
-                var devicePixelRatio = $window.devicePixelRatio;
-                var spritePNGFile = '../img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
-                var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
+                    var devicePixelRatio = $window.devicePixelRatio;
+                    var spritePNGFile = '../img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
+                    var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
 
-                if (devicePixelRatio === 2 || devicePixelRatio === 3) {
-                    var w2 = (screenWidth * devicePixelRatio);
-                    var h2 = (screenHeight * devicePixelRatio);
-                    spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
-                    spriteDataFileName = 'img/sprite-' + w2 + 'x' + h2 + '.json';
-                }
+                    if (devicePixelRatio === 2 || devicePixelRatio === 3) {
+                        var w2 = (screenWidth * devicePixelRatio);
+                        var h2 = (screenHeight * devicePixelRatio);
+                        spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
+                        spriteDataFileName = 'img/sprite-' + w2 + 'x' + h2 + '.json';
+                    }
 
-                var spriteMeta;
+                    var spriteMeta;
 
-                return $http.get(spriteDataFileName)
-                    .then(function (resp) {
+                    return $http.get(spriteDataFileName)
+                        .then(function (resp) {
 
-                        var data = resp.data;
-                        var items = [];
-                        spriteMeta = data.meta;
+                            var data = resp.data;
+                            var items = [];
+                            spriteMeta = data.meta;
 
-                        $.each(data, function (key, val) {
-                            $.each(data[key], function (k, v) {
-                                if (v.frame) {
-                                    var posInfo = {};
-                                    var scale = devicePixelRatio;
-                                    posInfo.bp = '-' + v.frame.x / scale + 'px -' + v.frame.y / scale + 'px';
-                                    posInfo.w = v.frame.w / scale + 'px';
-                                    posInfo.h = v.frame.h / scale + 'px';
-                                    posInfo.t = v.spriteSourceSize.y / scale + 'px';
-                                    posInfo.l = v.spriteSourceSize.x / scale + 'px';
-                                    items.push(posInfo);
-                                    //console.log(posInfo);
-                                }
+                            $.each(data, function (key, val) {
+                                $.each(data[key], function (k, v) {
+                                    if (v.frame) {
+                                        var posInfo = {};
+                                        var scale = devicePixelRatio;
+                                        posInfo.bp = '-' + v.frame.x / scale + 'px -' + v.frame.y / scale + 'px';
+                                        posInfo.w = v.frame.w / scale + 'px';
+                                        posInfo.h = v.frame.h / scale + 'px';
+                                        posInfo.t = v.spriteSourceSize.y / scale + 'px';
+                                        posInfo.l = v.spriteSourceSize.x / scale + 'px';
+                                        items.push(posInfo);
+                                        //console.log(posInfo);
+                                    }
+                                });
                             });
+
+                            var bgSizeW = spriteMeta.size.w / devicePixelRatio  + 'px';
+                            var bgSizeH = spriteMeta.size.h / devicePixelRatio  + 'px';
+
+                            imgOptions= {
+                                bgSizeW: bgSizeW,
+                                bgSizeH: bgSizeH,
+                                items: items,
+                                spritePNGFile: spritePNGFile
+                            };
                         });
 
-                        var bgSizeW = spriteMeta.size.w / devicePixelRatio  + 'px';
-                        var bgSizeH = spriteMeta.size.h / devicePixelRatio  + 'px';
-
-                        return {
-                            bgSizeW: bgSizeW,
-                            bgSizeH: bgSizeH,
-                            items: items,
-                            spritePNGFile: spritePNGFile
-                        };
-                    });
+                }
+                return imgOptions;
             };
 
 
