@@ -302,6 +302,12 @@ input[type="text"], input[type="password"]{
 .intro {
     background-color: cornflowerblue;
 }
+
+.home {
+    background-color: cornflowerblue;
+
+}
+
 .lifeup-quote {
     color: firebrick;
     font-style: italic;
@@ -323,6 +329,11 @@ input[type="text"], input[type="password"]{
     bottom: 20px
 }
 
+.home .slider-pager {
+    bottom: 50px;
+    background-color: cornflowerblue;
+}
+
 .intro .slider-pager-page
 {
     color: white;
@@ -330,7 +341,20 @@ input[type="text"], input[type="password"]{
     stroke: white;
 }
 
+.home .slider-pager-page
+{
+    color: white;
+    fill: white;
+    stroke: white;
+}
+
 .intro .slider-pager-page.active
+{
+    fill: white;
+    color: white;
+}
+
+.home .slider-pager-page.active
 {
     fill: white;
     color: white;
