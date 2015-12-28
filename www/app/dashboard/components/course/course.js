@@ -13,7 +13,7 @@ courseModule
 
         $stateProvider
             .state('dashboard.course', {
-                cache: true,
+                cache: false,
                 url: '/course',
                 views: {
                     'dashboardContent': {

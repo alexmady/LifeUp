@@ -58,6 +58,19 @@ angular.module('lifeUp.emailSignIn', [])
                 $scope.modal.show();
             };
 
+            $scope.facebookLogin = function () {
+
+                try {
+                    if (!Util.isOnline()){
+                        Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                        return;
+                    }
+
+                } catch ( error ){ }
+
+                Util.facebookLogin();
+            };
+
             $scope.resetPassword = function (user) {
 
                 try {

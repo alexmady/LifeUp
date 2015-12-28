@@ -10,7 +10,6 @@ angular.module('lifeUp', [
     'lifeUp.config',
     'lifeUp.home',
     'lifeUp.intro',
-    'lifeUp.signInChoice',
     'lifeUp.privacyPolicy',
     'lifeUp.emailSignIn',
     'lifeUp.createAccount',
@@ -52,7 +51,7 @@ angular.module('lifeUp', [
           }
       });
 
-      $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
+      $rootScope.$on("$stateChangeError", function(event, next, previous, error) {
 
           console.error('state change error');
 
