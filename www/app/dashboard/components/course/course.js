@@ -88,8 +88,15 @@ courseModule
                 $scope.bgSizeW = imageOptions.bgSizeW;
                 $scope.bgSizeH = imageOptions.bgSizeH;
                 $scope.spritePNGFile = imageOptions.spritePNGFile;
-                $scope.hideButtons = false;
                 $scope.profile = profile;
+
+                // correct any error of showing buttons.
+                if (profile.showPlayButton === profile.readyToClimb){
+                    // default to showing the play button
+                    profile.readyToClimb = false;
+                    profile.showPlayButton = true;
+                    profile.$save();
+                }
 
                 var stepIndex = Math.max($scope.profile.module - 1, 0);
                 updateStep(stepIndex, $scope.profile.slide);
@@ -146,10 +153,6 @@ courseModule
                 console.log('Device Pixel Ratio: ' + $scope.devicePixelRatio);
                 console.log('---------------------------------------');
             };
-
-            $scope.playButtonWidth = 50;
-            $scope.playButtonLeft = (($window.innerWidth / 2) - $scope.playButtonWidth) + 'px';
-            $scope.forwardButtonLeft = $window.innerWidth - 50;
 
             $scope.play = function () {
 
