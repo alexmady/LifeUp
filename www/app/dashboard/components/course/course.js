@@ -31,17 +31,12 @@ courseModule
                     }],
 
                     "profile": [ "UserProfile", "Auth", function (UserProfile, Auth) {
-
                         return UserProfile(Auth.$getAuth().uid).$loaded();
-
                     }],
                     "imageOptions": ["Util", function(Util){
-
                         return Util.imageOptions();
-
                     }]
                 }
-
             });
     }])
 
@@ -124,7 +119,6 @@ courseModule
             $scope.go = function (goTo) {
                 $state.go(goTo);
             };
-
 
             var updateStep = function (index, slide) {
                 $scope.step = courseMetaData[index];
