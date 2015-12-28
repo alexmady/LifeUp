@@ -26,7 +26,7 @@ angular.module('lifeUp', [
     'lifeUp.courseMetaData'
     ])
 
-.run(['$ionicPlatform', '$rootScope', '$cordovaDevice', function($ionicPlatform, $rootScope) {
+.run(['$ionicPlatform', '$rootScope', function($ionicPlatform, $rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -38,9 +38,29 @@ angular.module('lifeUp', [
     }
 
     $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+
+        console.error('route change error');
+
+        console.error(error);
+
+        // We can catch the error thrown when the $requireAuth promise is rejected
+          // and redirect the user back to the home page
+          if (error === "AUTH_REQUIRED") {
+              console.log('AUTH REQUIRED');
+              $location.path("/home");
+
+          }
+      });
+
+      $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
+
+          console.error('state change error');
+
+          console.error(error);
           // We can catch the error thrown when the $requireAuth promise is rejected
           // and redirect the user back to the home page
           if (error === "AUTH_REQUIRED") {
+              console.log('AUTH REQUIRED');
               $location.path("/home");
           }
       });

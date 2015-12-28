@@ -4,9 +4,9 @@
 
 angular.module('lifeUp.util', ['ionic'])
 
-    .factory('Util', ['$ionicLoading', '$cordovaFacebook', 'Auth', 'UserProfile', '$state', '$ionicPopup', '$cordovaNetwork',
+    .factory('Util', ['$ionicLoading', '$cordovaFacebook', 'Auth', 'UserProfile', '$state', '$ionicPopup', '$cordovaNetwork', '$window', '$http',
 
-        function($ionicLoading, $cordovaFacebook, Auth, UserProfile, $state, $ionicPopup, $cordovaNetwork) {
+        function($ionicLoading, $cordovaFacebook, Auth, UserProfile, $state, $ionicPopup, $cordovaNetwork, $window, $http) {
 
             var showLoading = function(){
                 $ionicLoading.show({
@@ -42,9 +42,64 @@ angular.module('lifeUp.util', ['ionic'])
 
 
             var isOnline  = function(){
-                var online =$cordovaNetwork.isOnline();
+                var online = $cordovaNetwork.isOnline();
                 return online;
             };
+
+            // returns a promise thta is resolved once the json file has been loaded
+            var imageOptions = function(){
+
+                var screenWidth = $window.screen.width;
+                var screenHeight = $window.screen.height;
+
+                var devicePixelRatio = $window.devicePixelRatio;
+                var spritePNGFile = '../img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
+                var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
+
+                if (devicePixelRatio === 2 || devicePixelRatio === 3) {
+                    var w2 = (screenWidth * devicePixelRatio);
+                    var h2 = (screenHeight * devicePixelRatio);
+                    spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
+                    spriteDataFileName = 'img/sprite-' + w2 + 'x' + h2 + '.json';
+                }
+
+                var spriteMeta;
+
+                return $http.get(spriteDataFileName)
+                    .then(function (resp) {
+
+                        var data = resp.data;
+                        var items = [];
+                        spriteMeta = data.meta;
+
+                        $.each(data, function (key, val) {
+                            $.each(data[key], function (k, v) {
+                                if (v.frame) {
+                                    var posInfo = {};
+                                    var scale = devicePixelRatio;
+                                    posInfo.bp = '-' + v.frame.x / scale + 'px -' + v.frame.y / scale + 'px';
+                                    posInfo.w = v.frame.w / scale + 'px';
+                                    posInfo.h = v.frame.h / scale + 'px';
+                                    posInfo.t = v.spriteSourceSize.y / scale + 'px';
+                                    posInfo.l = v.spriteSourceSize.x / scale + 'px';
+                                    items.push(posInfo);
+                                    //console.log(posInfo);
+                                }
+                            });
+                        });
+
+                        var bgSizeW = spriteMeta.size.w / devicePixelRatio  + 'px';
+                        var bgSizeH = spriteMeta.size.h / devicePixelRatio  + 'px';
+
+                        return {
+                            bgSizeW: bgSizeW,
+                            bgSizeH: bgSizeH,
+                            items: items,
+                            spritePNGFile: spritePNGFile
+                        };
+                    });
+            };
+
 
             var facebookLogin = function(goalsQuestionsAnswers) {
 
@@ -124,7 +179,8 @@ angular.module('lifeUp.util', ['ionic'])
                 hideLoading: hideLoading,
                 facebookLogin: facebookLogin,
                 popup: popup,
-                isOnline: isOnline
+                isOnline: isOnline,
+                imageOptions: imageOptions
             };
         }
     ]);

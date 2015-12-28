@@ -1,4 +1,4 @@
-<ion-view view-title="Course" has-back-button="true" hide-nav-bar="true" ng-class="{blur: blurBackground}" ng-cloak>
+<ion-view view-title="Course" hide-nav-bar="true" ng-class="{blur: blurBackground}">
 
     <ion-content scroll="false" class="mountain">
 
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <div class="center" ng-if="profile.showPlayButton"
+            <div class="center" ng-show="profile.showPlayButton"
                  style="background-color: white;width: 100%;height: 44px; top: 90%;opacity: 0.7; position: absolute">
 
                 <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()"
@@ -76,7 +76,7 @@
 
             </div>
 
-            <div class="center" ng-if="profile.readyToClimb"
+            <div class="center" ng-show="profile.readyToClimb"
                  style="background-color: white;width: 100%;height: 44px; top: 90%;opacity: 0.7; position: absolute">
 
                 <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()"
@@ -87,7 +87,6 @@
                         position: fixed;
                         height: 26px;width: 26px; font-size: 26px">
                 </button>
-
 
                 <button ng-cloak ng-click="climb()" class="button button-clear lifeup-course-buttons animated pulse"
                         style="
@@ -103,8 +102,8 @@
                         right: 1%;
                         height: 30px;width: 30px;font-size: 26px">
                 </button>
-
             </div>
+            
             <div class="course-background" ng-style="{'background-image': 'url('+spritePNGFile +')',
                              'background-repeat': 'no-repeat',
                              'width':  items[step.frame].w,

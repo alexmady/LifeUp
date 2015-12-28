@@ -52,8 +52,8 @@ angular.module('lifeUp.createAccountEmail', [])
                             email: user.email,
                             password: user.pass
                         }).then(function (data) {
-                            console.log('User logged in:');
-                            console.log($stateParams.answers);
+                            //console.log('User logged in:');
+                            //console.log($stateParams.answers);
                             UserProfile(data.uid).create(user.email, $stateParams.answers);
                             Util.hideLoading();
                             $state.go('dashboard.dashboardHome');

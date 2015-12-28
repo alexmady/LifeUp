@@ -34,67 +34,33 @@ courseModule
 
                         return UserProfile(Auth.$getAuth().uid).$loaded();
 
+                    }],
+                    "imageOptions": ["Util", function(Util){
+
+                        return Util.imageOptions();
+
                     }]
                 }
 
             });
     }])
 
-    .controller('CourseCtrl', [ '$scope', '$state', '$window', '$ionicHistory', '$ionicModal', '$ionicSideMenuDelegate', '$ionicPopup', 'UserProfile', 'currentAuth', 'courseMetaData', 'profile',
-        function ($scope, $state, $window,  $ionicHistory, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, UserProfile, currentAuth, courseMetaData, profile) {
+    .controller('CourseCtrl', [ '$scope', '$state', '$window', '$ionicHistory', '$ionicModal', '$ionicSideMenuDelegate', '$ionicPopup', 'UserProfile', 'currentAuth', 'courseMetaData', 'profile', 'imageOptions',
+        function ($scope, $state, $window,  $ionicHistory, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, UserProfile, currentAuth, courseMetaData, profile, imageOptions) {
 
             $scope.toggleLeft = function () {
                 $ionicSideMenuDelegate.toggleLeft();
             };
 
-            $scope.hideButtons = false;
-            var screenWidth = $window.screen.width;
-            var screenHeight = $window.screen.height;
-
-            $scope.devicePixelRatio = $window.devicePixelRatio;
-            $scope.spritePNGFile = '../img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
-            $scope.spriteDataFileName = '../img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
-
-            if ($scope.devicePixelRatio === 2 || $scope.devicePixelRatio === 3) {
-                var w2 = (screenWidth * $scope.devicePixelRatio);
-                var h2 = (screenHeight * $scope.devicePixelRatio);
-                $scope.spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
-                $scope.spriteDataFileName = '../img/sprite-' + w2 + 'x' + h2 + '.json';
-            }
-
-            $.ajaxSetup({async: false});
-            // Your $.getJSON() request is now synchronous...
-
-            $scope.items = [];
-            $.getJSON($scope.spriteDataFileName, function (data) {
-
-                $scope.spriteMeta = data.meta;
-
-                $.each(data, function (key, val) {
-                    $.each(data[key], function (k, v) {
-                        if (v.frame) {
-                            var posInfo = {};
-                            var scale = $scope.devicePixelRatio;
-                            posInfo.bp = '-' + v.frame.x / scale + 'px -' + v.frame.y / scale + 'px';
-                            posInfo.w = v.frame.w / scale + 'px';
-                            posInfo.h = v.frame.h / scale + 'px';
-                            posInfo.t = v.spriteSourceSize.y / scale + 'px';
-                            posInfo.l = v.spriteSourceSize.x / scale + 'px';
-                            $scope.items.push(posInfo);
-                            //console.log(posInfo);
-                        }
-                    });
-                });
-            });
-
-            $.ajaxSetup({async: true});
-
-            $scope.bgSizeW = $scope.spriteMeta.size.w /  $scope.devicePixelRatio  + 'px';
-            $scope.bgSizeH = $scope.spriteMeta.size.h /  $scope.devicePixelRatio  + 'px';
-
             var init = function () {
 
+                $scope.items = imageOptions.items;
+                $scope.bgSizeW = imageOptions.bgSizeW;
+                $scope.bgSizeH = imageOptions.bgSizeH;
+                $scope.spritePNGFile = imageOptions.spritePNGFile;
+                $scope.hideButtons = false;
                 $scope.profile = profile;
+
                 var stepIndex = Math.max($scope.profile.module - 1, 0);
                 updateStep(stepIndex, $scope.profile.slide);
                 $scope.boxyObj1.counter = $scope.step.frame;
