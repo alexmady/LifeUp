@@ -52,13 +52,11 @@ angular.module('lifeUp.util', ['ionic'])
             var imageOptions = function(){
 
                 if (imgOptions === null) {
-                    console.log('generating imgOptions');
                     var screenWidth = $window.screen.width;
                     var screenHeight = $window.screen.height;
-
-                    console.log(screenWidth, screenHeight);
-
                     var devicePixelRatio = $window.devicePixelRatio;
+
+
                     var spritePNGFile = '../img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
                     var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
 
@@ -68,6 +66,10 @@ angular.module('lifeUp.util', ['ionic'])
                         spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
                         spriteDataFileName = 'img/sprite-' + w2 + 'x' + h2 + '.json';
                     }
+
+                    console.log("deviceW: " + screenWidth, "deviceH: " + screenHeight +
+                        "devicePixelRatio: " + devicePixelRatio, "sprite: " + spritePNGFile,
+                            "data: " + spriteDataFileName);
 
                     var spriteMeta;
 

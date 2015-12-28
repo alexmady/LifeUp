@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/course.html" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/course.html" />
+    <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="fix issue for ipad mini">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/iWilde.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/lifeUpQuotes.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/img/lifeupCup.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/components/course/courseMetaData.js" afterPath="$PROJECT_DIR$/www/app/components/course/courseMetaData.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/components/util/util.js" afterPath="$PROJECT_DIR$/www/app/components/util/util.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -32,33 +35,33 @@
       <file leaf-file-name="course.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/course.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-33.76" vertical-offset="281" max-vertical-offset="6390">
-              <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+            <state vertical-scroll-proportion="-8.4" vertical-offset="15" max-vertical-offset="6375">
+              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
               <folding>
-                <marker date="1451315531000" expanded="true" signature="5998:6015" placeholder="..." />
+                <marker date="1451318561000" expanded="true" signature="5959:5976" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="util.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="courseMetaData.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/app/components/course/courseMetaData.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/components/util/util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.5199275" vertical-offset="229" max-vertical-offset="3015">
-              <caret line="108" column="38" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="3045">
+              <caret line="71" column="28" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
               <folding>
-                <marker date="1451315622000" expanded="false" signature="916:934" placeholder="..." />
+                <marker date="1451319068000" expanded="false" signature="916:934" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signInChoice.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/app/signInChoice/signInChoice.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-              <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -117,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7830">
-              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.21516393" vertical-offset="690" max-vertical-offset="8025">
+              <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -189,7 +192,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/www/app/intro/intro.js" />
         <option value="$PROJECT_DIR$/www/app/components/user/user.js" />
-        <option value="$PROJECT_DIR$/www/app/components/course/courseMetaData.js" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/BE.html" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/DISARM.html" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/FLOW.html" />
@@ -220,9 +222,10 @@
         <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/www/app/app.js" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/course.html" />
-        <option value="$PROJECT_DIR$/www/css/style.css" />
+        <option value="$PROJECT_DIR$/www/app/components/course/courseMetaData.js" />
         <option value="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" />
         <option value="$PROJECT_DIR$/www/app/components/util/util.js" />
+        <option value="$PROJECT_DIR$/www/css/style.css" />
       </list>
     </option>
   </component>
@@ -1076,16 +1079,20 @@
       <created>1451311842829</created>
       <updated>1451311842829</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="fix issue for ipad mini">
+      <created>1451316005002</created>
+      <updated>1451316005002</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1440" height="873" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32541567" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32839313" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23047376" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31241998" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17688513" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1112,7 +1119,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="- show badges that youve achieved" />
     <MESSAGE value="- add pulsing effect" />
     <MESSAGE value="- rework content on the intro pages, change mike image" />
     <MESSAGE value="makes course success popup better" />
@@ -1137,7 +1143,8 @@
     <MESSAGE value="remove log line" />
     <MESSAGE value="add sprite files for 768 x 1024&#10;remove the sprite gen code to util module" />
     <MESSAGE value="make imgOptions only generate once" />
-    <option name="LAST_COMMIT_MESSAGE" value="make imgOptions only generate once" />
+    <MESSAGE value="fix issue for ipad mini" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix issue for ipad mini" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1506,31 +1513,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/style.css">
+    <entry file="file://$PROJECT_DIR$/www/app/components/course/courseMetaData.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7830">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/course.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-33.76" vertical-offset="281" max-vertical-offset="6390">
-          <caret line="75" column="28" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+        <state vertical-scroll-proportion="-8.4" vertical-offset="15" max-vertical-offset="6375">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
           <folding>
-            <marker date="1451315531000" expanded="true" signature="5998:6015" placeholder="..." />
+            <marker date="1451318561000" expanded="true" signature="5959:5976" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/components/util/util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5199275" vertical-offset="229" max-vertical-offset="3015">
-          <caret line="108" column="38" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="3045">
+          <caret line="71" column="28" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
           <folding>
-            <marker date="1451315622000" expanded="false" signature="916:934" placeholder="..." />
+            <marker date="1451319068000" expanded="false" signature="916:934" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21516393" vertical-offset="690" max-vertical-offset="8025">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>

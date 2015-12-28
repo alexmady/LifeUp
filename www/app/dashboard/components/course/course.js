@@ -13,7 +13,7 @@ courseModule
 
         $stateProvider
             .state('dashboard.course', {
-                cache: false,
+                cache: true,
                 url: '/course',
                 views: {
                     'dashboardContent': {
@@ -75,8 +75,8 @@ courseModule
             profile,
             imageOptions    ) {
 
-            console.log('course init');
-            console.log(imageOptions);
+            //console.log('course:');
+            //console.log(imageOptions);
 
             $scope.toggleLeft = function () {
                 $ionicSideMenuDelegate.toggleLeft();
@@ -84,7 +84,6 @@ courseModule
 
             var init = function () {
 
-                console.log('init1');
                 $scope.items = imageOptions.items;
                 $scope.bgSizeW = imageOptions.bgSizeW;
                 $scope.bgSizeH = imageOptions.bgSizeH;
