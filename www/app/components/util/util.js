@@ -56,6 +56,8 @@ angular.module('lifeUp.util', ['ionic'])
                     var screenWidth = $window.screen.width;
                     var screenHeight = $window.screen.height;
 
+                    console.log(screenWidth, screenHeight);
+
                     var devicePixelRatio = $window.devicePixelRatio;
                     var spritePNGFile = '../img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
                     var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
@@ -95,7 +97,7 @@ angular.module('lifeUp.util', ['ionic'])
                             var bgSizeW = spriteMeta.size.w / devicePixelRatio  + 'px';
                             var bgSizeH = spriteMeta.size.h / devicePixelRatio  + 'px';
 
-                            imgOptions= {
+                            return {
                                 bgSizeW: bgSizeW,
                                 bgSizeH: bgSizeH,
                                 items: items,
@@ -103,8 +105,9 @@ angular.module('lifeUp.util', ['ionic'])
                             };
                         });
 
+                } else {
+                    return imgOptions;
                 }
-                return imgOptions;
             };
 
 

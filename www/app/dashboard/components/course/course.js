@@ -45,8 +45,38 @@ courseModule
             });
     }])
 
-    .controller('CourseCtrl', [ '$scope', '$state', '$window', '$ionicHistory', '$ionicModal', '$ionicSideMenuDelegate', '$ionicPopup', 'UserProfile', 'currentAuth', 'courseMetaData', 'profile', 'imageOptions',
-        function ($scope, $state, $window,  $ionicHistory, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, UserProfile, currentAuth, courseMetaData, profile, imageOptions) {
+    .controller('CourseCtrl',
+    [
+        '$scope',
+        '$state',
+        '$window',
+        '$ionicHistory',
+        '$ionicModal',
+        '$ionicSideMenuDelegate',
+        '$ionicPopup',
+        'UserProfile',
+        'currentAuth',
+        'courseMetaData',
+        'profile',
+        'imageOptions',
+
+        function (
+
+            $scope,
+            $state,
+            $window,
+            $ionicHistory,
+            $ionicModal,
+            $ionicSideMenuDelegate,
+            $ionicPopup,
+            UserProfile,
+            currentAuth,
+            courseMetaData,
+            profile,
+            imageOptions    ) {
+
+            console.log('course init');
+            console.log(imageOptions);
 
             $scope.toggleLeft = function () {
                 $ionicSideMenuDelegate.toggleLeft();
@@ -54,6 +84,7 @@ courseModule
 
             var init = function () {
 
+                console.log('init1');
                 $scope.items = imageOptions.items;
                 $scope.bgSizeW = imageOptions.bgSizeW;
                 $scope.bgSizeH = imageOptions.bgSizeH;
