@@ -1,9 +1,9 @@
-
 angular.module('lifeUp', [
     'ionic',
     'ngCordova',
     'ngIOS9UIWebViewPatch',
     'firebase',
+    'lifeUp.appService',
     'lifeUp.auth',
     'lifeUp.user',
     'lifeUp.util',
@@ -23,52 +23,59 @@ angular.module('lifeUp', [
     'lifeUp.account',
     'lifeUp.dashboardHome',
     'lifeUp.courseMetaData'
-    ])
+])
 
-.run(['$ionicPlatform', '$rootScope', '$cordovaStatusbar', function($ionicPlatform, $rootScope, $cordovaStatusbar) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        //$cordovaStatusbar.overlaysWebView(true);
-        //$cordovaStatusbar.hide();
-    }
+    .run(['$ionicPlatform', '$rootScope', '$cordovaStatusbar', 'AppService',
+        function ($ionicPlatform, $rootScope, $cordovaStatusbar, AppService) {
+        $ionicPlatform.ready(function () {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                //$cordovaStatusbar.overlaysWebView(true);
+                //$cordovaStatusbar.hide();
+            }
 
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
+            if (window.StatusBar) {
+                StatusBar.styleDefault();
+            }
 
-    $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+            document.addEventListener("resume", function () {
+                console.log("The application is resuming from the background");
+            }, false);
 
-        console.error('route change error');
-        console.error(error);
+            $rootScope.appService = AppService;
 
-        // We can catch the error thrown when the $requireAuth promise is rejected
-          // and redirect the user back to the home page
-          if (error === "AUTH_REQUIRED") {
-              console.log('AUTH REQUIRED');
-              $location.path("/home");
+            $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
 
-          }
-      });
+                console.error('route change error');
+                console.error(error);
 
-      $rootScope.$on("$stateChangeError", function(event, next, previous, error) {
+                // We can catch the error thrown when the $requireAuth promise is rejected
+                // and redirect the user back to the home page
+                if (error === "AUTH_REQUIRED") {
+                    console.log('AUTH REQUIRED');
+                    $location.path("/home");
 
-          console.error('state change error');
-          console.error(error);
-          // We can catch the error thrown when the $requireAuth promise is rejected
-          // and redirect the user back to the home page
-          if (error === "AUTH_REQUIRED") {
-              console.log('AUTH REQUIRED');
-              $location.path("/home");
-          }
-      });
-  });
+                }
+            });
 
-}]).config(function($urlRouterProvider, $ionicConfigProvider){
-    $urlRouterProvider.otherwise('/home');
-    $ionicConfigProvider.views.swipeBackEnabled(false);
-    $ionicConfigProvider.backButton.previousTitleText(false);
-    $ionicConfigProvider.backButton.text('');
-});
+            $rootScope.$on("$stateChangeError", function (event, next, previous, error) {
+
+                console.error('state change error');
+                console.error(error);
+                // We can catch the error thrown when the $requireAuth promise is rejected
+                // and redirect the user back to the home page
+                if (error === "AUTH_REQUIRED") {
+                    console.log('AUTH REQUIRED');
+                    $location.path("/home");
+                }
+            });
+        });
+
+    }]).config(function ($urlRouterProvider, $ionicConfigProvider) {
+        $urlRouterProvider.otherwise('/home');
+        $ionicConfigProvider.views.swipeBackEnabled(false);
+        $ionicConfigProvider.backButton.previousTitleText(false);
+        $ionicConfigProvider.backButton.text('');
+    });
