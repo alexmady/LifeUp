@@ -63,7 +63,7 @@ and (orientation : portrait) {
     }
 }
 
-/* Iphone 5 */
+/* IPhone 5 & IPhone 6 with display zoom */
 @media only screen
 and (device-width : 320px)
 and (device-height : 568px)

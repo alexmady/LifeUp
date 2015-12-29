@@ -25,13 +25,16 @@ angular.module('lifeUp', [
     'lifeUp.courseMetaData'
     ])
 
-.run(['$ionicPlatform', '$rootScope', function($ionicPlatform, $rootScope) {
+.run(['$ionicPlatform', '$rootScope', '$cordovaStatusbar', function($ionicPlatform, $rootScope, $cordovaStatusbar) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        $cordovaStatusbar.overlaysWebView(true);
+        $cordovaStatusbar.hide();
     }
+
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
@@ -39,7 +42,6 @@ angular.module('lifeUp', [
     $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
 
         console.error('route change error');
-
         console.error(error);
 
         // We can catch the error thrown when the $requireAuth promise is rejected
@@ -54,7 +56,6 @@ angular.module('lifeUp', [
       $rootScope.$on("$stateChangeError", function(event, next, previous, error) {
 
           console.error('state change error');
-
           console.error(error);
           // We can catch the error thrown when the $requireAuth promise is rejected
           // and redirect the user back to the home page

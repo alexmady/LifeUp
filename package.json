@@ -21,7 +21,6 @@
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-whitelist",
-    "cordova-plugin-statusbar",
     "ionic-plugin-keyboard",
     "cordova-plugin-inappbrowser",
     "cordova-plugin-network-information",
@@ -29,7 +28,9 @@
     "cordova-plugin-wkwebview",
     "cordova-plugin-webserver",
     "cordova-plugin-splashscreen",
-    "org.apache.cordova.network-information"
+    "org.apache.cordova.network-information",
+    "org.apache.cordova.statusbar",
+    "cordova-plugin-statusbar"
   ],
   "cordovaPlatforms": [
     "android",
