@@ -51,7 +51,6 @@ angular.module('lifeUp', [
                 if (AppService.enableApp === false){
                     $state.go('home');
                 }
-
             });
 
             $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
