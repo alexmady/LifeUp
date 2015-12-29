@@ -50,7 +50,20 @@ and (orientation : portrait) {
     }
 }
 
-/* Iphone 6 and Iphone 6s PLUS retina @3x */
+/* Iphone 6 Plus with Display Zoom */
+@media only screen
+and (device-width : 375px)
+and (device-height : 667px)
+and (-webkit-min-device-pixel-ratio: 3.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-1125x2001.png');
+        background-size: 100% 100%;
+    }
+}
+
+/* iPhone 6 PLUS retina @3x */
 @media only screen
 and (device-width : 414px)
 and (device-height : 736px)
@@ -63,7 +76,7 @@ and (orientation : portrait) {
     }
 }
 
-/* IPhone 5 & IPhone 6 with display zoom */
+/* IPhone 5 & (iPhone 6 with display zoom) */
 @media only screen
 and (device-width : 320px)
 and (device-height : 568px)
