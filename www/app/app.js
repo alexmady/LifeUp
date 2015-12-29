@@ -31,8 +31,8 @@ angular.module('lifeUp', [
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        $cordovaStatusbar.overlaysWebView(true);
-        $cordovaStatusbar.hide();
+        //$cordovaStatusbar.overlaysWebView(true);
+        //$cordovaStatusbar.hide();
     }
 
     if(window.StatusBar) {

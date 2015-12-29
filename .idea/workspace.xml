@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5a45c95c-432c-4cc3-94fe-50909257f022" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/app.js" afterPath="$PROJECT_DIR$/www/app/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" afterPath="$PROJECT_DIR$/www/app/dashboard/components/course/course.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/style.css" afterPath="$PROJECT_DIR$/www/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LifeUp.iws" />
@@ -56,10 +53,14 @@
       <file leaf-file-name="course.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/course.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="933" max-vertical-offset="6390">
-              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="888" max-vertical-offset="6330">
+              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
-                <marker date="1451348576000" expanded="false" signature="6108:6125" placeholder="..." />
+                <marker date="1451349067000" expanded="true" signature="1524:9905" placeholder="[...]" />
+                <marker date="1451349067000" expanded="true" signature="2157:9905" placeholder="{...}" />
+                <marker date="1451349067000" expanded="true" signature="2328:2365" placeholder="{...}" />
+                <marker date="1451349067000" expanded="true" signature="2425:3997" placeholder="{...}" />
+                <marker date="1451349067000" expanded="false" signature="6050:6067" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -68,8 +69,8 @@
       <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/app/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45454547" vertical-offset="345" max-vertical-offset="1185">
-              <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.32467532" vertical-offset="345" max-vertical-offset="1185">
+              <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -1021,7 +1022,11 @@
       <created>1451335673757</created>
       <updated>1451335673757</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="add code to remvoe the status bar">
+      <created>1451349160807</created>
+      <updated>1451349160807</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1057,7 +1062,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="fix play and climb buttons moving around" />
     <MESSAGE value="mak sure climb not displayed when not needed!" />
     <MESSAGE value="- add check not to attempt signin creat accoutn etc when no internet connection" />
     <MESSAGE value="change error popups for create account" />
@@ -1082,7 +1086,8 @@
     <MESSAGE value="- add fix for no buttons showing problem" />
     <MESSAGE value="-remove white space" />
     <MESSAGE value="- fix pager dots for very first pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fix pager dots for very first pages" />
+    <MESSAGE value="add code to remvoe the status bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="add code to remvoe the status bar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1439,18 +1444,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/dashboard/components/course/course.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="933" max-vertical-offset="6390">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="888" max-vertical-offset="6330">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding>
-            <marker date="1451348576000" expanded="false" signature="6108:6125" placeholder="..." />
+            <marker date="1451349067000" expanded="true" signature="1524:9905" placeholder="[...]" />
+            <marker date="1451349067000" expanded="true" signature="2157:9905" placeholder="{...}" />
+            <marker date="1451349067000" expanded="true" signature="2328:2365" placeholder="{...}" />
+            <marker date="1451349067000" expanded="true" signature="2425:3997" placeholder="{...}" />
+            <marker date="1451349067000" expanded="false" signature="6050:6067" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/app/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45454547" vertical-offset="345" max-vertical-offset="1185">
-          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.32467532" vertical-offset="345" max-vertical-offset="1185">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
           <folding />
         </state>
       </provider>
