@@ -25,8 +25,8 @@ angular.module('lifeUp', [
     'lifeUp.courseMetaData'
 ])
 
-    .run(['$ionicPlatform', '$rootScope', '$cordovaStatusbar', 'AppService',
-        function ($ionicPlatform, $rootScope, $cordovaStatusbar, AppService) {
+    .run(['$ionicPlatform', '$rootScope', '$cordovaStatusbar', 'AppService', '$state',
+        function ($ionicPlatform, $rootScope, $cordovaStatusbar, AppService, $state) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -46,6 +46,14 @@ angular.module('lifeUp', [
 
             $rootScope.appService = AppService;
 
+            AppService.$watch(function(){
+
+                if (AppService.enableApp === false){
+                    $state.go('home');
+                }
+
+            });
+
             $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
 
                 console.error('route change error');
@@ -55,7 +63,6 @@ angular.module('lifeUp', [
                 // and redirect the user back to the home page
                 if (error === "AUTH_REQUIRED") {
                     console.log('AUTH REQUIRED');
-                    $location.path("/home");
 
                 }
             });
@@ -68,7 +75,7 @@ angular.module('lifeUp', [
                 // and redirect the user back to the home page
                 if (error === "AUTH_REQUIRED") {
                     console.log('AUTH REQUIRED');
-                    $location.path("/home");
+                    $state.go('home');
                 }
             });
         });
