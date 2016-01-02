@@ -28,6 +28,9 @@ angular.module('lifeUp', [
     .run(['$ionicPlatform', '$rootScope', '$cordovaStatusbar', 'AppService', '$state',
         function ($ionicPlatform, $rootScope, $cordovaStatusbar, AppService, $state) {
         $ionicPlatform.ready(function () {
+
+            console.log('Starting....');
+
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -83,5 +86,6 @@ angular.module('lifeUp', [
         $urlRouterProvider.otherwise('/home');
         $ionicConfigProvider.views.swipeBackEnabled(false);
         $ionicConfigProvider.backButton.previousTitleText(false);
+        $ionicConfigProvider.navBar.alignTitle('center');
         $ionicConfigProvider.backButton.text('');
     });

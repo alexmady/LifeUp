@@ -46,6 +46,47 @@ angular.module('lifeUp.util', ['ionic'])
                 return online;
             };
 
+            function processImages(spriteDataFileName, spritePNGFile, scaleW, scaleH){
+
+                return $http.get(spriteDataFileName)
+                    .then(function (resp) {
+
+                        var data = resp.data;
+                        var items = [];
+                        var spriteMeta = data.meta;
+
+                        $.each(data, function (key, val) {
+                            $.each(data[key], function (k, v) {
+                                if (v.frame) {
+                                    var posInfo = {};
+                                    posInfo.bp = '-' + v.frame.x / scaleW + 'px -' + v.frame.y / scaleH + 'px';
+                                    posInfo.w = v.frame.w / scaleW + 'px';
+                                    posInfo.h = v.frame.h / scaleH + 'px';
+                                    posInfo.t = v.spriteSourceSize.y / scaleH + 'px';
+                                    posInfo.l = v.spriteSourceSize.x / scaleW + 'px';
+                                    items.push(posInfo);
+                                    //console.log(posInfo);
+                                }
+                            });
+                        });
+
+                        var bgSizeW = spriteMeta.size.w / scaleW  + 'px';
+                        var bgSizeH = spriteMeta.size.h / scaleH  + 'px';
+
+                        return {
+                            bgSizeW: bgSizeW,
+                            bgSizeH: bgSizeH,
+                            items: items,
+                            spritePNGFile: spritePNGFile
+                        };
+                    }).catch(function(error){
+
+                        console.error('could not GET the sprites.');
+
+                    });
+            };
+
+
             var imgOptions = null;
 
             // returns a promise thta is resolved once the json file has been loaded
@@ -56,55 +97,46 @@ angular.module('lifeUp.util', ['ionic'])
                     var screenHeight = $window.screen.height;
                     var devicePixelRatio = $window.devicePixelRatio;
 
-
-                    var spritePNGFile = '../img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
+                    var spritePNGFile = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
                     var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
 
-                    if (devicePixelRatio === 2 || devicePixelRatio === 3) {
-                        var w2 = (screenWidth * devicePixelRatio);
-                        var h2 = (screenHeight * devicePixelRatio);
-                        spritePNGFile = '../img/sprite-' + w2 + 'x' + h2 + '.png';
-                        spriteDataFileName = 'img/sprite-' + w2 + 'x' + h2 + '.json';
+                    if (devicePixelRatio > 1) {
+                        var w = screenWidth * devicePixelRatio;
+                        var h = screenHeight * devicePixelRatio;
+                        spritePNGFile = 'img/sprite-' + w + 'x' + h + '.png';
+                        spriteDataFileName = 'img/sprite-' + w + 'x' + h + '.json';
                     }
 
-                    console.log("deviceW: " + screenWidth, "deviceH: " + screenHeight +
-                        "devicePixelRatio: " + devicePixelRatio, "sprite: " + spritePNGFile,
-                            "data: " + spriteDataFileName);
-
-                    var spriteMeta;
-
+                    // check if file exists, if not default it
                     return $http.get(spriteDataFileName)
-                        .then(function (resp) {
+                        .then(function(){
 
-                            var data = resp.data;
-                            var items = [];
-                            spriteMeta = data.meta;
+                            console.log('not scaling.....');
+                            return processImages(spriteDataFileName, spritePNGFile, devicePixelRatio, devicePixelRatio);
 
-                            $.each(data, function (key, val) {
-                                $.each(data[key], function (k, v) {
-                                    if (v.frame) {
-                                        var posInfo = {};
-                                        var scale = devicePixelRatio;
-                                        posInfo.bp = '-' + v.frame.x / scale + 'px -' + v.frame.y / scale + 'px';
-                                        posInfo.w = v.frame.w / scale + 'px';
-                                        posInfo.h = v.frame.h / scale + 'px';
-                                        posInfo.t = v.spriteSourceSize.y / scale + 'px';
-                                        posInfo.l = v.spriteSourceSize.x / scale + 'px';
-                                        items.push(posInfo);
-                                        //console.log(posInfo);
-                                    }
-                                });
-                            });
+                        }).catch(function(error){
 
-                            var bgSizeW = spriteMeta.size.w / devicePixelRatio  + 'px';
-                            var bgSizeH = spriteMeta.size.h / devicePixelRatio  + 'px';
+                            console.log('scaling....');
+                            // TODO: choose most appropriate size to scale
 
-                            return {
-                                bgSizeW: bgSizeW,
-                                bgSizeH: bgSizeH,
-                                items: items,
-                                spritePNGFile: spritePNGFile
-                            };
+                            w = 1125;
+                            h = 2001;
+
+                            spritePNGFile = 'img/sprite-' + w + 'x' + h + '.png';
+                            spriteDataFileName = 'img/sprite-' + w + 'x' + h + '.json';
+
+                            var scaleFactorW = w / screenWidth ;
+                            var scaleFactorH = h / screenHeight ;
+
+                            console.log(scaleFactorH, scaleFactorW);
+
+                            return processImages(spriteDataFileName, spritePNGFile, scaleFactorW, scaleFactorH);
+
+                        }).finally(function(){
+
+                            console.log(" deviceW: " + screenWidth + " deviceH: " + screenHeight +
+                                    " devicePixelRatio: " + devicePixelRatio + " sprite: " + spritePNGFile  +
+                                    " data: " + spriteDataFileName);
                         });
 
                 } else {

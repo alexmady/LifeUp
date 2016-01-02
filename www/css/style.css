@@ -1,3 +1,13 @@
+.mountain {
+    background: url('../img/mm-1125x2001.png') no-repeat center center fixed;
+    /*background-size: 320px 480px;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
 /* iPad Pro */
 @media only screen
 and (device-width : 1024px)
