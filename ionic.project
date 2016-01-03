@@ -1,4 +1,11 @@
 {
   "name": "LifeUp",
-  "app_id": "251cdbda"
+  "app_id": "251cdbda",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
 }

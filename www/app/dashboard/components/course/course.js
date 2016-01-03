@@ -150,26 +150,26 @@ courseModule
 
             $scope.play = function () {
 
-                $scope.blurBackground = true;
-                $scope.badge = $scope.step.badge + '.png';
-                $scope.label = 'Labels_' + $scope.step.name + '.png';
+                    $scope.blurBackground = true;
+                    $scope.badge = $scope.step.badge + '.png';
+                    $scope.label = 'Labels_' + $scope.step.name + '.png';
 
-                var alertPopup = $ionicPopup.alert({
-                    title: $scope.step.name,
-                    templateUrl: 'app/dashboard/components/course/popupTemplate.html',
-                    cssClass: 'course-label-popup',
-                    scope: $scope,
-                    buttons: [
-                        {
-                            text: '<span style="font-weight: bold">Start ' + $scope.step.name + '</span>',
-                            type: 'button button-outline button-light'
-                        }
-                    ]
-                });
-                alertPopup.then(function (res) {
-                    $scope.blurBackground = false;
-                    $state.go('dashboard.' + $scope.step.name);
-                });
+                    var alertPopup = $ionicPopup.alert({
+                        title: $scope.step.name,
+                        templateUrl: 'app/dashboard/components/course/popupTemplate.html',
+                        cssClass: 'course-label-popup',
+                        scope: $scope,
+                        buttons: [
+                            {
+                                text: '<span style="font-weight: bold">Start ' + $scope.step.name + '</span>',
+                                type: 'button button-outline button-light'
+                            }
+                        ]
+                    });
+                    alertPopup.then(function (res) {
+                        $scope.blurBackground = false;
+                        $state.go('dashboard.' + $scope.step.name);
+                    });
             };
 
             $scope.climb = function () {
@@ -346,7 +346,6 @@ for (var i = 0; i < days.length; i++) {
                         $state.go('dashboard.course');
                     }
                     profile.updateCourseProgress(module, slide, readyToClimb);
-
                 };
 
                 $scope.slideHasChanged = function (index) {
@@ -360,9 +359,7 @@ for (var i = 0; i < days.length; i++) {
                     profile.updateCourseProgress($scope.courseModule, (index + 1), false);
                 };
 
-
                 var init = function () {
-
 
                     $scope.userActiveSlide = 0;
 
@@ -375,25 +372,19 @@ for (var i = 0; i < days.length; i++) {
                     //console.log('user active slide:' + $scope.userActiveSlide + ' slide count:' + n);
                     //console.log(courseMetaData[$scope.courseModule - 1].length);
 
-
                     if ($scope.userActiveSlide === (courseMetaData[$scope.courseModule - 1].length - 1)) {
                         $scope.enableCompleteButton = true;
                         $scope.animateCompleteButton = "animated pulse";
-
                     } else {
                         $scope.enableCompleteButton = false;
                         $scope.animateCompleteButton = "";
-
                     }
-
 
                     setTimeout(function () {
                         $ionicSlideBoxDelegate.slide($scope.userActiveSlide, 0);
                     }, 100);
 
                     profile.updateCourseProgress($scope.courseModule, $scope.userActiveSlide + 1, false);
-
-
                 };
 
                 init();
@@ -403,15 +394,3 @@ for (var i = 0; i < days.length; i++) {
     })(courseModule, i);
 }
 
-courseModule.directive('coursePage', function () {
-    return {
-        templateUrl: 'app/dashboard/components/course/coursePage.html'
-    };
-});
-/*
-
- $scope.slideChanged = function(index) {
- var slides = $ionicSlideBoxDelegate.slidesCount();
- var increment = $document[0].getElementsByClassName('increment');
- increment[0].style.width = (1+19*index/(slides-1))*5+'%';
- };*/

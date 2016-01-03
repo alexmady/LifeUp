@@ -93,8 +93,14 @@ angular.module('lifeUp.util', ['ionic'])
             var imageOptions = function(){
 
                 if (imgOptions === null) {
-                    var screenWidth = $window.screen.width;
-                    var screenHeight = $window.screen.height;
+
+                    //var screenWidth = $window.screen.width;
+                    //var screenHeight = $window.screen.height;
+                    var screenWidth = $window.innerWidth;
+                    var screenHeight = $window.innerHeight;
+
+                    console.log('sw '+ screenWidth + ' sh ' + screenHeight);
+
                     var devicePixelRatio = $window.devicePixelRatio;
 
                     var spritePNGFile = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
@@ -128,7 +134,7 @@ angular.module('lifeUp.util', ['ionic'])
                             var scaleFactorW = w / screenWidth ;
                             var scaleFactorH = h / screenHeight ;
 
-                            console.log(scaleFactorH, scaleFactorW);
+                            console.log(scaleFactorH + ' x ' + scaleFactorW);
 
                             return processImages(spriteDataFileName, spritePNGFile, scaleFactorW, scaleFactorH);
 

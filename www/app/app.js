@@ -35,13 +35,13 @@ angular.module('lifeUp', [
             // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-                //$cordovaStatusbar.overlaysWebView(true);
                 //$cordovaStatusbar.hide();
             }
 
             if (window.StatusBar) {
                 StatusBar.styleDefault();
             }
+
 
             document.addEventListener("resume", function () {
                 console.log("The application is resuming from the background");
