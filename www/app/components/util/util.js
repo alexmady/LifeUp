@@ -46,7 +46,7 @@ angular.module('lifeUp.util', ['ionic'])
                 return online;
             };
 
-            function processImages(spriteDataFileName, spritePNGFile, scaleW, scaleH){
+            function processImages(spriteDataFileName, spritePNGFile, adjustment){
 
                 return $http.get(spriteDataFileName)
                     .then(function (resp) {
@@ -54,24 +54,35 @@ angular.module('lifeUp.util', ['ionic'])
                         var data = resp.data;
                         var items = [];
                         var spriteMeta = data.meta;
+                        var scale  = adjustment.scaleFactor ;
+                        var wAdjust = 0;
+                        var hAdjust = 0;
+
+                        if ( adjustment.type ){
+                            if (adjustment.type === 'height'){
+                                hAdjust = adjustment.size;
+                            } else if (adjustment.type === 'width'){
+                                wAdjust = adjustment.size;
+                            }
+                        }
 
                         $.each(data, function (key, val) {
                             $.each(data[key], function (k, v) {
                                 if (v.frame) {
                                     var posInfo = {};
-                                    posInfo.bp = '-' + v.frame.x / scaleW + 'px -' + v.frame.y / scaleH + 'px';
-                                    posInfo.w = v.frame.w / scaleW + 'px';
-                                    posInfo.h = v.frame.h / scaleH + 'px';
-                                    posInfo.t = v.spriteSourceSize.y / scaleH + 'px';
-                                    posInfo.l = v.spriteSourceSize.x / scaleW + 'px';
+                                    posInfo.bp = '-' + v.frame.x * scale + 'px -' + v.frame.y * scale + 'px';
+                                    posInfo.w = v.frame.w * scale + 'px';
+                                    posInfo.h = v.frame.h * scale + 'px';
+                                    posInfo.t = ((v.spriteSourceSize.y  * scale ) - hAdjust) + 'px';
+                                    posInfo.l = ((v.spriteSourceSize.x  * scale ) - wAdjust) + 'px';
                                     items.push(posInfo);
-                                    //console.log(posInfo);
+                                    //ioniconsole.log(posInfo);
                                 }
                             });
                         });
 
-                        var bgSizeW = spriteMeta.size.w / scaleW  + 'px';
-                        var bgSizeH = spriteMeta.size.h / scaleH  + 'px';
+                        var bgSizeW = spriteMeta.size.w * scale  + 'px';
+                        var bgSizeH = spriteMeta.size.h * scale  + 'px';
 
                         return {
                             bgSizeW: bgSizeW,
@@ -94,12 +105,15 @@ angular.module('lifeUp.util', ['ionic'])
 
                 if (imgOptions === null) {
 
-                    //var screenWidth = $window.screen.width;
-                    //var screenHeight = $window.screen.height;
-                    var screenWidth = $window.innerWidth;
-                    var screenHeight = $window.innerHeight;
+                    var screenWidth = $window.screen.width;
+                    var screenHeight = $window.screen.height;
+                    var innerWidth = $window.innerWidth;
+                    var innerHeight = $window.innerHeight;
 
-                    console.log('sw '+ screenWidth + ' sh ' + screenHeight);
+                    console.log('sw '+ screenWidth + ' sh ' + screenHeight + ' iw ' + innerWidth + ' ih ' + innerHeight );
+
+                    screenWidth = innerWidth;
+                    screenHeight = innerHeight;
 
                     var devicePixelRatio = $window.devicePixelRatio;
 
@@ -107,36 +121,67 @@ angular.module('lifeUp.util', ['ionic'])
                     var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
 
                     if (devicePixelRatio > 1) {
-                        var w = screenWidth * devicePixelRatio;
-                        var h = screenHeight * devicePixelRatio;
-                        spritePNGFile = 'img/sprite-' + w + 'x' + h + '.png';
-                        spriteDataFileName = 'img/sprite-' + w + 'x' + h + '.json';
+                        var imageWidth = screenWidth * devicePixelRatio;
+                        var imageHeight = screenHeight * devicePixelRatio;
+                        spritePNGFile = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.png';
+                        spriteDataFileName = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.json';
                     }
 
                     // check if file exists, if not default it
                     return $http.get(spriteDataFileName)
                         .then(function(){
 
-                            console.log('not scaling.....');
-                            return processImages(spriteDataFileName, spritePNGFile, devicePixelRatio, devicePixelRatio);
+                            var adjustment = {
+                                scaleFactor: 1 / devicePixelRatio
+                            };
+                            return processImages(spriteDataFileName, spritePNGFile, adjustment)
+                                .then(function(result){
+                                    imgOptions = result;
+                                    return imgOptions;
+                                });
+
 
                         }).catch(function(error){
 
                             console.log('scaling....');
-                            // TODO: choose most appropriate size to scale
+                            // TODO: choose most appropriate size to scale based on aspect ratio
 
-                            w = 1125;
-                            h = 2001;
+                            imageWidth = 1125;
+                            imageHeight = 2001;
 
-                            spritePNGFile = 'img/sprite-' + w + 'x' + h + '.png';
-                            spriteDataFileName = 'img/sprite-' + w + 'x' + h + '.json';
+                            spritePNGFile = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.png';
+                            spriteDataFileName = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.json';
 
-                            var scaleFactorW = w / screenWidth ;
-                            var scaleFactorH = h / screenHeight ;
+                            var adjustment = {};
 
-                            console.log(scaleFactorH + ' x ' + scaleFactorW);
+                            if (  imageWidth / imageHeight  > screenWidth / screenHeight ){
 
-                            return processImages(spriteDataFileName, spritePNGFile, scaleFactorW, scaleFactorH);
+                                console.log('fit to height');
+                                // scaled image height will be container height
+                                // we will need a width factor
+                                adjustment.type = 'width';
+                                adjustment.scaleFactor = imageHeight / screenHeight;
+                                var scaledWidth = imageWidth * adjustment.scaleFactor;
+                                adjustment.size = (scaledWidth - screenWidth) / 2;
+
+                            } else {
+
+                                console.log('fit to width');
+                                // scaled image width will be container width
+                                // we will need a height factor
+                                adjustment.type = 'height';
+                                adjustment.scaleFactor = (screenWidth ) / imageWidth ;
+                                var scaledHeight = imageHeight * adjustment.scaleFactor;
+                                console.log('scaled height: ' + scaledHeight);
+                                adjustment.size = (scaledHeight -  screenHeight ) / 2;
+                            }
+
+                            console.log(adjustment);
+                            return processImages(spriteDataFileName, spritePNGFile, adjustment)
+                                .then(function(result){
+                                    imgOptions = result;
+                                    return imgOptions;
+                                });
 
                         }).finally(function(){
 

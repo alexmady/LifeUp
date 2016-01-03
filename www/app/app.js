@@ -42,10 +42,9 @@ angular.module('lifeUp', [
                 StatusBar.styleDefault();
             }
 
-
-            document.addEventListener("resume", function () {
+            /*document.addEventListener("resume", function () {
                 console.log("The application is resuming from the background");
-            }, false);
+            }, false);*/
 
             $rootScope.appService = AppService;
 

@@ -1,16 +1,14 @@
 .mountain {
     background: url('../img/mm-1125x2001.png') no-repeat center center fixed;
-    /*background-size: 320px 480px;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
-@media screen and (device-aspect-ratio: 16/9) {
+@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) {
     .mountain {
         background: url('../img/mm-1125x2001.png') no-repeat center center fixed;
-        /*background-size: 320px 480px;*/
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -18,17 +16,16 @@
     }
 }
 
+
 @media screen and (device-aspect-ratio: 4/3) {
 
     .mountain {
         background: url('../img/mm-2048x2732.png') no-repeat center center fixed;
-        /*background-size: 320px 480px;*/
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
     }
-
 }
 
 /* iPad Pro */

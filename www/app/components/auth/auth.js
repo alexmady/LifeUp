@@ -1,7 +1,3 @@
-
-
-// let's create a re-usable factory that generates the $firebaseAuth instance
-
 angular.module('lifeUp.auth', ['firebase'])
 
     .factory("Auth", ["$firebaseAuth", "FIREBASE_URL",
