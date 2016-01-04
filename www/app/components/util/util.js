@@ -112,6 +112,9 @@ angular.module('lifeUp.util', ['ionic'])
 
                     console.log('sw '+ screenWidth + ' sh ' + screenHeight + ' iw ' + innerWidth + ' ih ' + innerHeight );
 
+                    // inner height is less on android when part of the screen is being used as
+                    // the buttons area.
+
                     screenWidth = innerWidth;
                     screenHeight = innerHeight;
 
