@@ -37,6 +37,13 @@
                         CHALLENGE
                     </a>
                 </ion-item>
+
+                <ion-item class="item item-complex" nav-clear menu-close>
+                    <a class="item-content lifeup-bg lifeup-sidemenu-text"  ui-sref="dashboard.chat">
+                        CHAT
+                    </a>
+                </ion-item>
+
                 <ion-item class="item item-complex" nav-clear menu-close>
                     <a class="item-content lifeup-bg lifeup-sidemenu-text" ui-sref="dashboard.what">
                         WHAT?
@@ -63,6 +70,12 @@
                 <ion-item class="item item-complex" nav-clear menu-close>
                     <a class="item-content lifeup-bg lifeup-sidemenu-text" ui-sref="dashboard.account">
                         Account
+                    </a>
+                </ion-item>
+
+                <ion-item ng-if="isAdmin" class="item item-complex" nav-clear menu-close>
+                    <a class="item-content lifeup-bg lifeup-sidemenu-text" ui-sref="dashboard.admin">
+                        Admin
                     </a>
                 </ion-item>
 

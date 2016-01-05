@@ -18,7 +18,7 @@ angular.module('lifeUp.user', ['firebase'])
                 else return true;
             },
 
-            create: function(email, setGoalsAnswers){
+            create: function(user, setGoalsAnswers){
 
                 var dt = new Date();
                 this.created = dt.getTime();
@@ -38,7 +38,12 @@ angular.module('lifeUp.user', ['firebase'])
                 this.authenticityComplete =  false;
                 this.connectionComplete = false;
                 this.history = {};
-                this.email = email;
+                this.role = 'user';
+                this.email = user.email;
+                this.firstname = user.firstname;
+                this.surname = user.surname;
+                this.tag = user.tag;
+                this.promoCode = user.code;
 
                 this.$save().then(function(){
                     //console.log('Profile saved successfully');

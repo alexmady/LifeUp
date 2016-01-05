@@ -4,9 +4,9 @@
 
 angular.module('lifeUp.util', ['ionic'])
 
-    .factory('Util', ['$ionicLoading', '$cordovaFacebook', 'Auth', 'UserProfile', '$state', '$ionicPopup', '$cordovaNetwork', '$window', '$http',
+    .factory('Util', ['$ionicLoading', '$cordovaFacebook', 'Auth', 'UserProfile', '$state', '$ionicPopup', '$cordovaNetwork', '$window', '$http', 'PromoCodes',
 
-        function($ionicLoading, $cordovaFacebook, Auth, UserProfile, $state, $ionicPopup, $cordovaNetwork, $window, $http) {
+        function($ionicLoading, $cordovaFacebook, Auth, UserProfile, $state, $ionicPopup, $cordovaNetwork, $window, $http, PromoCodes) {
 
             var showLoading = function(){
                 $ionicLoading.show({
@@ -269,8 +269,9 @@ angular.module('lifeUp.util', ['ionic'])
                         }
                     });
                 }
-
             };
+
+
 
             return {
                 showLoading: showLoading,

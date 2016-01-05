@@ -1,0 +1,22 @@
+<ion-view view-title="Admin">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon" style="color: white"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header lifeup-bg" >
+
+        <div ng-if="isAdmin" class="center">
+
+            <div style="width: 100%" align="center">
+
+            <input style="width: 80%" type="text" placeholder="Enter number of codes to create" ng-model="numberOfCodes">
+            <input style="width: 80%" type="text" placeholder="Tag" ng-model="tag">
+
+            <button style="width: 80%" class="button button-outline button-light lifeup-button button-block"
+                    ng-click="addPromoCode(numberOfCodes, tag)">
+                GENERATE & EMAIL
+            </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

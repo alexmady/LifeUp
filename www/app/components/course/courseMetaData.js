@@ -16,7 +16,10 @@
         'Would you like to learn to dissipate unhelpful thoughts and emotions to decrease stress, anxiety and burnout?',
         'Would you like to live more present and feel more alive, focused and energised?',
         'Would you like to create healthier relationships and show up as the best version of yourself, when it matters?',
+        'Would you like improved everyday well-being such as better concentration and quality of sleep?',
         'Would you like to build a mindfulness habit and create lasting change in your life?'
+
+
     ];
 
 angular.module('lifeUp.courseMetaData', []).value('courseMetaData', steps);

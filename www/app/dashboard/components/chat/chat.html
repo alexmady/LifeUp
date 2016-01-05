@@ -1,0 +1,73 @@
+<ion-view view-title="Chat">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon" style="color: white"></button>
+    </ion-nav-buttons>
+
+        <ion-content has-bouncing="true" class="has-header has-footer" delegate-handle="userMessageScroll">
+
+            <div ng-repeat="message in messages" class="message-wrapper"
+                 on-hold="onMessageHold($event, $index, message)">
+
+                <div ng-if="userID !== message.userID">
+
+
+                <!--    <img ng-if="authData.password" class="profile-pic right"
+                         ng-src="{{authData.password.profileImageURL}}" onerror="onProfilePicError(this)" />
+
+                    <img ng-if="authData.facebook" class="profile-pic right"
+                         ng-src="{{authData.facebook.cachedUserProfile.picture.data.url}}" onerror="onProfilePicError(this)" /> -->
+
+                    <div class="chat-bubble left">
+
+                        <div class="message" ng-bind-html="message.text | nl2br" >
+                        </div>
+
+                        <div class="message-detail">
+                              <span ng-click="viewProfile(message)"
+                                    class="bold">{{message.userFirstName}}</span>
+                            <span am-time-ago="message.date"></span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div ng-if="userID === message.userID">
+
+                    <!--<img ng-if="authData.password" class="profile-pic right"
+                         ng-src="{{authData.password.profileImageURL}}" onerror="onProfilePicError(this)" />
+
+                    <img ng-if="authData.facebook" class="profile-pic right"
+                         ng-src="{{authData.facebook.cachedUserProfile.picture.data.url}}" onerror="onProfilePicError(this)" /> -->
+
+                    <div class="chat-bubble right">
+
+                        <div class="message" ng-bind-html="message.text | nl2br" >
+                        </div>
+
+                        <div class="message-detail">
+                              <span ng-click="viewProfile(message)"
+                                    class="bold">{{userFirstName}}</span>
+                            <span am-time-ago="message.date"></span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="cf"></div>
+
+            </div>
+        </ion-content>
+    <form name="sendMessageForm" ng-submit="addMessage(sendMessageForm)" novalidate>
+        <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach >
+                <textarea ng-model="input.message" value="" placeholder="Enter a message..." required minlength="1" maxlength="1500" msd-elastic style="width: 100%"></textarea>
+
+            <div class="footer-btn-wrap">
+                <button class="button button-icon icon ion-android-send footer-btn" type="submit"
+                        ng-disabled="!input.message || input.message === ''">
+                </button>
+            </div>
+        </ion-footer-bar>
+    </form>
+
+</ion-view>

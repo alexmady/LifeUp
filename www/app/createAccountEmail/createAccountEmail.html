@@ -3,23 +3,33 @@
 
         <div align="center" style="margin: 10%">
 
+            <div>
+                <p class="lifeup-text">To track your progress and personalise your experience you'll need to create an
+                    account with LifeUp.</p>
+            </div>
+            <input style="width: 100%" type="text" placeholder="First name" ng-model="user.firstname">
+            <input style="width: 100%" type="text" placeholder="Surname" ng-model="user.surname">
+            <input style="width: 100%" type="text" placeholder="Email address" ng-model="user.email">
+            <input style="width: 100%" type="password" placeholder="Password" ng-model="user.pass">
+            <input style="width: 100%" type="text" placeholder="Access Code" ng-model="user.code">
+            <br/>
 
-        <div>
-            <p class="lifeup-text">To track your progress and personalise your experience you'll need to create an
-                account with LifeUp</p>
+            <br>
+            <div>
+                <button style="width: 100%" class="button button-outline button-light lifeup-button button-block"
+                        ng-click="createAccount(user)">
+                    CREATE ACCOUNT
+                </button>
+            </div>
+
+            <br>
+            <br>
+            <div>
+                <p class="lifeup-text"> Don't worry - we will never share your data.</p>
+            </div>
+
+
         </div>
-
-        <input style="width: 100%" type="text" placeholder="Email address" ng-model="user.email">
-        <input style="width: 100%" type="password" placeholder="Password" ng-model="user.pass">
-        <br/>
-
-        <div>
-            <button style="width: 100%" class="button button-outline button-light lifeup-button button-block"
-                    ng-click="createAccount(user)">
-                CREATE ACCOUNT
-            </button>
-        </div>
-</div>
 
     </ion-content>
 

@@ -77,6 +77,33 @@
             </ion-content>
         </ion-slide>
 
+
+        <ion-slide class="slide">
+            <ion-content class="intro center" scroll="false">
+                <div style="width: 100%">
+
+                    <div class="center" style="width: 100%">
+                        <img class="intro-img" src="img/lifeUpStars.png"/>
+                    </div>
+
+                    <div class="center" style="width: 100%">
+                        <p class="lifeup-intro-text">
+                            {{goalQuestions[3]}}
+                        </p>
+                    </div>
+
+                    <div class="center" style="width: 100%">
+                        <button ng-click="nextSlide('NO')" class="button button-light button-outline lifeup-button"
+                                style="width: 20%; margin: 2%">NO
+                        </button>
+                        <button ng-click="nextSlide('YES')" class="button button-light button-outline lifeup-button"
+                                style="width: 20%; margin: 2%">YES
+                        </button>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-slide>
+
         <ion-slide class="slide">
             <ion-content class="intro center" scroll="false">
                 <div style="width: 100%">
@@ -85,7 +112,7 @@
                     </div>
 
                     <p class="lifeup-intro-text">
-                        {{goalQuestions[3]}}
+                        {{goalQuestions[4]}}
                     </p>
 
                     <div class="center">

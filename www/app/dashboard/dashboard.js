@@ -19,15 +19,20 @@ angular.module('lifeUp.dashboard', [ ])
                     "currentAuth": ["Auth", function (Auth) {
                         // $waitForAuth returns a promise so the resolve waits for it to complete
                         return Auth.$requireAuth();
+                    }],
+                    "profile": [ "UserProfile", "Auth", function (UserProfile, Auth) {
+                        return UserProfile(Auth.$getAuth().uid).$loaded();
                     }]
                 }
             })
     }])
 
-    .controller('DashboardCtrl', [ '$scope', 'Auth', function($scope, Auth) {
+    .controller('DashboardCtrl', [ '$scope', 'Auth', 'profile', function( $scope, Auth, profile ) {
 
         Auth.$onAuth(function(data){
             $scope.authData = data;
         });
+
+        $scope.isAdmin = profile.role === 'admin';
 
     }]);
