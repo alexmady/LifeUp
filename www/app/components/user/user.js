@@ -43,11 +43,9 @@ angular.module('lifeUp.user', ['firebase'])
                 this.firstname = user.firstname;
                 this.surname = user.surname;
                 this.tag = user.tag;
-                this.promoCode = user.code;
+                this.promoCode = user.promoCode;
 
-                this.$save().then(function(){
-                    //console.log('Profile saved successfully');
-                });
+                return this.$save();
             },
 
             updateCourseProgress: function (module, slide, readyToClimb) {

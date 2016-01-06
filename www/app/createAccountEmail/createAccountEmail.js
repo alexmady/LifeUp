@@ -56,7 +56,7 @@ angular.module('lifeUp.createAccountEmail', [])
                         return;
                     }
 
-                    if (!user.code){
+                    if (!user.promoCode){
                         Util.hideLoading();
                         Util.popup('Invalid Code', 'Please enter your LifeUp access code.', null, $scope);
                         return;
@@ -65,7 +65,7 @@ angular.module('lifeUp.createAccountEmail', [])
                     PromoCodes.$loaded()
                         .then(function(){
 
-                            var pc = PromoCodes[user.code];
+                            var pc = PromoCodes[user.promoCode];
                             if (pc && !pc.used){
 
                                 return Auth.$createUser({

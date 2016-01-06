@@ -32,10 +32,8 @@ angular.module('lifeUp.createAccount', [])
                     Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
                     return;
                 }
-            } catch (error){
+            } catch (error){ }
 
-            }
-
-            Util.facebookLogin($stateParams.answers);
+            Util.facebookLogin($stateParams.answers, $scope.$new());
         };
     }]);

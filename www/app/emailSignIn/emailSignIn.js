@@ -38,6 +38,21 @@ angular.module('lifeUp.emailSignIn', [])
                 $state.go(goTo)
             };
 
+
+            $scope.facebookLogin = function () {
+
+                try {
+                    if (!Util.isOnline()){
+                        Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                        return;
+                    }
+
+                } catch ( error ){ }
+
+                Util.facebookLogin(null, $scope.$new());
+            };
+
+
             $ionicModal.fromTemplateUrl('app/emailSignIn/forgotPassword.html', {
                 scope: $scope,
                 animation: 'slide-in-up'
@@ -56,19 +71,6 @@ angular.module('lifeUp.emailSignIn', [])
 
             $scope.showResetPasswordModal = function () {
                 $scope.modal.show();
-            };
-
-            $scope.facebookLogin = function () {
-
-                try {
-                    if (!Util.isOnline()){
-                        Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
-                        return;
-                    }
-
-                } catch ( error ){ }
-
-                Util.facebookLogin();
             };
 
             $scope.resetPassword = function (user) {
