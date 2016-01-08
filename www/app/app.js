@@ -34,8 +34,8 @@ angular.module('lifeUp', [
     'lifeUp.courseMetaData'
 ])
 
-    .run(['$ionicPlatform', '$rootScope', '$cordovaStatusbar', 'AppService', '$state',
-        function ($ionicPlatform, $rootScope, $cordovaStatusbar, AppService, $state) {
+    .run(['$ionicPlatform', '$rootScope', '$cordovaStatusbar', 'AppService', '$state', 'Util', '$cordovaNetwork',
+        function ($ionicPlatform, $rootScope, $cordovaStatusbar, AppService, $state, Util, $cordovaNetwork) {
         $ionicPlatform.ready(function () {
 
             console.log('Starting....');
@@ -51,9 +51,29 @@ angular.module('lifeUp', [
                 StatusBar.styleDefault();
             }
 
-            /*document.addEventListener("resume", function () {
-                console.log("The application is resuming from the background");
-            }, false);*/
+            try {
+                var isOffline = $cordovaNetwork.isOffline();
+                if (isOffline){
+                    Util.showLoadingInternet();
+                } else {
+                    Util.showLoading();
+                }
+
+                // listen for Online event
+                $rootScope.$on('$cordovaNetwork:online', function(event, networkState){
+
+                    $rootScope.appService = AppService;
+                    $rootScope.$apply();
+                    var onlineState = networkState;
+                    Util.hideLoading();
+                });
+
+
+            } catch(error){
+                console.warn('No cordova - not a problem on real device');
+            }
+
+
 
             $rootScope.appService = AppService;
 
@@ -62,9 +82,9 @@ angular.module('lifeUp', [
                 if (AppService.enableApp === false){
                     $state.go('home');
                 }
+
+                Util.hideLoading();
             });
-
-
 
             $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
 

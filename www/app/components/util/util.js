@@ -24,9 +24,10 @@ angular.module('lifeUp.util', ['ionic'])
                 $ionicLoading.hide();
             };
 
-            var popup = function (title, msg, goTo, $scope) {
+            var popup = function (title, msg, goTo, $scope, thenFn) {
 
                 $scope.blurBackground = true;
+
                 var alertPopup = $ionicPopup.alert({
                     title: title,
                     template: '<p class="lifeup-earnt-badge center" style="text-align: center">' + msg + '</p>',
@@ -38,12 +39,17 @@ angular.module('lifeUp.util', ['ionic'])
                         }
                     ]
                 });
+
                 alertPopup.then(function (res) {
                     $scope.blurBackground = false;
                     if (goTo !== null && goTo !== undefined) {
                         $state.go(goTo);
                     }
                 });
+
+
+
+
             };
 
 
@@ -211,15 +217,15 @@ angular.module('lifeUp.util', ['ionic'])
 
                         var cc = CourseCode[code];
                         if (!cc) {
-                            popup('Error!', 'The course code you entered does not exist.', null, scope);
+                            throw new Error('The course code you entered does not exist.');
                         } else {
 
                             if (!cc.used) {
 
                                 var user = {
                                     email: authData.facebook.email,
-                                    firstname: authData.facebook.cachedUserProfile.first_name,
-                                    surname: authData.facebook.cachedUserProfile.last_name,
+                                    //firstname: authData.facebook.cachedUserProfile.first_name,
+                                    //surname: authData.facebook.cachedUserProfile.last_name,
                                     tag: cc.tag,
                                     courseCode: code
                                 };
@@ -231,19 +237,13 @@ angular.module('lifeUp.util', ['ionic'])
                                             .then(function(){
                                                 $state.go('dashboard.dashboardHome');
                                                 hideLoading();
+                                                return;
                                             });
                                     });
                             } else {
-                                hideLoading();
-                                popup('Error!', 'The code you specified is no longer available.', null, scope);
+                                throw new Error('The course code you specified is no longer available.');
                             }
                         }
-                    }).catch(function (error) {
-                        hideLoading();
-                        console.error(error);
-                        var err = error.message;
-                        popup('Error!', err, null, scope);
-                        return false;
                     });
             };
 
@@ -254,26 +254,33 @@ angular.module('lifeUp.util', ['ionic'])
 
                         if (!profile.exists()) {
 
+                            console.log('checkAndCreateFacebookLogin: profile does not exist');
                             if (!goalsQuestionsAnswers){
-                                $state.go('intro');
+
+                                popup('','Your facebook account is not registered with LifeUp yet. First, set your goals then tap the \'sign up with facebook\' option.', 'intro', scope);
                                 return;
                             }
 
                             scope.data = {};
 
+                            scope.blurBackground = true;
+
                             var myPopup = $ionicPopup.prompt({
-                                template: '<input autofocus type="text" placeholder="Course Code" ng-model="data.courseCode">',
-                                title: 'Please enter your Course Code',
-                                subTitle: '',
+                                template: '<input autofocus style="text-align: center; background-color: cornflowerBlue" type="text" placeholder="" ng-model="data.courseCode">',
+                                title: '<p class="lifeup-text">Please enter your Course Code below:</p>',
+                                cssClass: 'course-code-popup',
                                 scope: scope,
                                 buttons: [
-                                    { text: 'CANCEL' },
+                                    {
+                                        text: 'CANCEL',
+                                        type: 'button button-outline button-light'
+                                    },
                                     {
                                         text: '<b>GO</b>',
-                                        type: 'button-positive',
+                                        type: 'button button-outline button-light',
                                         onTap: function (e) {
                                             if (!scope.data.courseCode) {
-                                                //don't allow the user to close unless he enters wifi password
+                                                //don't allow the user to close unless he enters a course code
                                                 e.preventDefault();
                                             } else {
                                                 return scope.data.courseCode;
@@ -283,12 +290,43 @@ angular.module('lifeUp.util', ['ionic'])
                                 ]
                             });
 
-                            myPopup.then(function (code) {
-                                console.log('input access code:', code);
-                                validateCourseCode(code, scope, goalsQuestionsAnswers, profile, authData);
-                            });
+                            hideLoading();
 
+                            return myPopup.then(function (code) {
+
+                                scope.blurBackground = false;
+                                if (!code) return;
+
+                                return validateCourseCode(code, scope, goalsQuestionsAnswers, profile, authData)
+                                    .then(function(){
+
+                                        return;
+
+                                    }).catch(function(error){
+
+                                        scope.blurBackground = true;
+
+                                        var errPop = $ionicPopup.prompt({
+                                            title: '',
+                                            template: '<p class="lifeup-earnt-badge center" style="text-align: center">' + error.message + '</p>',
+                                            cssClass: 'course-label-popup',
+                                            buttons: [
+                                                {
+                                                    text: 'OK',
+                                                    type: 'button button-outline button-light'
+                                                }
+                                            ]
+                                        });
+
+                                        return errPop.then(function(){
+                                            scope.blurBackground = false;
+                                            return checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
+                                        });
+
+                                    });
+                            });
                         } else {
+                            console.log('profile already exists - redirecting to home');
                             $state.go('dashboard.dashboardHome');
                             hideLoading();
                             return;
@@ -315,22 +353,27 @@ angular.module('lifeUp.util', ['ionic'])
                     scope: "email"
                 };
 
-                try {
-                    if (ionic.Platform.isWebView()) {
-                        $cordovaFacebook.login(["public_profile", "email"]).then(function (success) {
-                            Auth.$authWithOAuthToken("facebook", success.authResponse.accessToken).then(function (authData) {
-                                checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
-                            });
-                        });
-                    }
-                    else {
+                if (ionic.Platform.isWebView()) {
+                    console.log('facebook login: this IS a web view');
 
-                        Auth.$authWithOAuthPopup("facebook", options).then(function (authData) {
-                            checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
-                        });
-                    }
-                } catch (error){
-                    hideLoading();
+                    return $cordovaFacebook.logout().then(function(){
+                        return $cordovaFacebook.login(["public_profile", "email"])
+                            .then(function (success) {
+                                var token = success.authResponse.accessToken;
+                                console.log('got the access token: ' + token)
+                                return Auth.$authWithOAuthToken("facebook", token)
+                                    .then(function (authData) {
+                                        checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
+                                    });
+                            });
+                    });
+                }
+                else {
+
+                    console.log('fackebook login: not web view');
+                    return Auth.$authWithOAuthPopup("facebook", options).then(function (authData) {
+                        return checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
+                    });
                 }
             };
 

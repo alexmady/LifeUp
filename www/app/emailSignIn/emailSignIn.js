@@ -39,17 +39,31 @@ angular.module('lifeUp.emailSignIn', [])
             };
 
 
+            var popupNoInternetConnection = function(){
+                Util.popup('No Internet Connection', 'You need to be connected to the internet to sign in. Please try again when you have a connection.', null, $scope);
+            };
+
             $scope.facebookLogin = function () {
 
                 try {
                     if (!Util.isOnline()){
-                        Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                        popupNoInternetConnection();
                         return;
                     }
 
                 } catch ( error ){ }
 
-                Util.facebookLogin(null, $scope.$new());
+
+                Util.showLoading();
+                Util.facebookLogin(null, $scope)
+                    .then(function(){
+                        console.log('logged in with facebook');
+                        Util.hideLoading();
+                    }).catch(function(error){
+                        Util.hideLoading();
+                        console.log(error);
+                        Util.popup('', error, null, $scope);
+                    });
             };
 
 
@@ -77,7 +91,7 @@ angular.module('lifeUp.emailSignIn', [])
 
                 try {
                     if (!Util.isOnline()){
-                        Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                        popupNoInternetConnection();
                         return;
                     }
                 } catch (error){  }
@@ -90,7 +104,7 @@ angular.module('lifeUp.emailSignIn', [])
                             Util.hideLoading();
                             $scope.blurBackground = true;
 
-                            var msg = 'Password reset email sent. Check your mail!';
+                            var msg = 'Password reset email sent. Please check your email!';
 
                             var alertPopup = $ionicPopup.alert({
                                 title: 'Done!',
@@ -125,13 +139,10 @@ angular.module('lifeUp.emailSignIn', [])
 
                 try {
                     if (!Util.isOnline()){
-                        Util.popup('No Internet Connection', 'You need to be connected to the internet to sign in. Please try again when you have a connection.', null, $scope);
+                        popupNoInternetConnection();
                         return;
                     }
-                }
-                catch(error){
-
-                }
+                } catch (error){  }
 
                 Util.showLoading();
 

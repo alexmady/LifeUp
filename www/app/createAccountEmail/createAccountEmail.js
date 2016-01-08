@@ -44,7 +44,7 @@ angular.module('lifeUp.createAccountEmail', [])
                     Util.showLoading();
 
 
-                    if (!user || !user.firstname){
+                    /*if (!user || !user.firstname){
                         Util.hideLoading();
                         Util.popup('Invalid', 'Please enter your first name.', null, $scope);
                         return;
@@ -54,7 +54,7 @@ angular.module('lifeUp.createAccountEmail', [])
                         Util.hideLoading();
                         Util.popup('Invalid', 'Please enter your surname.', null, $scope);
                         return;
-                    }
+                    }*/
 
                     if (!user.courseCode){
                         Util.hideLoading();

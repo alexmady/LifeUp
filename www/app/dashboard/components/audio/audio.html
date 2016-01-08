@@ -9,10 +9,20 @@
 
             <div class="list card" ng-repeat="audio in audios" style="height: 100%" ng-click="open(audio)">
 
-                    <div class="item item-divider">
+                    <!--<div class="item item-divider">
+
+
+                    </div>-->
+
+                <ion-item>
+                    <div class="item-icon-left">
+                        <i class="icon ion-volume-medium"></i>
                         <p style="font-size: 22px" class="lifeup-audio-title">{{audio.name}}</p>
-                        <!--<p>{{audioDic[audio.src].duration }}</p>-->
                     </div>
+                    <div class="item-icon-right">
+                        <i class="icon ion-ios-arrow-right"></i>
+                    </div>
+                </ion-item>
 
                 <!--    <div class="item item-body">
                         <rzslider style="margin:0"

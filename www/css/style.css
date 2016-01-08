@@ -290,6 +290,13 @@ and (orientation : portrait) {
     font-family: 'Amatic SC', cursive;
 }
 
+.course-code-popup .popup {
+    width: 65%!important;
+    font-family: 'Amatic SC', cursive;
+    border: 0;
+    background-color: cornflowerblue;
+}
+
 .course-label-popup.popup-container .popup {
     background-color: transparent !important;
     opacity: 0.4;
@@ -307,6 +314,10 @@ and (orientation : portrait) {
 
 }
 
+.popup-head {
+    border: 0;
+}
+
 .course-label-popup .popup-buttons {
     display: inline-block;
     font-family: 'Amatic SC', cursive;
@@ -315,6 +326,21 @@ and (orientation : portrait) {
 }
 
 .course-label-popup .popup-buttons .button{
+    display: inline-block;
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    background-color: cornflowerblue;
+}
+
+
+.course-code-popup .popup-buttons {
+    display: inline-block;
+    font-family: 'Amatic SC', cursive;
+    align-items: center;
+    text-align: center;
+}
+
+.course-code-popup .popup-buttons .button{
     display: inline-block;
     font-family: 'Amatic SC', cursive;
     font-size: 30px;
@@ -567,7 +593,7 @@ input[type="text"], input[type="password"]{
 .lifeup-audio-title {
     font-family: 'Amatic SC', cursive;
     color: white;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .lifeup-nav-title {

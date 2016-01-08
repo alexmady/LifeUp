@@ -40,12 +40,26 @@ angular.module('lifeUp.user', ['firebase'])
                 this.history = {};
                 this.role = 'user';
                 this.email = user.email;
-                this.firstname = user.firstname;
-                this.surname = user.surname;
+                //this.firstname = user.firstname;
+                //this.surname = user.surname;
                 this.tag = user.tag;
                 this.courseCode = user.courseCode;
 
                 return this.$save();
+            },
+
+
+            updateAudioProgress: function (audioName, event){
+
+                var dt = new Date();
+                this.lastAudioActivityDate = dt.getTime();
+
+                if (!this.audioHistory){
+                    this.audioHistory = {};
+                }
+
+                this.audioHistory[this.lastAudioActivityDate] = { audioName: audioName, audioEvent: event};
+                this.$save();
             },
 
             updateCourseProgress: function (module, slide, readyToClimb) {

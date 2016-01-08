@@ -34,6 +34,15 @@ angular.module('lifeUp.createAccount', [])
                 }
             } catch (error){ }
 
-            Util.facebookLogin($stateParams.answers, $scope.$new());
+            Util.showLoading();
+
+            Util.facebookLogin($stateParams.answers, $scope)
+                .then(function(){
+                    console.log('logged in with facebook');
+                    Util.hideLoading();
+                }).catch(function(error){
+                    Util.hideLoading();
+                    Util.popup('', error, null, $scope);
+                });
         };
     }]);

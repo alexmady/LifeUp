@@ -1,18 +1,21 @@
 <ion-view view-title="Sign-Up" class="lifeup-bg" ng-class="{blur: blurBackground}">
     <ion-content>
 
-        <div align="center" style="margin: 10%">
+        <div align="center" style="margin-top: 5%; margin-left: 10%;margin-right: 10%">
 
             <div>
                 <p class="lifeup-text">To track your progress and personalise your experience you'll need to create an
                     account with LifeUp.</p>
             </div>
-            <input style="width: 100%" type="text" placeholder="First name" ng-model="user.firstname">
-            <input style="width: 100%" type="text" placeholder="Surname" ng-model="user.surname">
+            <!--<input style="width: 100%" type="text" placeholder="First name" ng-model="user.firstname">-->
+            <!--<input style="width: 100%" type="text" placeholder="Surname" ng-model="user.surname">-->
             <input style="width: 100%" type="text" placeholder="Email address" ng-model="user.email">
-            <input style="width: 100%" type="password" placeholder="Password" ng-model="user.pass">
-            <input style="width: 100%" type="text" placeholder="Course Code" ng-model="user.courseCode">
-            <br/>
+            <div class="row" style="padding: 0">
+                <div class="col" style="padding: 0; margin-right: 10px">            <input style="width: 100%" type="password" placeholder="Password" ng-model="user.pass"></div>
+                <div class="col" style="padding: 0"><input style="width: 100%" type="text" placeholder="Course Code" ng-model="user.courseCode"></div>
+
+            </div>
+
 
             <br>
             <div>
@@ -22,7 +25,6 @@
                 </button>
             </div>
 
-            <br>
             <br>
             <div>
                 <p class="lifeup-text"> Don't worry - we will never share your data.</p>

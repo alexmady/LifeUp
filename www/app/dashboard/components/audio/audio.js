@@ -26,7 +26,7 @@ angular.module('lifeUp.audio', [ ])
                         return Auth.$requireAuth();
                     }]
                 }
-            })
+            });
     }])
 
     .controller('AudioCtrl', [ '$scope', 'Util', '$state',

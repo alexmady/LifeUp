@@ -31,8 +31,7 @@ angular.module('lifeUp.dashboard', [ ])
 
         Auth.$onAuth(function(data){
             $scope.authData = data;
+            $scope.isAdmin = profile.role === 'admin';
         });
-
-        $scope.isAdmin = profile.role === 'admin';
 
     }]);

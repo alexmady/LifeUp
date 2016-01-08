@@ -30,23 +30,29 @@ angular.module('lifeUp.audioPlayer', [ ])
                         // $requireAuth returns a promise so the resolve waits for it to complete
                         // If the promise is rejected, it will throw a $stateChangeError (see above)
                         return Auth.$requireAuth();
+                    }],
+                    "profile": [ "UserProfile", "Auth", function (UserProfile, Auth) {
+                        return UserProfile(Auth.$getAuth().uid).$loaded();
                     }]
                 }
             })
     }])
 
-    .controller('AudioPlayerCtrl', [ '$scope', 'Util', '$stateParams', '$state', function ( $scope, Util, $stateParams, $state ) {
+    .controller('AudioPlayerCtrl', [ '$scope', 'Util', '$stateParams', '$state', 'profile',
+        function ( $scope, Util, $stateParams, $state, profile ) {
 
             $scope.go = function () {
                 $scope.pause();
                 $state.go('dashboard.audio');
             };
 
-            //console.log('$stateParams.audio');
-            //console.log($stateParams.audio);
-
             $scope.audio = $stateParams.audio;
             $scope.audio.obj = new Audio();
+
+            $scope.audio.obj.addEventListener('ended', function(){
+                console.log($scope.audio.src + ' - ended');
+                profile.updateAudioProgress($scope.audio.src, 'Ended');
+            });
 
             $scope.audio.obj.addEventListener('loadedmetadata', function() {
                 $scope.audio.duration = Util.timeFormatter($scope.audio.obj.duration);
@@ -79,45 +85,14 @@ angular.module('lifeUp.audioPlayer', [ ])
                 }
             };
 
-        /*for (var i = 0;i< $scope.audios.length;i++){
-
-            (function(){
-
-
-
-
-                var audioObj = { audio: audio, seekValue: 0, time: '0:00'};
-
-                audio.ontimeupdate = function(){
-                    audioObj.seekValue = this.currentTime / this.duration * 100;
-                    audioObj.time = Util.timeFormatter(this.currentTime);
-                    $scope.$apply();
-                };
-
-                audioObj.slider = {
-                    value: 0,
-                    hideLimitLabels: true,
-                    options: {
-                        floor: 0,
-                        ceil: 100,
-                        translate: function(){
-                            return '';
-                        },
-                        onChange: function(){
-                            audio.currentTime = audioObj.seekValue / 100 * audioObj.audio.duration;
-                        }
-                    }
-                };
-
-                $scope.audioDic[$scope.audios[i].src] = audioObj;
-            })();
-        }*/
 
             $scope.play = function () {
+                profile.updateAudioProgress($scope.audio.src, 'Play');
                 $scope.audio.obj.play();
             };
 
             $scope.pause = function () {
+                profile.updateAudioProgress($scope.audio.src, 'Pause');
                 $scope.audio.obj.pause();
             };
 
