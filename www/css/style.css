@@ -564,6 +564,12 @@ input[type="text"], input[type="password"]{
     white-space: normal;
 }
 
+.lifeup-audio-title {
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    font-size: 18px;
+}
+
 .lifeup-nav-title {
     font-family: 'Amatic SC', cursive;
     color: white;

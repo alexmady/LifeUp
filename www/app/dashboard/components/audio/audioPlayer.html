@@ -1,0 +1,47 @@
+<ion-view view-title="Audio Player">
+    <ion-nav-buttons side="left">
+        <button ng-click="go()"
+                class="button button-clear ion-chevron-left" style="color: white;font-size: 24px">
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header lifeup-bg center">
+
+        <div class="center"><img src="img/mikeAudio.png" style="width: 50%;height: auto"/></div>
+
+        <div class="list card" style="height: 100%" >
+
+            <div class="item item-divider">
+                <p style="font-size: 22px" class="lifeup-audio-title">{{audio.name}}</p>
+                <p>{{audioDic[audio.src].duration }}</p>
+            </div>
+
+                <div class="item item-body">
+                    <rzslider style="margin:0"
+                            rz-slider-model="audio.seekValue"
+                            rz-slider-options="audio.obj.slider.options"></rzslider>
+                </div>
+
+             <div class="item tabs tabs-secondary tabs-icon-left">
+
+                 <a class="tab-item" ng-click="play()">
+                     <i class="icon ion-play"></i>
+                 </a>
+
+                 <a class="tab-item" ng-click="pause()">
+                     <i class="icon ion-pause"></i>
+                 </a>
+
+                <a class="tab-item">
+                    <p>{{audio.time}}</p>
+                </a>
+
+                 <a class="tab-item">
+                     <p>{{audio.duration}}</p>
+                 </a>
+
+             </div>
+        </div>
+
+     </ion-content>
+</ion-view>

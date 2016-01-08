@@ -29,7 +29,7 @@ angular.module('lifeUp.createAccount', [])
 
             try {
                 if (!Util.isOnline()){
-                    Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                    Util.popup('No Internet Connection', 'No internet connection. Please try again when you have an internet connection.', null, $scope);
                     return;
                 }
             } catch (error){ }

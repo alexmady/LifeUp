@@ -20,8 +20,8 @@ angular.module('lifeUp.createAccountEmail', [])
     }])
 
     .controller('CreateAccountEmailCtrl',
-        [ '$scope', '$rootScope', '$state', 'Auth', 'UserProfile', 'Util', '$stateParams', 'PromoCodes',
-            function ($scope, $rootScope, $state, Auth, UserProfile, Util, $stateParams, PromoCodes ) {
+        [ '$scope', '$rootScope', '$state', 'Auth', 'UserProfile', 'Util', '$stateParams', 'CourseCodes',
+            function ($scope, $rootScope, $state, Auth, UserProfile, Util, $stateParams, CourseCodes ) {
 
             $scope.go = function (goTo) {
                 $state.go(goTo)
@@ -33,7 +33,7 @@ angular.module('lifeUp.createAccountEmail', [])
 
                 try {
                     if (!Util.isOnline()){
-                        Util.popup('No Internet Connection', 'Please try again when you have a connection.', null, $scope);
+                        Util.popup('No Internet Connection', 'No internet connection. Please try again when you have an internet connection.', null, $scope);
                         return;
                     }
                 } catch( error ){ }
@@ -46,26 +46,26 @@ angular.module('lifeUp.createAccountEmail', [])
 
                     if (!user || !user.firstname){
                         Util.hideLoading();
-                        Util.popup('Invalid Code', 'Please enter your first name.', null, $scope);
+                        Util.popup('Invalid', 'Please enter your first name.', null, $scope);
                         return;
                     }
 
                     if (!user.surname){
                         Util.hideLoading();
-                        Util.popup('Invalid Code', 'Please enter your surname.', null, $scope);
+                        Util.popup('Invalid', 'Please enter your surname.', null, $scope);
                         return;
                     }
 
-                    if (!user.promoCode){
+                    if (!user.courseCode){
                         Util.hideLoading();
-                        Util.popup('Invalid Code', 'Please enter your LifeUp access code.', null, $scope);
+                        Util.popup('Invalid', 'Please enter your LifeUp course code.', null, $scope);
                         return;
                     }
 
-                    PromoCodes.$loaded()
+                    CourseCodes.$loaded()
                         .then(function(){
 
-                            var pc = PromoCodes[user.promoCode];
+                            var pc = CourseCodes[user.courseCode];
                             if (pc && !pc.used){
 
                                 return Auth.$createUser({
@@ -79,7 +79,7 @@ angular.module('lifeUp.createAccountEmail', [])
                                     }).then(function (data) {
 
                                         pc.used = true;
-                                        PromoCodes.$save();
+                                        CourseCodes.$save();
                                         user.tag = pc.tag;
 
                                         UserProfile(data.uid).create(user, $stateParams.answers);
@@ -92,9 +92,9 @@ angular.module('lifeUp.createAccountEmail', [])
                             }
                             Util.hideLoading();
                             if (pc && pc.used){
-                                Util.popup('Invalid Access Code!', 'The access code you specified has already been used.', null, $scope);
+                                Util.popup('Invalid Course Code!', 'The course code you specified has already been used.', null, $scope);
                             } else {
-                                Util.popup('Invalid Access Code!', 'The access code you entered does not exist. Please check your code and try again.', null, $scope);
+                                Util.popup('Invalid Course Code!', 'The course code you entered does not exist. Please check your code and try again.', null, $scope);
                             }
                         }).catch(function(error){
                             Util.hideLoading();

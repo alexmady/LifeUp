@@ -7,19 +7,12 @@
         </button>
     </ion-nav-buttons>
 
-    <ion-content class="home center" scroll="false" ng-if="!appService.enableApp">
-        <div>
-            <p class="lifeup-intro-text">
-                {{appService.disabledMessage}} 
-            </p>
-        </div>
-    </ion-content>
+    <ion-slide-box class="home" show-pager="true">
 
-    <ion-slide-box class="home" show-pager="true" ng-if="appService.enableApp">
+        </div>
         <ion-slide class="slide">
             <ion-content class="home center" scroll="false">
                 <div>
-
 
                     <div class="center">
                         <img class="center" src="img/surviveToThrive-01.png" style="width: 75%;height: auto"/>
@@ -139,10 +132,15 @@
 
     </ion-slide-box>
 
-    <ion-footer-bar class=" center lifeup-bg" ng-if="appService.enableApp">
-        <button class="button button-outline button-light button-block" ng-click="go('intro')">
+    <ion-footer-bar class="center lifeup-bg" >
+        <button class="button button-outline button-light button-block" ng-click="go('intro')" ng-if="appService.enableApp">
             GET STARTED!
         </button>
-    </ion-footer-bar>
 
+        <div ng-if="!appService.enableApp">
+            <p class="lifeup-intro-text">
+                {{appService.disabledMessage}} 
+            </p>
+         </div>
+    </ion-footer-bar>
 </ion-view>

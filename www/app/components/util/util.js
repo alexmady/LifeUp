@@ -4,13 +4,19 @@
 
 angular.module('lifeUp.util', ['ionic'])
 
-    .factory('Util', ['$ionicLoading', '$cordovaFacebook', 'Auth', 'UserProfile', '$state', '$ionicPopup', '$cordovaNetwork', '$window', '$http', 'PromoCodes',
+    .factory('Util', ['$ionicLoading', '$cordovaFacebook', 'Auth', 'UserProfile', '$state', '$ionicPopup', '$cordovaNetwork', '$window', '$http', 'CourseCodes',
 
-        function ($ionicLoading, $cordovaFacebook, Auth, UserProfile, $state, $ionicPopup, $cordovaNetwork, $window, $http, PromoCodes) {
+        function ($ionicLoading, $cordovaFacebook, Auth, UserProfile, $state, $ionicPopup, $cordovaNetwork, $window, $http, CourseCode) {
 
             var showLoading = function () {
                 $ionicLoading.show({
                     template: '<ion-spinner icon="bubbles"></ion-spinner>'
+                });
+            };
+
+            var showLoadingInternet = function () {
+                $ionicLoading.show({
+                    templateUrl: 'app/components/util/internetLoadingTemplate.html'
                 });
             };
 
@@ -198,30 +204,30 @@ angular.module('lifeUp.util', ['ionic'])
                 }
             };
 
-            function validatePromoCode(code, scope, goalQuestionsAnswers, profile, authData) {
+            function validateCourseCode(code, scope, goalQuestionsAnswers, profile, authData) {
 
-                return PromoCodes.$loaded()
+                return CourseCode.$loaded()
                     .then(function () {
 
-                        var pc = PromoCodes[code];
-                        if (!pc) {
-                            popup('Error!', 'The code you entered does not exist or is no longer valid.', null, scope);
+                        var cc = CourseCode[code];
+                        if (!cc) {
+                            popup('Error!', 'The course code you entered does not exist.', null, scope);
                         } else {
 
-                            if (!pc.used) {
+                            if (!cc.used) {
 
                                 var user = {
                                     email: authData.facebook.email,
                                     firstname: authData.facebook.cachedUserProfile.first_name,
                                     surname: authData.facebook.cachedUserProfile.last_name,
-                                    tag: pc.tag,
-                                    promoCode: code
+                                    tag: cc.tag,
+                                    courseCode: code
                                 };
 
                                 return profile.create(user, goalQuestionsAnswers)
                                     .then(function () {
-                                        pc.used = true;
-                                        return PromoCodes.$save()
+                                        cc.used = true;
+                                        return CourseCode.$save()
                                             .then(function(){
                                                 $state.go('dashboard.dashboardHome');
                                                 hideLoading();
@@ -229,7 +235,7 @@ angular.module('lifeUp.util', ['ionic'])
                                     });
                             } else {
                                 hideLoading();
-                                popup('Used!', 'The code you specified has already been used.', null, scope);
+                                popup('Error!', 'The code you specified is no longer available.', null, scope);
                             }
                         }
                     }).catch(function (error) {
@@ -256,21 +262,21 @@ angular.module('lifeUp.util', ['ionic'])
                             scope.data = {};
 
                             var myPopup = $ionicPopup.prompt({
-                                template: '<input autofocus type="text" placeholder="Access Code" ng-model="data.promoCode">',
-                                title: 'Please enter your Access Code',
+                                template: '<input autofocus type="text" placeholder="Course Code" ng-model="data.courseCode">',
+                                title: 'Please enter your Course Code',
                                 subTitle: '',
                                 scope: scope,
                                 buttons: [
-                                    { text: 'Cancel' },
+                                    { text: 'CANCEL' },
                                     {
-                                        text: '<b>Validate</b>',
+                                        text: '<b>GO</b>',
                                         type: 'button-positive',
                                         onTap: function (e) {
-                                            if (!scope.data.promoCode) {
+                                            if (!scope.data.courseCode) {
                                                 //don't allow the user to close unless he enters wifi password
                                                 e.preventDefault();
                                             } else {
-                                                return scope.data.promoCode;
+                                                return scope.data.courseCode;
                                             }
                                         }
                                     }
@@ -279,7 +285,7 @@ angular.module('lifeUp.util', ['ionic'])
 
                             myPopup.then(function (code) {
                                 console.log('input access code:', code);
-                                validatePromoCode(code, scope, goalsQuestionsAnswers, profile, authData);
+                                validateCourseCode(code, scope, goalsQuestionsAnswers, profile, authData);
                             });
 
                         } else {
@@ -290,6 +296,18 @@ angular.module('lifeUp.util', ['ionic'])
                     });
             };
 
+            var timeFormatter = function (arg) {
+                var sec_num = parseInt(arg, 10); // don't forget the second param
+                var hours   = Math.floor(sec_num / 3600);
+                var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+                var seconds = sec_num - (hours * 3600) - (minutes * 60);
+                if (hours   < 10) {hours   = "0"+hours;}
+                if (minutes < 10) {minutes = "0"+minutes;}
+                if (seconds < 10) {seconds = "0"+seconds;}
+                var time    = minutes+':'+seconds;
+                return time;
+            };
+
             var facebookLogin = function (goalsQuestionsAnswers, scope) {
 
                 var options = {
@@ -297,28 +315,34 @@ angular.module('lifeUp.util', ['ionic'])
                     scope: "email"
                 };
 
-                if (ionic.Platform.isWebView()) {
-                    $cordovaFacebook.login(["public_profile", "email"]).then(function (success) {
-                        Auth.$authWithOAuthToken("facebook", success.authResponse.accessToken).then(function (authData) {
+                try {
+                    if (ionic.Platform.isWebView()) {
+                        $cordovaFacebook.login(["public_profile", "email"]).then(function (success) {
+                            Auth.$authWithOAuthToken("facebook", success.authResponse.accessToken).then(function (authData) {
+                                checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
+                            });
+                        });
+                    }
+                    else {
+
+                        Auth.$authWithOAuthPopup("facebook", options).then(function (authData) {
                             checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
                         });
-                    });
-                }
-                else {
-
-                    Auth.$authWithOAuthPopup("facebook", options).then(function (authData) {
-                        checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
-                    });
+                    }
+                } catch (error){
+                    hideLoading();
                 }
             };
 
             return {
                 showLoading: showLoading,
+                showLoadingInternet: showLoadingInternet,
                 hideLoading: hideLoading,
                 facebookLogin: facebookLogin,
                 popup: popup,
                 isOnline: isOnline,
-                imageOptions: imageOptions
+                imageOptions: imageOptions,
+                timeFormatter: timeFormatter
             };
         }
     ]);

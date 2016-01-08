@@ -5,11 +5,12 @@
 
 angular.module('lifeUp.admin', [])
 
-    .config( ['$stateProvider', function($stateProvider) {
+    .config( ['$stateProvider', function($stateProvider) {ionic
 
         $stateProvider
             .state('dashboard.admin', {
                 url: "/admin",
+                cache: false,
                 views: {
                     'dashboardContent': {
                         templateUrl: "app/dashboard/components/admin/admin.html",
@@ -31,16 +32,16 @@ angular.module('lifeUp.admin', [])
             })
     }])
 
-    .controller('AdminCtrl', [ '$scope', 'profile', 'PromoCodes', function( $scope, profile, PromoCodes ) {
+    .controller('AdminCtrl', [ '$scope', 'profile', 'CourseCodes', function( $scope, profile, CourseCodes ) {
 
         $scope.isAdmin = profile.role === 'admin';
 
-        $scope.addPromoCode = function(numberOfCodesToCreate, tag){
+        $scope.addCourseCodes = function(numberOfCodesToCreate, tag){
 
             console.log('generating ' + numberOfCodesToCreate + ' with tag ' + tag);
 
             try {
-                var obj = PromoCodes;
+                var obj = CourseCodes;
                 obj.$loaded()
                     .then(function(){
 
@@ -65,7 +66,5 @@ angular.module('lifeUp.admin', [])
             } catch( error ){
                 console.log(error);
             }
-
         };
-
     }]);

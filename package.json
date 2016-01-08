@@ -30,7 +30,8 @@
     "cordova-plugin-splashscreen",
     "org.apache.cordova.network-information",
     "org.apache.cordova.statusbar",
-    "cordova-plugin-statusbar"
+    "cordova-plugin-statusbar",
+    "cordova-plugin-media"
   ],
   "cordovaPlatforms": [
     "android",

@@ -43,7 +43,7 @@ angular.module('lifeUp.user', ['firebase'])
                 this.firstname = user.firstname;
                 this.surname = user.surname;
                 this.tag = user.tag;
-                this.promoCode = user.promoCode;
+                this.courseCode = user.courseCode;
 
                 return this.$save();
             },

@@ -1,6 +1,7 @@
 angular.module('lifeUp', [
     'ionic',
     'ngCordova',
+    'rzModule',
     'monospaced.elastic',
     'angularMoment',
     'ngIOS9UIWebViewPatch',
@@ -9,7 +10,7 @@ angular.module('lifeUp', [
     'lifeUp.auth',
     'lifeUp.chat',
     'lifeUp.messages',
-    'lifeUp.promoCodes',
+    'lifeUp.courseCodes',
     'lifeUp.user',
     'lifeUp.util',
     'lifeUp.config',
@@ -21,6 +22,8 @@ angular.module('lifeUp', [
     'lifeUp.createAccountEmail',
     'lifeUp.dashboard',
     'lifeUp.course',
+    'lifeUp.audio',
+    'lifeUp.audioPlayer',
     'lifeUp.instructions',
     'lifeUp.what',
     'lifeUp.admin',
@@ -60,6 +63,8 @@ angular.module('lifeUp', [
                     $state.go('home');
                 }
             });
+
+
 
             $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
 

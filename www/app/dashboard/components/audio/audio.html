@@ -1,0 +1,43 @@
+<ion-view view-title="Audio">
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon" style="color: white"></button>
+    </ion-nav-buttons>
+
+        <ion-content class="has-header lifeup-bg" >
+
+
+            <div class="list card" ng-repeat="audio in audios" style="height: 100%" ng-click="open(audio)">
+
+                    <div class="item item-divider">
+                        <p style="font-size: 22px" class="lifeup-audio-title">{{audio.name}}</p>
+                        <!--<p>{{audioDic[audio.src].duration }}</p>-->
+                    </div>
+
+                <!--    <div class="item item-body">
+                        <rzslider style="margin:0"
+                                rz-slider-model="audioDic[audio.src].seekValue"
+                                rz-slider-options="audioDic[audio.src].slider.options"></rzslider>
+                    </div> -->
+
+                   <!-- <div class="item tabs tabs-secondary tabs-icon-left">
+                        <!--<a class="tab-item" ng-click="playTrack(audio.src)">
+                            <i class="icon ion-play"></i>
+                        </a>
+                        <a class="tab-item" ng-click="pauseTrack(audio.src)">
+                            <i class="icon ion-pause"></i>
+                        </a> -->
+
+                        <!--<a class="tab-item">
+                            <p>{{audioDic[audio.src].time}}</p>
+                        </a>
+
+                        <a class="tab-item">
+
+                        </a>
+                    </div>-->
+
+            </div>
+
+        </ion-content>
+</ion-view>
