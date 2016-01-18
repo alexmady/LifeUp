@@ -1,21 +1,24 @@
-<ion-view view-title="I" ng-class="{blur: blurBackground}">
+<ion-modal-view ng-class="{blur: blurBackground}" class="image-modal">
 
-    <ion-nav-buttons side="right">
+    <ion-header-bar class="lifeup-bg">
+
+        <div class="title lifeup-nav-title">I</div>
+
+        <button ng-click="hideModal()"
+                class="button button-clear ion-chevron-left" style="color: white; font-size: 22px">
+        </button>
+
         <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!enableCompleteButton"
                 class="button button-clear ion-android-checkbox-outline {{animateCompleteButton}}"
                 style="color: white;font-size: 24px">
         </button>
-    </ion-nav-buttons>
-    <ion-nav-buttons side="left">
-        <button ng-click="go()"
-                class="button button-clear ion-chevron-left" style="color: white;font-size: 24px">
-        </button>
-    </ion-nav-buttons>
 
-    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+    </ion-header-bar>
 
-        <ion-slide class="slide">
-            <ion-content class="courseSlide">
+    <ion-content style="height: 100vh" class="has-header">
+        <ion-slide-box class="course" on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+                <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
 
                 <div class="lifeup-page-title">
                     I am. Thriving. Now.
@@ -120,9 +123,9 @@
                 Congratulations, you have now completed 'Authenticity', the final stage in climbing the mindfulness maintain and accessing your natural joyful state of being.
                 </div>
 
-            </ion-content>
-        </ion-slide>
+</ion-scroll>        </ion-slide>
 
 
     </ion-slide-box>
-</ion-view>
+</ion-content>
+    </ion-modal-view>

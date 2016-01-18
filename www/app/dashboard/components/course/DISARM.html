@@ -1,251 +1,254 @@
-<ion-view view-title="{{title}}">
+<ion-modal-view ng-class="{blur: blurBackground}" class="image-modal">
 
-<ion-nav-buttons side="right">
+<ion-header-bar class="lifeup-bg">
+
+    <div class="title lifeup-nav-title">DISARM</div>
+
+    <button ng-click="hideModal()"
+            class="button button-clear ion-chevron-left" style="color: white; font-size: 22px">
+    </button>
+
     <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!enableCompleteButton"
             class="button button-clear ion-android-checkbox-outline {{animateCompleteButton}}"
             style="color: white;font-size: 24px">
     </button>
-</ion-nav-buttons>
-<ion-nav-buttons side="left">
-    <button ng-click="go()"
-            class="button button-clear ion-chevron-left" style="color: white; font-size: 22px">
-    </button>
-</ion-nav-buttons>
 
-<ion-slide-box on-slide-changed="slideHasChanged($index)">
+</ion-header-bar>
 
-<ion-slide class="slide">
-    <ion-content class="courseSlide">
+<ion-content style="height: 100vh" class="has-header">
+<ion-slide-box class="course" on-slide-changed="slideHasChanged($index)">
+<ion-slide>
+<ion-scroll direction="y" style="height: 90vh;bottom: 20px;">
 
-        <div class="lifeup-page-title">
-            Discover unhelpful thoughts
+<div class="lifeup-page-title">
+    Discover unhelpful thoughts
+</div>
+
+<div style="width: 100%">
+    <div class="row row-center" style="opacity: 1">
+        <div style="text-align: right" class="col-25">
+            <span class="lifeup-acronym-title">D</span>
         </div>
-
-        <div style="width: 100%" >
-            <div class="row row-center" style="opacity: 1">
-                <div style="text-align: right" class="col-25">
-                    <span class="lifeup-acronym-title">D</span>
-                </div>
-                <div class="col-75" style="margin-left: 15px">
-                    <span class="lifeup-acronym-title">DISCOVER</span>
-                </div>
-            </div>
-            <div class="row row-center" style="opacity: 0.5">
-                <div style="text-align: right" class="col-25">
-                    <span class="lifeup-acronym-title">I</span>
-                </div>
-                <div class="col-75" style="margin-left: 15px">
-                    <span class="lifeup-acronym-title">IDENTIFY</span>
-                </div>
-            </div>
-            <div class="row row-center" style="opacity: 0.5">
-                <div style="text-align: right" class="col-25">
-                    <span class="lifeup-acronym-title">S</span>
-                </div>
-                <div class="col-75" style="margin-left: 15px">
-                    <span class="lifeup-acronym-title">SEPARATE</span>
-                </div>
-            </div>
-            <div class="row row-center" style="opacity: 0.5">
-                <div style="text-align: right" class="col-25">
-                    <span class="lifeup-acronym-title">A</span>
-                </div>
-                <div class="col-75" style="margin-left: 15px">
-                    <span class="lifeup-acronym-title">ALLOW</span>
-                </div>
-            </div>
-
-            <div class="row row-center" style="opacity: 0.5">
-                <div style="text-align: right" class="col-25">
-                    <span class="lifeup-acronym-title">R</span>
-                </div>
-                <div class="col-75" style="margin-left: 15px">
-                    <span class="lifeup-acronym-title">RECOVER</span>
-                </div>
-            </div>
-
-            <div class="row row-center" style="opacity: 0.5">
-                <div style="text-align: right" class="col-25">
-                    <span class="lifeup-acronym-title">M</span>
-                </div>
-                <div class="col-75" style="margin-left: 15px">
-                    <span class="lifeup-acronym-title">MASTER</span>
-                </div>
-            </div>
+        <div class="col-75" style="margin-left: 15px">
+            <span class="lifeup-acronym-title">DISCOVER</span>
         </div>
-
-        <div class="lifeup-page-text-heading">
-            D is for Discover unhelpful thoughts
+    </div>
+    <div class="row row-center" style="opacity: 0.5">
+        <div style="text-align: right" class="col-25">
+            <span class="lifeup-acronym-title">I</span>
         </div>
-
-        <div class="lifeup-page-text">
-            Practise 'Thought Monitoring' by using the DISARM technique, which is highly effective in interrupting
-            repetitive unconscious thought patterns and emotions, helping to depersonalise and dissipate them.
+        <div class="col-75" style="margin-left: 15px">
+            <span class="lifeup-acronym-title">IDENTIFY</span>
         </div>
-
-        <div class="center">
-            <img src="img/disarmBuddha.png" style="width: 90%;height: auto;margin: 5%"/>
+    </div>
+    <div class="row row-center" style="opacity: 0.5">
+        <div style="text-align: right" class="col-25">
+            <span class="lifeup-acronym-title">S</span>
         </div>
-
-
-        <div class="lifeup-page-text-heading">
-            Education
+        <div class="col-75" style="margin-left: 15px">
+            <span class="lifeup-acronym-title">SEPARATE</span>
         </div>
-
-
-        <div class="lifeup-page-text-heading2">
-            STEP 1: Observe your thoughts
+    </div>
+    <div class="row row-center" style="opacity: 0.5">
+        <div style="text-align: right" class="col-25">
+            <span class="lifeup-acronym-title">A</span>
         </div>
-
-        <div class="lifeup-page-text">
-            Are you having any involuntary, automatic or repetitive thoughts?
-            Is one thought fuelling another, and so on (snowballing)?
-            Are you judging or labelling, criticising, complaining or overly comparing?
+        <div class="col-75" style="margin-left: 15px">
+            <span class="lifeup-acronym-title">ALLOW</span>
         </div>
+    </div>
 
-        <div class="lifeup-page-text">
-            Just observe these thoughts – but don’t judge them.
+    <div class="row row-center" style="opacity: 0.5">
+        <div style="text-align: right" class="col-25">
+            <span class="lifeup-acronym-title">R</span>
         </div>
-
-        <div class="lifeup-page-text-heading2">
-            STEP 2: Scan your body
+        <div class="col-75" style="margin-left: 15px">
+            <span class="lifeup-acronym-title">RECOVER</span>
         </div>
+    </div>
 
-        <div class="lifeup-page-text">
-            Direct your attention to the location of the feeling:
+    <div class="row row-center" style="opacity: 0.5">
+        <div style="text-align: right" class="col-25">
+            <span class="lifeup-acronym-title">M</span>
         </div>
-
-        <div class="lifeup-page-text">
-            <ol class="lifeup-page-text">
-                <li type="a"> Are you feeling any tension, anxiety or stress?</li>
-                <li type="a"> Is there any physical discomfort or unusual sensations?</li>
-                <li type="a"> Are you feeling negativity, irritation, resentment, anger, dissatisfaction?</li>
-            </ol>
+        <div class="col-75" style="margin-left: 15px">
+            <span class="lifeup-acronym-title">MASTER</span>
         </div>
+    </div>
+</div>
 
-        <div class="lifeup-page-text">
-            Consider the sensation and emotion. What situation/event is this linked to? What is the related thought and
-            situation causing this emotion?
-        </div>
+<div class="lifeup-page-text-heading">
+    D is for Discover unhelpful thoughts
+</div>
 
-        <hr class="line-margin">
+<div class="lifeup-page-text">
+    Practise 'Thought Monitoring' by using the DISARM technique, which is highly effective in interrupting
+    repetitive unconscious thought patterns and emotions, helping to depersonalise and dissipate them.
+</div>
 
-        <div class="lifeup-page-text-heading">
-            Activity
-        </div>
+<div class="center">
+    <img src="img/disarmBuddha.png" style="width: 90%;height: auto;margin: 5%"/>
+</div>
 
-        <div class="lifeup-page-text-heading2">
-            “Thought Snap”
-        </div>
 
-        <div class="lifeup-page-text">
-            A thought snap is a simple way to take a snapshot of your mind’s thought chatter.
-        </div>
+<div class="lifeup-page-text-heading">
+    Education
+</div>
 
-        <div class="lifeup-page-text">
-            Either in your phone notes or in a journal, write down the following in as few words as possible.
-        </div>
 
-        <div class="lifeup-page-text">
-            <ol>
-                <li>1. The dominant thought</li>
-                <li>2. The situation or likely trigger</li>
-                <li>3. Your dominant emotion</li>
-                <li>4. Your struggle Rating</li>
-            </ol>
-        </div>
+<div class="lifeup-page-text-heading2">
+    STEP 1: Observe your thoughts
+</div>
 
-        <div class="lifeup-page-text">
-            The struggle rating is the strength of your emotions and how they are impacting on your state of mind on a
-            scale of 1-10 (where 1 is ‘barely at all’ and 10 is ‘overwhelmed’).
-        </div>
+<div class="lifeup-page-text">
+    Are you having any involuntary, automatic or repetitive thoughts?
+    Is one thought fuelling another, and so on (snowballing)?
+    Are you judging or labelling, criticising, complaining or overly comparing?
+</div>
 
-        <div class="lifeup-page-text">
-            Don’t judge anything as good or bad, don't think too much about it, just notice a thought or emotion and
-            ‘snap’ it. Remember, often it’s the emotion you discover first, which helps you uncover the related
-            situation, from which you then discover the unhelpful thought.
-        </div>
+<div class="lifeup-page-text">
+    Just observe these thoughts – but don’t judge them.
+</div>
 
-        <div class="lifeup-page-text-heading2">
-            Examples:
-        </div>
+<div class="lifeup-page-text-heading2">
+    STEP 2: Scan your body
+</div>
 
-        <div class="lifeup-page-text">
-            'Why doesn't my friend like me?!'
-        </div>
+<div class="lifeup-page-text">
+    Direct your attention to the location of the feeling:
+</div>
 
-        <div class="lifeup-page-text">
-            Dave/Davina didn't call me back
-        </div>
+<div class="lifeup-page-text">
+    <ol class="lifeup-page-text">
+        <li type="a"> Are you feeling any tension, anxiety or stress?</li>
+        <li type="a"> Is there any physical discomfort or unusual sensations?</li>
+        <li type="a"> Are you feeling negativity, irritation, resentment, anger, dissatisfaction?</li>
+    </ol>
+</div>
 
-        <div class="lifeup-page-text">
-            Annoyed / insecure
-        </div>
+<div class="lifeup-page-text">
+    Consider the sensation and emotion. What situation/event is this linked to? What is the related thought and
+    situation causing this emotion?
+</div>
 
-        <div class="lifeup-page-text">
-            7 out of 10 struggle
-        </div>
+<hr class="line-margin">
 
-        <div class="lifeup-page-text-heading2">
-            Or
-        </div>
+<div class="lifeup-page-text-heading">
+    Activity
+</div>
 
-        <div class="lifeup-page-text">
-            'Everyone is relying on me, I can't fail'
-        </div>
+<div class="lifeup-page-text-heading2">
+    “Thought Snap”
+</div>
 
-        <div class="lifeup-page-text">
-            Delivery of management report to impossible timeline
-        </div>
+<div class="lifeup-page-text">
+    A thought snap is a simple way to take a snapshot of your mind’s thought chatter.
+</div>
 
-        <div class="lifeup-page-text">
-            Overwhelmed, stressed, burned out, loss of control
-        </div>
+<div class="lifeup-page-text">
+    Either in your phone notes or in a journal, write down the following in as few words as possible.
+</div>
 
-        <div class="lifeup-page-text">
-            8 out of 10 struggle
-        </div>
+<div class="lifeup-page-text">
+    <ol>
+        <li>1. The dominant thought</li>
+        <li>2. The situation or likely trigger</li>
+        <li>3. Your dominant emotion</li>
+        <li>4. Your struggle Rating</li>
+    </ol>
+</div>
 
-        <div class="lifeup-page-text-heading2">
-            Or
-        </div>
+<div class="lifeup-page-text">
+    The struggle rating is the strength of your emotions and how they are impacting on your state of mind on a
+    scale of 1-10 (where 1 is ‘barely at all’ and 10 is ‘overwhelmed’).
+</div>
 
-        <div class="lifeup-page-text">
-            Trevor is so useless, I can't believe he got promoted over me!
-        </div>
+<div class="lifeup-page-text">
+    Don’t judge anything as good or bad, don't think too much about it, just notice a thought or emotion and
+    ‘snap’ it. Remember, often it’s the emotion you discover first, which helps you uncover the related
+    situation, from which you then discover the unhelpful thought.
+</div>
 
-        <div class="lifeup-page-text">
-            I got passed up for promotion again
-        </div>
+<div class="lifeup-page-text-heading2">
+    Examples:
+</div>
 
-        <div class="lifeup-page-text">
-            Frustrated/resentful/vengeful
-        </div>
+<div class="lifeup-page-text">
+    'Why doesn't my friend like me?!'
+</div>
 
-        <div class="lifeup-page-text">
-            5 out of 10 struggle
-        </div>
-        <hr class="line-margin">
+<div class="lifeup-page-text">
+    Dave/Davina didn't call me back
+</div>
 
-        <div class="lifeup-page-text-heading2">
-            Take away
-        </div>
+<div class="lifeup-page-text">
+    Annoyed / insecure
+</div>
 
-        <div class="lifeup-page-text">
-            'Thought Snap’ your thought chatter to discover any unhelpful thoughts and emotions - an essential part of
-            interrupting, depersonalising and dissipating unhelpful thinking!
-        </div>
-    </ion-content>
+<div class="lifeup-page-text">
+    7 out of 10 struggle
+</div>
+
+<div class="lifeup-page-text-heading2">
+    Or
+</div>
+
+<div class="lifeup-page-text">
+    'Everyone is relying on me, I can't fail'
+</div>
+
+<div class="lifeup-page-text">
+    Delivery of management report to impossible timeline
+</div>
+
+<div class="lifeup-page-text">
+    Overwhelmed, stressed, burned out, loss of control
+</div>
+
+<div class="lifeup-page-text">
+    8 out of 10 struggle
+</div>
+
+<div class="lifeup-page-text-heading2">
+    Or
+</div>
+
+<div class="lifeup-page-text">
+    Trevor is so useless, I can't believe he got promoted over me!
+</div>
+
+<div class="lifeup-page-text">
+    I got passed up for promotion again
+</div>
+
+<div class="lifeup-page-text">
+    Frustrated/resentful/vengeful
+</div>
+
+<div class="lifeup-page-text">
+    5 out of 10 struggle
+</div>
+<hr class="line-margin">
+
+<div class="lifeup-page-text-heading2">
+    Take away
+</div>
+
+<div class="lifeup-page-text">
+    'Thought Snap’ your thought chatter to discover any unhelpful thoughts and emotions - an essential part of
+    interrupting, depersonalising and dissipating unhelpful thinking!
+</div>
+</ion-scroll>
 </ion-slide>
 
 <ion-slide class="slide">
-    <ion-content class="courseSlide">
+    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
 
         <div class="lifeup-page-title">
             Identify the underlying script
         </div>
 
-        <div style="width: 100%" >
+        <div style="width: 100%">
             <div class="row row-center" style="opacity: 0.5">
                 <div style="text-align: right" class="col-25">
                     <span class="lifeup-acronym-title">D</span>
@@ -390,17 +393,18 @@
             unhelpful thinking.
         </div>
 
-    </ion-content>
+    </ion-scroll>
 </ion-slide>
 
-<ion-slide class="slide">
-    <ion-content class="courseSlide">
+<ion-slide class="slide ">
+    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+
 
         <div class="lifeup-page-title">
             Separate yourself from your thoughts (the breakup!)
         </div>
 
-        <div style="width: 100%" >
+        <div style="width: 100%">
             <div class="row row-center" style="opacity: 0.5">
                 <div style="text-align: right" class="col-25">
                     <span class="lifeup-acronym-title">D</span>
@@ -524,18 +528,20 @@
             them absolute truth or an accurate representation of reality.
         </div>
 
-    </ion-content>
+    </ion-scroll>
+
 </ion-slide>
 
 <ion-slide class="slide">
-    <ion-content class="courseSlide">
+
+    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
 
 
         <div class="lifeup-page-title">
             Allowing thoughts and emotions
         </div>
 
-        <div style="width: 100%" >
+        <div style="width: 100%">
             <div class="row row-center" style="opacity: 0.5">
                 <div style="text-align: right" class="col-25">
                     <span class="lifeup-acronym-title">D</span>
@@ -662,17 +668,19 @@
             By positively asserting that we allow the unhelpful thoughts 'to be' it drives a behaviour of acceptance and
             actually further depersonalises and dissipates unhelpful thoughts as they are not fuelled by our attention.
         </div>
-    </ion-content>
+    </ion-scroll>
 </ion-slide>
 
 <ion-slide class="slide">
-    <ion-content class="courseSlide">
+
+    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+
 
         <div class="lifeup-page-title">
             Recover your mind
         </div>
 
-        <div style="width: 100%" >
+        <div style="width: 100%">
             <div class="row row-center" style="opacity: 0.5">
                 <div style="text-align: right" class="col-25">
                     <span class="lifeup-acronym-title">D</span>
@@ -726,7 +734,7 @@
         </div>
 
         <div class="lifeup-page-text-heading">
-        R is for Recover your mind
+            R is for Recover your mind
         </div>
 
         <div class="center">
@@ -734,7 +742,7 @@
         </div>
 
         <div class="lifeup-page-text-heading">
-        Education
+            Education
         </div>
 
         <div class="lifeup-page-text">
@@ -752,53 +760,69 @@
         <hr class="line-margin">
 
         <div class="lifeup-page-text-heading">
-        Activity
+            Activity
         </div>
 
         <div class="lifeup-page-text-heading2">
-        "Thought Break"
+            "Thought Break"
         </div>
 
         <div class="lifeup-page-text">
-        A Thought Break is five power breaths.
+            A Thought Break is five power breaths.
         </div>
 
         <div class="lifeup-page-text">
-        As always, remember to <font class="lifeup-page-text-heading2">BREATHE! </font>
+            As always, remember to <font class="lifeup-page-text-heading2">BREATHE! </font>
         </div>
 
         <div class="lifeup-page-text">
             <ul dir="ltr">
-                <li style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><span ><span style="color:#34AABC"><strong>B</strong></span>reathe <span style="color:#34AABC"><strong>R</strong></span>hythmically, <span style="color:#34AABC"><strong>E</strong></span>venly <span style="color:#34AABC"><strong>A</strong></span>nd, <span style="color:#34AABC"><strong>T</strong></span>hrough the <span style="color:#34AABC"><strong>H</strong></span>eart <span style="color:#34AABC"><strong>E</strong></span>verytime</span></li>
+                <li style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><span><span
+                        style="color:#34AABC"><strong>B</strong></span>reathe <span
+                        style="color:#34AABC"><strong>R</strong></span>hythmically, <span
+                        style="color:#34AABC"><strong>E</strong></span>venly <span
+                        style="color:#34AABC"><strong>A</strong></span>nd, <span
+                        style="color:#34AABC"><strong>T</strong></span>hrough the <span
+                        style="color:#34AABC"><strong>H</strong></span>eart <span
+                        style="color:#34AABC"><strong>E</strong></span>verytime</span></li>
             </ul>
         </div>
 
         <div class="lifeup-page-text">
-        To avoid any feelings of discomfort or shortness of breath use ‘ujjayi' (yogic) breathing during your Thought
-        Break. With your mouth closed, inhale and exhale through your nose while gently constricting your throat
-        muscles. If you are doing this correctly, you might sound a bit like you’re very gently snoring!
+            To avoid any feelings of discomfort or shortness of breath use ‘ujjayi' (yogic) breathing during your
+            Thought
+            Break. With your mouth closed, inhale and exhale through your nose while gently constricting your throat
+            muscles. If you are doing this correctly, you might sound a bit like you’re very gently snoring!
         </div>
 
         <div class="lifeup-page-text">
-        Ensure a proper exhale to give your lungs a chance to empty. Don’t force the inhale, it will happen naturally if
-        you fully exhale. Allow this slow constricted breathing to rebalance the gases in your bloodstream and relax
-        your mind and body.
+            Ensure a proper exhale to give your lungs a chance to empty. Don’t force the inhale, it will happen
+            naturally if
+            you fully exhale. Allow this slow constricted breathing to rebalance the gases in your bloodstream and relax
+            your mind and body.
         </div>
 
 
         <div class="lifeup-page-text">
-        Now take your five power breaths as follows:
+            Now take your five power breaths as follows:
         </div>
 
         <div class="lifeup-page-text">
             <ol class="lifeup-page-text">
-                <li type="disc">As you breathe in, count in your mind ‘5 in’, and as you breathe out, count ‘5 out”. Breathe in, count ‘4 in’.
-                Breathe out, count ‘4 out’, and so on.</li>
+                <li type="disc">As you breathe in, count in your mind ‘5 in’, and as you breathe out, count ‘5 out”.
+                    Breathe
+                    in, count ‘4 in’.
+                    Breathe out, count ‘4 out’, and so on.
+                </li>
 
-                <li type="disc">Continue the count down to ‘1 out’. If you forget what number you are at or are unsure, restart at 5.</li>
+                <li type="disc">Continue the count down to ‘1 out’. If you forget what number you are at or are unsure,
+                    restart at 5.
+                </li>
 
-                <li type="disc">The best way to notice if your mind has wandered is to listen to the way you say each number. Listen to the
-            inflection of the count... do you say ‘3 in!!’ or is it more of a ‘3 in.....?’</li>
+                <li type="disc">The best way to notice if your mind has wandered is to listen to the way you say each
+                    number. Listen to the
+                    inflection of the count... do you say ‘3 in!!’ or is it more of a ‘3 in.....?’
+                </li>
             </ol>
         </div>
 
@@ -806,25 +830,24 @@
         <hr class="line-margin">
 
         <div class="lifeup-page-text-heading">
-        Take away
+            Take away
         </div>
 
         <div class="lifeup-page-text">
-        Constant overthinking can strain our mental muscle. So take a regular ‘thought break’.
+            Constant overthinking can strain our mental muscle. So take a regular ‘thought break’.
         </div>
 
-    </ion-content>
+    </ion-scroll>
 </ion-slide>
 
 <ion-slide class="slide">
-    <ion-content class="courseSlide">
-
+    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
 
         <div class="lifeup-page-title">
-        Mastery of your thoughts
+            Mastery of your thoughts
         </div>
 
-        <div style="width: 100%" >
+        <div style="width: 100%">
             <div class="row row-center" style="opacity: 0.5">
                 <div style="text-align: right" class="col-25">
                     <span class="lifeup-acronym-title">D</span>
@@ -878,7 +901,7 @@
         </div>
 
         <div class="lifeup-page-text-heading">
-        M is for Mastery over your thoughts
+            M is for Mastery over your thoughts
         </div>
 
         <div class="center">
@@ -886,70 +909,81 @@
         </div>
 
         <div class="lifeup-page-text-heading">
-        Education
+            Education
         </div>
 
         <div class="lifeup-page-text">
-        When your attention wanders onto your unhelpful thoughts they can snowball and grow in your mind until they cloud your views and behaviour.
+            When your attention wanders onto your unhelpful thoughts they can snowball and grow in your mind until they
+            cloud your views and behaviour.
         </div>
 
         <div class="lifeup-page-text">
-        Picture your mind like a clear blue sky, expansive and ever-present. Now imagine your thoughts floating by like clouds. Remember there is a calm, still peaceful place behind turbulent thoughts and feelings.
+            Picture your mind like a clear blue sky, expansive and ever-present. Now imagine your thoughts floating by
+            like
+            clouds. Remember there is a calm, still peaceful place behind turbulent thoughts and feelings.
         </div>
 
         <div class="lifeup-page-text">
-        The sky can always make room for the weather. The calm follows the storm. The calm sky is always there when the weather has passed, still and expansive.
+            The sky can always make room for the weather. The calm follows the storm. The calm sky is always there when
+            the
+            weather has passed, still and expansive.
         </div>
 
         <div class="lifeup-page-text">
-        It’s easy to forget that you have a choice whether to believe your thoughts or not, a choice whether to take them personally; a choice to find the space around thoughts.
+            It’s easy to forget that you have a choice whether to believe your thoughts or not, a choice whether to take
+            them personally; a choice to find the space around thoughts.
         </div>
 
         <div class="lifeup-page-text">
-        By regularly noticing we are not our thoughts and by making a regular positive assertion that we are separate from our thoughts, we re-gain mastery of our minds.
+            By regularly noticing we are not our thoughts and by making a regular positive assertion that we are
+            separate
+            from our thoughts, we re-gain mastery of our minds.
         </div>
 
         <hr class="line-margin">
 
         <div class="lifeup-page-text-heading">
-        Activity
+            Activity
         </div>
 
         <div class="lifeup-page-text">
-        Read this sentence a few times, silently to yourself.
+            Read this sentence a few times, silently to yourself.
         </div>
 
         <div class="lifeup-page-text">
-        ‘I can hear the voice in my head reading this sentence’
+            ‘I can hear the voice in my head reading this sentence’
         </div>
 
         <div class="lifeup-page-text">
-        Notice how you can listen to the soundtrack of thoughts inside your head? This is a little trickier the first time you try it so don't worry if it wasn't obvious. With a little practice you can notice how you can observe your own thought process objectively.
+            Notice how you can listen to the soundtrack of thoughts inside your head? This is a little trickier the
+            first
+            time you try it so don't worry if it wasn't obvious. With a little practice you can notice how you can
+            observe
+            your own thought process objectively.
         </div>
 
         <div class="lifeup-page-text">
-        Now say this sentence a few times, silently to yourself. Listen as you say it.
+            Now say this sentence a few times, silently to yourself. Listen as you say it.
         </div>
 
         <div class="lifeup-page-text">
-        I choose not to personalise my thoughts’ about... [insert thought here]
+            I choose not to personalise my thoughts’ about... [insert thought here]
         </div>
 
 
         <hr class="line-margin">
 
         <div class="lifeup-page-text-heading">
-        Take away
+            Take away
         </div>
 
         <div class="lifeup-page-text">
-        By regularly observing that we are not our thoughts, we re-gain mastery of our minds.
+            By regularly observing that we are not our thoughts, we re-gain mastery of our minds.
         </div>
 
-    </ion-content>
+    </ion-scroll>
 </ion-slide>
 
-
 </ion-slide-box>
-</ion-view>
-
+</ion-content>
+</ion-modal-view>

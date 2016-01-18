@@ -4,9 +4,29 @@
 
 angular.module('lifeUp.util', ['ionic'])
 
-    .factory('Util', ['$ionicLoading', '$cordovaFacebook', 'Auth', 'UserProfile', '$state', '$ionicPopup', '$cordovaNetwork', '$window', '$http', 'CourseCodes',
+    .factory('Util', [
 
-        function ($ionicLoading, $cordovaFacebook, Auth, UserProfile, $state, $ionicPopup, $cordovaNetwork, $window, $http, CourseCode) {
+        '$ionicLoading',
+        '$cordovaFacebook',
+        'Auth',
+        'UserProfile',
+        '$state',
+        '$ionicPopup',
+        '$cordovaNetwork',
+        '$window',
+        '$http',
+
+        function (
+
+            $ionicLoading,
+            $cordovaFacebook,
+            Auth,
+            UserProfile,
+            $state,
+            $ionicPopup,
+            $cordovaNetwork,
+            $window,
+            $http   ) {
 
             var showLoading = function () {
                 $ionicLoading.show({
@@ -46,17 +66,39 @@ angular.module('lifeUp.util', ['ionic'])
                         $state.go(goTo);
                     }
                 });
-
-
-
-
             };
 
+            var logout = function(profile){
+
+                if (!profile){
+                    throw new Error('Can not log out because profile arg not supplied');
+                } else {
+                    profile.clear();
+                    Auth.$unauth();
+                    $state.go('home');
+                }
+            };
 
             var isOnline = function () {
                 var online = $cordovaNetwork.isOnline();
                 return online;
             };
+
+
+            function makeAndroidFullscreen() {
+
+                function successFunction() {
+                }
+
+                function errorFunction(error) {
+                    console.log(error);
+                }
+
+                try {
+                    // Hide system UI and keep it hidden (Android 4.4+ only)
+                    AndroidFullScreen.immersiveMode(successFunction, errorFunction);
+                } catch (error) {}
+            }
 
             function processImages(spriteDataFileName, spritePNGFile, adjustment) {
 
@@ -88,7 +130,7 @@ angular.module('lifeUp.util', ['ionic'])
                                     posInfo.t = ((v.spriteSourceSize.y * scale ) - hAdjust) + 'px';
                                     posInfo.l = ((v.spriteSourceSize.x * scale ) - wAdjust) + 'px';
                                     items.push(posInfo);
-                                    //ioniconsole.log(posInfo);
+                                    //console.log(posInfo);
                                 }
                             });
                         });
@@ -107,12 +149,11 @@ angular.module('lifeUp.util', ['ionic'])
                         console.error('could not GET the sprites.');
 
                     });
-            };
-
+            }
 
             var imgOptions = null;
 
-            // returns a promise thta is resolved once the json file has been loaded
+            // returns a promise that is resolved once the json file has been loaded
             var imageOptions = function () {
 
                 if (imgOptions === null) {
@@ -122,15 +163,17 @@ angular.module('lifeUp.util', ['ionic'])
                     var innerWidth = $window.innerWidth;
                     var innerHeight = $window.innerHeight;
 
-                    console.log('sw ' + screenWidth + ' sh ' + screenHeight + ' iw ' + innerWidth + ' ih ' + innerHeight);
+                    //console.log('sw ' + screenWidth + ' sh ' + screenHeight + ' iw ' + innerWidth + ' ih ' + innerHeight);
 
+                    // UPDATE: now setting immersive moce so no menu is present.
                     // inner height is less on android when part of the screen is being used as
                     // the buttons area.
-
-                    screenWidth = innerWidth;
-                    screenHeight = innerHeight;
+                    //screenWidth = innerWidth;
+                    //screenHeight = innerHeight;
 
                     var devicePixelRatio = $window.devicePixelRatio;
+
+                    console.log('device pixel ratio: ' + devicePixelRatio);
 
                     var spritePNGFile = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
                     var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
@@ -161,8 +204,8 @@ angular.module('lifeUp.util', ['ionic'])
                             console.log('scaling....');
                             // TODO: choose most appropriate size to scale based on aspect ratio
 
-                            imageWidth = 1125;
-                            imageHeight = 2001;
+                            imageWidth = 750;
+                            imageHeight = 1334;
 
                             spritePNGFile = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.png';
                             spriteDataFileName = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.json';
@@ -188,7 +231,7 @@ angular.module('lifeUp.util', ['ionic'])
                                 adjustment.scaleFactor = (screenWidth ) / imageWidth;
                                 var scaledHeight = imageHeight * adjustment.scaleFactor;
                                 console.log('scaled height: ' + scaledHeight);
-                                adjustment.size = (scaledHeight - screenHeight ) / 2;
+                                adjustment.size = 0;//(scaledHeight - screenHeight ) / 4;
                             }
 
                             console.log(adjustment);
@@ -210,121 +253,39 @@ angular.module('lifeUp.util', ['ionic'])
                 }
             };
 
-            function validateCourseCode(code, scope, goalQuestionsAnswers, profile, authData) {
 
-                return CourseCode.$loaded()
-                    .then(function () {
-
-                        var cc = CourseCode[code];
-                        if (!cc) {
-                            throw new Error('The course code you entered does not exist.');
-                        } else {
-
-                            if (!cc.used) {
-
-                                var user = {
-                                    email: authData.facebook.email,
-                                    //firstname: authData.facebook.cachedUserProfile.first_name,
-                                    //surname: authData.facebook.cachedUserProfile.last_name,
-                                    tag: cc.tag,
-                                    courseCode: code
-                                };
-
-                                return profile.create(user, goalQuestionsAnswers)
-                                    .then(function () {
-                                        cc.used = true;
-                                        return CourseCode.$save()
-                                            .then(function(){
-                                                $state.go('dashboard.dashboardHome');
-                                                hideLoading();
-                                                return;
-                                            });
-                                    });
-                            } else {
-                                throw new Error('The course code you specified is no longer available.');
-                            }
-                        }
-                    });
-            };
 
             function checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope) {
+
+                console.log('checking if facebook account exists for:' + authData.uid);
 
                 return UserProfile(authData.uid).$loaded()
                     .then(function (profile) {
 
+
+
                         if (!profile.exists()) {
 
                             console.log('checkAndCreateFacebookLogin: profile does not exist');
-                            if (!goalsQuestionsAnswers){
+                            if (!goalsQuestionsAnswers) {
 
-                                popup('','Your facebook account is not registered with LifeUp yet. First, set your goals then tap the \'sign up with facebook\' option.', 'intro', scope);
+                                popup('', 'Your facebook account is not registered with LifeUp yet. First, set your goals then tap the \'sign up with facebook\' option.', 'intro', scope);
                                 return;
-                            }
+                            } else {
 
-                            scope.data = {};
+                                var user = {
+                                    email: authData.facebook.email
+                                };
 
-                            scope.blurBackground = true;
+                                return profile.create(user, goalsQuestionsAnswers)
+                                    .then(function () {
 
-                            var myPopup = $ionicPopup.prompt({
-                                template: '<input autofocus style="text-align: center; background-color: cornflowerBlue" type="text" placeholder="" ng-model="data.courseCode">',
-                                title: '<p class="lifeup-text">Please enter your Course Code below:</p>',
-                                cssClass: 'course-code-popup',
-                                scope: scope,
-                                buttons: [
-                                    {
-                                        text: 'CANCEL',
-                                        type: 'button button-outline button-light'
-                                    },
-                                    {
-                                        text: '<b>GO</b>',
-                                        type: 'button button-outline button-light',
-                                        onTap: function (e) {
-                                            if (!scope.data.courseCode) {
-                                                //don't allow the user to close unless he enters a course code
-                                                e.preventDefault();
-                                            } else {
-                                                return scope.data.courseCode;
-                                            }
-                                        }
-                                    }
-                                ]
-                            });
-
-                            hideLoading();
-
-                            return myPopup.then(function (code) {
-
-                                scope.blurBackground = false;
-                                if (!code) return;
-
-                                return validateCourseCode(code, scope, goalsQuestionsAnswers, profile, authData)
-                                    .then(function(){
-
+                                        $state.go('dashboard.dashboardHome');
+                                        hideLoading();
                                         return;
 
-                                    }).catch(function(error){
-
-                                        scope.blurBackground = true;
-
-                                        var errPop = $ionicPopup.prompt({
-                                            title: '',
-                                            template: '<p class="lifeup-earnt-badge center" style="text-align: center">' + error.message + '</p>',
-                                            cssClass: 'course-label-popup',
-                                            buttons: [
-                                                {
-                                                    text: 'OK',
-                                                    type: 'button button-outline button-light'
-                                                }
-                                            ]
-                                        });
-
-                                        return errPop.then(function(){
-                                            scope.blurBackground = false;
-                                            return checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
-                                        });
-
                                     });
-                            });
+                            }
                         } else {
                             console.log('profile already exists - redirecting to home');
                             $state.go('dashboard.dashboardHome');
@@ -332,18 +293,37 @@ angular.module('lifeUp.util', ['ionic'])
                             return;
                         }
                     });
-            };
+            }
+
 
             var timeFormatter = function (arg) {
                 var sec_num = parseInt(arg, 10); // don't forget the second param
-                var hours   = Math.floor(sec_num / 3600);
+                var hours = Math.floor(sec_num / 3600);
                 var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
                 var seconds = sec_num - (hours * 3600) - (minutes * 60);
-                if (hours   < 10) {hours   = "0"+hours;}
-                if (minutes < 10) {minutes = "0"+minutes;}
-                if (seconds < 10) {seconds = "0"+seconds;}
-                var time    = minutes+':'+seconds;
+                if (hours < 10) {
+                    hours = "0" + hours;
+                }
+                if (minutes < 10) {
+                    minutes = "0" + minutes;
+                }
+                if (seconds < 10) {
+                    seconds = "0" + seconds;
+                }
+                var time = minutes + ':' + seconds;
                 return time;
+            };
+
+            var doCordovaFacebookLogin = function (goalsQuestionsAnswers, scope) {
+                return $cordovaFacebook.login(["public_profile", "email"])
+                    .then(function (success) {
+                        var token = success.authResponse.accessToken;
+
+                        return Auth.$authWithOAuthToken("facebook", token)
+                            .then(function (authData) {
+                                return checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
+                            });
+                    });
             };
 
             var facebookLogin = function (goalsQuestionsAnswers, scope) {
@@ -354,23 +334,19 @@ angular.module('lifeUp.util', ['ionic'])
                 };
 
                 if (ionic.Platform.isWebView()) {
-                    console.log('facebook login: this IS a web view');
 
-                    return $cordovaFacebook.logout().then(function(){
-                        return $cordovaFacebook.login(["public_profile", "email"])
-                            .then(function (success) {
-                                var token = success.authResponse.accessToken;
-                                console.log('got the access token: ' + token)
-                                return Auth.$authWithOAuthToken("facebook", token)
-                                    .then(function (authData) {
-                                        checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
-                                    });
-                            });
-                    });
+                    // turns out sometimes we need to call logout to get the plugin to work
+                    // properly.
+                    return $cordovaFacebook.logout()
+                        .then(function () {
+                            return doCordovaFacebookLogin(goalsQuestionsAnswers, scope);
+                        }).catch(function (error) {
+                            // if you have never had a facebook session before
+                            // calling logout will fail. So we catch that and continue as normal.
+                            return doCordovaFacebookLogin(goalsQuestionsAnswers, scope);
+                        });
                 }
                 else {
-
-                    console.log('fackebook login: not web view');
                     return Auth.$authWithOAuthPopup("facebook", options).then(function (authData) {
                         return checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope);
                     });
@@ -385,7 +361,9 @@ angular.module('lifeUp.util', ['ionic'])
                 popup: popup,
                 isOnline: isOnline,
                 imageOptions: imageOptions,
-                timeFormatter: timeFormatter
+                timeFormatter: timeFormatter,
+                makeAndroidFullscreen: makeAndroidFullscreen,
+                logout: logout
             };
         }
     ]);

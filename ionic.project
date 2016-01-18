@@ -1,6 +1,15 @@
 {
   "name": "LifeUp",
   "app_id": "251cdbda",
+  "gulpStartupTasks": [
+    "sass",
+    "templatecache",
+    "ng_annotate",
+    "useref",
+    "copy",
+    "watch"
+  ],
+
   "browsers": [
     {
       "platform": "android",

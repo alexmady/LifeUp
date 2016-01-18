@@ -1,24 +1,23 @@
-/**
- * Created by alexmady on 06/11/15.
- */
-'use strict';
+(function () {
+    'use strict';
 
-angular.module('lifeUp.privacyPolicy', [])
+    angular.module('lifeUp.privacyPolicy', [])
 
-    .config( ['$stateProvider', function($stateProvider) {
+        .config( ['$stateProvider', function($stateProvider) {
 
-        $stateProvider
-            .state('privacyPolicy', {
-                url: '/privacyPolicy',
-                templateUrl: 'app/privacyPolicy/privacyPolicy.html',
-                controller: 'PrivacyPolicyCtrl'
-            })
-    }])
+            $stateProvider
+                .state('privacyPolicy', {
+                    url: '/privacyPolicy',
+                    templateUrl: 'privacyPolicy.html',
+                    controller: 'PrivacyPolicyCtrl'
+                });
+        }])
 
-    .controller('PrivacyPolicyCtrl', [ '$scope', '$state', function($scope, $state) {
+        .controller('PrivacyPolicyCtrl', [ '$scope', '$state', function($scope, $state) {
 
-        $scope.goBack = function(){
-            $state.go('signInChoice')
-        }
+            $scope.goBack = function(){
+                $state.go('signInChoice');
+            };
 
-    }]);
+        }]);
+}());

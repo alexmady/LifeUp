@@ -1,22 +1,20 @@
-/**
- * Created by alexmady on 06/11/15.
- */
-'use strict';
+(function () {
+    'use strict';
 
-angular.module('lifeUp.emailSignIn', [])
+    angular.module('lifeUp.emailSignIn', [])
 
-    .config(['$stateProvider', function ($stateProvider) {
+        .config(['$stateProvider', function ($stateProvider) {
 
-        $stateProvider
-            .state('emailSignIn', {
-                cache: false,
-                url: '/emailSignIn',
-                templateUrl: 'app/emailSignIn/emailSignIn.html',
-                controller: 'EmailSignInCtrl'
-            })
-    }])
+            $stateProvider
+                .state('emailSignIn', {
+                    cache: false,
+                    url: '/emailSignIn',
+                    templateUrl: 'emailSignIn.html',
+                    controller: 'EmailSignInCtrl'
+                });
+        }])
 
-    .controller('EmailSignInCtrl',
+        .controller('EmailSignInCtrl',
         [   '$scope',
             '$rootScope',
             '$state',
@@ -25,144 +23,149 @@ angular.module('lifeUp.emailSignIn', [])
             '$ionicPopup',
             'Util',
             'Auth',
-        function ( $scope,
-                   $rootScope,
-                   $state,
-                   $ionicHistory,
-                   $ionicModal,
-                   $ionicPopup,
-                   Util,
-                   Auth  ) {
+            function ( $scope,
+                       $rootScope,
+                       $state,
+                       $ionicHistory,
+                       $ionicModal,
+                       $ionicPopup,
+                       Util,
+                       Auth  ) {
 
-            $scope.go = function (goTo) {
-                $state.go(goTo)
-            };
+                $scope.go = function (goTo) {
+                    $state.go(goTo);
+                };
 
+                var popupNoInternetConnection = function(){
+                    Util.popup('No Internet Connection', 'You need to be connected to the internet to sign in. Please try again when you have a connection.', null, $scope);
+                };
 
-            var popupNoInternetConnection = function(){
-                Util.popup('No Internet Connection', 'You need to be connected to the internet to sign in. Please try again when you have a connection.', null, $scope);
-            };
+                $scope.facebookLogin = function () {
 
-            $scope.facebookLogin = function () {
-
-                try {
-                    if (!Util.isOnline()){
-                        popupNoInternetConnection();
-                        return;
-                    }
-
-                } catch ( error ){ }
-
-
-                Util.showLoading();
-                Util.facebookLogin(null, $scope)
-                    .then(function(){
-                        console.log('logged in with facebook');
-                        Util.hideLoading();
-                    }).catch(function(error){
-                        Util.hideLoading();
-                        console.log(error);
-                        Util.popup('', error, null, $scope);
-                    });
-            };
-
-
-            $ionicModal.fromTemplateUrl('app/emailSignIn/forgotPassword.html', {
-                scope: $scope,
-                animation: 'slide-in-up'
-            }).then(function (modal) {
-                $scope.modal = modal;
-            });
-
-            $scope.closeModal = function () {
-                $scope.modal.hide();
-            };
-
-            //Cleanup the modal when we're done with it!
-            $scope.$on('$destroy', function () {
-                $scope.modal.remove();
-            });
-
-            $scope.showResetPasswordModal = function () {
-                $scope.modal.show();
-            };
-
-            $scope.resetPassword = function (user) {
-
-                try {
-                    if (!Util.isOnline()){
-                        popupNoInternetConnection();
-                        return;
-                    }
-                } catch (error){  }
-
-                Util.showLoading();
-
-                try{
-                    Auth.$resetPassword({email:user.email}).then(
-                        function () {
-                            Util.hideLoading();
-                            $scope.blurBackground = true;
-
-                            var msg = 'Password reset email sent. Please check your email!';
-
-                            var alertPopup = $ionicPopup.alert({
-                                title: 'Done!',
-                                template: '<p class="lifeup-earnt-badge center" style="text-align: center">'+msg+'</p>',
-                                cssClass: 'course-label-popup'
-                            });
-
-                            alertPopup.then(function (res) {
-                                $scope.blurBackground = false;
-                                $scope.closeModal();
-                                Auth.$unauth();
-                                $state.go('emailSignIn');
-                            });
+                    try {
+                        if (!Util.isOnline()){
+                            popupNoInternetConnection();
+                            return;
                         }
-                    ).catch(function (error) {
+
+                    } catch ( error ){ }
+
+                    Util.showLoading();
+                    Util.facebookLogin(null, $scope)
+                        .then(function(){
+                            console.log('logged in with facebook');
                             Util.hideLoading();
-                            Util.popup("ERROR", error, null, $scope);
+                        }).catch(function(error){
+                            Util.hideLoading();
+                                                        if (error.errorCode !== "4201"){ // User cancelled the dialog
+                                Util.popup('', error, null, $scope);
+                            }
+                            $state.go($state.current, {}, {reload: true});
                         });
+                };
 
-                } catch (error){
-                    console.error(error);
-                    Util.hideLoading();
-                    Util.popup("ERROR", "Oh dear! Something went wrong... <br> Please check you entered your email address!", null, $scope);
-                }
-            };
+                $ionicModal.fromTemplateUrl('forgotPassword.html', {
+                    scope: $scope,
+                    animation: 'slide-in-up'
+                }).then(function (modal) {
+                    $scope.modal = modal;
+                });
 
-            $scope.goBack = function () {
-                $ionicHistory.goBack();
-            };
+                $scope.closeModal = function () {
+                    $scope.modal.hide();
+                };
 
-            $scope.login = function (user) {
+                //Cleanup the modal when we're done with it!
+                $scope.$on('$destroy', function () {
+                    $scope.modal.remove();
+                });
 
-                try {
-                    if (!Util.isOnline()){
-                        popupNoInternetConnection();
-                        return;
+                $scope.showResetPasswordModal = function () {
+                    $scope.modal.show();
+                };
+
+                $scope.resetPassword = function (user) {
+
+                    try {
+                        if (!Util.isOnline()){
+                            popupNoInternetConnection();
+                            return;
+                        }
+                    } catch (error){  }
+
+                    Util.showLoading();
+
+                    try{
+                        Auth.$resetPassword({email:user.email}).then(
+                            function () {
+                                Util.hideLoading();
+                                $scope.blurBackground = true;
+
+                                var msg = 'Password reset email sent. Please check your email!';
+
+                                var alertPopup = $ionicPopup.alert({
+                                    title: 'Done!',
+                                    template: '<p class="lifeup-earnt-badge center" style="text-align: center">'+msg+'</p>',
+                                    cssClass: 'course-label-popup'
+                                });
+
+                                alertPopup.then(function (res) {
+                                    $scope.blurBackground = false;
+                                    $scope.closeModal();
+                                    Auth.$unauth();
+                                    $state.go('emailSignIn');
+                                });
+                            }
+                        ).catch(function (error) {
+                                Util.hideLoading();
+                                Util.popup("ERROR", error, null, $scope);
+                            });
+
+                    } catch (error){
+                        console.error(error);
+                        Util.hideLoading();
+                        Util.popup("ERROR", "Oh dear! Something went wrong... <br> Please check you entered your email address!", null, $scope);
                     }
-                } catch (error){  }
+                };
 
-                Util.showLoading();
+                $scope.goBack = function () {
+                    $ionicHistory.goBack();
+                };
 
-                try{
-                    Auth.$authWithPassword({
-                        email: user.email,
-                        password: user.pass
-                    }).then(function(authData) {
+                $scope.login = function (user) {
+
+                    try {
+                        if (!Util.isOnline()){
+                            popupNoInternetConnection();
+                            return;
+                        }
+                    } catch (error){  }
+
+                    Util.makeAndroidFullscreen();
+                    Util.showLoading();
+
+                    try{
+                        Auth.$authWithPassword({
+                            email: user.email,
+                            password: user.pass
+                        }).then(function(authData) {
+                            Util.hideLoading();
+                            $state.go('dashboard.dashboardHome');
+                        }).catch(function(error) {
+                            Util.hideLoading();
+                            console.log(error);
+                            Util.popup("ERROR", 'Please check you entered a valid email and password.', null, $scope);
+                        });
+                    } catch (error){
+
                         Util.hideLoading();
-                        $state.go('dashboard.dashboardHome');
-                    }).catch(function(error) {
-                        Util.hideLoading();
-                        Util.popup("ERROR", 'Error: Please check you entered a valid email and password.', null, $scope);
-                    });
-                } catch (error){
+                        Util.popup("ERROR", "Oh dear! Something went wrong... <br> Please check you specified your email and password correctly!", null, $scope);
+                    }
 
-                    Util.hideLoading();
-                    Util.popup("ERROR", "Oh dear! Something went wrong... <br> Please check you specified your email and password correctly!", null, $scope);
-                }
+                };
 
-             };
+            }]);
 
-        }]);
+}());
+
+

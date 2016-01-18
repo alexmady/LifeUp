@@ -1,653 +1,737 @@
-<ion-view view-title="SPACE" ng-class="{blur: blurBackground}">
+<ion-modal-view ng-class="{blur: blurBackground}" class="image-modal">
 
-    <ion-nav-buttons side="right">
-        <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!enableCompleteButton"
-                class="button button-clear ion-android-checkbox-outline {{animateCompleteButton}}"
-                style="color: white;font-size: 24px">
-        </button>
-    </ion-nav-buttons>
-    <ion-nav-buttons side="left">
-        <button ng-click="go()"
-                class="button button-clear ion-chevron-left" style="color: white;font-size: 24px">
-        </button>
-    </ion-nav-buttons>
+<ion-header-bar class="lifeup-bg">
 
-    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+    <div class="title lifeup-nav-title">SPACE</div>
 
-        <ion-slide class="slide">
-            <ion-content class="courseSlide">
+    <button ng-click="hideModal()"
+            class="button button-clear ion-chevron-left" style="color: white; font-size: 22px">
+    </button>
 
-                <div class="lifeup-page-title">
-                Smile - it's proven to make you feel good
+    <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!enableCompleteButton"
+            class="button button-clear ion-android-checkbox-outline {{animateCompleteButton}}"
+            style="color: white;font-size: 24px">
+    </button>
+
+</ion-header-bar>
+<ion-content style="height: 100vh" class="has-header">
+<ion-slide-box class="course" on-slide-changed="slideHasChanged($index)">
+<ion-slide>
+    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+        <div class="lifeup-page-title">
+            Smile - it's proven to make you feel good
+        </div>
+
+        <div style="width: 100%">
+            <div class="row row-center" style="opacity: 1">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">S</span>
                 </div>
-
-                <div style="width: 100%" >
-                    <div class="row row-center" style="opacity: 1">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">S</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">SMILE</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">P</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">PERSPECTIVE</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">A</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">APPRECIATION & FORGIVENESS</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">C</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">CONNECT</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">E</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">EMOTIONS</span>
-                        </div>
-                    </div>
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">SMILE</span>
                 </div>
-
-                <div class="lifeup-page-text-heading">
-                    S is for Smile  - it's free!
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">P</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                Create head space by using the SPACE technique to rest & relax and allow your happiness and creativity to emanate through.
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">PERSPECTIVE</span>
                 </div>
-
-                <div class="center">
-                    <img src="img/spaceSmile.png" style="width: 90%;height: auto;margin: 5%"/>
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">A</span>
                 </div>
-
-                <div class="lifeup-page-text-heading">
-                Education
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">APPRECIATION & FORGIVENESS</span>
                 </div>
-
-                <div class="lifeup-page-text-heading2">
-                What is headspace?
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">C</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                If you can sense an alert inner stillness in the background while things happen in the foreground - that’s your headspace. Remember, you can’t find it as if you were looking for an object, because it isn't an object, it’s space.  However you can connect with it!
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">CONNECT</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                Amazingly, if you want to connect with your headspace the first step is to just simply smile. Got nothing to smile about? Don't fret - it's scientifically proven that you can 'fake it till you make it'!
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">E</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                Research shows that the simple act of turning your mouth up, whether authentic or not, can help release endorphins, the feel-good hormones and serotonin, a chemical that’s a natural stress-reducer.
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">EMOTIONS</span>
                 </div>
+            </div>
+        </div>
 
-                <div class="lifeup-page-text">
-                Many top executives use the technique of smiling in the mirror each morning, as a way to create space and start the day in the right mindset.
+        <div class="lifeup-page-text-heading">
+            S is for Smile - it's free!
+        </div>
+
+        <div class="lifeup-page-text">
+            Create head space by using the SPACE technique to rest & relax and allow your happiness and creativity to
+            emanate through.
+        </div>
+
+        <div class="center">
+            <img src="img/spaceSmile.png" style="width: 90%;height: auto;margin: 5%"/>
+        </div>
+
+        <div class="lifeup-page-text-heading">
+            Education
+        </div>
+
+        <div class="lifeup-page-text-heading2">
+            What is headspace?
+        </div>
+
+        <div class="lifeup-page-text">
+            If you can sense an alert inner stillness in the background while things happen in the foreground - that’s
+            your headspace. Remember, you can’t find it as if you were looking for an object, because it isn't an
+            object, it’s space. However you can connect with it!
+        </div>
+
+        <div class="lifeup-page-text">
+            Amazingly, if you want to connect with your headspace the first step is to just simply smile. Got nothing to
+            smile about? Don't fret - it's scientifically proven that you can 'fake it till you make it'!
+        </div>
+
+        <div class="lifeup-page-text">
+            Research shows that the simple act of turning your mouth up, whether authentic or not, can help release
+            endorphins, the feel-good hormones and serotonin, a chemical that’s a natural stress-reducer.
+        </div>
+
+        <div class="lifeup-page-text">
+            Many top executives use the technique of smiling in the mirror each morning, as a way to create space and
+            start the day in the right mindset.
+        </div>
+
+        <div class="lifeup-page-text">
+            Remember that smiling is not only free but it's contagious! When you smile the world smiles with you…
+        </div>
+
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Activity
+        </div>
+
+        <div class="lifeup-page-text">
+            <ol class="lifeup-page-text">
+                <li type="disc">Take a few breaths then smile playfully as if you just remembered something funny. Focus
+                    on the upturned corners of your mouth.
+                </li>
+                <li type="disc">Notice how it relaxes the entire face and head, and starts to make you feel good
+                    inside!
+                </li>
+                <li type="disc">Now do it again and as you do it try to think of something negative without losing the
+                    smile. It's hard. When we smile our body is sending the rest of us a message that life is good.
+                </li>
+            </ol>
+        </div>
+
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Take away
+        </div>
+
+        <div class="lifeup-page-text">
+            Don’t take yourself too seriously – have a smile to get some headspace!
+        </div>
+
+    </ion-scroll>
+</ion-slide>
+
+<ion-slide class="slide">
+    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+
+        <div class="lifeup-page-title">
+            Perspective
+        </div>
+
+        <div style="width: 100%">
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">S</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                Remember that smiling is not only free but it's contagious! When you smile the world smiles with you…
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">SMILE</span>
                 </div>
-
-                <hr class="line-margin">
-
-                <div class="lifeup-page-text-heading">
-                Activity
+            </div>
+            <div class="row row-center" style="opacity: 1">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">P</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                    <ol class="lifeup-page-text">
-                        <li type="disc">Take a few breaths then smile playfully as if you just remembered something funny.  Focus on the upturned corners of your mouth.</li>
-                        <li type="disc">Notice how it relaxes the entire face and head, and starts to make you feel good inside!</li>
-                        <li type="disc">Now do it again and as you do it try to think of something negative without losing the smile. It's hard. When we smile our body is sending the rest of us a message that life is good.</li>
-                    </ol>
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">PERSPECTIVE</span>
                 </div>
-
-                <hr class="line-margin">
-
-                <div class="lifeup-page-text-heading">
-                Take away
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">A</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                Don’t take yourself too seriously –  have a smile to get some headspace!
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">APPRECIATION & FORGIVENESS</span>
                 </div>
-
-            </ion-content>
-        </ion-slide>
-
-        <ion-slide class="slide">
-            <ion-content class="courseSlide">
-
-                <div class="lifeup-page-title">
-                Perspective
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">C</span>
                 </div>
-
-                <div style="width: 100%" >
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">S</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">SMILE</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 1">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">P</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">PERSPECTIVE</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">A</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">APPRECIATION & FORGIVENESS</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">C</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">CONNECT</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">E</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">EMOTIONS</span>
-                        </div>
-                    </div>
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">CONNECT</span>
                 </div>
-
-                <div class="lifeup-page-text-heading">
-                P is for Perspective - time to get some!
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">E</span>
                 </div>
-
-                <div class="center">
-                    <img src="img/spaceWilde.png" style="width: 90%;height: auto;margin: 5%"/>
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">EMOTIONS</span>
                 </div>
+            </div>
+        </div>
 
-                <div class="lifeup-page-text-heading">
-                Education
+        <div class="lifeup-page-text-heading">
+            P is for Perspective - time to get some!
+        </div>
+
+        <div class="center">
+            <img src="img/spaceWilde.png" style="width: 90%;height: auto;margin: 5%"/>
+        </div>
+
+        <div class="lifeup-page-text-heading">
+            Education
+        </div>
+
+        <div class="lifeup-page-text">
+            We can sometimes get so caught up in ourselves that we can lose perspective on a situation and/or our life.
+        </div>
+
+        <div class="lifeup-page-text">
+            ‘Reframing’ our perspective is a great way to access our headspace. Reframing is very much like changing the
+            frame on a picture - the situation hasn’t changed, but how you view it has.
+        </div>
+
+        <div class="lifeup-page-text">
+            Of course, It’s not about pretending that everything in your life is wonderful and perfect, it's about
+            seeing the situation how it really is, rather than through our mental interpretations.
+        </div>
+
+        <div class="lifeup-page-text">
+            There are two broad approaches to reframing - content and visual reframing:
+        </div>
+
+        <div class="lifeup-page-text">
+            <ol class="lifeup-page-text">
+                <li type="disc"><span style="color:#34AABC"><strong>Content reframing </strong></span> is achieved by
+                    proactively 'coaching' ourselves into perspective e.g. ‘What would I say to a friend who had this
+                    problem?’
+                </li>
+                <li type="disc"><span style="color:#34AABC"><strong>Visual reframing </strong></span> uses the sheer
+                    vastness of the natural world to provide space and to expand perspective.
+                </li>
+            </ol>
+        </div>
+
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Activity
+        </div>
+
+        <div class="lifeup-page-text">
+            Choose one or more of the following perspective techniques and give it a try!
+        </div>
+
+        <div class="lifeup-page-text-heading2">
+            Content Perspective Reframing:
+        </div>
+
+        <div class="lifeup-page-text">
+            Scan your mind for uncomfortable or repetitive thoughts and emotions. Ask yourself, ‘What is it that is
+            bothering me today?’
+        </div>
+
+        <div class="lifeup-page-text">
+            <ol class="lifeup-page-text">
+                <li type="disc">How will I feel about this problem in a month, a year, 10 years, 50 years?</li>
+                <li type="disc">What would I say to a friend who had this problem?</li>
+                <li type="disc">What would I do, if I only had a short time to live?</li>
+                <li type="disc">What is the worst that could happen? Go with this thought. What would that look like?
+                    How would you recover? Would it really be so bad?
+                </li>
+            </ol>
+        </div>
+
+        <div class="lifeup-page-text-heading2">
+            Visual Perspective reframing:
+        </div>
+
+        <div class="lifeup-page-text">
+            <ol class="lifeup-page-text">
+                <li type="n"><strong>Look out the window and observe the scene</strong>, whether it's the vastness of
+                    the sky out of your train window, the busy people in the city or the scenery of your garden. Just
+                    look without thought for a moment. Or even, better step outside!
+                </li>
+                <li type="n"><strong>Visualise where you are now,</strong> then zoom out to see the building, then the
+                    street, the city, the country, the continent, the entire earth, then the universe. Stay there in the
+                    vast nothingness. Pause.
+                </li>
+            </ol>
+        </div>
+
+        <div class="lifeup-page-text-heading">
+            If you did the exercise, give yourself a ‘mini high five’!
+        </div>
+
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Take away
+        </div>
+
+        <div class="lifeup-page-text">
+            Remember, life is full of ups and downs. By changing the way we look at things we can gain perspective and
+            uncover our headspace.
+        </div>
+
+    </ion-scroll>
+</ion-slide>
+
+<ion-slide class="slide">
+    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+
+        <div class="lifeup-page-title">
+            Appreciation and Forgiveness
+        </div>
+
+        <div style="width: 100%">
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">S</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                We can sometimes get so caught up in ourselves that we can lose perspective on a situation and/or our life.
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">SMILE</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                ‘Reframing’ our perspective is a great way to access our headspace.  Reframing is very much like changing the frame on a picture - the situation hasn’t changed, but how you view it has.
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">P</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                Of course, It’s not about pretending that everything in your life is wonderful and perfect, it's about seeing the situation how it really is, rather than through our mental interpretations.
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">PERSPECTIVE</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                There are two broad approaches to reframing - content and visual reframing:
+            </div>
+            <div class="row row-center" style="opacity: 1">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">A</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                    <ol class="lifeup-page-text">
-                        <li type="disc"><span style="color:#34AABC"><strong>Content reframing </strong></span> is achieved by proactively 'coaching' ourselves into perspective e.g. ‘What would I say to a friend who had this problem?’</li>
-                        <li type="disc"><span style="color:#34AABC"><strong>Visual reframing </strong></span> uses the sheer vastness of the natural world to provide space and to expand perspective.</li>
-                    </ol>
-               </div>
-
-                <hr class="line-margin">
-
-                <div class="lifeup-page-text-heading">
-                Activity
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">APPRECIATION & FORGIVENESS</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                Choose one or more of the following perspective techniques and give it a try!
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">C</span>
                 </div>
-
-                <div class="lifeup-page-text-heading2">
-                Content Perspective Reframing:
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">CONNECT</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                    Scan your mind for uncomfortable or repetitive thoughts and emotions.  Ask yourself, ‘What is it that is bothering me today?’
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">E</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                    <ol class="lifeup-page-text">
-                        <li type="disc">How will I feel about this problem in a month, a year, 10 years, 50 years?</li>
-                        <li type="disc">What would I say to a friend who had this problem?</li>
-                        <li type="disc">What would I do, if I only had a short time to live?</li>
-                        <li type="disc">What is the worst that could happen?  Go with this thought. What would that look like? How would you recover?  Would it really be so bad?</li>
-                    </ol>
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">EMOTIONS</span>
                 </div>
+            </div>
+        </div>
 
-                <div class="lifeup-page-text-heading2">
-                    Visual Perspective reframing:
-                </div>
+        <div class="lifeup-page-text-heading">
+            A is for Appreciation and forgiveness – the keys to joy and freedom.
+        </div>
 
-                <div class="lifeup-page-text">
-                    <ol class="lifeup-page-text">
-                        <li type="n"><strong>Look out the window and observe the scene</strong>, whether it's the vastness of the sky out of your train window, the busy people in the city or the scenery of your garden. Just look without thought for a moment. Or even, better step outside!</li>
-                        <li type="n"><strong>Visualise where you are now,</strong> then zoom out to see the building, then the street, the city, the country, the continent, the entire earth, then the universe.  Stay there in the vast nothingness. Pause.</li>
-                    </ol>
-                </div>
+        <div class="center">
+            <img src="img/spaceKurt.jpg" style="width: 90%;height: auto;margin: 5%"/>
+        </div>
 
-                <div class="lifeup-page-text-heading">
-                If you did the exercise, give yourself a ‘mini high five’!
-                </div>
+        <div class="lifeup-page-text-heading">
+            Education
+        </div>
 
-                <hr class="line-margin">
+        <div class="lifeup-page-text">
+            Regularly practising appreciation and forgiveness really is a good way to access your headspace and make you
+            feel great.
+        </div>
 
-                <div class="lifeup-page-text-heading">
-                Take away
-                    </div>
+        <div class="lifeup-page-text">
+            When we consciously or unconsciously hold a grudge we are pulled into past or future thoughts of what
+            someone said /didn’t say, or did /didn’t do. These trigger related emotions and conceal our underlying
+            headspace, that quiet, still part of your mind that doesn't judge, unlike the constant thought chatter.
+        </div>
 
-                <div class="lifeup-page-text">
-                Remember, life is full of ups and downs. By changing the way we look at things we can gain perspective and uncover our headspace.
-                </div>
+        <div class="lifeup-page-text">
+            The key to forgiveness is that it actually has nothing to do with the other person – it doesn’t even matter
+            if they don’t know you have forgiven them! We forgive them for our own sake, to be able to access headspace
+            and a place of calm again.
+        </div>
 
-            </ion-content>
-        </ion-slide>
+        <div class="lifeup-page-text">
+            Forgiveness is not about making the other person right or condoning their behaviour. It is about releasing
+            yourself from any distress or discomfort the situation is causing you.
+        </div>
 
-        <ion-slide class="slide">
-            <ion-content class="courseSlide">
+        <div class="lifeup-page-text">
+            You'll be surprised how many little grudges and grievances we can hold onto on an average day, many of which
+            we may not be consciously aware of but are contributing to our background feeling of negativity and
+            annoyance.
+        </div>
 
-                <div class="lifeup-page-title">
-                Appreciation and Forgiveness
-                </div>
+        <hr class="line-margin">
 
-                <div style="width: 100%" >
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">S</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">SMILE</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">P</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">PERSPECTIVE</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 1">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">A</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">APPRECIATION & FORGIVENESS</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">C</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">CONNECT</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">E</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">EMOTIONS</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="lifeup-page-text-heading">
+            Activity
+        </div>
 
-                <div class="lifeup-page-text-heading">
-                A is for Appreciation and forgiveness – the keys to joy and freedom.
-                </div>
+        <div class="lifeup-page-text">
+            Try the following
+        </div>
 
-                <div class="center">
-                    <img src="img/spaceKurt.jpg" style="width: 90%;height: auto;margin: 5%"/>
-                </div>
+        <div class="lifeup-page-text">
+            <strong>Appreciation:</strong>
+        </div>
 
-                <div class="lifeup-page-text-heading">
-                Education
-                </div>
+        <div class="lifeup-page-text">
+            To bring a sense of appreciation inside of you, think of three things in your life, big or small, that you
+            really appreciate.
+        </div>
 
-                <div class="lifeup-page-text">
-                Regularly practising appreciation and forgiveness really is a good way to access your headspace and make you feel great.
-                </div>
+        <div class="lifeup-page-text">
+            <strong>Forgiveness:</strong>
+        </div>
 
-                <div class="lifeup-page-text">
-                When we consciously or unconsciously hold a grudge we are pulled into past or  future thoughts of what someone said /didn’t say, or did /didn’t do. These trigger related emotions and conceal our underlying headspace, that quiet, still part of your  mind that doesn't judge, unlike the constant thought chatter.
-                </div>
+        <div class="lifeup-page-text">
+            You don't need to focus on particular grudges you have. To access your headspace just repeat the following
+            affirmation a few times internally with genuine and humble sincerity. Try it now:
 
-                <div class="lifeup-page-text">
-                The key to forgiveness is that it actually has nothing to do with the other person – it doesn’t even matter if they don’t know you have forgiven them! We forgive them for  our own sake, to be able to access headspace and a place of calm again.
-                </div>
-
-                <div class="lifeup-page-text">
-                Forgiveness is not about making the other person right or condoning their behaviour. It is about releasing yourself from any distress or discomfort the situation is causing you.
-                </div>
-
-                <div class="lifeup-page-text">
-                You'll be surprised how many little grudges and grievances we can hold onto on an average day, many of which we may not be consciously aware of but are contributing to our background feeling of negativity and annoyance.
-                </div>
-
-                <hr class="line-margin">
-
-                <div class="lifeup-page-text-heading">
-                Activity
-                </div>
-
-                <div class="lifeup-page-text">
-                Try the following
-                </div>
-
-                <div class="lifeup-page-text">
-                    <strong>Appreciation:</strong>
-                </div>
-
-                <div class="lifeup-page-text">
-                To bring a sense of appreciation inside of you, think of three things in your life, big or small, that you really appreciate.
-                </div>
-
-                <div class="lifeup-page-text">
-                    <strong>Forgiveness:</strong>
-                </div>
-
-                <div class="lifeup-page-text">
-                You don't need to focus on particular grudges you have. To access your headspace just repeat the following affirmation a few times internally with genuine and humble sincerity.  Try it now:
-
-                <br>
+            <br>
 
                 <span class="center" style="margin: 15%">
                     “I forgive everyone and I forgive myself for my own sake. I choose to let go of the silliness and resentment so I can live free of its burden.”
                 </span>
 
+        </div>
+
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Take away
+        </div>
+
+        <div class="lifeup-page-text">
+            Forgiveness is not about making the other person right or condoning their behaviour. It is about releasing
+            yourself from any distress or discomfort the situation is causing you.
+        </div>
+
+        <div class="lifeup-page-text">
+            By practising appreciation and forgiveness you can access your headspace and happiness and feel great!
+        </div>
+
+    </ion-scroll>
+</ion-slide>
+
+
+<ion-slide class="slide">
+    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+
+        <div class="lifeup-page-title">
+            Connect
+        </div>
+
+        <div style="width: 100%">
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">S</span>
                 </div>
-
-                <hr class="line-margin">
-
-                <div class="lifeup-page-text-heading">
-                Take away
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">SMILE</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                Forgiveness is not about making the other person right or condoning their behaviour. It is about releasing yourself from any distress or discomfort the situation is causing you.
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">P</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                By practising appreciation and forgiveness you can access your headspace and happiness and feel great!
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">PERSPECTIVE</span>
                 </div>
-
-            </ion-content>
-        </ion-slide>
-
-
-        <ion-slide class="slide">
-            <ion-content class="courseSlide">
-
-                <div class="lifeup-page-title">
-                Connect
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">A</span>
                 </div>
-
-                <div style="width: 100%" >
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">S</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">SMILE</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">P</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">PERSPECTIVE</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">A</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">APPRECIATION & FORGIVENESS</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 1">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">C</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">CONNECT</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">E</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">EMOTIONS</span>
-                        </div>
-                    </div>
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">APPRECIATION & FORGIVENESS</span>
                 </div>
-
-                <div class="lifeup-page-text-heading">
-                C is for Connect - it's time to get back in touch with your body
+            </div>
+            <div class="row row-center" style="opacity: 1">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">C</span>
                 </div>
-
-                <div class="center">
-                    <img src="img/spaceMurakam.jpg" style="width: 90%;height: auto;margin: 5%"/>
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">CONNECT</span>
                 </div>
-
-                <div class="lifeup-page-text-heading">
-                Education
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">E</span>
                 </div>
-
-                <div class="lifeup-page-text">
-
-                When we are continually 'caught up in our heads' the side effect is a feeling of not ‘being in your body’, ‘not feeling yourself’ or feeling ‘out of sorts’. This makes it difficult to access headspace.
-                <br><br>
-                In fact, in our 24x7 digital age, we are so used to spending so much time in our heads that sometimes we don't even realise that we're disconnected from our headspace.
-                <br><br>
-                The solution is to have a regular practice to ‘get back into your body’ by really connecting with your body’s senses of sight, smell, touch, taste and hearing - pure sensing without excessive thought interpretation.
-                <br><br>
-                There are lots of ways to get back into your body. Exercise can be an excellent tool, especially as it has the added bonus of physical fitness and releasing feel-good endorphins.
-                <br><br>
-                Dancing, singing, making or doing anything tactile are also excellent ways to get back into your body. Also spending time outdoors can really help too.
-                    <br><br>
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">EMOTIONS</span>
                 </div>
+            </div>
+        </div>
 
-                <hr class="line-margin">
+        <div class="lifeup-page-text-heading">
+            C is for Connect - it's time to get back in touch with your body
+        </div>
 
-                <div class="lifeup-page-text-heading">
-                Activity
+        <div class="center">
+            <img src="img/spaceMurakam.jpg" style="width: 90%;height: auto;margin: 5%"/>
+        </div>
+
+        <div class="lifeup-page-text-heading">
+            Education
+        </div>
+
+        <div class="lifeup-page-text">
+
+            When we are continually 'caught up in our heads' the side effect is a feeling of not ‘being in your body’,
+            ‘not feeling yourself’ or feeling ‘out of sorts’. This makes it difficult to access headspace.
+            <br><br>
+            In fact, in our 24x7 digital age, we are so used to spending so much time in our heads that sometimes we
+            don't even realise that we're disconnected from our headspace.
+            <br><br>
+            The solution is to have a regular practice to ‘get back into your body’ by really connecting with your
+            body’s senses of sight, smell, touch, taste and hearing - pure sensing without excessive thought
+            interpretation.
+            <br><br>
+            There are lots of ways to get back into your body. Exercise can be an excellent tool, especially as it has
+            the added bonus of physical fitness and releasing feel-good endorphins.
+            <br><br>
+            Dancing, singing, making or doing anything tactile are also excellent ways to get back into your body. Also
+            spending time outdoors can really help too.
+            <br><br>
+        </div>
+
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Activity
+        </div>
+
+        <div class="lifeup-page-text">
+            Try out this great body connection technique that you can use anywhere:
+
+            Remember: Breath Rythmically, Evenly And, Through the Heart Everytime
+
+            <ol class="lifeup-page-text">
+                <li type="1">Place your right hand on your heart or on the pulse in your left wrist.</li>
+                <li type="1">Feel the beat of your heart and connect with your body.</li>
+                <li type="1">Count down 30 beats, holding your attention on the sensation of your pulse on your hand or
+                    finger. Notice if you can slow your pulse down.
+                </li>
+                <li type="1">Don’t forget to breathe!</li>
+            </ol>
+
+            <br>
+            If your chest feels tight, you've probably been shallow breathing, as most of us tend to do. Have another go
+            and this time lengthen your in and out breath and ensure a proper exhale to give your lungs a chance to
+            empty. Don’t force the inhale though, it will happen naturally if you ensure you exhale.
+            <br><br>
+            Now see how the thoughts try to rush back in. Hold onto the space you have created and take it with you into
+            everything you do.
+
+        </div>
+
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Take away
+        </div>
+
+        <div class="lifeup-page-text">
+            Access your headspace by ‘getting back in your body’.
+        </div>
+
+    </ion-scroll>
+</ion-slide>
+
+
+<ion-slide class="slide">
+    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+
+        <div class="lifeup-page-title">
+            Emotions 'unplugged'
+        </div>
+
+        <div style="width: 100%">
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">S</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                Try out this great body connection technique that you can use anywhere:
-
-                Remember: Breath Rythmically, Evenly And, Through the Heart Everytime
-
-                 <ol class="lifeup-page-text">
-                     <li type="1">Place your right hand on your heart or on the pulse in your left wrist.</li>
-                     <li type="1">Feel the beat of your heart and connect with your body.</li>
-                     <li type="1">Count down 30 beats, holding your attention on the sensation of your pulse on your hand or finger. Notice if you can slow your pulse down.</li>
-                     <li type="1">Don’t forget to breathe!</li>
-                 </ol>
-
-                <br>
-                If your chest feels tight, you've probably been shallow breathing, as most of us tend to do. Have another go and this time lengthen your in and out breath and ensure a proper exhale to give your lungs a chance to empty. Don’t force the inhale though, it will happen naturally if you ensure you exhale.
-                    <br><br>
-                Now see how the thoughts try to rush back in. Hold onto the space you have created and take it with you into everything you do.
-
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">SMILE</span>
                 </div>
-
-                <hr class="line-margin">
-
-                <div class="lifeup-page-text-heading">
-                Take away
-               </div>
-
-                <div class="lifeup-page-text">
-                Access your headspace by ‘getting back in your body’.
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">P</span>
                 </div>
-
-            </ion-content>
-        </ion-slide>
-
-
-        <ion-slide class="slide">
-            <ion-content class="courseSlide">
-
-                <div class="lifeup-page-title">
-                Emotions 'unplugged'
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">PERSPECTIVE</span>
                 </div>
-
-                <div style="width: 100%" >
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">S</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">SMILE</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">P</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">PERSPECTIVE</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">A</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">APPRECIATION & FORGIVENESS</span>
-                        </div>
-                    </div>
-                    <div class="row row-center" style="opacity: 0.5">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">C</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">CONNECT</span>
-                        </div>
-                    </div>
-
-                    <div class="row row-center" style="opacity: 1">
-                        <div style="text-align: right" class="col-25">
-                            <span class="lifeup-acronym-title">E</span>
-                        </div>
-                        <div class="col-75" style="margin-left: 15px">
-                            <span class="lifeup-acronym-title">EMOTIONS</span>
-                        </div>
-                    </div>
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">A</span>
                 </div>
-
-                <div class="lifeup-page-text-heading">
-
-                E is for Emotions 'unplugged' - Feel and make space for your emotions
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">APPRECIATION & FORGIVENESS</span>
                 </div>
-
-                <div class="center">
-                    <img src="img/spaceFreud.jpg" style="width: 90%;height: auto;margin: 5%"/>
+            </div>
+            <div class="row row-center" style="opacity: 0.5">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">C</span>
                 </div>
-
-                <div class="lifeup-page-text-heading">
-                Education
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">CONNECT</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                We often hear the expression of emotions being ‘bottled up’, ‘suppressed’ or being ‘pushed to the back of the mind’.  If negative emotions are not fully faced, accepted, and then released, they build up and can affect our mind and body.
-                    <br><br>
-                These ‘unspent’ emotions are those accumulated in your day to day living as well as emotional pain from your childhood, adolescence and adult life. They form and reinforce unconscious behavioural patterns, lead to 'knee jerk' reactions and susceptibility to emotional 'triggers'.
-                    <br><br>
-                By gently transforming and unblocking your bottled up emotions you can live more freely and uncover your headspace.
-                    <br><br>
-                ‘Unplugging’ emotions is all about proactively noticing the tension, sensations and emotions in the body and making space for them rather than unconsciously resisting or suppressing them.
-                    <br><br>
-                The act of consciously observing emotions as sensations in the body brings the feelings to the surface. By continuing to observe the sensation rather than getting carried away with the emotion we can feel and release the built up emotional tension.
-                    <br><br>
-                By really allowing ourselves to feel the emotions without judgement or thought, they become ‘unplugged’ and quickly dissipate.
-
-                </div>
-
-                <hr class="line-margin">
-
-                <div class="lifeup-page-text-heading">
-                Activity
-                </div>
-
-                <div class="lifeup-page-text">
-                        As always, remember to <span style="color:#34AABC">BREATHE!</span>
-                        <br><br>
-                        <ul dir="ltr">
-                            <li style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><span ><span style="color:#34AABC"><strong>B</strong></span>reathe <span style="color:#34AABC"><strong>R</strong></span>hythmically, <span style="color:#34AABC"><strong>E</strong></span>venly <span style="color:#34AABC"><strong>A</strong></span>nd, <span style="color:#34AABC"><strong>T</strong></span>hrough the <span style="color:#34AABC"><strong>H</strong></span>eart <span style="color:#34AABC"><strong>E</strong></span>verytime</span></li>
-                        </ul>
-
-                    <ol class="lifeup-page-text">
-                        <li type="disc">Using Ujjayi breathing, breathe in deeply through the heart. Feel your chest expand with fresh oxygen.</li>
-                        <li type="disc">At the top of the in-breath observe any tensions, emotions and sensations in the chest and forehead.</li>
-                        <li type="disc">Repeat five times gently unplugging the sensations and emotions, little by little with every exhale.</li>
-                        <li type="disc">Be aware that as you exhale the emotions may get more intense as they come to the surface. Just continue to observe these emotions as a sensation in your body and let them be rather than getting 'attached' to them.</li>
-                    </ol>
-                <br>
-               Sometimes they dissipate rapidly during the practice. For other sensations and emotions, usually those that have been unconsciously resisted or suppressed for a long time, it requires regular application of the technique before they are finally 'unplugged'.
             </div>
 
-                <hr class="line-margin">
-
-                <div class="lifeup-page-text-heading">
-                Take away
+            <div class="row row-center" style="opacity: 1">
+                <div style="text-align: right" class="col-25">
+                    <span class="lifeup-acronym-title">E</span>
                 </div>
-
-                <div class="lifeup-page-text">
-                By gently transforming and unblocking your bottled up emotions you can live more freely and uncover your headspace.
+                <div class="col-75" style="margin-left: 15px">
+                    <span class="lifeup-acronym-title">EMOTIONS</span>
                 </div>
+            </div>
+        </div>
 
-                <hr class="line-margin">
+        <div class="lifeup-page-text-heading">
 
-                <div class="lifeup-page-text-heading">
-                    Your Progress
-                </div>
+            E is for Emotions 'unplugged' - Feel and make space for your emotions
+        </div>
 
-                <div class="lifeup-page-text">
+        <div class="center">
+            <img src="img/spaceFreud.jpg" style="width: 90%;height: auto;margin: 5%"/>
+        </div>
 
-                    Congratulations, you have now completed the first stage 'Resilience' where you practiced the <span style="color:#34AABC">DISARM</span> & <span style="color:#34AABC">SPACE</span> technique to de-personalise and dissipate unhelpful thoughts and emotions.
+        <div class="lifeup-page-text-heading">
+            Education
+        </div>
 
-                    Next up, is the stage called 'Connection'. First you'll practice the<span style="color:#34AABC"> FLOW</span> technique to help you consciously choose to place your attention on things that really matter to you and avoid burning it up on things that don't. Get 'in the flow' to energise your life, relationships and work!
+        <div class="lifeup-page-text">
+            We often hear the expression of emotions being ‘bottled up’, ‘suppressed’ or being ‘pushed to the back of
+            the mind’. If negative emotions are not fully faced, accepted, and then released, they build up and can
+            affect our mind and body.
+            <br><br>
+            These ‘unspent’ emotions are those accumulated in your day to day living as well as emotional pain from your
+            childhood, adolescence and adult life. They form and reinforce unconscious behavioural patterns, lead to
+            'knee jerk' reactions and susceptibility to emotional 'triggers'.
+            <br><br>
+            By gently transforming and unblocking your bottled up emotions you can live more freely and uncover your
+            headspace.
+            <br><br>
+            ‘Unplugging’ emotions is all about proactively noticing the tension, sensations and emotions in the body and
+            making space for them rather than unconsciously resisting or suppressing them.
+            <br><br>
+            The act of consciously observing emotions as sensations in the body brings the feelings to the surface. By
+            continuing to observe the sensation rather than getting carried away with the emotion we can feel and
+            release the built up emotional tension.
+            <br><br>
+            By really allowing ourselves to feel the emotions without judgement or thought, they become ‘unplugged’ and
+            quickly dissipate.
 
-                </div>
+        </div>
 
-            </ion-content>
-        </ion-slide>
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Activity
+        </div>
+
+        <div class="lifeup-page-text">
+            As always, remember to <span style="color:#34AABC">BREATHE!</span>
+            <br><br>
+            <ul dir="ltr">
+                <li style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><span><span
+                        style="color:#34AABC"><strong>B</strong></span>reathe <span
+                        style="color:#34AABC"><strong>R</strong></span>hythmically, <span style="color:#34AABC"><strong>E</strong></span>venly <span
+                        style="color:#34AABC"><strong>A</strong></span>nd, <span
+                        style="color:#34AABC"><strong>T</strong></span>hrough the <span
+                        style="color:#34AABC"><strong>H</strong></span>eart <span
+                        style="color:#34AABC"><strong>E</strong></span>verytime</span></li>
+            </ul>
+
+            <ol class="lifeup-page-text">
+                <li type="disc">Using Ujjayi breathing, breathe in deeply through the heart. Feel your chest expand with
+                    fresh oxygen.
+                </li>
+                <li type="disc">At the top of the in-breath observe any tensions, emotions and sensations in the chest
+                    and forehead.
+                </li>
+                <li type="disc">Repeat five times gently unplugging the sensations and emotions, little by little with
+                    every exhale.
+                </li>
+                <li type="disc">Be aware that as you exhale the emotions may get more intense as they come to the
+                    surface. Just continue to observe these emotions as a sensation in your body and let them be rather
+                    than getting 'attached' to them.
+                </li>
+            </ol>
+            <br>
+            Sometimes they dissipate rapidly during the practice. For other sensations and emotions, usually those that
+            have been unconsciously resisted or suppressed for a long time, it requires regular application of the
+            technique before they are finally 'unplugged'.
+        </div>
+
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Take away
+        </div>
+
+        <div class="lifeup-page-text">
+            By gently transforming and unblocking your bottled up emotions you can live more freely and uncover your
+            headspace.
+        </div>
+
+        <hr class="line-margin">
+
+        <div class="lifeup-page-text-heading">
+            Your Progress
+        </div>
+
+        <div class="lifeup-page-text">
+
+            Congratulations, you have now completed the first stage 'Resilience' where you practiced the <span
+                style="color:#34AABC">DISARM</span> & <span style="color:#34AABC">SPACE</span> technique to
+            de-personalise and dissipate unhelpful thoughts and emotions.
+
+            Next up, is the stage called 'Connection'. First you'll practice the<span style="color:#34AABC"> FLOW</span>
+            technique to help you consciously choose to place your attention on things that really matter to you and
+            avoid burning it up on things that don't. Get 'in the flow' to energise your life, relationships and work!
+
+        </div>
+
+    </ion-scroll>
+</ion-slide>
 
 
-    </ion-slide-box>
-</ion-view>
+</ion-slide-box>
+</ion-content>
+</ion-modal-view>

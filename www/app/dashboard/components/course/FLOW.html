@@ -1,22 +1,24 @@
-<ion-view view-title="FLOW">
+<ion-modal-view ng-class="{blur: blurBackground}" class="image-modal">
 
-    <ion-nav-buttons side="right">
-        <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!enableCompleteButton"
-                class="button button-clear ion-android-checkbox-outline {{animateCompleteButton}}"
-                style="color: white;font-size: 24px">
-        </button>
-    </ion-nav-buttons>
-    <ion-nav-buttons side="left">
-        <button ng-click="go()"
-                class="button button-clear ion-chevron-left" style="color: white;font-size: 24px">
-        </button>
-    </ion-nav-buttons>
+<ion-header-bar class="lifeup-bg">
 
-    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+    <div class="title lifeup-nav-title">FLOW</div>
 
-        <ion-slide class="slide">
-            <ion-content class="courseSlide">
+    <button ng-click="hideModal()"
+            class="button button-clear ion-chevron-left" style="color: white; font-size: 22px">
+    </button>
 
+    <button ng-click="completeModule()" menu-toggle="right" ng-disabled="!enableCompleteButton"
+            class="button button-clear ion-android-checkbox-outline {{animateCompleteButton}}"
+            style="color: white;font-size: 24px">
+    </button>
+
+</ion-header-bar>
+
+<ion-content style="height: 100vh" class="has-header">
+    <ion-slide-box class="course" on-slide-changed="slideHasChanged($index)">
+        <ion-slide>
+            <ion-scroll direction="y" style="height: 90vh;bottom: 20px" >
                 <div class="lifeup-page-title">
                 Focus your attention
                 </div>
@@ -127,12 +129,12 @@
                 By practising paying attention, we build our mindfulness muscle to be able to fully focus when needed and overcome the mind's predisposition to constantly think, judge and narrate.
                 </div>
 
-            </ion-content>
+        </ion-scroll>
         </ion-slide>
 
 
         <ion-slide class="slide">
-            <ion-content class="courseSlide">
+            <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
 
                 <div class="lifeup-page-title">
                 Listen to your body!
@@ -232,12 +234,11 @@
                 Your attention is limited and when it gets overstretched the body lets you know via physical feelings and sensations such as irritation, agitation, anxiety, stress and feeling rushed. Take a Thought Break or make SPACE to get back in the 'FLOW'.
                 </div>
 
-            </ion-content>
-        </ion-slide>
+</ion-scroll>        </ion-slide>
 
 
         <ion-slide class="slide">
-            <ion-content class="courseSlide">
+            <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
 
                 <div class="lifeup-page-title">
                     Observe your behaviour
@@ -341,12 +342,12 @@
                 Notice your behaviour. Use negative mental states (such as judging, complaining, resenting) as alerts that you are not fully present in the moment in a state of 'flow'.  DISARM any unhelpful thoughts driving this behaviour
                 </div>
 
-            </ion-content>
+</ion-scroll>
         </ion-slide>
 
 
         <ion-slide class="slide">
-            <ion-content class="courseSlide">
+            <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
 
                 <div class="lifeup-page-title">
                 Watch your attention
@@ -449,8 +450,9 @@
                 </div>
 
 
-            </ion-content>
+</ion-scroll>
         </ion-slide>
 
     </ion-slide-box>
-</ion-view>
+</ion-content>
+</ion-modal-view>

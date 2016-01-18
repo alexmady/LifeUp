@@ -4,10 +4,12 @@
 angular.module('lifeUp.user', ['firebase'])
 
     .factory('UserProfile', ['$firebase', '$firebaseObject', 'FIREBASE_URL', 'courseMetaData',
-        function( $firebase, $firebaseObject, FIREBASE_URL, courseMetaData ){
+        function( $firebase, $firebaseObject, FIREBASE_URL, courseMetaData){
 
         // create a new service based on $firebaseObject
-        var UserProfile = $firebaseObject.$extend({
+        var userProfile = $firebaseObject.$extend({
+
+
             // these methods exist on the prototype, so we can access the data using `this`
             getProfile: function() {
                 return this;
@@ -16,6 +18,26 @@ angular.module('lifeUp.user', ['firebase'])
             exists: function (){
                 if (!this.created) return false;
                 else return true;
+            },
+
+            clear: function() {
+                up= null;
+            },
+
+
+            getDeviceInfo: function(){
+
+                var screen = {
+                    width: window.screen.width,
+                    height: window.screen.height,
+                    pixelRatio: window.devicePixelRatio
+                };
+
+                var info =  {
+                    deviceInformation: ionic.Platform.device(),
+                    screen: screen
+                };
+                return info;
             },
 
             create: function(user, setGoalsAnswers){
@@ -40,11 +62,7 @@ angular.module('lifeUp.user', ['firebase'])
                 this.history = {};
                 this.role = 'user';
                 this.email = user.email;
-                //this.firstname = user.firstname;
-                //this.surname = user.surname;
-                this.tag = user.tag;
-                this.courseCode = user.courseCode;
-
+                this.deviceInfo = this.getDeviceInfo();
                 return this.$save();
             },
 
@@ -93,11 +111,6 @@ angular.module('lifeUp.user', ['firebase'])
                             this.history[this.lastActivityDate] = { module: this.moduleFar, slide: this.slideFar };
                         }
                     }
-                    if (module === courseMetaData.length && slide === 1) {
-                        this.courseCompleted = true;
-                        var dt = new Date();
-                        this.courseCompletedDate = dt.getTime();
-                    }
                 }
 
                 var step = courseMetaData[module-1];
@@ -117,14 +130,19 @@ angular.module('lifeUp.user', ['firebase'])
             }
         });
 
-        return function(uid) {
+        var up = null;
 
-            var ref = new Firebase(FIREBASE_URL+'/users');
-            var profileRef = ref.child(uid);
-
-            // return it as a synchronized object
-            return new UserProfile(profileRef);
+        function profileRef(uid){
+            if(!up){
+                console.log('Creating user profile - should only be once.');
+                var ref = new Firebase(FIREBASE_URL+'/users');
+                var pr = ref.child(uid);
+                up = new userProfile(pr);
+            }
+            return up;
         }
+
+        return profileRef;
 
     }]);
 

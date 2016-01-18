@@ -1,22 +1,20 @@
-/**
- * Created by alexmady on 18/12/15.
- */
-'use strict';
+(function () {
+    'use strict';
 
-angular.module('lifeUp.intro', [])
+    angular.module('lifeUp.intro', [])
 
-    .config( ['$stateProvider', function( $stateProvider ) {
+        .config( ['$stateProvider', function( $stateProvider ) {
 
-        $stateProvider
-            .state('intro', {
-                cache: false,
-                url: '/intro',
-                templateUrl: 'app/intro/intro.html',
-                controller: 'IntroCtrl'
-            });
-    }])
+            $stateProvider
+                .state('intro', {
+                    cache: false,
+                    url: '/intro',
+                    templateUrl: 'intro.html',
+                    controller: 'IntroCtrl'
+                });
+        }])
 
-    .controller('IntroCtrl',
+        .controller('IntroCtrl',
         [ '$scope', '$state', '$ionicSlideBoxDelegate', 'goalQuestions', function($scope, $state, $ionicSlideBoxDelegate, goalQuestions) {
 
 
@@ -42,4 +40,6 @@ angular.module('lifeUp.intro', [])
                 addAnswer(answer);
                 $state.go('createAccountChoice', {answers: answers});
             };
-    }]);
+        }]);
+
+}());

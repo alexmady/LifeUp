@@ -6,6 +6,13 @@
     font-weight: bold;
 }
 
+.image-modal {
+    width: 100% !important;
+    height: 100%;
+    top: 0 !important;
+    left: 0 !important;
+}
+
 /*
 img.profile-pic {
     width: 40px;
@@ -110,12 +117,14 @@ img.profile-pic.right {
 
 
 .mountain {
-    background: url('../img/mm-1125x2001.png') no-repeat center center fixed;
+    background: url('../img/mm-750x1334.png') no-repeat top center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
+
+/*
 
 @media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) {
     .mountain {
@@ -138,6 +147,46 @@ img.profile-pic.right {
         background-size: cover;
     }
 }
+
+*/
+
+
+/*
+    ===================== ANDROID =====================
+*/
+
+
+/* Samsung Galaxy S3, Samsung Galaxy Note 2,  Sony Xperia S @2x */
+@media only screen
+and (device-width : 360px)
+and (device-height : 640px)
+and (-webkit-min-device-pixel-ratio: 2.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-720x1280.png');
+        background-size: 100% 100%;
+    }
+}
+
+/* Samsung Galaxy S5, Samsung Galaxy S4, LG Nexus 5, HTC One, Sony Xperia Z3, Sony Xperia Z */
+@media only screen
+and (device-width : 360px)
+and (device-height : 640px)
+and (-webkit-min-device-pixel-ratio: 3.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-1080x1920.png');
+        background-size: 100% 100%;
+    }
+}
+
+
+
+/*
+    ===================== APPLE =====================
+*/
 
 /* iPad Pro */
 @media only screen
@@ -544,12 +593,21 @@ input[type="text"], input[type="password"]{
     color: white;
 }
 
-.slider-pager {
+.course .slider-pager{
     font-size: 10px;
-    bottom: 0;
+    bottom: 44px ! important;
     height: 20px;
     background-color: ghostwhite;
 }
+
+.slider-pager {
+    font-size: 10px;
+    bottom:0px ! important;
+    height: 20px;
+    background-color: ghostwhite;
+}
+
+
 
 
 .slider-pager-page
@@ -642,7 +700,7 @@ input::-webkit-input-placeholder {
 .slider-slide:before {
     content: '';
     display: inline-block;
-    height: 100%;
+
     vertical-align: middle;
     margin-left: -0.3em;
 }

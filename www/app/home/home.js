@@ -1,30 +1,53 @@
-/**
- * Created by alexmady on 05/11/15.
- */
-'use strict';
 
-angular.module('lifeUp.home', [])
+(function () {
 
-    .config( ['$stateProvider', function($stateProvider) {
+    'use strict';
 
-        $stateProvider
-            .state('home', {
-                cache: false,
-                url: '/home',
-                templateUrl: 'app/home/home.html',
-                controller: 'HomeCtrl'
-            });
-    }])
+    angular.module('lifeUp.home', [])
 
-    .controller('HomeCtrl',
-        [ '$scope', '$state',
-            function( $scope, $state ) {
+        .config( ['$stateProvider', function($stateProvider) {
 
-            $scope.go = function(goTo){
-            try{
-                $state.go(goTo);
-            } catch(error){
-                console.log(error.stack);
-            }
-        };
-    }]);
+            $stateProvider
+                .state('home', {
+                    url: '/home',
+                    templateUrl: 'home.html',
+                    controller: 'HomeCtrl',
+                    resolve: {
+
+                        "appService": ["AppService", function (AppService) {
+
+                            return AppService.$loaded();
+                        }]
+                    }
+                });
+        }])
+
+        .controller('HomeCtrl',
+        [ '$scope', '$state', 'appService', 'Util',
+            function( $scope, $state, appService, Util ) {
+
+
+                $scope.appService = appService;
+
+                appService.$watch(function(){
+
+                    console.log('app service watch');
+
+                    if (appService && appService.enableApp === false){
+                        $state.go('home');
+                    }
+                });
+
+                $scope.go = function(goTo){
+                    try{
+                        $state.go(goTo);
+                    } catch(error){
+                        console.log(error.stack);
+                    }
+                };
+
+
+                Util.hideLoading();
+
+            }]);
+}());

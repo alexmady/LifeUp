@@ -1,34 +1,32 @@
-/**
- * Created by alexmady on 07/11/15.
- */
-'use strict';
+(function () {
+    'use strict';
 
-angular.module('lifeUp.about', [])
+    angular.module('lifeUp.about', [])
 
-    .config( ['$stateProvider', function($stateProvider) {
+        .config( ['$stateProvider', function($stateProvider) {
 
-        $stateProvider
-            .state('dashboard.about', {
-                url: "/about",
-                views: {
-                    'dashboardContent': {
-                        templateUrl: "app/dashboard/components/about/about.html",
-                        controller: 'AboutCtrl'
+            $stateProvider
+                .state('dashboard.about', {
+                    url: "/about",
+                    views: {
+                        'dashboardContent': {
+                            templateUrl: "about.html",
+                            controller: 'AboutCtrl'
+                        }
+                    },
+                    resolve: {
+                        // controller will not be loaded until $requireAuth resolves
+                        // Auth refers to our $firebaseAuth wrapper in the example above
+                        "currentAuth": ["Auth", function (Auth) {
+                            // $requireAuth returns a promise so the resolve waits for it to complete
+                            // If the promise is rejected, it will throw a $stateChangeError (see above)
+                            return Auth.$requireAuth();
+                        }]
                     }
-                },
-                resolve: {
-                    // controller will not be loaded until $requireAuth resolves
-                    // Auth refers to our $firebaseAuth wrapper in the example above
-                    "currentAuth": ["Auth", function (Auth) {
-                        // $requireAuth returns a promise so the resolve waits for it to complete
-                        // If the promise is rejected, it will throw a $stateChangeError (see above)
-                        return Auth.$requireAuth();
-                    }]
-                }
-            })
-    }])
+                });
+        }])
 
-    .controller('AboutCtrl', [ '$scope', function($scope) {
+        .controller('AboutCtrl', [ '$scope', function($scope) {
 
 
-    }]);
+        }]);}());
