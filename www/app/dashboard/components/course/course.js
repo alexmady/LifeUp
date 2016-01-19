@@ -136,9 +136,6 @@
                 modalScope.slide = 0;
                 $scope.hideModal = function () {
                     $scope.modal.hide();
-
-                    console.log('complete congratulate: ' + profile.completeCongratulate);
-                    console.log('complete courseCompleted: ' + profile.courseCompleted);
                     if (!profile.completeCongratulate && profile.courseCompleted) {
 
                         $scope.blurBackground = true;
@@ -157,7 +154,6 @@
                 };
 
                 modalScope.slideHasChanged = function (index) {
-                    console.log('slide changed');
                     modalScope.slide = index;
                     if ((courseMetaData[profile.module - 1].length - 1) === index) {
                         modalScope.enableCompleteButton = true;
@@ -213,7 +209,6 @@
                     }).then(function (modal) {
                         $scope.modal = modal;
                         var numberOfSlides = courseMetaData[profile.module - 1].length;
-                        console.log('numberOfSlides: ' + numberOfSlides);
                         if (numberOfSlides === 1) {
                             modalScope.enableCompleteButton = true;
                             modalScope.animateCompleteButton = "animated pulse";
@@ -285,7 +280,6 @@
 
                     function boxyTweenUpdate() {
                         if ($scope.boxyObj1.counter < imageOptions.items.length) {
-                            //      console.log(boxyObj1.counter);
                             var pi = imageOptions.items[Math.ceil($scope.boxyObj1.counter)];
                             TweenMax.to(elem, 0, {
                                 backgroundPosition: pi.bp,
