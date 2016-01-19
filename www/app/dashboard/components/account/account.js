@@ -102,7 +102,7 @@
                                 });
                                 alertPopup.then(function (res) {
                                     $scope.closeModal();
-                                    Util.logout();
+                                    Util.logout(profile);
                                 });
                             }
                         ).catch(function (error) {

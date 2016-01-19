@@ -18,7 +18,7 @@ angular.module('lifeUp.user', ['firebase'])
             exists: function (){
                 if (!this.created) return false;
                 else return true;
-            },
+
 
             clear: function() {
                 up= null;
