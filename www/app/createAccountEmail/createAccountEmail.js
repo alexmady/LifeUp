@@ -28,7 +28,6 @@
 
                 $scope.createAccount = function (user) {
 
-                console.log('creating account....');
                     try {
                         if (!Util.isOnline()){
                             Util.popup('No Internet Connection', 'No internet connection. Please try again when you have an internet connection.', null, $scope);
@@ -36,11 +35,9 @@
                         }
                     } catch( error ){ }
 
-
                     try {
 
                         Util.showLoading();
-
 
                         return Auth.$createUser({
                             email: user.email,

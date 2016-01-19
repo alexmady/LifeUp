@@ -84,20 +84,16 @@ angular.module('lifeUp.util', ['ionic'])
                 return online;
             };
 
+            function successFunction() { }
+            function errorFunction(error) { }
 
             function makeAndroidFullscreen() {
-
-                function successFunction() {
+                if (ionic.Platform.isAndroid()) {
+                    try {
+                        // Hide system UI and keep it hidden (Android 4.4+ only)
+                        AndroidFullScreen.immersiveMode(successFunction, errorFunction);
+                    } catch (error) {}
                 }
-
-                function errorFunction(error) {
-                    console.log(error);
-                }
-
-                try {
-                    // Hide system UI and keep it hidden (Android 4.4+ only)
-                    AndroidFullScreen.immersiveMode(successFunction, errorFunction);
-                } catch (error) {}
             }
 
             function processImages(spriteDataFileName, spritePNGFile, adjustment) {
@@ -130,7 +126,6 @@ angular.module('lifeUp.util', ['ionic'])
                                     posInfo.t = ((v.spriteSourceSize.y * scale ) - hAdjust) + 'px';
                                     posInfo.l = ((v.spriteSourceSize.x * scale ) - wAdjust) + 'px';
                                     items.push(posInfo);
-                                    //console.log(posInfo);
                                 }
                             });
                         });
@@ -163,8 +158,6 @@ angular.module('lifeUp.util', ['ionic'])
                     var innerWidth = $window.innerWidth;
                     var innerHeight = $window.innerHeight;
 
-                    //console.log('sw ' + screenWidth + ' sh ' + screenHeight + ' iw ' + innerWidth + ' ih ' + innerHeight);
-
                     // UPDATE: now setting immersive moce so no menu is present.
                     // inner height is less on android when part of the screen is being used as
                     // the buttons area.
@@ -173,7 +166,6 @@ angular.module('lifeUp.util', ['ionic'])
 
                     var devicePixelRatio = $window.devicePixelRatio;
 
-                    console.log('device pixel ratio: ' + devicePixelRatio);
 
                     var spritePNGFile = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
                     var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
@@ -201,7 +193,6 @@ angular.module('lifeUp.util', ['ionic'])
 
                         }).catch(function (error) {
 
-                            console.log('scaling....');
                             // TODO: choose most appropriate size to scale based on aspect ratio
 
                             imageWidth = 750;
@@ -214,7 +205,6 @@ angular.module('lifeUp.util', ['ionic'])
 
                             if (imageWidth / imageHeight > screenWidth / screenHeight) {
 
-                                console.log('fit to height');
                                 // scaled image height will be container height
                                 // we will need a width factor
                                 adjustment.type = 'width';
@@ -224,17 +214,14 @@ angular.module('lifeUp.util', ['ionic'])
 
                             } else {
 
-                                console.log('fit to width');
                                 // scaled image width will be container width
                                 // we will need a height factor
                                 adjustment.type = 'height';
                                 adjustment.scaleFactor = (screenWidth ) / imageWidth;
                                 var scaledHeight = imageHeight * adjustment.scaleFactor;
-                                console.log('scaled height: ' + scaledHeight);
                                 adjustment.size = 0;//(scaledHeight - screenHeight ) / 4;
                             }
 
-                            console.log(adjustment);
                             return processImages(spriteDataFileName, spritePNGFile, adjustment)
                                 .then(function (result) {
                                     imgOptions = result;
@@ -243,9 +230,6 @@ angular.module('lifeUp.util', ['ionic'])
 
                         }).finally(function () {
 
-                            console.log(" deviceW: " + screenWidth + " deviceH: " + screenHeight +
-                                " devicePixelRatio: " + devicePixelRatio + " sprite: " + spritePNGFile +
-                                " data: " + spriteDataFileName);
                         });
 
                 } else {
@@ -257,16 +241,9 @@ angular.module('lifeUp.util', ['ionic'])
 
             function checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope) {
 
-                console.log('checking if facebook account exists for:' + authData.uid);
-
                 return UserProfile(authData.uid).$loaded()
                     .then(function (profile) {
-
-
-
                         if (!profile.exists()) {
-
-                            console.log('checkAndCreateFacebookLogin: profile does not exist');
                             if (!goalsQuestionsAnswers) {
 
                                 popup('', 'Your facebook account is not registered with LifeUp yet. First, set your goals then tap the \'sign up with facebook\' option.', 'intro', scope);
@@ -287,7 +264,6 @@ angular.module('lifeUp.util', ['ionic'])
                                     });
                             }
                         } else {
-                            console.log('profile already exists - redirecting to home');
                             $state.go('dashboard.dashboardHome');
                             hideLoading();
                             return;

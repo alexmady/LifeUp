@@ -18,7 +18,7 @@ angular.module('lifeUp.user', ['firebase'])
             exists: function (){
                 if (!this.created) return false;
                 else return true;
-
+            },
 
             clear: function() {
                 up= null;
@@ -126,7 +126,6 @@ angular.module('lifeUp.user', ['firebase'])
 
                 this.$save();
                 // update users position in the course here
-                //console.log('Course module ' + module + ' slide ' + slide);
             }
         });
 
@@ -134,7 +133,6 @@ angular.module('lifeUp.user', ['firebase'])
 
         function profileRef(uid){
             if(!up){
-                console.log('Creating user profile - should only be once.');
                 var ref = new Firebase(FIREBASE_URL+'/users');
                 var pr = ref.child(uid);
                 up = new userProfile(pr);

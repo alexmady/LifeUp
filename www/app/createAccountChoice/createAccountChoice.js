@@ -40,7 +40,6 @@
 
                     Util.facebookLogin($stateParams.answers, $scope)
                         .then(function(){
-                            console.log('logged in with facebook');
                             Util.hideLoading();
                         }).catch(function(error){
                             Util.hideLoading();
