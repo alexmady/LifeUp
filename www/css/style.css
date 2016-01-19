@@ -373,9 +373,6 @@ and (orientation : portrait) {
 /*/////////////////////////////////////////////////////////////////////////////////////////*/
 /*                                      540 x 960                                          */
 /*/////////////////////////////////////////////////////////////////////////////////////////*/
-
-
-
 @media only screen
 and (device-width : 540px)
 and (device-height : 960px)
@@ -414,8 +411,77 @@ and (orientation : portrait) {
     }
 }
 
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                      1600 x 2560                                        */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
 
+@media only screen
+and (device-width : 800px)
+and (device-height : 1280px)
+and (-webkit-device-pixel-ratio: 2.0)
+and (orientation : portrait) {
 
+    .mountain {
+        background-image: url('../img/mm-1600x2560.png');
+        background-size: 100% 100%;
+    }
+}
+
+@media only screen
+and (device-width : 400px)
+and (device-height : 640px)
+and (-webkit-device-pixel-ratio: 4.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-1600x2560.png');
+        background-size: 100% 100%;
+    }
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                      1440 x 2560                                        */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen
+and (device-width : 480px)
+and (device-height : 853px)
+and (-webkit-device-pixel-ratio: 3.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-1440x2560.png');
+        background-size: 100% 100%;
+    }
+}
+
+@media only screen
+and (device-width : 360px)
+and (device-height : 640px)
+and (-webkit-device-pixel-ratio: 4.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-1440x2560.png');
+        background-size: 100% 100%;
+    }
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                      1080 x 2560                                        */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen
+and (device-width : 456px)
+and (device-height : 1080px)
+and (-webkit-device-pixel-ratio: 2.37)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-1080x2560.png');
+        background-size: 100% 100%;
+    }
+}
 
 /*
     ===================== APPLE =====================
