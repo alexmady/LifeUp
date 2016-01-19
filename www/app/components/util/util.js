@@ -171,11 +171,14 @@ angular.module('lifeUp.util', ['ionic'])
                     var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
 
                     if (devicePixelRatio > 1) {
-                        var imageWidth = screenWidth * devicePixelRatio;
-                        var imageHeight = screenHeight * devicePixelRatio;
+                        var imageWidth = Math.round(screenWidth * devicePixelRatio);
+                        var imageHeight = Math.round(screenHeight * devicePixelRatio);
                         spritePNGFile = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.png';
                         spriteDataFileName = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.json';
                     }
+
+                    console.log(spriteDataFileName);
+                    console.log(spritePNGFile);
 
                     // check if file exists, if not default it
                     return $http.get(spriteDataFileName)

@@ -1,5 +1,8 @@
 <ion-view view-title="LifeUp" hide-back-button="true" ng-cloak>
 
+    <div class="mountain" style="display: none"></div>
+    <div style="display: none" ng-style="{'background-image': 'url('+spritePNGFile +')', 'background-repeat': 'no-repeat', 'width':  item.w, 'height': item.h, 'top': item.t, 'left': item.l, 'background-position': item.bp, 'background-size': bgSizeW + ' ' + bgSizeH, 'position': 'absolute' } "></div>
+
     <ion-nav-buttons side="right" >
         <button ng-click="go('emailSignIn')" menu-toggle="right" ng-if="appService.enableApp"
                 class="button button-clear"

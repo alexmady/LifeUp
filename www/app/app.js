@@ -57,9 +57,6 @@ angular.module('lifeUp', [
 
                 $cordovaStatusbar.hide();
 
-                //pre load the image options
-                Util.imageOptions();
-
                 $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
 
                     console.error('route change error');

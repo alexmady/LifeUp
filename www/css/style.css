@@ -124,43 +124,50 @@ img.profile-pic.right {
     background-size: cover;
 }
 
-/*
 
-@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) {
+/*  =============================================================================
+    ================================= ANDROID ===================================
+    =============================================================================
+*/
+
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                  1200 * 1920                                            */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen
+and (device-width : 800px)
+and (device-height : 1280px)
+and (-webkit-device-pixel-ratio: 1.5)
+and (orientation : portrait) {
+
     .mountain {
-        background: url('../img/mm-1125x2001.png') no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+        background-image: url('../img/mm-1200x1920.png');
+        background-size: 100% 100%;
     }
 }
 
-
-@media screen and (device-aspect-ratio: 4/3) {
+@media only screen
+and (device-width : 600px)
+and (device-height : 960px)
+and (-webkit-device-pixel-ratio: 2.0)
+and (orientation : portrait) {
 
     .mountain {
-        background: url('../img/mm-2048x2732.png') no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+        background-image: url('../img/mm-1200x1920.png');
+        background-size: 100% 100%;
     }
 }
 
-*/
-
-
-/*
-    ===================== ANDROID =====================
-*/
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                  720 * 1280                                             */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
 
 
 /* Samsung Galaxy S3, Samsung Galaxy Note 2,  Sony Xperia S @2x */
 @media only screen
 and (device-width : 360px)
 and (device-height : 640px)
-and (-webkit-min-device-pixel-ratio: 2.0)
+and (-webkit-device-pixel-ratio: 2.0)
 and (orientation : portrait) {
 
     .mountain {
@@ -169,11 +176,15 @@ and (orientation : portrait) {
     }
 }
 
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                  1080 * 1920                                            */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
 /* Samsung Galaxy S5, Samsung Galaxy S4, LG Nexus 5, HTC One, Sony Xperia Z3, Sony Xperia Z */
 @media only screen
 and (device-width : 360px)
 and (device-height : 640px)
-and (-webkit-min-device-pixel-ratio: 3.0)
+and (-webkit-device-pixel-ratio: 3.0)
 and (orientation : portrait) {
 
     .mountain {
@@ -182,7 +193,154 @@ and (orientation : portrait) {
     }
 }
 
+@media only screen
+and (device-width : 720px)
+and (device-height : 1280px)
+and (-webkit-device-pixel-ratio: 1.5)
+and (orientation : portrait) {
 
+    .mountain {
+        background-image: url('../img/mm-1080x1920.png');
+        background-size: 100% 100%;
+    }
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                  800 * 1280                                             */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* Kindle Fire HD 6/7, Fire HD 7" */
+@media only screen
+and (device-width : 533px)
+and (device-height : 853px)
+and (-webkit-device-pixel-ratio: 1.5)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-800x1280.png');
+        background-size: 100% 100%;
+    }
+}
+
+/* Galaxy Tabs */
+@media only screen
+and (device-width : 800px)
+and (device-height : 1280px)
+and (-webkit-device-pixel-ratio: 1.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-800x1280.png');
+        background-size: 100% 100%;
+    }
+}
+
+/* Asus Nexus 7 / Google Nexus 7 */
+@media only screen
+and (device-width : 604px)
+and (device-height : 966px)
+and (-webkit-device-pixel-ratio: 1.325)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-800x1280.png');
+        background-size: 100% 100%;
+    }
+}
+
+
+/* Galaxy Note */
+@media only screen
+and (device-width : 400px)
+and (device-height : 640px)
+and (-webkit-device-pixel-ratio: 2.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-800x1280.png');
+        background-size: 100% 100%;
+    }
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                  720 * 1280                                             */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen
+and (device-width : 360px)
+and (device-height : 640px)
+and (-webkit-device-pixel-ratio: 2.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-720x1280.png');
+        background-size: 100% 100%;
+    }
+}
+
+@media only screen
+and (device-width : 424px)
+and (device-height : 753px)
+and (-webkit-device-pixel-ratio: 1.7)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-720x1280.png');
+        background-size: 100% 100%;
+    }
+}
+
+@media only screen
+and (device-width : 720px)
+and (device-height : 1280px)
+and (-webkit-device-pixel-ratio: 1.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-720x1280.png');
+        background-size: 100% 100%;
+    }
+}
+
+@media only screen
+and (device-width : 400px)
+and (device-height : 711px)
+and (-webkit-device-pixel-ratio: 1.8)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-720x1280.png');
+        background-size: 100% 100%;
+    }
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                  768 x 1280                                             */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen
+and (device-width : 384px)
+and (device-height : 640px)
+and (-webkit-device-pixel-ratio: 2.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-768x1280.png');
+        background-size: 100% 100%;
+    }
+}
+
+@media only screen
+and (device-width : 320px)
+and (device-height : 533px)
+and (-webkit-device-pixel-ratio: 2.4)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-768x1280.png');
+        background-size: 100% 100%;
+    }
+}
 
 /*
     ===================== APPLE =====================
@@ -192,7 +350,7 @@ and (orientation : portrait) {
 @media only screen
 and (device-width : 1024px)
 and (device-height : 1366px)
-and (-webkit-min-device-pixel-ratio: 2.0)
+and (-webkit-device-pixel-ratio: 2.0)
 and (orientation : portrait) {
 
     .mountain {
@@ -205,7 +363,7 @@ and (orientation : portrait) {
 @media only screen
 and (device-width : 768px)
 and (device-height : 1024px)
-and (-webkit-min-device-pixel-ratio: 1.0)
+and (-webkit-device-pixel-ratio: 1.0)
 and (orientation : portrait) {
 
     .mountain {
@@ -218,7 +376,7 @@ and (orientation : portrait) {
 @media only screen
 and (device-width : 768px)
 and (device-height : 1024px)
-and (-webkit-min-device-pixel-ratio: 2.0)
+and (-webkit-device-pixel-ratio: 2.0)
 and (orientation : portrait) {
 
     .mountain {
@@ -231,7 +389,7 @@ and (orientation : portrait) {
 @media only screen
 and (device-width : 375px)
 and (device-height : 667px)
-and (-webkit-min-device-pixel-ratio: 2.0)
+and (-webkit-device-pixel-ratio: 2.0)
 and (orientation : portrait) {
 
     .mountain {
@@ -244,7 +402,7 @@ and (orientation : portrait) {
 @media only screen
 and (device-width : 375px)
 and (device-height : 667px)
-and (-webkit-min-device-pixel-ratio: 3.0)
+and (-webkit-device-pixel-ratio: 3.0)
 and (orientation : portrait) {
 
     .mountain {
@@ -257,7 +415,7 @@ and (orientation : portrait) {
 @media only screen
 and (device-width : 414px)
 and (device-height : 736px)
-and (-webkit-min-device-pixel-ratio: 3.0)
+and (-webkit-device-pixel-ratio: 3.0)
 and (orientation : portrait) {
 
     .mountain {
@@ -270,7 +428,7 @@ and (orientation : portrait) {
 @media only screen
 and (device-width : 320px)
 and (device-height : 568px)
-and (-webkit-min-device-pixel-ratio: 2.0)
+and (-webkit-device-pixel-ratio: 2.0)
 and (orientation : portrait) {
 
     .mountain {
@@ -283,7 +441,7 @@ and (orientation : portrait) {
 @media only screen
 and (device-width : 320px)
 and (device-height : 480px)
-and (-webkit-min-device-pixel-ratio: 2.0)
+and (-webkit-device-pixel-ratio: 2.0)
 and (orientation : portrait) {
 
     .mountain {

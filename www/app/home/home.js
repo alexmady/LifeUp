@@ -46,8 +46,15 @@
                     }
                 };
 
-
-                Util.hideLoading();
+                Util.imageOptions()
+                    .then(function(imgOpts){
+                        $scope.spritePNGFile = imgOpts.spritePNGFile;
+                        $scope.item = imgOpts.items[0];
+                        console.log($scope.spritePNGFile);
+                        $scope.bgSizeW = imgOpts.bgSizeW;
+                        $scope.bgSizeH = imgOpts.bgSizeH;
+                        Util.hideLoading();
+                    });
 
             }]);
 }());
