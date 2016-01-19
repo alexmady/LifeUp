@@ -15,10 +15,10 @@
 
 </ion-header-bar>
 
-<ion-content style="height: 100vh" class="has-header">
-<ion-slide-box class="course" on-slide-changed="slideHasChanged($index)">
-<ion-slide>
-<ion-scroll direction="y" style="height: 90vh;bottom: 20px;">
+<ion-slide-box class="course" on-slide-changed="slideHasChanged($index)" show-pager="true">
+
+<ion-slide class="slide">
+<ion-content style="margin-bottom: 20px">
 
 <div class="lifeup-page-title">
     Discover unhelpful thoughts
@@ -238,11 +238,13 @@
     'Thought Snap’ your thought chatter to discover any unhelpful thoughts and emotions - an essential part of
     interrupting, depersonalising and dissipating unhelpful thinking!
 </div>
-</ion-scroll>
+
+</ion-content>
 </ion-slide>
 
 <ion-slide class="slide">
-    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+    <ion-content style="margin-bottom: 20px">
+
 
         <div class="lifeup-page-title">
             Identify the underlying script
@@ -362,7 +364,7 @@
         </div>
 
         <div class="lifeup-page-text">
-            Remind yourself of your thought snap from yesterday. Do the dominant thoughts and emotions you identified
+            Remind yourself of your thought snap from the previous slide. Do the dominant thoughts and emotions you identified
             have an underlying script? If so, it could be one of the following. Do any of these ring true?
         </div>
 
@@ -379,7 +381,7 @@
             </ol>
         </div>
         <div class="lifeup-page-text">
-            Well done on whatever you discovered, now set your intention for tomorrow!
+            Well done on whatever you discovered!
         </div>
 
         <hr class="line-margin">
@@ -393,11 +395,11 @@
             unhelpful thinking.
         </div>
 
-    </ion-scroll>
+</ion-content>
 </ion-slide>
 
-<ion-slide class="slide ">
-    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+<ion-slide class="slide">
+    <ion-content style="margin-bottom: 20px">
 
 
         <div class="lifeup-page-title">
@@ -528,14 +530,12 @@
             them absolute truth or an accurate representation of reality.
         </div>
 
-    </ion-scroll>
+    </ion-content>
 
 </ion-slide>
 
 <ion-slide class="slide">
-
-    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
-
+    <ion-content style="margin-bottom: 20px">
 
         <div class="lifeup-page-title">
             Allowing thoughts and emotions
@@ -668,13 +668,11 @@
             By positively asserting that we allow the unhelpful thoughts 'to be' it drives a behaviour of acceptance and
             actually further depersonalises and dissipates unhelpful thoughts as they are not fuelled by our attention.
         </div>
-    </ion-scroll>
+</ion-content>
 </ion-slide>
 
 <ion-slide class="slide">
-
-    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
-
+    <ion-content style="margin-bottom: 20px">
 
         <div class="lifeup-page-title">
             Recover your mind
@@ -837,11 +835,12 @@
             Constant overthinking can strain our mental muscle. So take a regular ‘thought break’.
         </div>
 
-    </ion-scroll>
+</ion-content>
 </ion-slide>
 
 <ion-slide class="slide">
-    <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+    <ion-content style="margin-bottom: 20px">
+
 
         <div class="lifeup-page-title">
             Mastery of your thoughts
@@ -981,9 +980,8 @@
             By regularly observing that we are not our thoughts, we re-gain mastery of our minds.
         </div>
 
-    </ion-scroll>
+</ion-content>
 </ion-slide>
 
 </ion-slide-box>
-</ion-content>
 </ion-modal-view>

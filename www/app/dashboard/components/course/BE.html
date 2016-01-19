@@ -15,10 +15,9 @@
 
 </ion-header-bar>
 
-<ion-content style="height: 100vh" class="has-header">
-    <ion-slide-box class="course" on-slide-changed="slideHasChanged($index)">
-        <ion-slide>
-            <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+    <ion-slide-box class="course" on-slide-changed="slideHasChanged($index)" show-pager="true">
+        <ion-slide class="slide">
+            <ion-content style="margin-bottom: 20px">
         <div class="lifeup-page-title">
             Being You...Just Be
         </div>
@@ -106,12 +105,12 @@
             Check and migrate your state of being to either acceptance, enjoyment or enthusiasm. Use this as a meta technique for staying connected, particularly when engaged in activities that you may consider uninteresting, boring, tedious, irritating, or stressful.
         </div>
 
-    </ion-scroll>
-</ion-slide>
+</ion-content>
+        </ion-slide>
 
 
-    <ion-slide class="slide">
-        <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+        <ion-slide class="slide">
+            <ion-content style="margin-bottom: 20px">
 
             <div class="lifeup-page-title">
                 Enlightenment & Purpose
@@ -195,11 +194,11 @@
             </div>
 
             <div class="lifeup-page-text">
-                Congratulations, you have now completed the first of the two meta processes to maintain your state of being.  Next up tomorrow is the final mindfulness process and the final step to thriving; The letter I, which stands for I AM.
+                Congratulations, you have now completed the first of the two meta processes to maintain your state of being.  Next up is the final mindfulness process and the final step to thriving; The letter I, which stands for I AM.
             </div>
 
-</ion-scroll>    </ion-slide>
+</ion-content>   </ion-slide>
 
 </ion-slide-box>
-</ion-content>
+
 </ion-modal-view>

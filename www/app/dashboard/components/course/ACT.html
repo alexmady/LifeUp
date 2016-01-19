@@ -15,10 +15,9 @@
 
 </ion-header-bar>
 
-<ion-content style="height: 100vh" class="has-header">
-    <ion-slide-box class="course" on-slide-changed="slideHasChanged($index)">
-        <ion-slide>
-            <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+    <ion-slide-box class="course" on-slide-changed="slideHasChanged($index)" show-pager="true">
+    <ion-slide class="slide">
+        <ion-content style="margin-bottom: 20px">
 
         <div class="lifeup-page-title">
             Accept 'what is'
@@ -134,10 +133,11 @@
         Actions taken from a state of 'acceptance' are likely to be more empowered, with a clearer perspective to make appropriate and authentic decisions. Use the LifeUp techniques you have learned to help you accept any situation you find to be dissatisfactory.
 
         </div>
-</ion-scroll></ion-slide>
+</ion-content>
+    </ion-slide>
 
     <ion-slide class="slide">
-        <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+        <ion-content style="margin-bottom: 20px">
 
             <div class="lifeup-page-title">
             Connect with your values
@@ -229,11 +229,11 @@
             <div class="lifeup-page-text">
                 Values represent our heart’s deepest desires so provide a powerful source of motivation, meaning, deep satisfaction and resilience. Connect with them ahead of taking action.
             </div>
-</ion-scroll>    </ion-slide>
+</ion-content>  </ion-slide>
 
 
     <ion-slide class="slide">
-        <ion-scroll direction="y" style="height: 90vh;bottom: 20px" class="">
+        <ion-content style="margin-bottom: 20px">
 
             <div class="lifeup-page-title">
             Take conscious action
@@ -333,8 +333,8 @@
                 The next stage up of the mountain is 'Authenticity'.  The first step in Authenticity is <span style="color:#34AABC">BE</span> for Being and Enlightenment. You'll learn how to 'just be' in your everyday and become enlightened!
 
             </div>
-</ion-scroll>    </ion-slide>
+</ion-content>
+    </ion-slide>
 
 </ion-slide-box>
-</ion-content>
 </ion-modal-view>

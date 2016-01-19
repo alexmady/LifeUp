@@ -595,7 +595,7 @@ input[type="text"], input[type="password"]{
 
 .course .slider-pager{
     font-size: 10px;
-    bottom: 44px ! important;
+    bottom: 0px ! important;
     height: 20px;
     background-color: ghostwhite;
 }
@@ -607,7 +607,9 @@ input[type="text"], input[type="password"]{
     background-color: ghostwhite;
 }
 
-
+.course .slider {
+    height: 90%;
+}
 
 
 .slider-pager-page

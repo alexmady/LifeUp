@@ -60,7 +60,7 @@ angular.module('lifeUp', [
 
             $ionicPlatform.ready(function () {
 
-                var started = Date.now();
+                /*var started = Date.now();
 
                 var sprite = new Image();
                 sprite.onload = onImgLoad;
@@ -83,9 +83,11 @@ angular.module('lifeUp', [
                 }
 
                 sprite.src = "img/sprite-720x1280.png";
-                mountain.src = "img/mm-720x1280.png";
+                mountain.src = "img/mm-720x1280.png";*/
 
-                Util.makeAndroidFullscreen();
+                if (ionic.Platform.isAndroid()){
+                    Util.makeAndroidFullscreen();
+                }
 
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                 // for form inputs)

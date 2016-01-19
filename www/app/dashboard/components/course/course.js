@@ -51,14 +51,17 @@
             'courseMetaData',
             'profile',
             'imageOptions',
+            'Util',
 
-            function ($scope, $state, $window, $ionicHistory, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, UserProfile, currentAuth, courseMetaData, profile, imageOptions) {
+            function ($scope, $state, $window, $ionicHistory, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, UserProfile, currentAuth, courseMetaData, profile, imageOptions, Util) {
 
                 $scope.toggleLeft = function () {
                     $ionicSideMenuDelegate.toggleLeft();
                 };
 
                 $scope.$on('$ionicView.enter', function () {
+
+                    Util.hideLoading();
 
                     $scope.bgSizeW = imageOptions.bgSizeW;
                     $scope.bgSizeH = imageOptions.bgSizeH;

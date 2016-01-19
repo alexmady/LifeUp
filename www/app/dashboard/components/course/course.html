@@ -1,19 +1,7 @@
 <ion-view hide-nav-bar="true" class="mountain" ng-class="{blur: blurBackground}" ng-cloak>
-
     <ion-content scroll="false">
-
         <section class="course-container">
-
-            <button ng-click="toggleLeft()"
-                    style="color: #009689;
-                    font-size: 32px;
-                    position: absolute;
-                    top: 8px;
-                    left:10px;
-                    "
-                    class="button button-icon button-clear ion-navicon"></button>
-
-
+            <button ng-click="toggleLeft()" style="color: #009689; font-size: 32px; position: absolute; top: 8px; left:10px;" class="button button-icon button-clear ion-navicon"></button>
             <div align="center" style="height: 35%;float: right;margin-top: 2%; margin-left: 75%; border-radius: 5px;">
                 <div style="height: 33%; padding: 3px" ng-if="profile.authenticityComplete">
                     <img src="img/authenticity.png" style="opacity: 1;max-height: 100%;max-width: 100%"/>
@@ -35,80 +23,20 @@
                 </div>
             </div>
 
-            <div class="center" ng-show="profile.showPlayButton"
-                 style="background-color: white;width: 100%;height: 44px; top: 91%;opacity: 0.7; position: absolute">
-
-                <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()"
-                        ng-disabled="!step.backButtonEnabled"
-                        style="
-                        color: #009689;
-                        left: 1%;
-                        position: fixed;
-                        height: 26px;width: 26px; font-size: 26px">
-                </button>
-
-                <button ng-cloak ng-click="play()" class="button button-clear lifeup-course-buttons animated pulse"
-
-                        style="
-                        color: #009689;
-                        opacity: 1;
-                        height: 20px;width: 60%;"> OPEN STEP {{step.pos}}: {{step.name}}
-                </button>
-
-                <button class="button button-clear ion-chevron-right" ng-click="skipForward()"
-                        ng-disabled="!forwardButtonEnabled"
-                        style="
-                        color: #009689;
-                        position: fixed;
-                        z-index: 1002;
-                        right: 1%;
-                        height: 30px;width: 30px;font-size: 26px">
-                </button>
-
+            <div class="center" ng-show="profile.showPlayButton" style="background-color: white;width: 100%;height: 44px; top: 91%;opacity: 0.7; position: absolute">
+                <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()" ng-disabled="!step.backButtonEnabled" style="color: #009689;left: 1%;position: fixed;height: 26px;width: 26px; font-size: 26px"></button>
+                <button ng-cloak ng-click="play()" class="button button-clear lifeup-course-buttons animated pulse" style="color: #009689; opacity: 1;height: 20px;width: 60%;"> OPEN STEP {{step.pos}}: {{step.name}} </button>
+                <button class="button button-clear ion-chevron-right" ng-click="skipForward()" ng-disabled="!forwardButtonEnabled" style=" color: #009689; position: fixed; z-index: 1002; right: 1%; height: 30px;width: 30px;font-size: 26px"> </button>
             </div>
 
-            <div class="center" ng-show="profile.readyToClimb"
-                 style="background-color: white;width: 100%;height: 44px; top: 91%;opacity: 0.7; position: absolute">
-
-                <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()"
-                        ng-disabled="!step.backButtonEnabled"
-                        style="
-                        color: #009689;
-                        left: 1%;
-                        position: fixed;
-                        height: 26px;width: 26px; font-size: 26px">
-                </button>
-
-                <button ng-cloak ng-click="climb()" class="button button-clear lifeup-course-buttons animated pulse"
-                        style="
-                        color: #009689;
-                        height: 50px;width: 60%;">CLIMB!
-                </button>
-                <button class="button button-clear ion-chevron-right" ng-click="skipForward()"
-                        ng-disabled="!forwardButtonEnabled"
-                        style="
-                        color: #009689;
-                        position: fixed;
-                        z-index: 1002;
-                        right: 1%;
-                        height: 30px;width: 30px;font-size: 26px">
-                </button>
-
+            <div class="center" ng-show="profile.readyToClimb" style="background-color: white;width: 100%;height: 44px; top: 91%;opacity: 0.7; position: absolute">
+                <button class="button button-clear ion-chevron-left" ng-click="skipBackwards()" ng-disabled="!step.backButtonEnabled" style="color: #009689;left: 1%;position: fixed;height: 26px;width: 26px; font-size: 26px"> </button>
+                <button ng-cloak ng-click="climb()" class="button button-clear lifeup-course-buttons animated pulse" style="color: #009689;height: 50px;width: 60%;">CLIMB!</button>
+                <button class="button button-clear ion-chevron-right" ng-click="skipForward()" ng-disabled="!forwardButtonEnabled"  style="color: #009689; position: fixed; right: 1%;height: 30px;width: 30px;font-size: 26px"></button>
             </div>
 
-            <div id="course-background" ng-style="{'background-image': 'url('+spritePNGFile +')',
-                             'background-repeat': 'no-repeat',
-                             'width':  item.w,
-                             'height': item.h,
-                             'top': item.t,
-                             'left': item.l,
-                             'background-position': item.bp,
-                             'background-size': bgSizeW + ' ' + bgSizeH,
-                             'position': 'absolute' } ">
+            <div id="course-background" ng-style="{'background-image': 'url('+spritePNGFile +')', 'background-repeat': 'no-repeat', 'width':  item.w, 'height': item.h, 'top': item.t, 'left': item.l, 'background-position': item.bp, 'background-size': bgSizeW + ' ' + bgSizeH, 'position': 'absolute' } ">
             </div>
-
-
         </section>
-
     </ion-content>
 </ion-view>
