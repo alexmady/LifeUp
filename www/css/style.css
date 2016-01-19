@@ -483,6 +483,70 @@ and (orientation : portrait) {
     }
 }
 
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                      768 x 1366                                         */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen
+and (device-width : 768px)
+and (device-height : 1366px)
+and (-webkit-device-pixel-ratio: 1.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-768x1366.png');
+        background-size: 100% 100%;
+    }
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                      900 x 1400                                         */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen
+and (device-width : 600px)
+and (device-height : 933px)
+and (-webkit-device-pixel-ratio: 1.5)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-900x1400.png');
+        background-size: 100% 100%;
+    }
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                      480 x 854                                          */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen
+and (device-width : 480px)
+and (device-height : 854px)
+and (-webkit-device-pixel-ratio: 1.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-480x854.png');
+        background-size: 100% 100%;
+    }
+}
+
+@media only screen
+and (device-width : 320px)
+and (device-height : 569px)
+and (-webkit-device-pixel-ratio: 1.5)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-480x854.png');
+        background-size: 100% 100%;
+    }
+}
+
+
+
+
+
 /*
     ===================== APPLE =====================
 */
