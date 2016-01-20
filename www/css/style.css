@@ -543,9 +543,50 @@ and (orientation : portrait) {
     }
 }
 
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                      480 x 800                                          */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+@media only screen
+and (device-width : 320px)
+and (device-height : 533px)
+and (-webkit-device-pixel-ratio: 1.5)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-480x800.png');
+        background-size: 100% 100%;
+    }
+}
 
 
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+/*                                      360 x 640                                          */
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
 
+@media only screen
+and (device-width : 240px)
+and (device-height : 427px)
+and (-webkit-device-pixel-ratio: 1.5)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-360x640.png');
+        background-size: 100% 100%;
+    }
+}
+
+@media only screen
+and (device-width : 360px)
+and (device-height : 640px)
+and (-webkit-device-pixel-ratio: 1.0)
+and (orientation : portrait) {
+
+    .mountain {
+        background-image: url('../img/mm-360x640.png');
+        background-size: 100% 100%;
+    }
+}
 
 /*
     ===================== APPLE =====================
