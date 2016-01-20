@@ -15,6 +15,7 @@ angular.module('lifeUp.util', ['ionic'])
         '$cordovaNetwork',
         '$window',
         '$http',
+        'FIREBASE_APP_URL',
 
         function (
 
@@ -26,7 +27,8 @@ angular.module('lifeUp.util', ['ionic'])
             $ionicPopup,
             $cordovaNetwork,
             $window,
-            $http   ) {
+            $http,
+            firebaseAppUrl) {
 
             var showLoading = function () {
                 $ionicLoading.show({
@@ -96,7 +98,7 @@ angular.module('lifeUp.util', ['ionic'])
                 }
             }
 
-            function processImages(spriteDataFileName, spritePNGFile, adjustment) {
+            function processImages(spriteDataFileName, spritePNGFile, mountainFile, adjustment) {
 
                 return $http.get(spriteDataFileName)
                     .then(function (resp) {
@@ -137,7 +139,8 @@ angular.module('lifeUp.util', ['ionic'])
                             bgSizeW: bgSizeW,
                             bgSizeH: bgSizeH,
                             items: items,
-                            spritePNGFile: spritePNGFile
+                            spritePNGFile: spritePNGFile,
+                            mountainFile: mountainFile
                         };
                     }).catch(function (error) {
 
@@ -166,19 +169,23 @@ angular.module('lifeUp.util', ['ionic'])
 
                     var devicePixelRatio = $window.devicePixelRatio;
 
-
-                    var spritePNGFile = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.png';
-                    var spriteDataFileName = 'img/sprite-' + screenWidth + 'x' + screenHeight + '.json';
+                    var hxw = screenWidth + 'x' + screenHeight;
+                    var spritePNGFile = firebaseAppUrl + '/' + 'sprite-' + hxw + '.png';
+                    var spriteDataFileName = firebaseAppUrl + '/' + 'sprite-' + hxw + '.json';
+                    var mountainFile = firebaseAppUrl + '/' + 'mm-' + hxw + '.png';
 
                     if (devicePixelRatio > 1) {
                         var imageWidth = Math.round(screenWidth * devicePixelRatio);
                         var imageHeight = Math.round(screenHeight * devicePixelRatio);
-                        spritePNGFile = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.png';
-                        spriteDataFileName = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.json';
+                        hxw = imageWidth + 'x' + imageHeight;
+                        spritePNGFile = firebaseAppUrl + '/' + 'sprite-' + hxw + '.png';
+                        spriteDataFileName = firebaseAppUrl + '/' + 'sprite-' + hxw + '.json';
+                        mountainFile = firebaseAppUrl + '/' + 'mm-' + hxw + '.png';
                     }
 
                     console.log(spriteDataFileName);
                     console.log(spritePNGFile);
+                    console.log(mountainFile);
 
                     // check if file exists, if not default it
                     return $http.get(spriteDataFileName)
@@ -187,7 +194,7 @@ angular.module('lifeUp.util', ['ionic'])
                             var adjustment = {
                                 scaleFactor: 1 / devicePixelRatio
                             };
-                            return processImages(spriteDataFileName, spritePNGFile, adjustment)
+                            return processImages(spriteDataFileName, spritePNGFile, mountainFile, adjustment)
                                 .then(function (result) {
                                     imgOptions = result;
                                     return imgOptions;

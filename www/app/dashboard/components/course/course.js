@@ -66,6 +66,7 @@
                     $scope.bgSizeW = imageOptions.bgSizeW;
                     $scope.bgSizeH = imageOptions.bgSizeH;
                     $scope.spritePNGFile = imageOptions.spritePNGFile;
+                    $scope.mountainFile = imageOptions.mountainFile;
                     $scope.boxyObj1 = { counter: 0 };
                     $scope.profile = profile;
 
