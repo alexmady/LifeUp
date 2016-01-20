@@ -1,4 +1,3 @@
-
 (function () {
 
     'use strict';
@@ -13,9 +12,7 @@
                     templateUrl: 'home.html',
                     controller: 'HomeCtrl',
                     resolve: {
-
                         "appService": ["AppService", function (AppService) {
-
                             return AppService.$loaded();
                         }]
                     }
@@ -26,13 +23,10 @@
         [ '$scope', '$state', 'appService', 'Util',
             function( $scope, $state, appService, Util ) {
 
-
                 $scope.appService = appService;
 
                 appService.$watch(function(){
-
                     console.log('app service watch');
-
                     if (appService && appService.enableApp === false){
                         $state.go('home');
                     }
@@ -49,6 +43,7 @@
                 Util.imageOptions()
                     .then(function(imgOpts){
                         $scope.spritePNGFile = imgOpts.spritePNGFile;
+                        $scope.mountainFile = imgOpts.mountainFile;
                         $scope.item = imgOpts.items[0];
                         console.log($scope.spritePNGFile);
                         $scope.bgSizeW = imgOpts.bgSizeW;

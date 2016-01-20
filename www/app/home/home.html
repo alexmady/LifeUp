@@ -1,6 +1,6 @@
 <ion-view view-title="LifeUp" hide-back-button="true" ng-cloak>
 
-    <div class="mountain" style="display: none"></div>
+    <div ng-style="{'background-image': 'url('+ mountainFile +')', 'background-size': '100% 100%'}" style="display: none"></div>
     <div style="display: none" ng-style="{'background-image': 'url('+spritePNGFile +')', 'background-repeat': 'no-repeat', 'width':  item.w, 'height': item.h, 'top': item.t, 'left': item.l, 'background-position': item.bp, 'background-size': bgSizeW + ' ' + bgSizeH, 'position': 'absolute' } "></div>
 
     <ion-nav-buttons side="right" >
