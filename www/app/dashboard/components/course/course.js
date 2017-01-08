@@ -59,6 +59,11 @@
                     $ionicSideMenuDelegate.toggleLeft();
                 };
 
+                //var courseBg = $('#course-background');
+                //var courseSection= $('#course-section');
+                //courseBg.appendTo(courseSection);
+
+
                 $scope.$on('$ionicView.enter', function () {
 
                     Util.hideLoading();
@@ -72,9 +77,7 @@
 
                     var stepIndex = Math.max($scope.profile.module - 1, 0);
                     updateStep(stepIndex, $scope.profile.slide);
-
                     $scope.boxyObj1.counter = $scope.step.frame;
-
                 });
 
                 // correct any error of showing buttons.
@@ -241,15 +244,28 @@
                 };
 
                 $scope.climb = function () {
+
+                    var started = new Date();
+
                     if ($scope.step + 1 >= steps.length) {
                         return;
                     }
+
+                    var now = new Date();
+                    console.log('about to set readToClimb: ' + (now-started));
                     $scope.profile.readyToClimb = false;
 
+
                     var nextStep = steps[$scope.step.pos];
+
+                    now = new Date();
+                    console.log('updateCourseProgress: ' + (now-started));
                     profile.updateCourseProgress(nextStep.pos, 0, false);
 
+                    now = new Date();
+                    console.log('updateCourseProgress: ' + (now-started));
                     tweenTo(nextStep.frame, nextStep.duration, onCompleteClimb, false);
+
                 };
 
                 $scope.skipForward = function () {
@@ -260,7 +276,7 @@
                         return;
                     }
                     updateStep($scope.step.pos);
-                    tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
+                    //tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
                 };
 
                 $scope.skipBackwards = function () {
@@ -269,7 +285,7 @@
                     }
                     updateStep($scope.step.pos - 2);
                     $scope.boxyObj1.counter = $scope.step.frame;
-                    tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
+                    //tweenTo($scope.step.frame, 0, $scope.boxyTweenComplete, true);
                 };
 
                 var elem = document.getElementById('course-background');

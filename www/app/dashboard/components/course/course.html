@@ -1,7 +1,7 @@
 <!--<ion-view hide-nav-bar="true" class="mountain" ng-class="{blur: blurBackground}" ng-cloak>-->
  <ion-view hide-nav-bar="true" ng-style="{'background-image': 'url('+ mountainFile +')', 'background-size': '100% 100%'}" ng-class="{blur: blurBackground}" ng-cloak>
     <ion-content scroll="false">
-        <section class="course-container">
+        <section class="course-container" id="course-section">
             <button ng-click="toggleLeft()" style="color: #009689; font-size: 32px; position: absolute; top: 8px; left:10px;" class="button button-icon button-clear ion-navicon"></button>
             <div align="center" style="height: 35%;float: right;margin-top: 2%; margin-left: 75%; border-radius: 5px;">
                 <div style="height: 33%; padding: 3px" ng-if="profile.authenticityComplete">
@@ -36,8 +36,10 @@
                 <button class="button button-clear ion-chevron-right" ng-click="skipForward()" ng-disabled="!forwardButtonEnabled"  style="color: #009689; position: fixed; right: 1%;height: 30px;width: 30px;font-size: 26px"></button>
             </div>
 
-            <div id="course-background" ng-style="{'background-image': 'url('+spritePNGFile +')', 'background-repeat': 'no-repeat', 'width':  item.w, 'height': item.h, 'top': item.t, 'left': item.l, 'background-position': item.bp, 'background-size': bgSizeW + ' ' + bgSizeH, 'position': 'absolute' } ">
-            </div>
+        <div id="course-background" ng-style="{'background-image': 'url('+spritePNGFile +')', 'background-repeat': 'no-repeat', 'width':  item.w, 'height': item.h, 'top': item.t, 'left': item.l, 'background-position': item.bp, 'background-size': bgSizeW + ' ' + bgSizeH, 'position': 'absolute' } "></div>
+
+
+
         </section>
     </ion-content>
 </ion-view>

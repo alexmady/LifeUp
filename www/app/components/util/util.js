@@ -100,23 +100,17 @@ angular.module('lifeUp.util', ['ionic'])
 
             function processImages(spriteDataFileName, spritePNGFile, mountainFile, adjustment) {
 
+                console.log('processing images...' + spriteDataFileName);
+
                 return $http.get(spriteDataFileName)
                     .then(function (resp) {
+
+                        console.log(resp);
 
                         var data = resp.data;
                         var items = [];
                         var spriteMeta = data.meta;
                         var scale = adjustment.scaleFactor;
-                        var wAdjust = 0;
-                        var hAdjust = 0;
-
-                        if (adjustment.type) {
-                            if (adjustment.type === 'height') {
-                                hAdjust = adjustment.size;
-                            } else if (adjustment.type === 'width') {
-                                wAdjust = adjustment.size;
-                            }
-                        }
 
                         $.each(data, function (key, val) {
                             $.each(data[key], function (k, v) {
@@ -125,8 +119,8 @@ angular.module('lifeUp.util', ['ionic'])
                                     posInfo.bp = '-' + v.frame.x * scale + 'px -' + v.frame.y * scale + 'px';
                                     posInfo.w = v.frame.w * scale + 'px';
                                     posInfo.h = v.frame.h * scale + 'px';
-                                    posInfo.t = ((v.spriteSourceSize.y * scale ) - hAdjust) + 'px';
-                                    posInfo.l = ((v.spriteSourceSize.x * scale ) - wAdjust) + 'px';
+                                    posInfo.t = ((v.spriteSourceSize.y * scale )) + 'px';
+                                    posInfo.l = ((v.spriteSourceSize.x * scale )) + 'px';
                                     items.push(posInfo);
                                 }
                             });
@@ -134,7 +128,6 @@ angular.module('lifeUp.util', ['ionic'])
 
                         var bgSizeW = spriteMeta.size.w * scale + 'px';
                         var bgSizeH = spriteMeta.size.h * scale + 'px';
-
                         return {
                             bgSizeW: bgSizeW,
                             bgSizeH: bgSizeH,
@@ -144,6 +137,8 @@ angular.module('lifeUp.util', ['ionic'])
                         };
                     }).catch(function (error) {
 
+                        console.error(error.stack);
+                        console.log(error);
                         console.error('could not GET the sprites.');
 
                     });
@@ -199,58 +194,13 @@ angular.module('lifeUp.util', ['ionic'])
                                     imgOptions = result;
                                     return imgOptions;
                                 });
-
-
-                        }).catch(function (error) {
-
-                            // TODO: choose most appropriate size to scale based on aspect ratio
-
-                            imageWidth = 750;
-                            imageHeight = 1334;
-
-                            spritePNGFile = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.png';
-                            spriteDataFileName = 'img/sprite-' + imageWidth + 'x' + imageHeight + '.json';
-
-                            var adjustment = {};
-
-                            if (imageWidth / imageHeight > screenWidth / screenHeight) {
-
-                                // scaled image height will be container height
-                                // we will need a width factor
-                                adjustment.type = 'width';
-                                adjustment.scaleFactor = imageHeight / screenHeight;
-                                var scaledWidth = imageWidth * adjustment.scaleFactor;
-                                adjustment.size = (scaledWidth - screenWidth) / 2;
-
-                            } else {
-
-                                // scaled image width will be container width
-                                // we will need a height factor
-                                adjustment.type = 'height';
-                                adjustment.scaleFactor = (screenWidth ) / imageWidth;
-                                var scaledHeight = imageHeight * adjustment.scaleFactor;
-                                adjustment.size = 0;//(scaledHeight - screenHeight ) / 4;
-                            }
-
-                            return processImages(spriteDataFileName, spritePNGFile, adjustment)
-                                .then(function (result) {
-                                    imgOptions = result;
-                                    return imgOptions;
-                                });
-
-                        }).finally(function () {
-
                         });
-
                 } else {
                     return imgOptions;
                 }
             };
 
-
-
             function checkAndCreateFacebookLogin(authData, goalsQuestionsAnswers, scope) {
-
                 return UserProfile(authData.uid).$loaded()
                     .then(function (profile) {
                         if (!profile.exists()) {
