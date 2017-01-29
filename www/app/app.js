@@ -50,12 +50,15 @@ angular.module('lifeUp', [
                     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                 }
 
-                if (window.StatusBar) {
-                    window.StatusBar.hide();
-                    ionic.Platform.fullScreen();
-                }
+                //$ionicPlatform.Platform.fullScreen();
+                // if (window.StatusBar) {
+                //   console.log('hiding status bar...');
+                //   return StatusBar.hide();
+                // } else {
+                //   console.log('not hiding status bar');
+                // }
 
-                $cordovaStatusbar.hide();
+                //$cordovaStatusbar.hide();
 
                 $rootScope.$on("$routeChangeError", function (event, next, previous, error) {
 

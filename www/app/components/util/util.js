@@ -189,6 +189,8 @@ angular.module('lifeUp.util', ['ionic'])
                             var adjustment = {
                                 scaleFactor: 1 / devicePixelRatio
                             };
+
+                            console.log('about to process images');
                             return processImages(spriteDataFileName, spritePNGFile, mountainFile, adjustment)
                                 .then(function (result) {
                                     imgOptions = result;
